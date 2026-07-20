@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_basis": "AUTHOR_APPROVED_PROTOCOL_ASSUMPTIONS_2026-07-20",
+  "figure_id": "F3_044",
+  "job_id": "F3_044_D2O_06W_primary_s09",
+  "scenario_id": "D2O_06W_primary",
+  "registry_inchikey": "ANCLJVISBRWUTR-UHFFFAOYSA-N",
+  "registry_isomeric_smiles": "NP(N)(=O)O",
+  "scenario_isomeric_smiles": "NP(N)(=O)[O-]",
+  "scenario_inchikey": "ANCLJVISBRWUTR-UHFFFAOYSA-M",
+  "complete_cluster_charge": -1,
+  "multiplicity": 1,
+  "primary_solvent": "D2O",
+  "continuum_keyword": "WATER",
+  "explicit_solvent_count": 6,
+  "assumed_pd": "7.0 ASSUMED; monoanionic diamidophosphate, counterion unknown",
+  "preparation_seed": 1353663788,
+  "coordinate_sha256": "3B229D2A7FADF63D6C227BA89E70A89C4810C536DABD268B0C0BD84F6D2B5086",
+  "atom_map_sha256": "222F4F1C5978237897EF5A601E8C77611D72F581CF0999301B5235C9430D16BB",
+  "isotope_map_sha256": "EA93F79B704EE05B903CBE1D87A7DD4E6B4FDA309AABDE57A563E4764EC561EA",
+  "isotope_mass_policy": {
+    "goat_external_xyz": "PLAIN_H_FOUR_COLUMN_EXTERNAL_XYZ",
+    "downstream_opt_freq": "INLINE_XYZ_M_EQUALS_FROM_SELECTED_GOAT_GEOMETRY",
+    "downstream_coordinate_source": "REVIEWED_GOAT_SELECTED_GEOMETRY_ONLY",
+    "deuterium_inline_syntax": "H {x_A} {y_A} {z_A} M=2.01410177812",
+    "policy_file": "data/ORCA_6_1_1_isotope_mass_policy.json"
+  },
+  "checks": {
+    "registry_identity_available": "PASS",
+    "scenario_species_parse": "PASS",
+    "stereochemistry_preserved_by_rdkit_embed": "PASS",
+    "formal_charge_explicit": "PASS",
+    "environment_atoms_excluded_from_analyte_nmr": "PASS",
+    "coordinate_clash_gate": "PASS",
+    "goat_xyz_has_exactly_four_atom_fields": "PASS",
+    "isotope_map_retained_for_downstream_opt_freq": "PASS",
+    "downstream_inline_M_equals_syntax_recorded": "PASS"
+  }
+}

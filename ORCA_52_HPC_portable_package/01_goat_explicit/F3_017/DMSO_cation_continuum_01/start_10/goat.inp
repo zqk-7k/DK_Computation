@@ -1,0 +1,21 @@
+! GOAT-ENTROPY XTB ALPB(DMSO)
+
+%pal
+  nprocs 4
+end
+
+%maxcore 1200
+
+%goat
+  NWorkers 4
+  RandomSeed false
+  AutoWall true
+  Align true
+  FreezeAmides false
+  FreezeCisTrans true
+  MaxEn 12.0
+  KeepWorkerData false
+  ConfTemp 298.15
+end
+
+* xyzfile 1 1 start.xyz

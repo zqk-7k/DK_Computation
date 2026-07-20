@@ -1,0 +1,26 @@
+{
+  "schema_version": "1.0",
+  "recorded_local_time": "2026-07-20T04:34:00+09:30",
+  "author_message": "关于这个问题，我批准。",
+  "approved_scope": [
+    "Proceed with the documented 52-compound high-quality serial calculation workflow.",
+    "Use the standardized, explicitly labelled modelling assumptions for unresolved structure, pD, explicit-solvent cluster and reference conventions.",
+    "Use D2O as the primary model for F3_019, F3_020, F3_021, F3_035, F3_043 and F3_044; use DMSO-d6 for the remaining primary models unless separately documented.",
+    "Run one ORCA job at a time under the recorded resource guardrails."
+  ],
+  "approved_standardized_states": {
+    "F3_019": "L-asparagine zwitterion; D2O; nominal pD 7.4; 6/8/10 explicit-water convergence branches",
+    "F3_020": "L-glutamine zwitterion; D2O; nominal pD 7.4; 6/8/10 explicit-water convergence branches",
+    "F3_021": "L-argininamide dication with two solvent-separated chloride ions; D2O; nominal pD 5.5; 8/10/12 explicit-water convergence branches",
+    "F3_035": "sulfamate anion; D2O; nominal pD 7.0; 4/6/8 explicit-water convergence branches",
+    "F3_043": "neutral phosphoramide; D2O; nominal near-neutral pD; 4/6/8 explicit-water convergence branches",
+    "F3_044": "monoanion diamidophosphate; D2O; nominal pD 7.0; 4/6/8 explicit-water convergence branches; no invented experimental counterion assignment"
+  },
+  "not_preapproved": [
+    "Future numerical ORCA results or their scientific validity.",
+    "Result-dependent GOAT ensemble selections, minimum/frequency audits or Boltzmann weights.",
+    "Reference-job output hashes that did not yet exist at the time of approval.",
+    "Any claim that a calculated or synthetic spectrum is experimentally acquired."
+  ],
+  "mandatory_output_label": "CALCULATED/SYNTHETIC PREDICTION — NOT EXPERIMENTAL DATA"
+}

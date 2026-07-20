@@ -1,0 +1,2 @@
+# Preserve the exact bytes covered by the package SHA-256 manifests.
+* -text

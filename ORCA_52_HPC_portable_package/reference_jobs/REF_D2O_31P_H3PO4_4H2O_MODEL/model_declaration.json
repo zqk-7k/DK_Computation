@@ -1,0 +1,37 @@
+{
+  "schema_version": "2.0",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "model_id": "REF_D2O_31P_H3PO4_4H2O_MODEL",
+  "label": "Microsolvated H3PO4 + 4 D2O raw 31P shielding model",
+  "solvent_domain": "D2O",
+  "continuum_keyword": "WATER",
+  "requested_nuclei": [
+    "31P"
+  ],
+  "raw_calculation_reference": "Raw sigma(31P) for a declared H3PO4·(H2O)4 electronic cluster with D isotope masses in the frequency input",
+  "experimental_processing_convention": "The actual D2O 31P reference may be external 85 wt% H3PO4 or an indirect scale; record the laboratory convention independently",
+  "model_limitation": "MODEL_ONLY_NOT_EQUIVALENT_TO_85WT_PERCENT_H3PO4; this dilute microsolvated model cannot reproduce concentrated acid speciation or bulk susceptibility",
+  "raw_shielding_and_processing_convention_separated": true,
+  "raw_shielding_aggregation_policy": "PRESERVE_EACH_REQUESTED_ATOM_VALUE; within each nucleus and this single approved reference model, report n, arithmetic mean, population standard deviation, minimum and maximum over the declared chemically equivalent reference-site atoms; never average across different models, isotopologues, solvent domains, conformers or experimental processing conventions",
+  "equivalent_to_85wt_percent_H3PO4_external_standard": false,
+  "method_fingerprint": "PBE0|pcSseg-2|AutoAux|RIJCOSX|GIAO|CPCM(WATER)|TightSCF|DefGrid3|ORCA_6.1.1",
+  "method_fingerprint_sha256": "09dcf60d5104b83226b4aba0a56eeed92c7923058321a0e954119c7afbfd5a03",
+  "structure_sha256": "0db5322fe69cf6fea7f1f2af245eb8e97e16b47918130b5421640fd4e9d30155",
+  "opt_input_sha256": "15c78287d41d771be3918a996785dd15574cac0ead829f3f4acd077088a37d9e",
+  "shielding_template_sha256": "bb06b26b70ac8926ee60f03377ba96140e65788ca27cefbd004363230ed8fba6",
+  "initial_cluster_contact_audit": {
+    "minimum_cross_component_distance_A": 1.80989,
+    "minimum_nonbonded_clearance_ratio": 1.084005,
+    "closest_cross_component_pair_1based": [
+      6,
+      20
+    ],
+    "limiting_clearance_pair_1based": [
+      1,
+      14
+    ],
+    "automatic_intercomponent_collision_check": "PASS"
+  },
+  "initial_cluster_geometry_role": "DRAFT_COLLISION_SCREENED_START_ONLY; requires reviewed optimization/frequency minimum before shielding and is not a converged solvation ensemble"
+}

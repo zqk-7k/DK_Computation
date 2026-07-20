@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "notice": "CALCULATED MODELS ONLY - NOT EXPERIMENTAL DATA",
+  "package_root_policy": "all production paths are package-root relative",
+  "goat_jobs": 1120,
+  "compounds": 52,
+  "scenarios": 112,
+  "goat_manifest": "data/GOAT_explicit_job_manifest.csv",
+  "goat_manifest_sha256": "E5F88F858F941F5CCFDD3130A6E33B09A3A75D79C3AD5001688A02764FAD2893",
+  "json_files_normalized": 1131,
+  "documentation_files_rewritten": 7,
+  "source_project_modified": false
+}

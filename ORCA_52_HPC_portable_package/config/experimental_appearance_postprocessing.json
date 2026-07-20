@@ -1,0 +1,419 @@
+{
+  "schema_version": "1.1-local-real-spectrum-calibration",
+  "status": "PROPOSED_METHOD_WITH_PARTIAL_NUMERIC_CALIBRATION_FROM_REAL_BENZAMIDE_DATA",
+  "permanent_label": "CALCULATED / SYNTHETIC APPEARANCE — NOT EXPERIMENTAL",
+  "local_real_spectrum_calibration": {
+    "source_root": "${LOCAL_SOURCE_NOT_INCLUDED}/处理过的谱图",
+    "calibration_record": "real_spectrum_calibration/benzamide_1-1_calibration.json",
+    "current_numeric_scope": "benzamide 13C processed XY plus embedded 1H/13C acquisition and processing metadata",
+    "inventory_summary": {
+      "mnova_files": 27,
+      "spectrum_records": 29,
+      "DMSO_records": 24,
+      "CDCl3_records": 5,
+      "1H_records": 16,
+      "1H_common_preset": {
+        "NS": 8,
+        "relaxation_delay_s": 1.0,
+        "exponential_LB_Hz": 0.3,
+        "processed_points": 65536
+      },
+      "13C_records": 13,
+      "13C_common_preset": {
+        "NS": 512,
+        "relaxation_delay_s": 2.0,
+        "exponential_LB_Hz": 1.0,
+        "processed_points": 32768
+      },
+      "D2O_local_record_count": 0
+    },
+    "raw_vendor_fid_status": "not independently available in the folder; do not call .mnova or processed XY a raw vendor FID",
+    "policy": "use per-file acquisition metadata when available; estimate distributions across real spectra; never copy the same noise trace into different synthetic spectra"
+  },
+  "separate_output_layers": [
+    "P0_calculated_sticks",
+    "P1_clean_calculated_spectrum",
+    "P2_synthetic_measurement_appearance",
+    "P3_uncertainty_ensemble"
+  ],
+  "randomness": {
+    "generator": "PCG64DXSM",
+    "seed_rule": "first_16_hex_digits_of_SHA256(figure_id|nucleus|appearance-v1)",
+    "seed_must_be_saved": true
+  },
+  "acquisition_presets": {
+    "1H_400.13MHz": {
+      "frequency_MHz": 400.132470802,
+      "processed_frequency_MHz": 400.13,
+      "spectral_width_ppm": 20.484,
+      "spectral_width_Hz": 8196.721311,
+      "complex_points": 32768,
+      "nominal_acquisition_time_s": 3.997696,
+      "processed_points": 65536,
+      "real_benzamide_scans": 8,
+      "real_benzamide_relaxation_delay_s": 1.0,
+      "real_benzamide_exponential_LB_Hz": 0.3,
+      "real_benzamide_temperature_K": 312.609,
+      "scope_note": "These are the local benzamide 1-1-H acquisition values, not universal defaults for all 52 compounds."
+    },
+    "13C_100.61MHz_proton_decoupled": {
+      "frequency_MHz": 100.622829803,
+      "processed_frequency_MHz": 100.612768526,
+      "spectral_width_ppm": 236.64,
+      "spectral_width_Hz": 23809.52381,
+      "complex_points": 32768,
+      "nominal_acquisition_time_s": 1.376256,
+      "processed_points": 32768,
+      "real_benzamide_scans": 512,
+      "real_benzamide_relaxation_delay_s": 2.0,
+      "real_benzamide_exponential_LB_Hz": 1.0,
+      "real_benzamide_temperature_K": 304.0651,
+      "scope_note": "These are the local benzamide 1-1-C acquisition values; 13C peak heights are non-quantitative."
+    },
+    "19F_nominal": {
+      "frequency_MHz": 376.5,
+      "reference": "independent 19F reference or validated indirect referencing",
+      "suggested_scans": "32-128"
+    },
+    "31P_nominal": {
+      "frequency_MHz": 162.0,
+      "reference": "external 85% H3PO4 convention or validated indirect referencing",
+      "suggested_scans": "64-512",
+      "required_outputs": [
+        "31P coupled",
+        "31P{1H} decoupled"
+      ]
+    }
+  },
+  "fid_model": {
+    "equation": "sum(Ak*exp(i*(2*pi*nuk*t+phik))*exp(-pi*Lk*t)*exp(-(pi*Gk*t)^2/(4*ln(2)))) + complex_noise",
+    "processing_order": [
+      "analyte transitions",
+      "declared solvent and water FID components",
+      "complex acquisition noise",
+      "apodization",
+      "zero filling",
+      "Fourier transform",
+      "small phase correction",
+      "small smooth residual baseline"
+    ],
+    "absolute_value_spectrum_forbidden": true
+  },
+  "line_shape_priors": {
+    "1H_nonexchangeable": {
+      "profile": "Voigt",
+      "final_processed_FWHM_Hz": {
+        "local_benzamide_default": 3.32,
+        "provisional_range": [
+          2.0,
+          5.0
+        ]
+      },
+      "note": "Final width includes intrinsic relaxation, unresolved fine structure, 0.3 Hz exponential broadening and display processing; do not add every contribution twice."
+    },
+    "1H_amide_or_OH": {
+      "profile": "Voigt",
+      "final_processed_FWHM_Hz": {
+        "local_benzamide_observed_example": 18.16,
+        "provisional_range": [
+          6.0,
+          40.0
+        ]
+      },
+      "visibility": {
+        "default_range": [
+          0.3,
+          1.0
+        ],
+        "status": "empirical_not_ORCA_predicted"
+      }
+    },
+    "1H_ammonium_or_strong_exchange": {
+      "profile": "Voigt_or_not_visible",
+      "lorentzian_FWHM_Hz": {
+        "range": [
+          15.0,
+          80.0
+        ]
+      },
+      "visibility": {
+        "default_range": [
+          0.0,
+          0.8
+        ],
+        "status": "empirical_not_ORCA_predicted"
+      }
+    },
+    "13C_regular": {
+      "profile": "Voigt",
+      "lorentzian_FWHM_Hz": {
+        "default": 2.4,
+        "range": [
+          1.5,
+          4.5
+        ]
+      },
+      "gaussian_FWHM_Hz": {
+        "default": 0.8,
+        "range": [
+          0.3,
+          1.5
+        ]
+      }
+    },
+    "13C_quaternary_or_carbonyl": {
+      "profile": "Voigt",
+      "lorentzian_FWHM_Hz": {
+        "range": [
+          2.0,
+          5.0
+        ]
+      }
+    }
+  },
+  "background_models": {
+    "DMSO_H2O": {
+      "1H": [
+        {
+          "component": "residual_DMSO-d5",
+          "center_ppm": 2.5,
+          "multiplicity": "quintet_if_resolved_otherwise_apparent_singlet",
+          "J_HD_Hz": 1.9,
+          "relative_line_intensities": [
+            1,
+            2,
+            3,
+            2,
+            1
+          ],
+          "resolve_deuterium_splitting_default": true,
+          "final_unresolved_envelope_FWHM_Hz_local_benzamide": 6.67,
+          "FWHM_Hz_provisional_range": [
+            4.0,
+            10.0
+          ],
+          "area_H_equivalent_preview_scenarios": {
+            "low": 0.25,
+            "medium": 0.75,
+            "high": 1.5
+          },
+          "area_status": "not_predicted; replace with blank or measured spectrum"
+        },
+        {
+          "component": "water_in_DMSO-d6",
+          "nominal_center_ppm": 3.33,
+          "local_benzamide_center_ppm": 3.3172,
+          "center_ppm_range_without_blank": [
+            3.2,
+            3.6
+          ],
+          "profile": "broad_Voigt",
+          "FWHM_Hz_local_benzamide": 3.3,
+          "FWHM_Hz_provisional_range": [
+            2.5,
+            25.0
+          ],
+          "area_H_equivalent_preview_scenarios": {
+            "low": 0.1,
+            "medium": 0.5,
+            "high": 2.0
+          },
+          "area_status": "not_predicted; replace with blank or measured spectrum"
+        }
+      ],
+      "13C": [
+        {
+          "component": "DMSO-d6_carbon",
+          "center_ppm": 39.52,
+          "multiplicity": "septet",
+          "J_CD_Hz": 21.0,
+          "relative_line_intensities": [
+            1,
+            3,
+            6,
+            7,
+            6,
+            3,
+            1
+          ],
+          "component_FWHM_Hz_local_benzamide_range": [
+            6.28,
+            6.9
+          ],
+          "height_status": "not predicted; in the local benzamide spectrum the solvent septet is much stronger and broader than most analyte peaks"
+        }
+      ]
+    },
+    "D2O_HOD": {
+      "1H": [
+        {
+          "component": "HOD",
+          "nominal_center_ppm_at_298K": 4.79,
+          "center_and_width_status": "temperature_pD_and_reference_dependent"
+        }
+      ],
+      "remove_fast_exchange_NH_OH_from_analyte_1H": true,
+      "forbid_DMSO_2.50_and_3.33_components": true
+    },
+    "CD3OD": {
+      "1H_residual_solvent_nominal_ppm": 3.31,
+      "1H_water_or_HOD_nominal_ppm": 4.87,
+      "positions_must_be_verified_against_actual_conditions": true,
+      "forbid_DMSO_2.50_and_3.33_components": true
+    },
+    "CDCl3": {
+      "1H_residual_CHCl3_nominal_ppm": 7.26,
+      "1H_water_nominal_ppm": 1.56,
+      "13C_CDCl3_nominal_ppm": 77.16,
+      "13C_multiplicity": "triplet_if_C-D_splitting_is_resolved",
+      "positions_must_be_verified_against_actual_conditions": true,
+      "forbid_DMSO_2.50_and_3.33_components": true
+    }
+  },
+  "noise_model": {
+    "domain": "complex_FID",
+    "white_noise": "independent_complex_Gaussian",
+    "weak_correlated_component_allowed": true,
+    "SNR_definition": "maximum_non-solvent_analyte_peak_divided_by_robust_sigma_in_peak-free_region",
+    "1H_SNR": {
+      "definition_scope": "processed displayed trace",
+      "local_benzamide_approx_range": [
+        15600,
+        20800
+      ],
+      "provisional_cross-sample_range": [
+        1000,
+        25000
+      ],
+      "warning": "vector-PDF display SNR is not receiver-domain FID SNR"
+    },
+    "13C_SNR": {
+      "default": 300,
+      "range": [
+        100,
+        1500
+      ],
+      "local_benzamide_max_analyte_peak_approx": 1150,
+      "local_benzamide_carbonyl_peak_approx": 230
+    },
+    "1H_and_13C_must_not_share_identical_noise_trace": true,
+    "calibration_priority": "same-instrument blank FID, then real numeric FID, then peak-free region of real processed XY; a PDF/TIFF is appearance-only and cannot define time-domain noise"
+  },
+  "baseline_and_phase": {
+    "phase_error_deg": {
+      "default": 0.0,
+      "optional_range": [
+        0.0,
+        0.3
+      ]
+    },
+    "baseline_model": "low_order_polynomial_plus_very_low_frequency_smooth_component",
+    "1H_peak_to_peak_limit_in_noise_sigma": {
+      "local_benzamide_full_range_baseline_about_sigma": 1.3,
+      "range": [
+        1.0,
+        3.0
+      ]
+    },
+    "13C_peak_to_peak_limit_in_noise_sigma": {
+      "default": 2.0,
+      "range": [
+        1.0,
+        4.0
+      ]
+    },
+    "large_visible_distortion_forbidden": true
+  },
+  "frequency_fluctuation": {
+    "global_reference_drift_before_referencing_ppm": {
+      "1H_range": [
+        0.003,
+        0.02
+      ],
+      "13C_range": [
+        0.03,
+        0.2
+      ]
+    },
+    "if_DMSO_is_used_to_reference_spectrum_global_drift_after_referencing": 0.0,
+    "water_and_exchangeable_protons_use_separate_environment_uncertainty": true,
+    "independent_random_jitter_on_each_stable_analyte_peak_forbidden": true
+  },
+  "13C_visual_response_model": {
+    "status": "synthetic_display_only_nonquantitative",
+    "class_factors": {
+      "CH3": 1.1,
+      "CH2": 1.0,
+      "aliphatic_CH": 0.9,
+      "aromatic_CH": 0.9,
+      "quaternary_aromatic_C": 0.5,
+      "amide_or_carbonyl_C": 0.35,
+      "CF3_C": 0.25
+    },
+    "per_environment_lognormal_CV": 0.15,
+    "seeded": true,
+    "must_not_be_interpreted_as_carbon_count_or_qNMR": true
+  },
+  "extra_small_features": {
+    "13C_satellites_on_1H": {
+      "allowed_if_J_CH_is_known": true,
+      "approximate_each_satellite_fraction_of_parent": 0.0055,
+      "forbid_if_J_CH_is_unknown": true
+    },
+    "known_residual_solvent_or_reagent_peaks": {
+      "default": "none",
+      "require_source": "sample_history_or_blank_or_real_spectrum",
+      "component_label_required": true
+    },
+    "anonymous_impurity_peaks_in_CALC_ONLY": "forbidden",
+    "synthetic_unassigned_background_in_P2_appearance_only": {
+      "allowed": true,
+      "local_benzamide_observed_minor_feature_ppm_examples_not_to_be_copied": [
+        2.668,
+        2.326,
+        1.228,
+        1.061
+      ],
+      "local_benzamide_height_fraction_of_max_peak": [
+        0.0004,
+        0.0008
+      ],
+      "provisional_number_of_features": [
+        0,
+        4
+      ],
+      "provisional_height_fraction_of_max_analyte_peak": [
+        0.0002,
+        0.001
+      ],
+      "position_policy": "sampled independently outside declared analyte, solvent and water exclusion windows; never fixed at the benzamide example positions",
+      "identity_policy": "remain unassigned unless sample history or a real spectrum identifies the component",
+      "required_component_label": "SYNTHETIC UNASSIGNED BACKGROUND — NOT EXPERIMENTAL; NOT FOR STRUCTURE PROOF OR SI CHARACTERIZATION"
+    }
+  },
+  "spin_simulation": {
+    "strong_coupling_metric": "Rij=abs(delta_i-delta_j)*frequency_MHz/abs(Jij)",
+    "R_below_10": "clear_second_order",
+    "R_10_to_20": "borderline",
+    "R_above_20": "usually_first_order",
+    "exact_connected_subsystem_max_spins_default": 10,
+    "larger_system_policy": "exact_strongly_coupled_subgraphs_plus_first_order_external_splitting_or_specialized_sparse_solver",
+    "J_display_threshold_Hz": "max(0.20,0.2*regular_peak_FWHM_Hz)",
+    "J_threshold_sensitivity_Hz": [
+      0.05,
+      0.2,
+      0.5
+    ],
+    "exchangeable_H_coherent_fine_J_default": false
+  },
+  "quality_control": {
+    "analyte_integral_error_max_fraction": 0.005,
+    "transition_area_conservation_relative_error_max": 1e-06,
+    "J_matrix_must_be_symmetric": true,
+    "noise_sigma_tolerance_fraction": 0.05,
+    "component_curves_required": true,
+    "metadata_and_hashes_required": true,
+    "water_and_solvent_excluded_from_analyte_integral": true,
+    "synthetic_watermark_required": true
+  }
+}

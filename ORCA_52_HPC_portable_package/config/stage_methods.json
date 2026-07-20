@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "quality_policy": "scientific_method_is_fixed_independently_of_parallel_resource_count",
+  "stages": [
+    {
+      "sequence": 10,
+      "stage": "condition_lock",
+      "engine": "manual_plus_registry_validation",
+      "acceptance": ["structure_hash_fixed", "charge_and_multiplicity_fixed", "solvent_fixed", "species_and_counterions_fixed", "pD_status_recorded"]
+    },
+    {
+      "sequence": 20,
+      "stage": "goat",
+      "engine": "ORCA_GOAT_ENTROPY_XTB",
+      "method": "GOAT-ENTROPY XTB ALPB(actual_solvent)",
+      "replicas": "at_least_10 independently prepared and hash-locked starting geometries/solvent arrangements per fixed cluster stoichiometry; searches run serially with RandomSeed false; these are not numbered RNG seeds",
+      "energy_window_kcal_mol": 12.0
+    },
+    {
+      "sequence": 30,
+      "stage": "goat_ensemble_selection",
+      "engine": "manual_hash_locked_gate",
+      "acceptance": ["all_GOAT_state_hashes_verified", "at_least_one_selected_conformer_per_enabled_scenario", "connectivity_stereochemistry_and_cluster_composition_pass", "selected_XYZ_hash_locked_for_opt_freq"]
+    },
+    {
+      "sequence": 40,
+      "stage": "opt_freq",
+      "engine": "ORCA",
+      "method": "r2SCAN-3c CPCM(actual_solvent) Opt TightOpt Freq",
+      "acceptance": ["ORCA_TERMINATED_NORMALLY", "zero_imaginary_frequencies_or_documented_soft_mode_review", "no_wrong_proton_transfer", "no_cluster_escape"]
+    },
+    {
+      "sequence": 50,
+      "stage": "minimum_boltzmann_audit",
+      "engine": "manual_hash_locked_gate_plus_auditable_postprocessor",
+      "method": "QRRHO_for_same_composition_only; Boltzmann weights recalculated separately at each nucleus-specific acquisition temperature",
+      "windows_kcal_mol": [3.0, 5.0],
+      "acceptance": ["one_decision_per_completed_opt_freq_state", "approved_conformers_have_zero_imaginary_frequencies", "cluster_integrity_pass", "weights_sum_to_one_per_scenario_nucleus_temperature", "optimized_XYZ_hash_locked_for_shielding_and_J"]
+    },
+    {
+      "sequence": 60,
+      "stage": "shielding",
+      "engine": "ORCA",
+      "method": "PBE0 pcSseg-2 GIAO CPCM(actual_solvent)",
+      "special_case": "F3_006 uses declared iodine basis/ECP plus X2C sensitivity; never request nonexistent pcSseg-2 on iodine"
+    },
+    {
+      "sequence": 70,
+      "stage": "j_coupling",
+      "engine": "ORCA",
+      "method": "PBE pcJ-3 CPCM(actual_solvent), locked only after representative-set validation against PBE0/pcJ-2",
+      "note": "exchangeable-proton fine J is not forced when exchange is fast",
+      "special_case": "F3_006 contains iodine, which is not covered by pcJ-3. Use the dedicated iodine template with an explicit iodine basis/ECP and pass a syntax/basis compatibility gate before production; retain an X2C sensitivity branch."
+    },
+    {
+      "sequence": 80,
+      "stage": "spin_simulation",
+      "engine": "Python_single_thread",
+      "method": "exact strong-coupled subgraphs plus first-order external splitting where required"
+    },
+    {
+      "sequence": 90,
+      "stage": "experimental_appearance",
+      "engine": "Python_single_thread",
+      "method": "complex_FID_generation_then_processing; parameters calibrated from real local spectra when numeric data are available"
+    },
+    {
+      "sequence": 100,
+      "stage": "qa",
+      "engine": "hash_and_scientific_audit",
+      "acceptance": ["all_outputs_labelled_CALCULATED_OR_SYNTHETIC_NOT_ACQUIRED", "input_and_output_SHA256_saved", "components_saved", "no_anonymous_impurity_peaks_in_submission_output"]
+    }
+  ]
+}

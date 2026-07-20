@@ -1,0 +1,38 @@
+{
+  "schema_version": "1.0",
+  "compound_id": "F3_005_BENZAMIDE_QA",
+  "display_name": "benzamide",
+  "solvent": "DMSO-d6",
+  "nuclei": ["1H", "13C"],
+  "atom_map": "../../results/F3_005/conf_01/atom_map.csv",
+  "shielding_output": "../../results/F3_005/conf_01/benzamide_shield.property.txt",
+  "j_output": "../../results/F3_005/conf_01/benzamide_j.property.txt",
+  "reference_shielding_ppm": {
+    "1H": 31.3754738889797,
+    "13C": 186.36799004052
+  },
+  "frequencies_MHz": {
+    "1H": 400.13,
+    "13C": 100.61
+  },
+  "display_ranges_ppm": {
+    "1H": [0.0, 10.0],
+    "13C": [0.0, 200.0]
+  },
+  "exact_max_spins": 10,
+  "transition_merge_tolerance_hz": 0.02,
+  "profile_points": 20001,
+  "make_synthetic_appearance": true,
+  "appearance_seed": 20260720,
+  "dpi": 300,
+  "hrms_resolving_power": 60000,
+  "hrms_min_relative_percent": 0.01,
+  "hrms_ions": [
+    {
+      "label": "[M+H]+",
+      "ion_formula": "C7H8NO",
+      "charge": 1
+    }
+  ],
+  "output_root": "../../results/postprocessed_CALCULATED_ONLY"
+}

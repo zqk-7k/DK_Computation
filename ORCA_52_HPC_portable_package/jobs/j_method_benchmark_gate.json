@@ -1,0 +1,20 @@
+{
+  "schema_version": "2.0",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "stage": "j_method_benchmark",
+  "production_method_fingerprint": "PBE|pcJ-3|CPCM(actual_solvent)|TightSCF|ORCA_6.1.1",
+  "benchmark_method_fingerprint": "PBE0|pcJ-2|CPCM(actual_solvent)|TightSCF|ORCA_6.1.1",
+  "representative_case_results": [],
+  "representative_set_coverage_check": "REVIEW_REQUIRED",
+  "numerical_agreement_review": "REVIEW_REQUIRED",
+  "production_method_lock_check": "REVIEW_REQUIRED",
+  "reviewer": "",
+  "reviewed_at": "",
+  "decision_notes": [
+    "This gate intentionally blocks production J jobs until a representative set has been calculated and reviewed.",
+    "Each result must bind input/output files and SHA-256 hashes for both methods.",
+    "The benchmark must cover representative H-H, H-F/F-C and H-P/P-C couplings when those classes occur in the 52-compound set.",
+    "F3_006 iodine is not covered by this generic gate and additionally requires the dedicated iodine/X2C gate."
+  ]
+}

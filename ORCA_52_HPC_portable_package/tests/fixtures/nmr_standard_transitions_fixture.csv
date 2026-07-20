@@ -1,0 +1,15 @@
+transition_id,component_id,nucleus,shift_ppm,intensity,linewidth_hz,assignment,data_status
+H01a,benzamide_aromatic_H2_H6,1H,7.944,1.0,1.10,benzamide aromatic H2/H6 line 1,CALCULATED
+H01b,benzamide_aromatic_H2_H6,1H,7.927,1.0,1.10,benzamide aromatic H2/H6 line 2,CALCULATED
+H02a,benzamide_aromatic_H3_H5,1H,7.522,1.0,1.05,benzamide aromatic H3/H5 line 1,CALCULATED
+H02b,benzamide_aromatic_H3_H5,1H,7.505,1.0,1.05,benzamide aromatic H3/H5 line 2,CALCULATED
+H03,benzamide_aromatic_H4,1H,7.605,1.0,1.10,benzamide aromatic H4,CALCULATED
+H04,benzamide_amide_NH_a,1H,7.96,1.0,8.00,benzamide exchangeable NH a,CALCULATED
+H05,benzamide_amide_NH_b,1H,7.42,1.0,10.00,benzamide exchangeable NH b,CALCULATED
+C01,benzamide_carbonyl_C,13C,168.10,1.0,1.80,benzamide carbonyl carbon,CALCULATED
+C02,benzamide_ipso_C,13C,135.10,1.0,1.60,benzamide ipso carbon,CALCULATED
+C03,benzamide_para_C,13C,132.10,1.0,1.60,benzamide para carbon,CALCULATED
+C04,benzamide_ortho_C,13C,128.70,2.0,1.60,benzamide ortho carbons,CALCULATED
+C05,benzamide_meta_C,13C,127.60,2.0,1.60,benzamide meta carbons,CALCULATED
+F01,fluorine_direct_interface,19F,-113.20,1.0,2.00,fixture fluorine transition,CALCULATED
+P01,phosphorus_direct_interface,31P,8.50,1.0,2.00,fixture phosphorus transition,CALCULATED

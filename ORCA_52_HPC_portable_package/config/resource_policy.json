@@ -1,0 +1,53 @@
+{
+  "schema_version": "2.0-hpc",
+  "notice": "HPC input-generation policy. It does not claim that the full array runs one compound globally at a time.",
+  "machine": {
+    "profile": "LINUX_HPC_SITE_CONFIGURED_AT_SUBMISSION",
+    "orca_version": "6.1.1",
+    "orca_sha256": ""
+  },
+  "execution": {
+    "execution_model": "one_orca_calculation_per_scheduler_array_task",
+    "one_orca_calculation_per_array_task": true,
+    "one_compound_at_a_time": false,
+    "absolute_mpi_rank_cap": 8,
+    "omp_threads": 1,
+    "mkl_threads": 1,
+    "openblas_threads": 1,
+    "global_concurrency_control": "hpc/config/stage_resources.json plus scheduler array percent limit"
+  },
+  "stage_resources": {
+    "goat": {
+      "mpi_ranks": 4,
+      "goat_nworkers": 4,
+      "maxcore_mb_per_rank": 1200
+    },
+    "opt_freq": {
+      "mpi_ranks": 6,
+      "maxcore_mb_per_rank": 4000
+    },
+    "shielding": {
+      "mpi_ranks": 6,
+      "maxcore_mb_per_rank": 4000
+    },
+    "j_coupling": {
+      "mpi_ranks": 6,
+      "maxcore_mb_per_rank": 4500
+    },
+    "x2c_or_large_cluster": {
+      "mpi_ranks": 4,
+      "maxcore_mb_per_rank": 5800
+    },
+    "postprocess": {
+      "mpi_ranks": 1,
+      "maxcore_mb_per_rank": 2000
+    }
+  },
+  "safety": {
+    "builder_only": true,
+    "scheduler_runner": "hpc/bin/run_orca_task.py",
+    "direct_full_path_orca_invocation": true,
+    "external_mpirun_forbidden": true,
+    "calculated_not_experimental": true
+  }
+}

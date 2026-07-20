@@ -1,0 +1,20 @@
+{
+  "schema_version": "1.0",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "figure_id": "F3_xxx",
+  "stage": "goat_ensemble_selection_or_minimum_boltzmann_audit_or_spin_simulation_or_experimental_appearance_or_qa",
+  "model_id": "primary_species_or_all_approved_models",
+  "upstream_state_hashes": [
+    {
+      "state_file": "state/F3_xxx/upstream_stage.json",
+      "sha256": ""
+    }
+  ],
+  "waiver": {
+    "approval_status": "NOT_APPLICABLE",
+    "reason": ""
+  },
+  "reviewer": "",
+  "reviewed_at": "",
+  "decision_notes": []
+}

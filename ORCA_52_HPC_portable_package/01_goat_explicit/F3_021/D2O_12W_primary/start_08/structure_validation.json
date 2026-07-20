@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_basis": "AUTHOR_APPROVED_PROTOCOL_ASSUMPTIONS_2026-07-20",
+  "figure_id": "F3_021",
+  "job_id": "F3_021_D2O_12W_primary_s08",
+  "scenario_id": "D2O_12W_primary",
+  "registry_inchikey": "LYMQLFYWIDCFLC-FHNDMYTFSA-N",
+  "registry_isomeric_smiles": "NC(=[NH2+])NCCC[C@H]([NH3+])C(N)=O.[Cl-].[Cl-]",
+  "scenario_isomeric_smiles": "NC(=[NH2+])NCCC[C@H]([NH3+])C(N)=O.[Cl-].[Cl-]",
+  "scenario_inchikey": "LYMQLFYWIDCFLC-FHNDMYTFSA-N",
+  "complete_cluster_charge": 0,
+  "multiplicity": 1,
+  "primary_solvent": "D2O",
+  "continuum_keyword": "WATER",
+  "explicit_solvent_count": 12,
+  "assumed_pd": "5.5 ASSUMED for the dihydrochloride scenario",
+  "preparation_seed": 1230377859,
+  "coordinate_sha256": "65FB14D7BFF06A241789CBF91DC024FCDC4593ACE3EA97FD2C7A85B4E3A6B22E",
+  "atom_map_sha256": "7FA35A15D1C7607623EF7FC499C35EC85E115E53E9541BFC26F367EF3020F37E",
+  "isotope_map_sha256": "00D80AA96571F41FE4E49701282EED1BA4B90F794FD2CA46FA7C5C104309709A",
+  "isotope_mass_policy": {
+    "goat_external_xyz": "PLAIN_H_FOUR_COLUMN_EXTERNAL_XYZ",
+    "downstream_opt_freq": "INLINE_XYZ_M_EQUALS_FROM_SELECTED_GOAT_GEOMETRY",
+    "downstream_coordinate_source": "REVIEWED_GOAT_SELECTED_GEOMETRY_ONLY",
+    "deuterium_inline_syntax": "H {x_A} {y_A} {z_A} M=2.01410177812",
+    "policy_file": "data/ORCA_6_1_1_isotope_mass_policy.json"
+  },
+  "checks": {
+    "registry_identity_available": "PASS",
+    "scenario_species_parse": "PASS",
+    "stereochemistry_preserved_by_rdkit_embed": "PASS",
+    "formal_charge_explicit": "PASS",
+    "environment_atoms_excluded_from_analyte_nmr": "PASS",
+    "coordinate_clash_gate": "PASS",
+    "goat_xyz_has_exactly_four_atom_fields": "PASS",
+    "isotope_map_retained_for_downstream_opt_freq": "PASS",
+    "downstream_inline_M_equals_syntax_recorded": "PASS"
+  }
+}
