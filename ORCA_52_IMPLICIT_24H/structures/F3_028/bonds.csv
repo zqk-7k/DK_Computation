@@ -1,0 +1,12 @@
+atom_i_1based,atom_j_1based,bond_order,is_aromatic
+1,2,1.0,false
+2,3,1.0,false
+3,4,1.0,false
+3,5,2.0,false
+1,6,1.0,false
+1,7,1.0,false
+1,8,1.0,false
+2,9,1.0,false
+4,10,1.0,false
+4,11,1.0,false
+4,12,1.0,false

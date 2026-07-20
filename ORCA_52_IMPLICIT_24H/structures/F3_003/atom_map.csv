@@ -1,0 +1,10 @@
+atom_index_1based,element,component,source_atom_index_1based,environment_atom,exchangeable,include_in_analyte_nmr,reference_signal
+1,N,analyte,1,false,false,true,false
+2,C,analyte,2,false,false,true,false
+3,O,analyte,3,false,false,true,false
+4,C,analyte,4,false,false,true,false
+5,F,analyte,5,false,false,true,false
+6,F,analyte,6,false,false,true,false
+7,F,analyte,7,false,false,true,false
+8,H,analyte,8,false,true,true,false
+9,H,analyte,9,false,true,true,false

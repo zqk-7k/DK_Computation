@@ -1,0 +1,9 @@
+.venv/
+__pycache__/
+*.pyc
+logs/slurm-*.out
+logs/slurm-*.err
+results/*
+!results/.gitkeep
+tests/dry_run_output*/
+tests/tmp_*

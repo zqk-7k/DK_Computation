@@ -1,0 +1,57 @@
+{
+  "schema_version": "1.0",
+  "profile_name": "2x_Xeon_8470Q_104_physical_cores_24h",
+  "declared_hardware": {
+    "physical_cores": 104,
+    "logical_threads": 208,
+    "memory_gib": 754,
+    "gpu": "NVIDIA GeForce RTX 5090 (not used by this ORCA workflow)",
+    "scratch": "local Samsung NVMe",
+    "os": "Ubuntu 22.04.5 LTS"
+  },
+  "resource_limits": {
+    "physical_core_cap": 92,
+    "physical_core_fraction": 0.8846153846,
+    "reserve_physical_cores": 12,
+    "memory_cap_gib": 680,
+    "omp_threads": 1,
+    "mkl_threads": 1,
+    "openblas_threads": 1,
+    "use_hyperthreads": false,
+    "use_gpu": false
+  },
+  "deadline_policy": {
+    "clock_starts": "when the allocated node starts the master process; scheduler queue time is excluded",
+    "total_budget_seconds": 84600,
+    "geometry_stage_cutoff_seconds": 14400,
+    "reference_stage_cutoff_seconds": 21600,
+    "baseline_stage_cutoff_seconds": 50400,
+    "baseline_recovery_cutoff_seconds": 57600,
+    "refinement_launch_cutoff_seconds": 68400,
+    "terminate_optional_jobs_seconds": 77400,
+    "finalization_target_seconds": 83700,
+    "slurm_walltime": "23:55:00"
+  },
+  "per_job": {
+    "xtb_opt_cores": 2,
+    "goat_cores": 4,
+    "baseline_shield_cores": 4,
+    "large_baseline_shield_cores": 8,
+    "refined_opt_cores": 4,
+    "large_refined_opt_cores": 8,
+    "refined_shield_cores": 4,
+    "large_refined_shield_cores": 8,
+    "large_atom_threshold": 45,
+    "maxcore_mb_per_rank_baseline": 4800,
+    "maxcore_mb_per_rank_refined": 6000
+  },
+  "stage_timeouts_seconds": {
+    "xtb_opt": 3600,
+    "reference_job": 5400,
+    "baseline_shield": 14400,
+    "baseline_retry": 10800,
+    "goat": 7200,
+    "r2scan_opt": 14400,
+    "refined_shield": 21600
+  }
+}
