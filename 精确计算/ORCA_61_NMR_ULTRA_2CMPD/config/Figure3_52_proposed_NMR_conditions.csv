@@ -1,0 +1,3 @@
+figure_id,compound_number,display_name,condition_status,primary_solvent,alternative_solvent,concentration_mM,temperature_K,nominal_nuclei,explicit_cluster_priority,exchangeable_proton_and_species_note,background_rule
+F3_005,5,benzamide,PARTLY_VERIFIED_LOCAL_BRUKER,DMSO-d6,none,20-30,312.609,1H;13C,HIGH,"NH2 hydrogen bonding and restricted rotation can produce non-equivalent NH signals; 13C acquisition temperature is separately locked at 304.0651 K",DMSO_H2O
+F3_015,15,L-prolinamide,PROPOSED_FROM_PROCESSED_SPECTRUM,DMSO-d6,none,20-40,298.15,1H;13C,HIGH,"Neutral free base assumed; amide NH2 plus ring NH exchange; S stereochemistry must remain invariant",DMSO_H2O

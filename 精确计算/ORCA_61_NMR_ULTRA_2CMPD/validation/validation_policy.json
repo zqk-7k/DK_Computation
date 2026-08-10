@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "status": "DRAFT_NOT_VALIDATED",
+  "calibration_compound": "F3_005",
+  "holdout_compound": "F3_015",
+  "forbidden": [
+    "per-peak fitting to either target before holdout scoring",
+    "copying an experimental noise trace",
+    "claiming the synthetic acquisition is measured",
+    "mixing different explicit-solvent stoichiometries with ordinary Boltzmann weights"
+  ],
+  "primary_metrics": {
+    "1H_nonexchangeable_MAE_ppm_target": 0.20,
+    "13C_MAE_ppm_target": 2.5,
+    "exchangeable_H_report_separately": true,
+    "peak_count_and_order_review_required": true,
+    "multiplicity_review_required": true,
+    "fixed_signal_id_and_atom_symmetry_assignment_required": true,
+    "hungarian_assignment_role": "AUXILIARY_DIAGNOSTIC_ONLY"
+  },
+  "promotion_rule": "VALIDATED_FOR_THIS_TWO_COMPOUND_PROTOCOL_AND_LOCKED_CONDITIONS may be written only by the validation script after all required outputs, reference hashes, fixed atom/symmetry assignments, held-out metrics, complete vendor metadata and a named reviewer are present. It is not transferable validation for arbitrary drug-like molecules.",
+  "limitation": "The L-prolinamide holdout currently lacks vendor acquisition metadata, so a pass is provisional until raw data are supplied."
+}

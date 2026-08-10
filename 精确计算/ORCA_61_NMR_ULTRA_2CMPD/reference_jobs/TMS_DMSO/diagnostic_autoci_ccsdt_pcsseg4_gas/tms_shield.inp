@@ -1,0 +1,15 @@
+# CALCULATED MODEL - NOT EXPERIMENTAL DATA
+# Copy the reviewed reference_jobs/TMS_DMSO/tms_opt.xyz into this directory before activation.
+! AUTOCI-CCSD(T) NMR pcSseg-4 cc-pwCV5Z/C ExtremeSCF NoFrozenCore
+%pal nprocs 16 end
+%maxcore 12000
+%autoci
+  STol 1e-10
+  Density Relaxed
+end
+
+* xyzfile 0 1 tms_opt.xyz
+%eprnmr
+  Ori = GIAO
+  Tol = 1e-10
+end

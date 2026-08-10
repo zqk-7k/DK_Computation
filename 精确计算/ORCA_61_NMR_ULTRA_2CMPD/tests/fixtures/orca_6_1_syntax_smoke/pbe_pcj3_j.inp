@@ -1,0 +1,10 @@
+# SYNTAX SMOKE TEST ONLY - NOT A PRODUCTION CALCULATION
+! PBE pcJ-3 AutoAux VeryTightSCF DefGrid3 CPCM(DMSO)
+%pal nprocs 1 end
+%maxcore 2000
+* xyzfile 0 1 h2.xyz
+%eprnmr
+  Nuclei = 1,2 { ssall, ist = 1 };
+  SpinSpinAtomPairs {0 1}
+  SpinSpinRThresh 6.05
+end

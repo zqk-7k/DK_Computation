@@ -1,0 +1,119 @@
+{
+  "schema_version": "1.0",
+  "notice": "These defaults are provisional, declared appearance assumptions. They were not fitted to either target experimental spectrum and they are not ORCA observables.",
+  "default_profile_by_nucleus": {
+    "1H": "dmso_d6_1H_400MHz_provisional",
+    "13C": "dmso_d6_13C_100MHz_provisional"
+  },
+  "profiles": {
+    "dmso_d6_1H_400MHz_provisional": {
+      "status": "PROVISIONAL_NOT_FITTED",
+      "nucleus": "1H",
+      "solvent": "DMSO-d6",
+      "spectrometer_mhz": 400.13,
+      "axis": {
+        "ppm_min": -0.5,
+        "ppm_max": 12.0,
+        "points": 32768
+      },
+      "lineshape": "voigt",
+      "voigt_lorentz_fraction": 0.7,
+      "default_linewidth_hz": 1.6,
+      "exchangeable_H_extra_linewidth_hz": 14.0,
+      "named_components": [
+        {
+          "id": "residual_dmso_d6_1H",
+          "identity": "residual protonated DMSO in DMSO-d6",
+          "status": "PROVISIONAL_REFERENCE_POSITION_AND_APPEARANCE",
+          "enabled": true,
+          "nucleus": "1H",
+          "ppm": 2.50,
+          "relative_integral": 0.65,
+          "linewidth_hz": 1.2,
+          "multiplicity": "s"
+        },
+        {
+          "id": "water_in_dmso_d6_1H",
+          "identity": "water in DMSO-d6",
+          "status": "PROVISIONAL_CONFIGURABLE_WATER_COMPONENT",
+          "enabled": true,
+          "nucleus": "1H",
+          "ppm": 3.33,
+          "relative_integral": 0.9,
+          "linewidth_hz": 7.0,
+          "multiplicity": "s"
+        }
+      ],
+      "baseline": {
+        "polynomial_coefficients": [0.0003, -0.00008, 0.00012],
+        "roll": {
+          "amplitude": 0.00015,
+          "cycles_across_axis": 1.4,
+          "phase_radians": 0.35
+        }
+      },
+      "noise": {
+        "seed": 20260810,
+        "sigma_relative_to_signal_max": 0.0012,
+        "correlation_points": 0.0
+      },
+      "plot_dpi": 180
+    },
+    "dmso_d6_13C_100MHz_provisional": {
+      "status": "PROVISIONAL_NOT_FITTED",
+      "nucleus": "13C",
+      "solvent": "DMSO-d6",
+      "spectrometer_mhz": 100.62,
+      "axis": {
+        "ppm_min": -10.0,
+        "ppm_max": 220.0,
+        "points": 32768
+      },
+      "lineshape": "voigt",
+      "voigt_lorentz_fraction": 0.8,
+      "default_linewidth_hz": 2.5,
+      "exchangeable_H_extra_linewidth_hz": 0.0,
+      "named_components": [
+        {
+          "id": "dmso_d6_13C",
+          "identity": "DMSO-d6 carbon (C-D coupling retained)",
+          "status": "PROVISIONAL_REFERENCE_POSITION_AND_APPEARANCE",
+          "enabled": true,
+          "nucleus": "13C",
+          "ppm": 39.52,
+          "relative_integral": 5.0,
+          "linewidth_hz": 1.8,
+          "pattern": [
+            {"offset_hz": -63.0, "weight": 1.0},
+            {"offset_hz": -42.0, "weight": 3.0},
+            {"offset_hz": -21.0, "weight": 6.0},
+            {"offset_hz": 0.0, "weight": 7.0},
+            {"offset_hz": 21.0, "weight": 6.0},
+            {"offset_hz": 42.0, "weight": 3.0},
+            {"offset_hz": 63.0, "weight": 1.0}
+          ]
+        }
+      ],
+      "baseline": {
+        "polynomial_coefficients": [0.0007, 0.00015, -0.0001],
+        "roll": {
+          "amplitude": 0.00025,
+          "cycles_across_axis": 1.1,
+          "phase_radians": 0.0
+        }
+      },
+      "noise": {
+        "seed": 20260810,
+        "sigma_relative_to_signal_max": 0.0025,
+        "correlation_points": 0.0
+      },
+      "plot_dpi": 180
+    }
+  },
+  "scope_boundary": {
+    "orca_first_principles": false,
+    "experimental_spectrum": false,
+    "per_peak_fit_to_target": false,
+    "allowed_role": "post-ORCA conditional instrument/experimental appearance rendering"
+  }
+}

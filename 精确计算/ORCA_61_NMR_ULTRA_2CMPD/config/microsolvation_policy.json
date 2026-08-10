@@ -1,0 +1,15 @@
+{
+  "schema_version": "1.0",
+  "status": "LOCKED_FOR_CALCULATION",
+  "continuum": "CPCM/ALPB DMSO",
+  "scenarios": [
+    {"dmso": 0, "water": 0, "role": "continuum_control"},
+    {"dmso": 1, "water": 0, "role": "first_shell_sensitivity"},
+    {"dmso": 2, "water": 0, "role": "primary_benzamide_candidate"},
+    {"dmso": 3, "water": 0, "role": "primary_prolinamide_candidate"},
+    {"dmso": 2, "water": 1, "role": "trace_water_sensitivity"}
+  ],
+  "goat_starts_per_scenario": 20,
+  "mixing_rule": "Boltzmann averaging is allowed only within an identical explicit composition. Cross-stoichiometry results are separate model branches unless a solvent chemical-potential model is independently supplied.",
+  "water_model_note": "The H2O branch is a sensitivity model, not a prediction of sample water activity or HDO/H2O isotope fractions."
+}

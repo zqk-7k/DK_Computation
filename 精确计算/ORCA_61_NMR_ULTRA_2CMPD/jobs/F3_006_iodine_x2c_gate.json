@@ -1,0 +1,29 @@
+{
+  "schema_version": "2.0",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "figure_id": "F3_006",
+  "stage": "iodine_relativistic_method_selection",
+  "primary_shielding_method_fingerprint": "TO_LOCK_AFTER_BASIS_AND_SYNTAX_TEST",
+  "primary_shielding_simple_keywords": "",
+  "primary_shielding_basis_block": "",
+  "x2c_sensitivity_method_fingerprint": "TO_LOCK_AFTER_BASIS_AND_SYNTAX_TEST",
+  "x2c_sensitivity_simple_keywords": "",
+  "x2c_sensitivity_basis_block": "",
+  "production_j_method_fingerprint": "TO_LOCK_AFTER_IODINE_J_BASIS_TEST",
+  "production_j_simple_keywords": "",
+  "production_j_basis_block": "",
+  "syntax_test_records": [],
+  "basis_coverage_check": "REVIEW_REQUIRED",
+  "picture_change_and_relativistic_review": "REVIEW_REQUIRED",
+  "x2c_sensitivity_review": "REVIEW_REQUIRED",
+  "j_basis_compatibility_review": "REVIEW_REQUIRED",
+  "reviewer": "",
+  "reviewed_at": "",
+  "decision_notes": [
+    "F3_006 must never request a nonexistent pcSseg-2 or pcJ-3 basis on iodine.",
+    "Approve only after ORCA 6.1.1 syntax tests and explicit basis coverage checks for every element.",
+    "Keep the primary and X2C sensitivity outputs separately named and hash locked.",
+    "This file is intentionally unapproved; no production F3_006 property job may be built from it."
+  ]
+}

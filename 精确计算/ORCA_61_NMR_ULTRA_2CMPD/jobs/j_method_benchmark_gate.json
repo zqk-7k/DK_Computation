@@ -1,0 +1,26 @@
+{
+  "schema_version": "2.0",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "stage": "j_method_benchmark",
+  "production_method_fingerprint": "PBE|pcJ-3|AutoAux|CPCM(actual_solvent)|VeryTightSCF|DefGrid3|EPRNMR_Tol=1e-10|Z_Tol=1e-12|SpinSpinRThresh=6.05A|ORCA_6.1.1",
+  "benchmark_method_fingerprint": "PBE0|pcJ-2|AutoAux|CPCM(actual_solvent)|VeryTightSCF|DefGrid3|EPRNMR_Tol=1e-10|Z_Tol=1e-12|SpinSpinRThresh=6.05A|ORCA_6.1.1",
+  "benchmark_builder": "scripts/build_j_benchmark_jobs.py",
+  "benchmark_manifest": "data/J_method_benchmark_job_manifest.csv",
+  "locked_pair_screen_A": 6.05,
+  "pair_screen_sensitivity_review": "REVIEW_REQUIRED",
+  "representative_case_results": [],
+  "representative_set_coverage_check": "REVIEW_REQUIRED",
+  "numerical_agreement_review": "REVIEW_REQUIRED",
+  "production_method_lock_check": "REVIEW_REQUIRED",
+  "reviewer": "",
+  "reviewed_at": "",
+  "decision_notes": [
+    "This gate intentionally blocks production J jobs until a representative set has been calculated and reviewed.",
+    "Each result must bind input/output files and SHA-256 hashes for both methods.",
+    "For this two-compound package, the benchmark must cover aromatic H-H, aliphatic H-H and representative long-range H-C paths in benzamide and neutral (S)-prolinamide.",
+    "Routine 13C output is 13C{1H}; H-C benchmark pairs do not authorize proton-coupled carbon display.",
+    "Tol=1e-10, Z_Tol=1e-12 and the 6.05 A pair screen are locked in both methods; screen sensitivity must be reported.",
+    "The gate remains fail-closed until both PBE/pcJ-3 and PBE0/pcJ-2 results are hash-locked and reviewed."
+  ]
+}

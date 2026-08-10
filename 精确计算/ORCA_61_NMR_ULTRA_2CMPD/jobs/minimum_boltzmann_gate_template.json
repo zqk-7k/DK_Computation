@@ -1,0 +1,79 @@
+{
+  "schema_version": "3.0-nucleus-temperature-specific",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "figure_id": "F3_xxx",
+  "stage": "minimum_boltzmann_audit",
+  "model_id": "all_enabled_scenarios",
+  "thermochemistry_method": "QRRHO_with_exact_software_version_and_settings",
+  "frequency_scale_factor": null,
+  "qrrho_cutoff_cm1": null,
+  "same_composition_only_check": "PASS_or_FAIL",
+  "nucleus_conditions_file": "config/nucleus_conditions.csv",
+  "nucleus_conditions_sha256": "",
+  "upstream_state_hashes": [
+    {
+      "state_file": "state/F3_xxx/opt_freq_conf01.json",
+      "sha256": ""
+    }
+  ],
+  "conformer_decisions": [
+    {
+      "condition_scenario_id": "primary_species",
+      "conformer_id": "conf01",
+      "opt_freq_stage": "opt_freq_conf01",
+      "opt_freq_state_file": "state/F3_xxx/opt_freq_conf01.json",
+      "opt_freq_state_sha256": "",
+      "optimized_coordinate_file": "results/F3_xxx/opt_freq_conf01/attempt_xxx/F3_xxx_conf01_optfreq.xyz",
+      "optimized_coordinate_sha256": "",
+      "electronic_energy_hartree": null,
+      "qrrho_gibbs_free_energy_hartree": null,
+      "primary_thermochemistry_nucleus_for_legacy_fields": "1H",
+      "thermochemistry_by_nucleus": {
+        "1H": {
+          "temperature_K": null,
+          "qrrho_gibbs_free_energy_hartree": null,
+          "thermochemistry_source": "ORCA_6_1_REPORTED_GRIMME_QRRHO_SAME_HESSIAN_MULTI_T"
+        },
+        "13C": {
+          "temperature_K": null,
+          "qrrho_gibbs_free_energy_hartree": null,
+          "thermochemistry_source": "ORCA_6_1_REPORTED_GRIMME_QRRHO_SAME_HESSIAN_MULTI_T"
+        }
+      },
+      "imaginary_frequency_count": null,
+      "stationary_point_check": "PASS_or_FAIL",
+      "cluster_integrity_check": "PASS_or_FAIL",
+      "approval_status": "DRAFT_NOT_APPROVED",
+      "decision_reason": ""
+    }
+  ],
+  "boltzmann_weight_sets": [
+    {
+      "condition_scenario_id": "primary_species",
+      "nucleus": "1H",
+      "temperature_K": null,
+      "energy_model": "Gibbs_or_QRRHO_free_energy_with_exact_settings",
+      "approval_status": "DRAFT_NOT_APPROVED",
+      "weights": [
+        {
+          "conformer_id": "conf01",
+          "weight": 1.0
+        }
+      ]
+    }
+  ],
+  "waiver": {
+    "approval_status": "NOT_APPLICABLE",
+    "reason": ""
+  },
+  "reviewer": "",
+  "reviewed_at": "",
+  "decision_notes": [
+    "Record one decision for every completed opt/freq state.",
+    "APPROVED_FOR_NMR requires zero imaginary frequencies and PASS stationary-point/cluster-integrity checks.",
+    "Rejected conformers use REJECTED_AFTER_OPT_FREQ and require a reason.",
+    "Provide one normalized conformer-weight set per enabled scenario and calculated analyte nucleus at its locked acquisition temperature.",
+    "Every per-nucleus energy must come from an ORCA thermochemistry block evaluated at that nucleus temperature using the same isotope-aware Hessian.",
+    "Downstream shielding/J must use the exact optimized XYZ approved here."
+  ]
+}

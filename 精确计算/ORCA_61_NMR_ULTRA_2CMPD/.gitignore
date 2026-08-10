@@ -1,0 +1,54 @@
+# Credentials and local configuration
+.env
+.env.*
+*.pem
+*.key
+id_ed25519*
+id_rsa*
+.ssh/
+
+# Python caches
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# ORCA and xTB runtime products
+*.out
+*.gbw
+*.hess
+*.engrad
+*.tmp
+*.trj
+*.property.txt
+*.stderr.log
+*.bibtex
+*.cpcm
+*.cpcm_corr
+*.densities
+*.densitiesinfo
+*.loc
+*.ges
+*.bas[0-9]
+*.mp2resp_*
+*.hostnames
+*.vpt2
+*.allxyz
+*.autociinp.tmp
+*.autociresp_*
+*.cpscfdata.tmp.*
+*.propint.tmp.*
+*.SHARKINP.tmp
+*.SHARK.*.tmp
+*.shark_grid.tmp
+
+# Runtime trees created after cloning
+hpc/config/site_config.json
+results/
+state/
+logs/
+scratch/
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+desktop.ini

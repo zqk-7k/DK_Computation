@@ -1,0 +1,25 @@
+{
+  "schema_version": "3.0-ultra-two-compound",
+  "machine": {"profile": "LINUX_HPC_SITE_CONFIGURED_AT_SUBMISSION", "orca_version": "6.1.1"},
+  "execution": {
+    "execution_model": "one_orca_calculation_per_scheduler_array_task",
+    "one_orca_calculation_per_array_task": true,
+    "one_compound_at_a_time": false,
+    "absolute_mpi_rank_cap": 32,
+    "external_mpirun_for_orca_driver_forbidden": true,
+    "omp_threads": 1,
+    "large_machine_policy": "Use cores for arrays over scenarios, conformers, methods and VPT2 displacements; do not assign ten thousand cores to one ORCA job."
+  },
+  "stage_resources": {
+    "goat": {"mpi_ranks": 8, "goat_nworkers": 8, "maxcore_mb_per_rank": 2000, "walltime": "24:00:00"},
+    "opt_freq": {"mpi_ranks": 16, "maxcore_mb_per_rank": 6000, "walltime": "72:00:00"},
+    "shielding": {"mpi_ranks": 16, "maxcore_mb_per_rank": 8000, "walltime": "72:00:00"},
+    "j_coupling": {"mpi_ranks": 16, "maxcore_mb_per_rank": 6000, "walltime": "48:00:00"},
+    "ri_mp2": {"mpi_ranks": 16, "maxcore_mb_per_rank": 12000, "walltime": "120:00:00"},
+    "dlpno_mp2": {"mpi_ranks": 16, "maxcore_mb_per_rank": 12000, "walltime": "120:00:00"},
+    "autoci_ccsdt": {"mpi_ranks": 16, "maxcore_mb_per_rank": 24000, "walltime": "168:00:00", "manual_opt_in": true},
+    "vpt2": {"mpi_ranks": 8, "maxcore_mb_per_rank": 8000, "walltime": "168:00:00", "manual_opt_in": true},
+    "postprocess": {"mpi_ranks": 1, "maxcore_mb_per_rank": 4000, "walltime": "04:00:00"}
+  },
+  "safety": {"builder_only": true, "calculated_not_experimental": true, "fail_closed_gates": true}
+}

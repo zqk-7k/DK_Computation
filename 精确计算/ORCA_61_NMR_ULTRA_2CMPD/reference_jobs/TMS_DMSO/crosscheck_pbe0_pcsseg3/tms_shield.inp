@@ -1,0 +1,10 @@
+# CALCULATED MODEL - NOT EXPERIMENTAL DATA
+# Copy the reviewed reference_jobs/TMS_DMSO/tms_opt.xyz into this directory before activation.
+! PBE0 pcSseg-3 AutoAux NMR CPCM(DMSO) RIJCOSX DefGrid3 ExtremeSCF
+%pal nprocs 16 end
+%maxcore 12000
+* xyzfile 0 1 tms_opt.xyz
+%eprnmr
+  Ori = GIAO
+  Tol = 1e-10
+end

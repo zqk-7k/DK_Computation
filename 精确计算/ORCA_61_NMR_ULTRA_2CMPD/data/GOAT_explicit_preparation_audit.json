@@ -1,0 +1,21 @@
+{
+  "notice": "CALCULATED MODELS - NOT EXPERIMENTAL DATA",
+  "manifest": "data/GOAT_explicit_job_manifest.csv",
+  "manifest_sha256": "0B42F4D2D67580AC513F4815DAEC607177001A2856EA2CEF8688635E2C7482C9",
+  "jobs": 200,
+  "compounds": 2,
+  "scenarios": 10,
+  "unique_job_ids": 200,
+  "unique_coordinate_hashes": 200,
+  "solvent_job_counts": {
+    "DMSO-d6": 200
+  },
+  "minimum_interatomic_distance_A": 0.969,
+  "temporary_files": [],
+  "isotope_mass_policy_file": "data/ORCA_6_1_1_isotope_mass_policy.json",
+  "isotope_mass_policy_sha256": "F4570BA237036F7BA0A50BCB4005F82F036A4309BAA2FC14C13DBA59278E8316",
+  "goat_xyz_mass_policy": "PLAIN_H_FOUR_COLUMN_EXTERNAL_XYZ",
+  "downstream_deuterium_mass_policy": "INLINE_XYZ_M_EQUALS_FROM_SELECTED_GOAT_GEOMETRY",
+  "issue_count": 0,
+  "status": "PASS"
+}

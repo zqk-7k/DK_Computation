@@ -1,0 +1,89 @@
+{
+  "schema_version": "1.0",
+  "executed_at_local_date": "2026-08-10",
+  "purpose": "Read-only local syntax/execution smoke evidence for selected ORCA 6.1.1 input families; this is not target-molecule production evidence and is not scientific validation.",
+  "orca": {
+    "version_banner": "Program Version 6.1.1 - RELEASE",
+    "platform": "Windows local installation",
+    "executable_sha256": "8D6B51BF4093C967DBED997CC651F0212B8F94313EE77EA56F548F000672C42F",
+    "executable_size_bytes": 280638976
+  },
+  "fixture_directory": "tests/fixtures/orca_6_1_syntax_smoke",
+  "fixture_sha256": {
+    "h2.xyz": "78FEA6C4020D8F598E45A532E5202CB5263B08CE72135631E359E465CB5BC621",
+    "revdsd_nmr.inp": "90BD69480DA8C9D272D7D48D7AB8655C766BAC7293E996F31196FB988120FE02",
+    "ri_mp2_nmr.inp": "96E76C244CDF37CD53D881BA5FF88FB0C0358878830B09D0045399EEB0C040C4",
+    "dlpno_mp2_nmr.inp": "BCF1FD390D3A03A39EDEAB4D2ECD4CC2EEA0E66FA77BD7B63B61519AEC3FB443",
+    "pbe_pcj3_j.inp": "952DE7D83C0A5E4721416836B9736D11F2208EDE3B885A3F4C82BF956A3E38B8",
+    "autoci_ccsdt_nmr.inp": "6C275B3C0C1F2542BB7DB62201B3035A5015965F412BD686B90E59B44E1ED0BF",
+    "water.xyz": "1298AFC7CF46DA8C192AB1BF08F45527C9C9009DC146351C4B59694128D94779",
+    "vpt2_smoke_ff.inp": "FF64A4E61BD4415DB15E1F3B772FBA2065FF943890C0FCA6C014E79492EA29BA",
+    "vpt2_smoke_nmr.inp": "019176C4ECC0155A290DD3796D0E997559F8E29F1161506701EFDBAE07F0A6D3"
+  },
+  "runs": [
+    {
+      "id": "revdsd_relaxed_density_giao",
+      "status": "PASS_LOCAL_SYNTAX_AND_EXECUTION",
+      "exit_code": 0,
+      "normal_termination": true,
+      "chemical_shielding_summary_present": true,
+      "captured_stdout_sha256": "32684080FC1FFAE67FD79862C229CFB4EAD6F25D271500C230F16F73C58458DA"
+    },
+    {
+      "id": "ri_mp2_giao",
+      "status": "PASS_LOCAL_SYNTAX_AND_EXECUTION",
+      "exit_code": 0,
+      "normal_termination": true,
+      "chemical_shielding_summary_present": true,
+      "captured_stdout_sha256": "B49D5FF94C9C5FD16396AAC19803A2ACA197F8AF596899E3524D2AE1561613CF"
+    },
+    {
+      "id": "dlpno_mp2_giao",
+      "status": "PASS_LOCAL_SYNTAX_AND_EXECUTION",
+      "exit_code": 0,
+      "normal_termination": true,
+      "chemical_shielding_summary_present": true,
+      "captured_stdout_sha256": "250957EE5008519F5A9BBA2AD6DBD96791EBD1D1B707FCE3BEB408D240053D72"
+    },
+    {
+      "id": "pbe_pcj3_spin_spin",
+      "status": "PASS_LOCAL_SYNTAX_AND_EXECUTION",
+      "exit_code": 0,
+      "normal_termination": true,
+      "spin_spin_coupling_summary_present": true,
+      "captured_stdout_sha256": "B2C4151DA03C8EE96AC30EF83C7EAA981FFE8B70197A47F0B6334C7D0C6CB52F"
+    },
+    {
+      "id": "autoci_ccsdt_giao",
+      "status": "EXECUTION_BLOCKED_LOCAL_DISTRIBUTION_HELPER_MISSING",
+      "normal_termination": false,
+      "input_parsed_through_property_integral_setup": true,
+      "serial_orca_autoci_present": false,
+      "orca_autoci_mpi_present": true,
+      "required_linux_action": "Run the fixture as a pilot on the target licensed Linux ORCA 6.1.1 distribution before any manual opt-in."
+    },
+    {
+      "id": "vpt2_two_step_nmr_property_derivative",
+      "status": "PASS_LOCAL_SYNTAX_AND_EXECUTION",
+      "force_field_exit_code": 0,
+      "force_field_normal_termination": true,
+      "hessian_created": true,
+      "vpt2_force_field_created": true,
+      "property_exit_code": 0,
+      "property_normal_termination": true,
+      "nmr_property_vpt2_file_created": true,
+      "nmr_property_vpt2_contains_shielding_derivatives": true,
+      "force_field_captured_stdout_sha256": "D79A27EE9169AEC106902AD26B678CAFE38F22460D1F5D5CA48EB2961BF3F534",
+      "property_captured_stdout_sha256": "0A5DEC6B964B69450384B27F895346FA7C1A534B4831188D05610C0626FAC7F7",
+      "force_field_vpt2_sha256": "D255E6C627B8FA98811F718CD5BFFA0257CB02AB9E77BF409014B32B11C757D7",
+      "property_vpt2_sha256": "14F0B50D64733B6807173D06448C6E45D8311727B84CDAA649AEA745A6F535CB"
+    }
+  ],
+  "release_gate": {
+    "production_target_calculations_run": false,
+    "scientifically_validated_against_experiment": false,
+    "autoci_branch_enabled": false,
+    "vpt2_branch_enabled": false,
+    "linux_target_smoke_required": true
+  }
+}

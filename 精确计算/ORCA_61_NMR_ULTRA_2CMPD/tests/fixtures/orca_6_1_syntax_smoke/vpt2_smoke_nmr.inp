@@ -1,0 +1,25 @@
+! RHF STO-3G ExtremeSCF NMR
+
+%maxcore 1000
+
+%geom
+  InHess Read
+  InHessName "vpt2_smoke_ff.hess"
+end
+
+%vpt2
+  VPT2          On
+  AvgProp       NMR
+  HessianCutoff 1e-12
+end
+
+%method
+  Z_Tol 1e-12
+end
+
+* xyzfile 0 1 water.xyz
+
+%eprnmr
+  Nuclei = all O { shift }
+  Nuclei = all H { shift }
+end

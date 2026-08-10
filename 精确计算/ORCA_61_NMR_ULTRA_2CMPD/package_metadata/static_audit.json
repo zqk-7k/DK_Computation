@@ -1,0 +1,200 @@
+{
+  "schema_version": "1.0",
+  "generated_at_utc": "2026-08-10T06:42:03.908391+00:00",
+  "status": "PASS",
+  "project": ".",
+  "checks": [
+    {
+      "name": "registry_scope",
+      "status": "PASS",
+      "detail": [
+        {
+          "figure_id": "F3_005",
+          "compound_number": "5",
+          "display_name": "benzamide",
+          "formula": "C7H7NO",
+          "net_charge_as_drawn": "0",
+          "isomeric_smiles": "NC(=O)c1ccccc1",
+          "inchi": "InChI=1S/C7H7NO/c8-7(9)6-4-2-1-3-5-6/h1-5H,(H2,8,9)",
+          "inchikey": "KXDAEFPNCMNJSK-UHFFFAOYSA-N",
+          "assigned_stereocentres": "0",
+          "unassigned_stereocentres": "0",
+          "stereocentre_cip_summary": "none",
+          "figure_structure_status": "VERIFIED_AS_DRAWN",
+          "orca_input_status": "READY_AS_DRAWN_FOR_GEOMETRY_SETUP",
+          "correction_or_clarification": "No definite drawing defect found",
+          "orca_model_note": "Neutral closed-shell singlet in DMSO-d6; amide NH2 protons remain atom-resolved",
+          "source_basis": "Author-supplied structure and RDKit identity audit"
+        },
+        {
+          "figure_id": "F3_015",
+          "compound_number": "15",
+          "display_name": "L-prolinamide",
+          "formula": "C5H10N2O",
+          "net_charge_as_drawn": "0",
+          "isomeric_smiles": "NC(=O)[C@@H]1CCCN1",
+          "inchi": "InChI=1S/C5H10N2O/c6-5(8)4-2-1-3-7-4/h4,7H,1-3H2,(H2,6,8)/t4-/m0/s1",
+          "inchikey": "VLJNHYLEOZPXFW-BYPYZUCNSA-N",
+          "assigned_stereocentres": "1",
+          "unassigned_stereocentres": "0",
+          "stereocentre_cip_summary": "4:S",
+          "figure_structure_status": "CORRECTED_SOURCE_SUPPORTED",
+          "orca_input_status": "READY_AS_DRAWN_FOR_GEOMETRY_SETUP",
+          "correction_or_clarification": "Restored the source-encoded S prolinamide stereocentre",
+          "orca_model_note": "Neutral free-base closed-shell singlet; amide NH2 and ring NH remain atom-resolved",
+          "source_basis": "Author-supplied drawing and stereochemical registry audit"
+        }
+      ]
+    },
+    {
+      "name": "identity_lock",
+      "status": "PASS",
+      "detail": "benzamide and neutral (S)-prolinamide"
+    },
+    {
+      "name": "goat_job_count",
+      "status": "PASS",
+      "detail": 200
+    },
+    {
+      "name": "goat_unique_job_ids",
+      "status": "PASS",
+      "detail": 200
+    },
+    {
+      "name": "goat_scenario_count",
+      "status": "PASS",
+      "detail": [
+        {
+          "figure_id": "F3_005",
+          "scenario_id": "DMSO_00_W00_continuum",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_005",
+          "scenario_id": "DMSO_01_W00_primary",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_005",
+          "scenario_id": "DMSO_02_W00_primary",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_005",
+          "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_005",
+          "scenario_id": "DMSO_03_W00_extended",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_015",
+          "scenario_id": "DMSO_00_W00_continuum",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_015",
+          "scenario_id": "DMSO_01_W00_primary",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_015",
+          "scenario_id": "DMSO_02_W00_primary",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_015",
+          "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+          "job_count": 20
+        },
+        {
+          "figure_id": "F3_015",
+          "scenario_id": "DMSO_03_W00_extended",
+          "job_count": 20
+        }
+      ]
+    },
+    {
+      "name": "goat_enabled",
+      "status": "PASS",
+      "detail": "all 200 rows"
+    },
+    {
+      "name": "portable_paths_and_files",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "goat_hashes",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "goat_resources",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "reference_jobs",
+      "status": "PASS",
+      "detail": 6
+    },
+    {
+      "name": "reference_fail_closed",
+      "status": "PASS",
+      "detail": [
+        "TMS_DMSO__opt_freq"
+      ]
+    },
+    {
+      "name": "same_level_tms_production",
+      "status": "PASS",
+      "detail": [
+        "PBE0_D4_def2_TZVPP",
+        "production_revdsd_pcsseg3",
+        "crosscheck_pbe0_pcsseg3",
+        "benchmark_ri_mp2_pcsseg3",
+        "benchmark_dlpno_mp2_pcsseg3",
+        "diagnostic_autoci_ccsdt_pcsseg4_gas"
+      ]
+    },
+    {
+      "name": "high_level_gate",
+      "status": "PASS",
+      "detail": "DRAFT_NOT_APPROVED"
+    },
+    {
+      "name": "orca_nmr_index_and_block_order",
+      "status": "PASS",
+      "detail": []
+    },
+    {
+      "name": "truth_status",
+      "status": "PASS",
+      "detail": {
+        "schema_version": "1.0",
+        "package_state": "INPUTS_PREPARED",
+        "hpc_execution_state": "NOT_RUN",
+        "scientific_validation_state": "DRAFT_NOT_VALIDATED",
+        "maximum_validation_scope_token": "VALIDATED_FOR_THIS_TWO_COMPOUND_PROTOCOL_AND_LOCKED_CONDITIONS",
+        "calculated_spectra_included": false,
+        "experimental_spectra_included": false,
+        "scope": [
+          "F3_005 benzamide 1H/13C",
+          "F3_015 neutral (S)-prolinamide 1H/13C"
+        ],
+        "truth_boundary": "Prepared inputs, workflow code, locked targets and synthetic appearance tools are included. Production ORCA outputs are not included and must not be inferred."
+      }
+    },
+    {
+      "name": "no_user_credentials",
+      "status": "PASS",
+      "detail": []
+    }
+  ],
+  "error_count": 0,
+  "errors": []
+}

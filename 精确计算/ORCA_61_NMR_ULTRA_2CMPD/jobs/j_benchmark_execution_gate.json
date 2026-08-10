@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0-machine-bound-execution",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "stage": "j_method_benchmark",
+  "approved_minimum_gate_sha256": [],
+  "resource_policy_sha256": "",
+  "machine_binding": {
+    "orca_version_exact": "6.1.1",
+    "orca_executable_sha256": "",
+    "preflight_file": "",
+    "preflight_sha256": ""
+  },
+  "reviewer": "",
+  "reviewed_at": "",
+  "decision_notes": [
+    "Building inputs does not authorize expensive J benchmark execution.",
+    "Approve only after binding both reviewed minimum gates, the resource policy and the target ORCA 6.1.1 machine preflight.",
+    "The completed results still require jobs/j_method_benchmark_gate.json review before production J jobs are enabled."
+  ]
+}

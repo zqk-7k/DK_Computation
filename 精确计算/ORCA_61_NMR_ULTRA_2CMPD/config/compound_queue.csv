@@ -1,0 +1,3 @@
+queue_order,figure_id,compound_number,display_name,primary_solvent,enabled,readiness,note
+1,F3_005,5,benzamide,DMSO-d6,true,ready,Calibration compound for method selection; do not call blind validation
+2,F3_015,15,L-prolinamide,DMSO-d6,true,ready,Hold-out effect check with incomplete vendor metadata

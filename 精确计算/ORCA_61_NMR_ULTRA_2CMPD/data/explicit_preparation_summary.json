@@ -1,0 +1,15 @@
+{
+  "notice": "CALCULATED MODELS - NOT EXPERIMENTAL DATA",
+  "author_protocol_approval_recorded": true,
+  "compounds": 2,
+  "scenarios": 10,
+  "goat_jobs": 200,
+  "starts_per_scenario": 20,
+  "manifest": "data/GOAT_explicit_job_manifest.csv",
+  "manifest_sha256": "0B42F4D2D67580AC513F4815DAEC607177001A2856EA2CEF8688635E2C7482C9",
+  "scenario_registry_sha256": "676E2D4F49A3A37DF1909DB88CF4E6E2F635BC1BB1BA7D90E6065AF074AAEEF4",
+  "isotope_mass_policy": "data/ORCA_6_1_1_isotope_mass_policy.json",
+  "isotope_mass_policy_sha256": "F4570BA237036F7BA0A50BCB4005F82F036A4309BAA2FC14C13DBA59278E8316",
+  "goat_xyz_mass_policy": "PLAIN_H_FOUR_COLUMN_EXTERNAL_XYZ",
+  "downstream_deuterium_mass_policy": "INLINE_XYZ_M_EQUALS_FROM_SELECTED_GOAT_GEOMETRY"
+}

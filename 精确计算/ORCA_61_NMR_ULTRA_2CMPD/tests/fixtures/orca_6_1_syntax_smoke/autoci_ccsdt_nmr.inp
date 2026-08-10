@@ -1,0 +1,14 @@
+# SYNTAX SMOKE TEST ONLY - NOT A PRODUCTION CALCULATION
+! AUTOCI-CCSD(T) NMR pcSseg-4 cc-pwCV5Z/C ExtremeSCF NoFrozenCore
+%pal nprocs 2 end
+%maxcore 3000
+%autoci
+  STol 1e-10
+  Density Relaxed
+end
+* xyzfile 0 1 h2.xyz
+%eprnmr
+  Ori = GIAO
+  Tol = 1e-10
+  Nuclei = all H { shift, ist = 1 };
+end

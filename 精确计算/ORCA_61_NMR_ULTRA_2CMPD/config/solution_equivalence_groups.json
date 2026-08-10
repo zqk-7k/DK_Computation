@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0-identity-locked-solution-equivalence",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "policy": "Only groups declared before experimental scoring may be averaged. Raw atom-resolved calculated shifts and J values remain in the prediction bundle and every display-layer operation is audited.",
+  "compounds": {
+    "F3_005": {
+      "display_name": "benzamide",
+      "inchikey": "KXDAEFPNCMNJSK-UHFFFAOYSA-N",
+      "symmetry_source": "Constitutional C2 reflection of monosubstituted benzene retained in achiral, rapidly averaging DMSO-d6 solution; explicit cluster symmetry breaking is not interpreted as five distinct aromatic sites.",
+      "groups": [
+        {
+          "group_id": "BENZAMIDE_H_ORTHO_PAIR",
+          "element": "H",
+          "atom_indices_0based": [11, 15],
+          "atom_indices_1based": [12, 16],
+          "symmetry_source": "benzamide ring ortho pair"
+        },
+        {
+          "group_id": "BENZAMIDE_H_META_PAIR",
+          "element": "H",
+          "atom_indices_0based": [12, 14],
+          "atom_indices_1based": [13, 15],
+          "symmetry_source": "benzamide ring meta pair"
+        },
+        {
+          "group_id": "BENZAMIDE_C_ORTHO_PAIR",
+          "element": "C",
+          "atom_indices_0based": [4, 8],
+          "atom_indices_1based": [5, 9],
+          "symmetry_source": "benzamide ring ortho pair"
+        },
+        {
+          "group_id": "BENZAMIDE_C_META_PAIR",
+          "element": "C",
+          "atom_indices_0based": [5, 7],
+          "atom_indices_1based": [6, 8],
+          "symmetry_source": "benzamide ring meta pair"
+        }
+      ],
+      "proton_symmetry_permutations_0based": [
+        {
+          "11": 15,
+          "15": 11,
+          "12": 14,
+          "14": 12
+        }
+      ],
+      "not_averaged": [
+        "The two amide NH2 protons remain atom-resolved because restricted rotation, hydrogen bonding and exchange can make them non-equivalent.",
+        "Different explicit-solvent stoichiometries remain separate scenarios."
+      ]
+    },
+    "F3_015": {
+      "display_name": "neutral (S)-prolinamide",
+      "inchikey": "VLJNHYLEOZPXFW-BYPYZUCNSA-N",
+      "symmetry_source": "Identity-locked negative declaration: the stereogenic centre removes a general symmetry operation that would pair the ring CH2 hydrogens in solution.",
+      "groups": [],
+      "proton_symmetry_permutations_0based": [],
+      "not_averaged": [
+        "Ring CH2 protons may be diastereotopic in the chiral molecule and remain atom-resolved.",
+        "Amide NH2 and ring NH protons remain atom-resolved because exchange, hydrogen bonding and restricted rotation are condition-dependent.",
+        "No solution-equivalence merge is pre-declared for F3_015; any future merge requires a new reviewed configuration version before scoring."
+      ]
+    }
+  }
+}

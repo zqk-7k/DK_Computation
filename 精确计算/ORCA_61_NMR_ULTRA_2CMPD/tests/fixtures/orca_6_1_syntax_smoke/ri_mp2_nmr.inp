@@ -1,0 +1,13 @@
+# SYNTAX SMOKE TEST ONLY - NOT A PRODUCTION CALCULATION
+! RIJK RI-MP2 pcSseg-3 AutoAux NMR NoFrozenCore CPCM(DMSO) DefGrid3 ExtremeSCF
+%pal nprocs 1 end
+%maxcore 2000
+%mp2
+  Density Relaxed
+end
+* xyzfile 0 1 h2.xyz
+%eprnmr
+  Ori = GIAO
+  Tol = 1e-10
+  Nuclei = all H { shift, ist = 1 };
+end

@@ -1,0 +1,8 @@
+{
+  "schema_version": "2.0-ultra",
+  "status": "DRAFT_NOT_APPROVED",
+  "reference_scale": "TMS delta(1H)=0 and delta(13C)=0",
+  "rule": "Target and reference must use the identical method, basis, solvent model, frozen-core setting and RI/local-correlation approximation.",
+  "reference_jobs": [],
+  "promotion_note": "Run TMS geometry and each required shielding branch, verify normal termination and hashes, then populate entries and obtain named review."
+}

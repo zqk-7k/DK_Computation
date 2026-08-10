@@ -1,0 +1,103 @@
+{
+  "schema_version": "1.0",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "figure_id": "F3_xxx",
+  "compound_number": null,
+  "display_name": "",
+  "structure_registry_source": "registry/Figure3_52_ORCA_reference_state_registry.csv",
+  "structure_sdf_source": "registry/Figure3_52_ORCA_ordered_reference_states.sdf",
+  "isomeric_smiles": "",
+  "inchikey": "",
+  "structure_sha256": "",
+  "stereochemistry": "",
+  "model_scenarios": [
+    {
+      "model_id": "primary_species",
+      "enabled_for_calculation": true,
+      "solute_isomeric_smiles": "",
+      "solute_inchikey": "",
+      "canonicalization_tool_and_version": "",
+      "minimum_goat_starts": 10,
+      "composition": "",
+      "charge": null,
+      "multiplicity": 1,
+      "role": "primary"
+    }
+  ],
+  "protonation_and_tautomer": "",
+  "counterion_model": "",
+  "primary_solvent": "",
+  "implicit_solvent_keyword": "",
+  "explicit_solvent_composition": "",
+  "concentration_mM": null,
+  "concentration_status": "UNKNOWN",
+  "ensemble_search_temperature_K": null,
+  "ensemble_search_temperature_status": "UNKNOWN",
+  "pH_or_pD": null,
+  "pH_or_pD_status": "UNKNOWN",
+  "reference_registry_file": "config/reference_job_registry.json",
+  "reference_registry_sha256": "",
+  "nucleus_plan": {
+    "1H": {
+      "mode": "CALCULATED_ANALYTE_or_BACKGROUND_ONLY_or_NOT_APPLICABLE"
+    },
+    "13C": {
+      "mode": "CALCULATED_ANALYTE_or_NOT_APPLICABLE"
+    },
+    "19F": {
+      "mode": "CALCULATED_ANALYTE_or_NOT_APPLICABLE"
+    },
+    "31P": {
+      "mode": "CALCULATED_ANALYTE_or_NOT_APPLICABLE"
+    }
+  },
+  "acquisition_conditions": {
+    "1H": {
+      "status": "UNKNOWN",
+      "temperature_K": null,
+      "frequency_MHz": null,
+      "primary_reference_id": "UNKNOWN_REFERENCE_ID",
+      "allowed_reference_ids": []
+    },
+    "13C": {
+      "status": "UNKNOWN",
+      "temperature_K": null,
+      "frequency_MHz": null,
+      "primary_reference_id": "UNKNOWN_REFERENCE_ID",
+      "allowed_reference_ids": []
+    },
+    "19F": {
+      "status": "UNKNOWN",
+      "temperature_K": null,
+      "frequency_MHz": null,
+      "primary_reference_id": "UNKNOWN_REFERENCE_ID",
+      "allowed_reference_ids": []
+    },
+    "31P": {
+      "status": "UNKNOWN",
+      "temperature_K": null,
+      "frequency_MHz": null,
+      "primary_reference_id": "UNKNOWN_REFERENCE_ID",
+      "allowed_reference_ids": []
+    }
+  },
+  "acquisition_metadata_source": "",
+  "acquisition_metadata_status": "UNKNOWN",
+  "solute_atom_indices_1based": {
+    "1H_nonexchangeable": [],
+    "13C": [],
+    "19F": [],
+    "31P": []
+  },
+  "environment_atom_indices_1based": [],
+  "reviewer": "",
+  "reviewed_at": "",
+  "notes": [
+    "structure_sha256 is SHA-256 of the UTF-8 string figure_id|isomeric_smiles|inchikey, using the exact audited registry text.",
+    "Each applicable acquisition condition has its own actual/assumed temperature, frequency, primary reference and allowed method-specific references. Conformer weights are recalculated at that nucleus-specific acquisition temperature.",
+    "Reference IDs and their nucleus/solvent domain are fixed here, but reference jobs may remain DRAFT during GOAT/opt-freq. Every shielding job revalidates an APPROVED method-matched reference and snapshots the then-current registry hash.",
+    "reference_registry_sha256 is optional planning provenance and is not a downstream execution lock; leave it blank if reference jobs are not yet complete.",
+    "Different protonation states and different explicit-solvent stoichiometries are separate scenarios and are not Boltzmann-mixed.",
+    "Change approval_status to APPROVED_FOR_CALCULATION only after every field relevant to this compound is reviewed."
+  ]
+}

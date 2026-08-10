@@ -4,6 +4,15 @@
 
 > **科学边界：**本仓库生成的 NMR、精确质量、同位素包络和谱图外观均为计算或合成模型，不是实验测试数据。人为加入的溶剂峰、水峰、噪声、基线和线宽不会把计算谱图变成实测谱图。
 
+## 新增：双化合物高精度 NMR 包
+
+- [`精确计算/ORCA_61_NMR_ULTRA_2CMPD/`](精确计算/ORCA_61_NMR_ULTRA_2CMPD/)：苯甲酰胺 `F3_005` 和中性 `(S)`-脯氨酰胺 `F3_015` 的 `¹H/¹³C` ORCA 6.1.1 工作流。
+- 生产候选为 `revDSD-PBEP86-D4/2021/pcSseg-3/NoFrozenCore`，并以 `PBE0/pcSseg-3` 做全构象交叉检查；RI-MP2、DLPNO-MP2、CCSD(T) 和 VPT2 仅为人工门控基准。
+- 已准备 200 个固定计量显式溶剂 GOAT 输入和 HPC 调度层，但**尚未运行真实 HPC，也尚未完成独立验证**。当前状态是 `DRAFT_NOT_VALIDATED`，不是已经验证的预测结果。
+- 不同显式溶剂计量不得普通 Boltzmann 混合；噪声、基线、溶剂峰、峰高和线宽属于单独标记的 synthetic 外观层，不是静态 ORCA 第一性原理输出。
+
+Start here for the new two-compound package: [`精确计算/ORCA_61_NMR_ULTRA_2CMPD/README.md`](精确计算/ORCA_61_NMR_ULTRA_2CMPD/README.md). The inputs are prepared, but target-HPC execution and independent validation have not yet been completed.
+
 ## 仓库内容
 
 - `ORCA_52_HPC_portable_package/`：完整、可审计的计算文件夹。
@@ -123,4 +132,3 @@ PBS Pro 将 `HPC_SCHEDULER` 改为 `pbs`。
 - `ORCA_52_HPC_portable_package/hpc/README.md`
 - `ORCA_52_HPC_portable_package/docs/WORKFLOW_AND_MANUAL_GATES.md`
 - `ORCA_52_HPC_portable_package/NOTICE_CALCULATED_ONLY.txt`
-

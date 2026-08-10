@@ -1,0 +1,52 @@
+{
+  "schema_version": "3.0-two-compound-ultra",
+  "validation_status": "DRAFT_NOT_VALIDATED",
+  "stages": [
+    {
+      "stage": "goat",
+      "method": "GOAT-ENTROPY XTB ALPB(DMSO)",
+      "settings": "20 independent deterministic starts per fixed composition; MaxEn 12 kcal/mol",
+      "gate": "unique converged conformers; connectivity, charge, multiplicity and stereochemistry retained"
+    },
+    {
+      "stage": "final_opt_freq",
+      "method": "PBE0-D4/def2-TZVPP RIJCOSX CPCM(actual_solvent) VeryTightOpt Freq VeryTightSCF DefGrid3",
+      "gate": "normal termination, zero significant imaginary frequencies, intact explicit cluster, S stereocentre retained for F3_015"
+    },
+    {
+      "stage": "qrrho_boltzmann",
+      "method": "ORCA thermochemistry plus QRRHO review",
+      "gate": "same explicit composition only; separate 1H and 13C acquisition temperatures"
+    },
+    {
+      "stage": "shielding_production_candidate",
+      "method": "revDSD-PBEP86-D4/2021/pcSseg-3/NoFrozenCore/GIAO/CPCM with relaxed MP2 density",
+      "gate": "same-level TMS reference and held-out method benchmark"
+    },
+    {
+      "stage": "shielding_crosscheck",
+      "method": "PBE0/pcSseg-3/GIAO/CPCM",
+      "gate": "report PBE0-vs-revDSD method spread"
+    },
+    {
+      "stage": "shielding_benchmarks",
+      "method": "RI-MP2, TightPNO DLPNO-MP2, manual AUTOCI-CCSD(T)/pcSseg-4",
+      "gate": "top-ranked restricted subsets only; resource and numerical-stability review"
+    },
+    {
+      "stage": "j_coupling",
+      "method": "PBE/pcJ-3, benchmarked against PBE0/pcJ-2",
+      "gate": "analyte-only pair map and held-out J validation"
+    },
+    {
+      "stage": "vpt2_composite_diagnostic",
+      "method": "PBE0-D4/def2-TZVPP anharmonic force field plus PBE0/pcSseg-3 AvgProp NMR",
+      "gate": "manual machine-bound opt-in; isotope-aware analyte and TMS corrections both required before composite use"
+    },
+    {
+      "stage": "spectrum",
+      "method": "Boltzmann shieldings plus calculated J spin Hamiltonian; clean and instrument-matched synthetic FID outputs kept separate",
+      "gate": "calculated/synthetic labels, no experimental peak-position fitting"
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "schema_version": "1.0-orca-6.1.1-ultra-nmr",
+  "validation_status": "DRAFT_NOT_VALIDATED",
+  "orca_version": "6.1.1",
+  "geometry": {
+    "goat": "GOAT-ENTROPY XTB ALPB(DMSO), MaxEn 12 kcal/mol, 20 starts/scenario",
+    "final_opt_freq": "PBE0 D4 def2-TZVPP RIJCOSX CPCM(DMSO) VeryTightOpt Freq VeryTightSCF DefGrid3"
+  },
+  "shielding_branches": [
+    {
+      "id": "production_revdsd_pcsseg3",
+      "role": "production_candidate",
+      "keywords": "revDSD-PBEP86-D4/2021 pcSseg-3 AutoAux NMR NoFrozenCore CPCM({CONTINUUM}) RIJCOSX DefGrid3 ExtremeSCF",
+      "scope": "all_approved_conformers",
+      "enabled": true
+    },
+    {
+      "id": "crosscheck_pbe0_pcsseg3",
+      "role": "robust_crosscheck",
+      "keywords": "PBE0 pcSseg-3 AutoAux NMR CPCM({CONTINUUM}) RIJCOSX DefGrid3 ExtremeSCF",
+      "scope": "all_approved_conformers",
+      "enabled": true
+    },
+    {
+      "id": "benchmark_ri_mp2_pcsseg3",
+      "role": "canonical_mp2_benchmark",
+      "keywords": "RIJK RI-MP2 pcSseg-3 AutoAux NMR NoFrozenCore CPCM({CONTINUUM}) DefGrid3 ExtremeSCF",
+      "scope": "top_3_per_fixed_composition",
+      "enabled": false,
+      "manual_opt_in": true
+    },
+    {
+      "id": "benchmark_dlpno_mp2_pcsseg3",
+      "role": "local_mp2_stability_benchmark",
+      "keywords": "DLPNO-MP2 TightPNO pcSseg-3 AutoAux NMR NoFrozenCore CPCM({CONTINUUM}) RIJCOSX DefGrid3 ExtremeSCF",
+      "scope": "top_1_per_fixed_composition",
+      "enabled": false,
+      "manual_opt_in": true,
+      "mp2_block": ["Density Relaxed", "PAOOverlapThresh 1e-5", "TScalePNO_LShift 0.1"]
+    },
+    {
+      "id": "diagnostic_autoci_ccsdt_pcsseg4_gas",
+      "role": "gas_phase_electronic_structure_diagnostic",
+      "keywords": "AUTOCI-CCSD(T) NMR pcSseg-4 cc-pwCV5Z/C ExtremeSCF NoFrozenCore",
+      "scope": "top_1_solute_only_after_resource_gate",
+      "enabled": false,
+      "manual_opt_in": true,
+      "solvation_limit": "No unverified CPCM response claim; this is a gas-phase diagnostic and cannot automatically replace the solvated production branch.",
+      "execution_limit": "Requires a hash-bound ORCA 6.1.1 Linux preflight, the orca_autoci helper, and collection of benchmark.autociresp_* response files."
+    }
+  ],
+  "j_coupling": {
+    "production": "PBE pcJ-3 AutoAux CPCM(actual_solvent) DefGrid3 VeryTightSCF",
+    "benchmark": "PBE0 pcJ-2 AutoAux CPCM(actual_solvent) DefGrid3 VeryTightSCF",
+    "exchangeable_h_policy": "Retain raw calculated J for audit; exclude exchangeable H from coherent fine structure by default."
+  },
+  "vpt2": {
+    "enabled": false,
+    "manual_opt_in": true,
+    "scope": "top_1_to_3_solute_only_or_at_most_one_DMSO_microstate",
+    "property": "AvgProp NMR with a separately generated anharmonic force field",
+    "warning": "VPT2 does not model solvent exchange kinetics and must not be assumed to improve NH shifts.",
+    "main_delta_rule": "Only a reviewed composite delta_static_high + Delta_delta_vib_low may be used, with matched analyte and TMS static/VPT2 low-level corrections. An analyte-only correction is diagnostic and blocked from the main delta."
+  }
+}

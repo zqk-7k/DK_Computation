@@ -1,0 +1,16 @@
+# CALCULATED MODEL - NOT EXPERIMENTAL DATA
+# Copy the reviewed reference_jobs/TMS_DMSO/tms_opt.xyz into this directory before activation.
+! DLPNO-MP2 TightPNO pcSseg-3 AutoAux NMR NoFrozenCore CPCM(DMSO) RIJCOSX DefGrid3 ExtremeSCF
+%pal nprocs 16 end
+%maxcore 12000
+%mp2
+  Density Relaxed
+  PAOOverlapThresh 1e-5
+  TScalePNO_LShift 0.1
+end
+
+* xyzfile 0 1 tms_opt.xyz
+%eprnmr
+  Ori = GIAO
+  Tol = 1e-10
+end

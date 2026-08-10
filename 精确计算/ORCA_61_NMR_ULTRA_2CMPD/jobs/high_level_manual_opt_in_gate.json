@@ -1,0 +1,92 @@
+{
+  "schema_version": "2.0-machine-bound-diagnostics",
+  "approval_status": "DRAFT_NOT_APPROVED",
+  "machine_binding": {
+    "orca_version_exact": "6.1.1",
+    "platform": "TO_RECORD_AFTER_TARGET_HPC_PREFLIGHT",
+    "orca_executable_sha256": "",
+    "preflight_file": "",
+    "preflight_sha256": ""
+  },
+  "branches": {
+    "benchmark_ri_mp2_pcsseg3": {
+      "approval_status": "DRAFT_NOT_APPROVED",
+      "role": "restricted numerical diagnostic",
+      "scientific_reviews": {
+        "same_geometry_and_same_level_TMS_pair": "REVIEW_REQUIRED",
+        "relaxed_MP2_density_output": "REVIEW_REQUIRED",
+        "basis_and_numerical_stability_pilot": "REVIEW_REQUIRED",
+        "memory_and_scratch_pilot": "REVIEW_REQUIRED"
+      }
+    },
+    "benchmark_dlpno_mp2_pcsseg3": {
+      "approval_status": "DRAFT_NOT_APPROVED",
+      "role": "restricted local-correlation sensitivity diagnostic",
+      "scientific_reviews": {
+        "same_geometry_and_same_level_TMS_pair": "REVIEW_REQUIRED",
+        "relaxed_MP2_density_output": "REVIEW_REQUIRED",
+        "PNO_and_localization_sensitivity": "REVIEW_REQUIRED",
+        "memory_and_scratch_pilot": "REVIEW_REQUIRED"
+      }
+    },
+    "diagnostic_autoci_ccsdt_pcsseg4_gas": {
+      "approval_status": "DRAFT_NOT_APPROVED",
+      "role": "gas-phase electronic-structure diagnostic; never labelled gold",
+      "required_helper": "orca_autoci",
+      "required_response_glob": "benchmark.autociresp_*",
+      "scientific_reviews": {
+        "same_geometry_and_same_level_TMS_pair": "REVIEW_REQUIRED",
+        "relaxed_CCSDT_density_and_response_outputs": "REVIEW_REQUIRED",
+        "basis_and_numerical_stability_pilot": "REVIEW_REQUIRED",
+        "gas_phase_delta_scope_only": "REVIEW_REQUIRED",
+        "memory_disk_and_helper_pilot": "REVIEW_REQUIRED"
+      }
+    },
+    "vpt2_composite_diagnostic": {
+      "approval_status": "DRAFT_NOT_APPROVED",
+      "role": "isotope-aware low-level vibrational correction diagnostic",
+      "scientific_reviews": {
+        "starting_geometry_stricter_than_tightopt_and_stationary": "REVIEW_REQUIRED",
+        "soft_mode_and_resonance_diagnostics": "REVIEW_REQUIRED",
+        "AnharmDisp_and_PropDisp_sensitivity": "REVIEW_REQUIRED",
+        "same_isotope_map_in_force_field_and_property_steps": "REVIEW_REQUIRED",
+        "paired_analyte_and_TMS_composite_only": "REVIEW_REQUIRED",
+        "memory_scratch_and_restart_pilot": "REVIEW_REQUIRED"
+      }
+    }
+  },
+  "paired_reference_vpt2_correction": {
+    "approval_status": "DRAFT_NOT_APPROVED",
+    "reference_id": "",
+    "method_fingerprint": "PBE0-D4/def2-TZVPP_FF_then_PBE0/pcSseg-3_AvgProp_NMR|AnharmDisp=0.05|PropDisp=0.05|EPRNMR_Tol=1e-10|Z_Tol=1e-12|ISOTOPE_MASS_LOCKED|ORCA_6.1.1",
+    "reference_geometry_sha256": "",
+    "static_input_file": "",
+    "static_input_sha256": "",
+    "static_output_file": "",
+    "static_output_sha256": "",
+    "vpt2_ff_input_file": "",
+    "vpt2_ff_input_sha256": "",
+    "vpt2_ff_output_file": "",
+    "vpt2_ff_output_sha256": "",
+    "vpt2_nmr_input_file": "",
+    "vpt2_nmr_input_sha256": "",
+    "vpt2_nmr_output_file": "",
+    "vpt2_nmr_output_sha256": "",
+    "runner_receipt_file": "",
+    "runner_receipt_sha256": "",
+    "rule": "A VPT2 correction may enter the main delta only when analyte and TMS have matched static/vibrational low-level calculations and reviewed hashes."
+  },
+  "required_reviews": [
+    "same-level TMS input prepared for every electronic branch",
+    "paired analyte/TMS static and VPT2 low-level corrections prepared before any VPT2 composite use",
+    "memory and scratch estimate passes",
+    "representative lower-basis pilot terminates normally",
+    "target Linux machine preflight and ORCA executable hash are recorded",
+    "orca_autoci and AutoCI response-file collection are verified before AutoCI activation",
+    "method is used as a diagnostic and not pre-labelled most accurate",
+    "reviewer and reviewed_at recorded"
+  ],
+  "reviewer": "",
+  "reviewed_at": "",
+  "decision_notes": ""
+}

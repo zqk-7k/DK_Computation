@@ -1,0 +1,96 @@
+{
+  "schema_version": "1.0",
+  "policy": "One ORCA calculation per array task. OMP/BLAS threads are forced to one. ORCA is called by absolute path and never through mpirun.",
+  "stages": {
+    "goat": {
+      "cpus": 8,
+      "memory_mb": 20480,
+      "walltime": "24:00:00",
+      "max_concurrent": 100,
+      "input_default": "goat.inp",
+      "required_artifact_globs": ["*.globalminimum.xyz", "*.finalensemble.xyz"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.hess", "*.engrad", "*.trj", "*.bibtex"]
+    },
+    "optfreq": {
+      "cpus": 16,
+      "memory_mb": 110000,
+      "walltime": "72:00:00",
+      "max_concurrent": 50,
+      "input_default": "opt_freq.inp",
+      "required_artifact_globs": ["dft_opt_freq.gbw", "dft_opt_freq.hess", "dft_opt_freq.property.txt", "dft_opt_freq.xyz"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.hess", "*.engrad", "*.trj", "*.bibtex"]
+    },
+    "reference_optfreq": {
+      "cpus": 16,
+      "memory_mb": 110000,
+      "walltime": "72:00:00",
+      "max_concurrent": 4,
+      "input_default": "opt_freq.inp",
+      "required_artifact_globs": ["tms_opt.gbw", "tms_opt.hess", "tms_opt.property.txt", "tms_opt.xyz"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.hess", "*.engrad", "*.trj", "*.bibtex"]
+    },
+    "reference_shielding": {
+      "cpus": 16,
+      "memory_mb": 220000,
+      "walltime": "120:00:00",
+      "max_concurrent": 4,
+      "input_default": "shielding.inp",
+      "required_artifact_globs": ["tms_shield.gbw", "tms_shield.property.txt"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.bibtex"]
+    },
+    "shielding": {
+      "cpus": 16,
+      "memory_mb": 145000,
+      "walltime": "72:00:00",
+      "max_concurrent": 50,
+      "input_default": "shielding.inp",
+      "required_artifact_globs": ["shielding.gbw", "shielding.property.txt"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.bibtex"]
+    },
+    "jcoupling": {
+      "cpus": 16,
+      "memory_mb": 110000,
+      "walltime": "72:00:00",
+      "max_concurrent": 50,
+      "input_default": "j_coupling.inp",
+      "required_artifact_globs": ["j_coupling.gbw", "j_coupling.property.txt"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.bibtex"]
+    },
+    "j_method_benchmark": {
+      "cpus": 16,
+      "memory_mb": 110000,
+      "walltime": "48:00:00",
+      "max_concurrent": 16,
+      "input_default": "j_benchmark.inp",
+      "required_artifact_globs": ["j_benchmark.gbw", "j_benchmark.property.txt"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.csv", "*.property.txt", "*.gbw", "*.bibtex"]
+    },
+    "high_level_benchmark": {
+      "cpus": 16,
+      "memory_mb": 440000,
+      "walltime": "168:00:00",
+      "max_concurrent": 8,
+      "input_default": "benchmark.inp",
+      "required_artifact_globs": ["benchmark.gbw", "benchmark.property.txt"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.bibtex", "*.autociresp_*"]
+    },
+    "vpt2_force_field": {
+      "cpus": 8,
+      "memory_mb": 80000,
+      "walltime": "168:00:00",
+      "max_concurrent": 8,
+      "input_default": "vpt2_ff.inp",
+      "required_artifact_globs": ["vpt2_ff.hess", "vpt2_ff.vpt2"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.hess", "*.vpt2", "*.engrad", "*.trj", "*.bibtex"]
+    },
+    "vpt2_nmr": {
+      "cpus": 8,
+      "memory_mb": 80000,
+      "walltime": "168:00:00",
+      "max_concurrent": 8,
+      "input_default": "vpt2_nmr.inp",
+      "required_artifact_globs": ["vpt2_nmr.gbw", "vpt2_nmr.vpt2", "vpt2_nmr.property.txt"],
+      "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.hess", "*.vpt2", "*.bibtex"]
+    }
+  }
+}
