@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "notice": "CALCULATED WORKFLOW SELECTION - NOT EXPERIMENTAL DATA",
+  "workflow_profile": "ULTRA_DIAGNOSTIC",
+  "profile_status": "DRAFT_NOT_VALIDATED",
+  "default_profile": false,
+  "compounds": 2,
+  "fixed_composition_scenarios": 10,
+  "goat_jobs": 200,
+  "starts_per_scenario": 20,
+  "mandatory_trace_water_scenarios": 0,
+  "cross_stoichiometry_boltzmann_mixing": "FORBIDDEN",
+  "source_manifest": "data/GOAT_explicit_job_manifest.csv",
+  "source_manifest_sha256": "0B42F4D2D67580AC513F4815DAEC607177001A2856EA2CEF8688635E2C7482C9",
+  "source_scenario_registry": "data/explicit_scenario_registry.csv",
+  "source_scenario_registry_sha256": "676E2D4F49A3A37DF1909DB88CF4E6E2F635BC1BB1BA7D90E6065AF074AAEEF4",
+  "profile_config": "config/workflow_profiles.json",
+  "profile_config_sha256": "387D112112FC5D4C5AE98DD85A175C6FB419649453D55F3DC47DD9387DDCB8C9",
+  "manifest": "data/workflow_profiles/ULTRA_DIAGNOSTIC/GOAT_explicit_job_manifest.csv",
+  "manifest_sha256": "A0EDEE35E2A9E45C82E3310BF4CDB284EFD1C67E51D9A1753D1B5D86C4A98FA1",
+  "scenario_registry": "data/workflow_profiles/ULTRA_DIAGNOSTIC/explicit_scenario_registry.csv",
+  "scenario_registry_sha256": "47655E08C148F01F4CE0267306C07AD3210853DFA70B93838E4E7F9AD9182481"
+}

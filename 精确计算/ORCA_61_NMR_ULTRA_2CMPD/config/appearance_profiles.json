@@ -1,9 +1,15 @@
 {
-  "schema_version": "1.0",
-  "notice": "These defaults are provisional, declared appearance assumptions. They were not fitted to either target experimental spectrum and they are not ORCA observables.",
+  "schema_version": "2.0",
+  "notice": "Generic defaults remain provisional. F3_005 has separately named single-sample conditioned profiles derived only from instrument/appearance descriptors; no calculated analyte ppm is fitted or moved, and no appearance parameter is an ORCA observable.",
   "default_profile_by_nucleus": {
     "1H": "dmso_d6_1H_400MHz_provisional",
     "13C": "dmso_d6_13C_100MHz_provisional"
+  },
+  "profile_by_figure_and_nucleus": {
+    "F3_005": {
+      "1H": "benzamide_1_1_dmso_d6_1H_400MHz_calibrated_single_sample",
+      "13C": "benzamide_1_1_dmso_d6_13C_100MHz_calibrated_single_sample"
+    }
   },
   "profiles": {
     "dmso_d6_1H_400MHz_provisional": {
@@ -106,6 +112,164 @@
         "seed": 20260810,
         "sigma_relative_to_signal_max": 0.0025,
         "correlation_points": 0.0
+      },
+      "plot_dpi": 180
+    },
+    "benzamide_1_1_dmso_d6_1H_400MHz_calibrated_single_sample": {
+      "status": "CALIBRATED_SINGLE_SAMPLE_CONDITIONAL_NOT_TRANSFERABLE",
+      "nucleus": "1H",
+      "solvent": "DMSO-d6",
+      "spectrometer_mhz": 400.132470802,
+      "temperature_K": 312.609,
+      "axis": {
+        "ppm_min": -0.5,
+        "ppm_max": 12.0,
+        "points": 65536
+      },
+      "lineshape": "pseudo_voigt",
+      "voigt_lorentz_fraction": 0.7,
+      "amplitude_reference": "largest_analyte_peak",
+      "default_linewidth_hz": 3.33,
+      "exchangeable_H_extra_linewidth_hz": 14.83,
+      "exchange_attenuation_factor": 1.0,
+      "intensity_model": {
+        "analyte": "nominal transition area; not quantitative under zg30 and d1=1 s",
+        "exchangeable_H": "configurable empirical attenuation; not predicted by ORCA",
+        "solvent_and_water": "independent calibrated nominal areas"
+      },
+      "named_components": [
+        {
+          "id": "residual_dmso_d6_1H",
+          "identity": "residual protonated DMSO in DMSO-d6",
+          "status": "CALIBRATED_FROM_BENZAMIDE_1_1_PROCESSED_DISPLAY",
+          "enabled": true,
+          "nucleus": "1H",
+          "ppm": 2.5004,
+          "relative_integral": 0.65,
+          "linewidth_hz": 6.67,
+          "multiplicity": "s"
+        },
+        {
+          "id": "water_in_dmso_d6_1H",
+          "identity": "water in DMSO-d6",
+          "status": "SAMPLE_SPECIFIC_BENZAMIDE_1_1_WATER_APPEARANCE",
+          "enabled": true,
+          "nucleus": "1H",
+          "ppm": 3.3172,
+          "relative_integral": 2.75,
+          "linewidth_hz": 3.3,
+          "multiplicity": "s"
+        }
+      ],
+      "baseline": {
+        "scale_mode": "span_in_noise_sigma",
+        "span_in_noise_sigma": 1.3,
+        "polynomial_coefficients": [0.0, -0.6, 0.4],
+        "roll": {
+          "amplitude": 0.25,
+          "cycles_across_axis": 1.4,
+          "phase_radians": 0.35
+        }
+      },
+      "noise": {
+        "seed": 20260810,
+        "model": "iid_gaussian",
+        "sigma_relative_to_amplitude_reference": 0.000056,
+        "correlation_points": 0.0
+      },
+      "acquisition_metadata": {
+        "instrument": "Bruker Avance",
+        "pulse_program": "zg30",
+        "scans": 8,
+        "dummy_scans": 2,
+        "spectral_width_hz": 8196.721311,
+        "acquisition_time_s": 3.997696,
+        "relaxation_delay_s": 1.0,
+        "processing_line_broadening_hz": 0.3,
+        "processing_points": 65536
+      },
+      "calibration_provenance": {
+        "source": "real_spectrum_calibration/benzamide_1-1_calibration.json",
+        "source_sha256": "5FD169832AFF25A8C938FFE0AF03670F588C7649C4FCA81A13A2780359A968B4",
+        "source_level": "processed vector/PDF and embedded acquisition metadata; raw FID was later verified locally but was not used to re-fit this profile",
+        "per_peak_shift_fit": false,
+        "water_intensity_transferable_to_other_samples": false
+      },
+      "plot_dpi": 180
+    },
+    "benzamide_1_1_dmso_d6_13C_100MHz_calibrated_single_sample": {
+      "status": "CALIBRATED_SINGLE_SAMPLE_CONDITIONAL_NOT_TRANSFERABLE",
+      "nucleus": "13C",
+      "solvent": "DMSO-d6",
+      "spectrometer_mhz": 100.612768526,
+      "temperature_K": 304.0651,
+      "axis": {
+        "ppm_min": -10.0,
+        "ppm_max": 220.0,
+        "points": 32768
+      },
+      "lineshape": "pseudo_voigt",
+      "voigt_lorentz_fraction": 0.8,
+      "amplitude_reference": "largest_analyte_peak",
+      "default_linewidth_hz": 2.5,
+      "exchangeable_H_extra_linewidth_hz": 0.0,
+      "intensity_model": {
+        "analyte": "equal nominal area display; 13C peak heights are non-quantitative because T1, NOE and acquisition dominate",
+        "solvent": "independent calibrated nominal area"
+      },
+      "named_components": [
+        {
+          "id": "dmso_d6_13C",
+          "identity": "DMSO-d6 carbon (C-D coupling retained)",
+          "status": "CALIBRATED_FROM_BENZAMIDE_1_1_PROCESSED_XY",
+          "enabled": true,
+          "nucleus": "13C",
+          "ppm": 39.5199,
+          "relative_integral": 5.0,
+          "linewidth_hz": 6.43,
+          "pattern": [
+            {"offset_hz": -63.3, "weight": 1.0},
+            {"offset_hz": -42.2, "weight": 3.0},
+            {"offset_hz": -21.1, "weight": 6.0},
+            {"offset_hz": 0.0, "weight": 7.0},
+            {"offset_hz": 21.1, "weight": 6.0},
+            {"offset_hz": 42.2, "weight": 3.0},
+            {"offset_hz": 63.3, "weight": 1.0}
+          ]
+        }
+      ],
+      "baseline": {
+        "scale_mode": "span_in_noise_sigma",
+        "span_in_noise_sigma": 0.073,
+        "polynomial_coefficients": [0.0, 0.4, -0.3, 0.2],
+        "roll": {
+          "amplitude": 0.05,
+          "cycles_across_axis": 1.1,
+          "phase_radians": 0.0
+        }
+      },
+      "noise": {
+        "seed": 20260810,
+        "model": "iid_gaussian",
+        "sigma_relative_to_amplitude_reference": 0.00087,
+        "correlation_points": 0.0
+      },
+      "acquisition_metadata": {
+        "pulse_program": "zgpg30",
+        "scans": 512,
+        "dummy_scans": 4,
+        "spectral_width_hz": 23809.52381,
+        "acquisition_time_s": 1.376256,
+        "relaxation_delay_s": 2.0,
+        "processing_line_broadening_hz": 1.0,
+        "processing_points": 32768
+      },
+      "calibration_provenance": {
+        "source": "real_spectrum_calibration/benzamide_1-1_calibration.json",
+        "source_sha256": "5FD169832AFF25A8C938FFE0AF03670F588C7649C4FCA81A13A2780359A968B4",
+        "source_level": "processed numeric XY and embedded acquisition metadata; raw FID was later verified locally but was not used to re-fit this profile",
+        "per_peak_shift_fit": false,
+        "peak_height_quantitative": false
       },
       "plot_dpi": 180
     }

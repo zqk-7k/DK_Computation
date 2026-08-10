@@ -1,8 +1,8 @@
 # 两化合物 ORCA 6.1.1 HPC 调度层
 
 本目录仅负责在 Linux SLURM/PBS Pro 上安全地运行 manifest。完整流程见
-[`../docs/SERVER_QUICKSTART.md`](../docs/SERVER_QUICKSTART.md)。当前准备好的第一阶段是
-`data/GOAT_explicit_job_manifest.csv`：2 个化合物、10 个固定显式溶剂情景、每个情景 20 个独立起点，共 200 个任务。
+[`../docs/SERVER_QUICKSTART.md`](../docs/SERVER_QUICKSTART.md)。默认第一阶段使用
+`data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv`：2 个化合物、7 个固定显式溶剂情景、每个情景 10 个独立起点，共 70 个任务。`data/GOAT_explicit_job_manifest.csv` 的 200 个任务是 `ULTRA_DIAGNOSTIC` 母清单，不是默认提交入口。
 
 所有任务均为 **CALCULATED MODEL / NOT EXPERIMENTAL DATA**。当前仓库只包含输入，未包含生产 ORCA 结果。
 
@@ -25,21 +25,31 @@
 ```bash
 python3 hpc/bin/preflight.py \
   --package-root "$PWD" \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv \
   --stage goat \
   --scheduler slurm
 
 # 首先只渲染，不提交
 export HPC_SCHEDULER=slurm
 hpc/submit/submit_goat.sh \
-  data/GOAT_explicit_job_manifest.csv \
+  data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv \
   --array-range 1-2 --max-concurrent 2
+
+# 两个含水分支分别先跑 2 个任务 pilot
+hpc/submit/submit_goat.sh \
+  data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv \
+  --array-range 21-22 --max-concurrent 2
+hpc/submit/submit_goat.sh \
+  data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv \
+  --array-range 51-52 --max-concurrent 2
 
 # 人工检查生成的脚本后，才允许真实提交
 hpc/submit/submit_goat.sh \
-  data/GOAT_explicit_job_manifest.csv \
-  --max-concurrent 100 --submit
+  data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv \
+  --max-concurrent 16 --submit
 ```
+
+GOAT 默认每任务申请 8 CPU 和 24 GiB。只有 pilot 与扩展批次证明内存、scratch、许可证和队列均允许时，才把并发逐步提高到 32 或 60；60 并发约需 480 CPU 和至少 1.44 TiB 可调度内存。
 
 PBS Pro 把 `HPC_SCHEDULER` 和 preflight 的 scheduler 改为 `pbs`。
 

@@ -23,9 +23,10 @@ PROJECT = Path(__file__).resolve().parents[1]
 DEFAULT_INPUT_ROOT = PROJECT / "NMR_predictions_CALCULATED_NOT_EXPERIMENTAL"
 DEFAULT_OUTPUT_ROOT = PROJECT / "NMR_spectra_CALCULATED_NOT_EXPERIMENTAL"
 DEFAULT_SOLUTION_EQUIVALENCE = PROJECT / "config" / "solution_equivalence_groups.json"
+DEFAULT_APPEARANCE_CONFIG = PROJECT / "config" / "appearance_profiles.json"
 
 NOTICE = "CALCULATED PREDICTION — NOT EXPERIMENTAL"
-SCHEMA_VERSION = "1.2.0"
+SCHEMA_VERSION = "1.3.0"
 NO_CARBON_FIGURE_IDS = {"F3_035", "F3_043", "F3_044"}
 EXCHANGEABLE_H_PARENT_ELEMENTS = {"N", "O", "S"}
 H1_MATH_LABEL = r"$^{1}\mathrm{H}$"
@@ -100,6 +101,39 @@ def field_union(rows: Sequence[dict[str, Any]]) -> list[str]:
                 fields.append(field)
                 seen.add(field)
     return fields
+
+
+def safe_token(value: str) -> str:
+    token = "".join(character if character.isalnum() or character in "_.-" else "_" for character in value)
+    token = token.strip("_.")
+    if not token or token in {".", ".."}:
+        raise SpectrumError(f"Unsafe output identifier: {value!r}")
+    return token
+
+
+def available_variant_keys(bundle: dict[str, Any]) -> list[str]:
+    """Return only shift variants actually present for every analyte H/C row."""
+
+    analyte_rows = [
+        row for row in bundle.get("averaged_nuclei", []) if row.get("element") in {"H", "C"}
+    ]
+    if not analyte_rows:
+        raise SpectrumError("Prediction bundle contains no analyte 1H/13C rows")
+    available: list[str] = []
+    for variant_key, variant in VARIANTS.items():
+        field = variant["shift_field"]
+        try:
+            complete = all(
+                row.get(field) is not None and math.isfinite(float(row[field]))
+                for row in analyte_rows
+            )
+        except (TypeError, ValueError):
+            complete = False
+        if complete:
+            available.append(variant_key)
+    if not available:
+        raise SpectrumError("No complete calculated shift variant is present in the prediction bundle")
+    return available
 
 
 def atomic_write_profile(
@@ -227,6 +261,8 @@ def apply_declared_solution_equivalence(
         if any(index not in nuclei or nuclei[index].get("element") != element for index in members):
             raise SpectrumError(f"Equivalence group element/index mismatch: {group.get('group_id')}")
         for shift_field in {value["shift_field"] for value in VARIANTS.values()}:
+            if any(nuclei[index].get(shift_field) is None for index in members):
+                continue
             raw = [float(nuclei[index][shift_field]) for index in members]
             mean = float(sum(raw) / len(raw))
             for index in members:
@@ -302,16 +338,80 @@ def apply_declared_solution_equivalence(
 
 
 def discover_bundles(input_root: Path, only: set[str]) -> list[Path]:
-    candidates = sorted(input_root.glob("F3_*/F3_*_prediction_bundle.json"))
+    candidates = sorted(input_root.rglob("F3_*_prediction_bundle.json"))
+    selected: list[Path] = []
+    identities: dict[tuple[str, str], Path] = {}
+    found: set[str] = set()
+    for path in candidates:
+        bundle = load_bundle(path)
+        compound = bundle["compound"]
+        figure_id = str(compound.get("figure_id", ""))
+        scenario_id = str(compound.get("scenario_id", ""))
+        if not figure_id or not scenario_id:
+            raise SpectrumError(f"Prediction bundle lacks figure/scenario identity: {path}")
+        if only and figure_id not in only:
+            continue
+        key = (figure_id, scenario_id)
+        if key in identities:
+            raise SpectrumError(
+                f"Duplicate prediction bundles for {figure_id}/{scenario_id}: "
+                f"{identities[key]} and {path}"
+            )
+        identities[key] = path
+        found.add(figure_id)
+        selected.append(path)
     if only:
-        candidates = [path for path in candidates if path.parent.name in only]
-        found = {path.parent.name for path in candidates}
         missing = only - found
         if missing:
             raise SpectrumError(f"Prediction bundles not found for: {sorted(missing)}")
-    if not candidates:
+    if not selected:
         raise SpectrumError(f"No prediction bundles found under {input_root}")
-    return candidates
+    return selected
+
+
+def appearance_line_rows(
+    sticks: Sequence[dict[str, Any]],
+    figure_id: str,
+    scenario_id: str,
+    nucleus: str,
+    variant_key: str,
+) -> list[dict[str, Any]]:
+    """Export already-resolved calculated transitions for the appearance layer.
+
+    No linewidth is copied: the acquisition profile owns broadening, including
+    exchangeable-H broadening.  Multiplicity is fixed to singlet because J
+    splitting is already represented by the individual transition rows.
+    """
+
+    result: list[dict[str, Any]] = []
+    for index, row in enumerate(sticks, start=1):
+        assignment = str(
+            row.get("assignment_atom_label_1based")
+            or row.get("component_atom_labels_1based")
+            or row.get("atom_label_1based")
+            or row.get("component_id")
+            or f"transition_{index}"
+        )
+        result.append(
+            {
+                "figure_id": figure_id,
+                "scenario_id": scenario_id,
+                "nucleus": nucleus,
+                "shift_variant": variant_key,
+                "representation": "resolved_transitions",
+                "ppm": float(row["shift_ppm"]),
+                "intensity": float(row["intensity"]),
+                "linewidth_hz": "",
+                "exchangeable_H_flag": int(row.get("is_exchangeable_H", 0)) if nucleus == "1H" else 0,
+                "multiplicity": "s",
+                "J_hz": "",
+                "assignment": assignment,
+                "source_transition_id": str(row.get("component_id") or f"{nucleus}_{index:05d}"),
+                "source_model": str(row.get("model", "")),
+                "notice": NOTICE,
+            }
+        )
+    return result
 
 
 def _split_semicolon_values(value: Any) -> list[str]:
@@ -1659,7 +1759,19 @@ def comparison_figure(
     c_linewidth_hz: float,
     carbon_na_reason: str | None,
 ) -> plt.Figure:
-    fig, axes = plt.subplots(2, 2, figsize=(7.20, 5.30))
+    variant_keys = [
+        variant_key
+        for variant_key in VARIANTS
+        if any((nucleus, variant_key) in spectra for nucleus in ("1H", "13C"))
+    ]
+    if not variant_keys:
+        raise SpectrumError("No calculated spectra are available for the comparison figure")
+    fig, axes = plt.subplots(
+        2,
+        len(variant_keys),
+        figsize=(max(4.2, 3.60 * len(variant_keys)), 5.30),
+        squeeze=False,
+    )
     fig.subplots_adjust(left=0.07, right=0.99, bottom=0.10, top=0.84, hspace=0.56, wspace=0.16)
     fig.suptitle(NOTICE, fontsize=9.2, fontweight="bold", y=0.97, color="#202428")
     fig.text(
@@ -1670,12 +1782,28 @@ def comparison_figure(
         fontweight="bold",
         color="#343A40",
     )
-    panel_specs = [
-        (0, 0, "1H", H1_MATH_LABEL, "raw_TMS", "a", h_frequency_mhz, h_linewidth_hz),
-        (0, 1, "1H", H1_MATH_LABEL, "provisional_regression", "b", h_frequency_mhz, h_linewidth_hz),
-        (1, 0, "13C", C13_MATH_LABEL, "raw_TMS", "c", c_frequency_mhz, c_linewidth_hz),
-        (1, 1, "13C", C13_MATH_LABEL, "provisional_regression", "d", c_frequency_mhz, c_linewidth_hz),
-    ]
+    panel_specs = []
+    panel_index = 0
+    for row, (nucleus, nucleus_label, frequency, linewidth) in enumerate(
+        (
+            ("1H", H1_MATH_LABEL, h_frequency_mhz, h_linewidth_hz),
+            ("13C", C13_MATH_LABEL, c_frequency_mhz, c_linewidth_hz),
+        )
+    ):
+        for column, variant_key in enumerate(variant_keys):
+            panel_specs.append(
+                (
+                    row,
+                    column,
+                    nucleus,
+                    nucleus_label,
+                    variant_key,
+                    chr(ord("a") + panel_index),
+                    frequency,
+                    linewidth,
+                )
+            )
+            panel_index += 1
     for row, column, nucleus, nucleus_label, variant_key, panel, frequency, linewidth in panel_specs:
         ax = axes[row, column]
         key = (nucleus, variant_key)
@@ -1703,10 +1831,15 @@ def comparison_figure(
                 fontweight="bold",
                 va="top",
             )
+            not_available = (
+                C13_MATH_LABEL + ": NOT APPLICABLE\n(no carbon in the reference structure)"
+                if nucleus == "13C" and carbon_na_reason
+                else f"{nucleus_label}: shift variant not available"
+            )
             ax.text(
                 0.5,
                 0.48,
-                C13_MATH_LABEL + ": NOT APPLICABLE\n(no carbon in the reference structure)",
+                not_available,
                 transform=ax.transAxes,
                 ha="center",
                 va="center",
@@ -1865,8 +1998,12 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
     )
     compound = bundle["compound"]
     figure_id = str(compound["figure_id"])
+    scenario_id = str(compound.get("scenario_id", ""))
+    if not scenario_id:
+        raise SpectrumError(f"Prediction bundle has no scenario_id: {path}")
     display_name = str(compound["display_name"])
-    output_directory = args.output_root / figure_id
+    variant_keys = available_variant_keys(bundle)
+    output_directory = args.output_root / safe_token(figure_id) / safe_token(scenario_id)
     if output_directory.exists() and any(output_directory.iterdir()) and not args.overwrite:
         raise SpectrumError(
             f"Output directory already contains files: {output_directory}; pass --overwrite to replace this script's files"
@@ -1903,7 +2040,8 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
     warnings.extend(proton_heteronuclear_warnings)
     warnings.extend(carbon_heteronuclear_warnings)
 
-    for variant_key, variant in VARIANTS.items():
+    for variant_key in variant_keys:
+        variant = VARIANTS[variant_key]
         (
             h_sticks,
             audit,
@@ -1939,6 +2077,27 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
         h_sticks_path = output_directory / f"{figure_id}_1H_{variant_key}_sticks.csv"
         atomic_write_csv(h_sticks_path, h_sticks, field_union(h_sticks))
         output_files.append(h_sticks_path)
+        h_appearance_rows = appearance_line_rows(
+            h_sticks, figure_id, scenario_id, "1H", variant_key
+        )
+        h_appearance_path = (
+            output_directory / f"{figure_id}_{safe_token(scenario_id)}_1H_{variant_key}_appearance_lines.csv"
+        )
+        atomic_write_csv(
+            h_appearance_path, h_appearance_rows, field_union(h_appearance_rows)
+        )
+        output_files.append(h_appearance_path)
+        if args.render_appearance:
+            from render_experimental_appearance import render as render_appearance
+
+            rendered = render_appearance(
+                h_appearance_path,
+                args.appearance_config,
+                output_directory / "SYNTHETIC_ACQUISITION_APPEARANCE" / "1H" / variant_key,
+                args.appearance_profile_1h or args.appearance_profile,
+                args.appearance_seed,
+            )
+            output_files.extend(rendered.values())
         h_profile_path = output_directory / f"{figure_id}_1H_{variant_key}_profile.txt"
         h_profile_metadata: dict[str, Any] = {
             "figure_id": figure_id,
@@ -2013,7 +2172,8 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
         )
         output_files.append(na_path)
     else:
-        for variant_key, variant in VARIANTS.items():
+        for variant_key in variant_keys:
+            variant = VARIANTS[variant_key]
             c_sticks = build_carbon_sticks(
                 bundle,
                 variant_key,
@@ -2033,6 +2193,28 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
             c_sticks_path = output_directory / f"{figure_id}_13C_{variant_key}_sticks.csv"
             atomic_write_csv(c_sticks_path, c_sticks, field_union(c_sticks))
             output_files.append(c_sticks_path)
+            c_appearance_rows = appearance_line_rows(
+                c_sticks, figure_id, scenario_id, "13C", variant_key
+            )
+            c_appearance_path = (
+                output_directory
+                / f"{figure_id}_{safe_token(scenario_id)}_13C_{variant_key}_appearance_lines.csv"
+            )
+            atomic_write_csv(
+                c_appearance_path, c_appearance_rows, field_union(c_appearance_rows)
+            )
+            output_files.append(c_appearance_path)
+            if args.render_appearance:
+                from render_experimental_appearance import render as render_appearance
+
+                rendered = render_appearance(
+                    c_appearance_path,
+                    args.appearance_config,
+                    output_directory / "SYNTHETIC_ACQUISITION_APPEARANCE" / "13C" / variant_key,
+                    args.appearance_profile_13c or args.appearance_profile,
+                    args.appearance_seed,
+                )
+                output_files.extend(rendered.values())
             c_profile_path = output_directory / f"{figure_id}_13C_{variant_key}_profile.txt"
             c_profile_metadata: dict[str, Any] = {
                 "figure_id": figure_id,
@@ -2138,6 +2320,7 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "generated_by": "scripts/generate_nmr_spectra.py",
         "compound": compound,
+        "scenario_id": scenario_id,
         "input_prediction_bundle": {
             "path": str(path),
             "sha256": sha256_file(path),
@@ -2158,6 +2341,7 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
             "baseline_added": False,
             "solvent_peak_added": False,
             "water_peak_added": False,
+            "separate_synthetic_appearance_rendered": bool(args.render_appearance),
         },
         "display_parameters": {
             "h_frequency_MHz": args.h_frequency_mhz,
@@ -2184,7 +2368,10 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
             "font": "Arial",
             "font_file_resolved_for_rendering": arial_path,
         },
-        "shift_variants": VARIANTS,
+        "shift_variants": {variant_key: VARIANTS[variant_key] for variant_key in variant_keys},
+        "unavailable_shift_variants": [
+            variant_key for variant_key in VARIANTS if variant_key not in variant_keys
+        ],
         "spin_component_audit": component_audit,
         "exchangeable_proton_policy": {
             "structural_definition": "explicit H directly bonded to N, O or S",
@@ -2257,9 +2444,10 @@ def process_bundle(path: Path, args: argparse.Namespace, arial_path: str) -> dic
         "display_name": display_name,
         "status": "calculated_spectra_generated_not_experimental",
         "carbon_status": metadata["carbon_status"]["status"],
-        "n_spin_components_per_variant": len(component_audit) // len(VARIANTS),
+        "n_spin_components_per_variant": len(component_audit) // len(variant_keys),
         "n_output_files": len(output_files),
         "output_directory": str(output_directory),
+        "scenario_id": scenario_id,
     }
 
 
@@ -2267,7 +2455,8 @@ def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
         description=(
             "Render explicitly labelled calculated 1H/13C spectra from prediction-bundle JSON. "
-            "No experimental-looking noise, solvent or water peaks are created."
+            "The clean layer is always retained; an explicitly labelled synthetic acquisition "
+            "appearance can be rendered as a separate output layer."
         )
     )
     parser.add_argument("--input-root", type=Path, default=DEFAULT_INPUT_ROOT)
@@ -2312,6 +2501,27 @@ def build_parser() -> argparse.ArgumentParser:
     )
     parser.add_argument("--dpi", type=int, default=600)
     parser.add_argument(
+        "--render-appearance",
+        action="store_true",
+        help=(
+            "Also render separately labelled synthetic acquisition appearance outputs with "
+            "noise, baseline, solvent/water components and empirical linewidths."
+        ),
+    )
+    parser.add_argument(
+        "--appearance-config", type=Path, default=DEFAULT_APPEARANCE_CONFIG
+    )
+    parser.add_argument(
+        "--appearance-profile",
+        help=(
+            "Optional shared appearance profile override. Prefer the nucleus-specific options "
+            "when both 1H and 13C are generated."
+        ),
+    )
+    parser.add_argument("--appearance-profile-1h", help="Optional explicit 1H appearance profile.")
+    parser.add_argument("--appearance-profile-13c", help="Optional explicit 13C appearance profile.")
+    parser.add_argument("--appearance-seed", type=int)
+    parser.add_argument(
         "--overwrite",
         action="store_true",
         help="Replace files previously written by this script in selected compound directories",
@@ -2324,6 +2534,8 @@ def validate_args(args: argparse.Namespace) -> None:
         raise SpectrumError(
             f"Solution-equivalence config is missing: {args.solution_equivalence_config}"
         )
+    if args.render_appearance and not args.appearance_config.is_file():
+        raise SpectrumError(f"Appearance config is missing: {args.appearance_config}")
     if args.h_frequency_mhz <= 0.0 or args.c_frequency_mhz <= 0.0:
         raise SpectrumError("Frequencies must be positive")
     if (
@@ -2360,6 +2572,7 @@ def main(argv: Sequence[str] | None = None) -> int:
     args.input_root = args.input_root.expanduser().resolve()
     args.output_root = args.output_root.expanduser().resolve()
     args.solution_equivalence_config = args.solution_equivalence_config.expanduser().resolve()
+    args.appearance_config = args.appearance_config.expanduser().resolve()
     try:
         validate_args(args)
         arial_path = configure_matplotlib()
@@ -2375,7 +2588,11 @@ def main(argv: Sequence[str] | None = None) -> int:
         "schema_version": SCHEMA_VERSION,
         "notice": NOTICE,
         "generated_utc": datetime.now(timezone.utc).isoformat(),
-        "selected_figure_ids": [row["figure_id"] for row in summaries],
+        "selected_figure_ids": sorted({row["figure_id"] for row in summaries}),
+        "selected_figure_scenarios": [
+            {"figure_id": row["figure_id"], "scenario_id": row["scenario_id"]}
+            for row in summaries
+        ],
         "results": summaries,
     }
     atomic_write_json(args.output_root / f"spectrum_generation_summary__{label}.json", summary)

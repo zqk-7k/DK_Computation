@@ -8,7 +8,9 @@ might look under a declared acquisition profile; it is not a first-principles
 prediction of an acquired spectrum.
 
 Required CSV columns: figure_id,nucleus,ppm,intensity
-Optional columns: linewidth_hz,exchangeable_H_flag,multiplicity,J_hz
+Optional columns: scenario_id,shift_variant,representation,linewidth_hz,
+exchangeable_H_flag,multiplicity,J_hz.  ``resolved_transitions`` input must not
+carry J values because its splitting has already been generated upstream.
 """
 
 from __future__ import annotations
@@ -29,7 +31,6 @@ import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 import numpy as np
-from scipy.special import wofz
 
 
 PROJECT = Path(__file__).resolve().parents[1]
@@ -55,6 +56,9 @@ class CleanLine:
     exchangeable: bool
     multiplicity: str
     j_hz: tuple[float, ...]
+    scenario_id: str = "UNSPECIFIED_SCENARIO"
+    shift_variant: str = "UNSPECIFIED_VARIANT"
+    representation: str = "unresolved_lines"
 
 
 def sha256(path: Path) -> str:
@@ -120,6 +124,18 @@ def read_clean_lines(path: Path) -> list[CleanLine]:
             figure_id = (row["figure_id"] or "").strip()
             if not figure_id:
                 raise AppearanceError(f"figure_id is empty at CSV row {row_number}")
+            representation = (row.get("representation") or "unresolved_lines").strip().lower()
+            multiplicity = (row.get("multiplicity") or "s").strip().lower()
+            j_values = parse_j_values(row.get("J_hz") or row.get("j_hz"))
+            if representation == "resolved_transitions" and (
+                j_values
+                or multiplicity not in {"s", "singlet"}
+                or linewidth is not None
+            ):
+                raise AppearanceError(
+                    "Resolved transitions must not carry J, multiplicity splitting or an "
+                    f"upstream linewidth at CSV row {row_number}"
+                )
             lines.append(
                 CleanLine(
                     figure_id=figure_id,
@@ -128,16 +144,29 @@ def read_clean_lines(path: Path) -> list[CleanLine]:
                     intensity=intensity,
                     linewidth_hz=linewidth,
                     exchangeable=parse_bool(row.get("exchangeable_H_flag")),
-                    multiplicity=(row.get("multiplicity") or "s").strip().lower(),
-                    j_hz=parse_j_values(row.get("J_hz") or row.get("j_hz")),
+                    multiplicity=multiplicity,
+                    j_hz=j_values,
+                    scenario_id=(row.get("scenario_id") or "UNSPECIFIED_SCENARIO").strip(),
+                    shift_variant=(row.get("shift_variant") or "UNSPECIFIED_VARIANT").strip(),
+                    representation=representation,
                 )
             )
     if not lines:
         raise AppearanceError("Clean-line CSV contains no transitions")
-    identities = {(line.figure_id, line.nucleus) for line in lines}
+    identities = {
+        (
+            line.figure_id,
+            line.nucleus,
+            line.scenario_id,
+            line.shift_variant,
+            line.representation,
+        )
+        for line in lines
+    }
     if len(identities) != 1:
         raise AppearanceError(
-            "One invocation must contain exactly one figure_id/nucleus pair; split mixed CSV files first"
+            "One invocation must contain exactly one figure/nucleus/scenario/variant/representation; "
+            "split mixed CSV files first"
         )
     return lines
 
@@ -152,9 +181,21 @@ def load_profiles(path: Path) -> dict[str, Any]:
     return payload
 
 
-def select_profile(payload: dict[str, Any], profile_id: str | None, nucleus: str) -> tuple[str, dict[str, Any]]:
+def select_profile(
+    payload: dict[str, Any],
+    profile_id: str | None,
+    nucleus: str,
+    figure_id: str | None = None,
+) -> tuple[str, dict[str, Any]]:
     if profile_id is None:
-        profile_id = str(payload.get("default_profile_by_nucleus", {}).get(nucleus, ""))
+        figure_profiles = payload.get("profile_by_figure_and_nucleus", {}).get(
+            str(figure_id or ""), {}
+        )
+        profile_id = str(
+            figure_profiles.get(
+                nucleus, payload.get("default_profile_by_nucleus", {}).get(nucleus, "")
+            )
+        )
     if not profile_id or profile_id not in payload["profiles"]:
         raise AppearanceError(f"Unknown or missing appearance profile: {profile_id!r}")
     profile = payload["profiles"][profile_id]
@@ -163,6 +204,19 @@ def select_profile(payload: dict[str, Any], profile_id: str | None, nucleus: str
     status = str(profile.get("status", "")).upper()
     if not status:
         raise AppearanceError(f"Profile {profile_id!r} must declare a provenance status")
+    provenance = profile.get("calibration_provenance", {})
+    if provenance:
+        source_text = str(provenance.get("source", ""))
+        expected_hash = str(provenance.get("source_sha256", "")).upper()
+        if not source_text or not expected_hash:
+            raise AppearanceError(f"Calibrated profile {profile_id!r} lacks source/hash provenance")
+        source = (PROJECT / source_text).resolve()
+        try:
+            source.relative_to(PROJECT.resolve())
+        except ValueError as exc:
+            raise AppearanceError(f"Calibration source escapes the package: {source}") from exc
+        if not source.is_file() or sha256(source).upper() != expected_hash:
+            raise AppearanceError(f"Calibration provenance hash mismatch for {profile_id!r}")
     return profile_id, profile
 
 
@@ -238,20 +292,16 @@ def line_profile(
     if shape_token in {"gauss", "gaussian"}:
         sigma = fwhm_ppm / (2.0 * math.sqrt(2.0 * math.log(2.0)))
         return np.exp(-0.5 * (delta / sigma) ** 2) / (sigma * math.sqrt(2.0 * math.pi))
-    if shape_token == "voigt":
+    if shape_token in {"voigt", "pseudo_voigt", "pseudo-voigt"}:
         fraction = float(voigt_lorentz_fraction)
         if not 0 <= fraction <= 1:
             raise AppearanceError("voigt_lorentz_fraction must be between 0 and 1")
-        if fraction <= 1e-12:
-            return line_profile(axis_ppm, center_ppm, fwhm_ppm, "gaussian", fraction)
-        if fraction >= 1 - 1e-12:
-            return line_profile(axis_ppm, center_ppm, fwhm_ppm, "lorentzian", fraction)
-        lorentz_fwhm = fraction * fwhm_ppm
-        gaussian_fwhm = (1.0 - fraction) * fwhm_ppm
-        gamma = lorentz_fwhm / 2.0
-        sigma = gaussian_fwhm / (2.0 * math.sqrt(2.0 * math.log(2.0)))
-        z_value = (delta + 1j * gamma) / (sigma * math.sqrt(2.0))
-        return np.real(wofz(z_value)) / (sigma * math.sqrt(2.0 * math.pi))
+        # Area-normalized pseudo-Voigt.  Both components have the declared
+        # target FWHM, so their mixture also reaches half-height exactly at
+        # +/- FWHM/2.  This avoids silently changing the configured linewidth.
+        gaussian = line_profile(axis_ppm, center_ppm, fwhm_ppm, "gaussian", fraction)
+        lorentzian = line_profile(axis_ppm, center_ppm, fwhm_ppm, "lorentzian", fraction)
+        return (1.0 - fraction) * gaussian + fraction * lorentzian
     raise AppearanceError(f"Unsupported lineshape {shape!r}; use lorentzian, gaussian or voigt")
 
 
@@ -304,17 +354,21 @@ def synthesize(lines: list[CleanLine], profile: dict[str, Any], seed: int) -> di
     voigt_fraction = float(profile.get("voigt_lorentz_fraction", 0.65))
     default_width = float(profile["default_linewidth_hz"])
     exchange_extra = float(profile.get("exchangeable_H_extra_linewidth_hz", 0.0))
+    exchange_attenuation = float(profile.get("exchange_attenuation_factor", 1.0))
+    if not 0.0 <= exchange_attenuation <= 1.0:
+        raise AppearanceError("exchange_attenuation_factor must be between 0 and 1")
 
     analyte = np.zeros(points)
     for line in lines:
         linewidth = line.linewidth_hz if line.linewidth_hz is not None else default_width
         if nucleus == "1H" and line.exchangeable:
             linewidth += exchange_extra
+        area = line.intensity * (exchange_attenuation if line.exchangeable else 1.0)
         _add_component(
             axis,
             analyte,
             line.ppm,
-            line.intensity,
+            area,
             linewidth,
             spectrometer_mhz,
             shape,
@@ -349,7 +403,27 @@ def synthesize(lines: list[CleanLine], profile: dict[str, Any], seed: int) -> di
         )
         enabled_components.append(component)
 
-    signal_reference = max(float(np.max(np.abs(analyte + named))), np.finfo(float).eps)
+    analyte_reference = max(float(np.max(np.abs(analyte))), np.finfo(float).eps)
+    total_reference = max(float(np.max(np.abs(analyte + named))), np.finfo(float).eps)
+    reference_mode = str(profile.get("amplitude_reference", "largest_total_peak")).lower()
+    if reference_mode in {"largest_analyte_peak", "analyte_max"}:
+        amplitude_reference = analyte_reference
+    elif reference_mode in {"largest_total_peak", "total_max"}:
+        amplitude_reference = total_reference
+    else:
+        raise AppearanceError(f"Unsupported amplitude_reference: {reference_mode!r}")
+
+    noise_cfg = profile.get("noise", {})
+    sigma_relative = float(
+        noise_cfg.get(
+            "sigma_relative_to_amplitude_reference",
+            noise_cfg.get("sigma_relative_to_signal_max", 0.0),
+        )
+    )
+    if sigma_relative < 0 or not math.isfinite(sigma_relative):
+        raise AppearanceError("Noise sigma must be finite and non-negative")
+    sigma = sigma_relative * amplitude_reference
+
     normalized_axis = 2.0 * (axis - ppm_min) / (ppm_max - ppm_min) - 1.0
     baseline_cfg = profile.get("baseline", {})
     coefficients = [float(value) for value in baseline_cfg.get("polynomial_coefficients", [0.0])]
@@ -359,15 +433,38 @@ def synthesize(lines: list[CleanLine], profile: dict[str, Any], seed: int) -> di
         2.0 * math.pi * float(roll.get("cycles_across_axis", 1.0)) * (normalized_axis + 1.0) / 2.0
         + float(roll.get("phase_radians", 0.0))
     )
-    baseline = signal_reference * baseline_relative
+    baseline_mode = str(baseline_cfg.get("scale_mode", "relative_to_amplitude_reference"))
+    if baseline_mode == "span_in_noise_sigma":
+        target_span = float(baseline_cfg.get("span_in_noise_sigma", 0.0)) * sigma
+        baseline_relative = baseline_relative - float(np.median(baseline_relative))
+        observed_span = float(
+            np.percentile(baseline_relative, 95) - np.percentile(baseline_relative, 5)
+        )
+        baseline = (
+            baseline_relative * target_span / observed_span
+            if observed_span > np.finfo(float).eps
+            else np.zeros(points)
+        )
+    elif baseline_mode == "relative_to_amplitude_reference":
+        baseline = amplitude_reference * baseline_relative
+    else:
+        raise AppearanceError(f"Unsupported baseline scale_mode: {baseline_mode!r}")
     deterministic = analyte + named + baseline
 
-    noise_cfg = profile.get("noise", {})
-    sigma = float(noise_cfg.get("sigma_relative_to_signal_max", 0.0)) * signal_reference
     rng = np.random.default_rng(int(seed))
     noise = rng.normal(0.0, sigma, points)
+    noise_model = str(noise_cfg.get("model", "iid_gaussian")).lower()
+    if noise_model == "ar1" and sigma > 0:
+        rho = float(noise_cfg.get("lag1_correlation", 0.0))
+        if not -0.99 < rho < 0.99:
+            raise AppearanceError("AR(1) lag1_correlation must lie between -0.99 and 0.99")
+        innovation = sigma * math.sqrt(1.0 - rho * rho)
+        for index in range(1, points):
+            noise[index] = rho * noise[index - 1] + innovation * rng.normal()
+    elif noise_model not in {"iid", "iid_gaussian", "gaussian"}:
+        raise AppearanceError(f"Unsupported noise model: {noise_model!r}")
     correlation_points = float(noise_cfg.get("correlation_points", 0.0))
-    if correlation_points > 0.5 and sigma > 0:
+    if noise_model != "ar1" and correlation_points > 0.5 and sigma > 0:
         radius = max(2, int(math.ceil(4 * correlation_points)))
         grid = np.arange(-radius, radius + 1, dtype=float)
         kernel = np.exp(-0.5 * (grid / correlation_points) ** 2)
@@ -386,6 +483,8 @@ def synthesize(lines: list[CleanLine], profile: dict[str, Any], seed: int) -> di
         "noise": noise,
         "stochastic": stochastic,
         "enabled_components": np.asarray(enabled_components, dtype=object),
+        "amplitude_reference": np.asarray([amplitude_reference]),
+        "noise_sigma": np.asarray([sigma]),
     }
 
 
@@ -445,11 +544,17 @@ def render(
     lines = read_clean_lines(input_path)
     payload = load_profiles(config_path)
     figure_id, nucleus = lines[0].figure_id, lines[0].nucleus
-    selected_id, profile = select_profile(payload, profile_id, nucleus)
+    selected_id, profile = select_profile(payload, profile_id, nucleus, figure_id)
     seed = int(profile.get("noise", {}).get("seed", 20260810) if seed_override is None else seed_override)
     result = synthesize(lines, profile, seed)
     output_dir.mkdir(parents=True, exist_ok=True)
-    stem = f"{safe_token(figure_id)}_{nucleus}"
+    scenario_id = lines[0].scenario_id
+    shift_variant = lines[0].shift_variant
+    representation = lines[0].representation
+    stem = (
+        f"{safe_token(figure_id)}_{safe_token(scenario_id)}_"
+        f"{nucleus}_{safe_token(shift_variant)}"
+    )
     deterministic_csv = output_dir / f"{stem}_deterministic.csv"
     stochastic_csv = output_dir / f"{stem}_stochastic.csv"
     deterministic_png = output_dir / f"{stem}_deterministic.png"
@@ -500,6 +605,9 @@ def render(
         "schema_version": "1.0",
         "figure_id": figure_id,
         "nucleus": nucleus,
+        "scenario_id": scenario_id,
+        "shift_variant": shift_variant,
+        "input_representation": representation,
         "profile_id": selected_id,
         "profile_status": profile["status"],
         "seed": seed,
@@ -507,13 +615,30 @@ def render(
         "scientific_scope": {
             "calls_orca": False,
             "first_principles_prediction": False,
-            "experimental_fit_performed": False,
+            "analyte_shift_fit_performed": bool(
+                profile.get("calibration_provenance", {}).get("per_peak_shift_fit", False)
+            ),
+            "appearance_parameter_calibration_applied": bool(
+                profile.get("calibration_provenance")
+            ),
+            "analyte_peak_positions_modified": False,
             "role": "conditional instrument/experimental appearance model",
         },
         "input": {"file": input_path.name, "sha256": sha256(input_path), "line_count": len(lines)},
         "configuration": {"file": config_path.name, "sha256": sha256(config_path)},
         "lineshape": profile.get("lineshape", "voigt"),
         "spectrometer_mhz": profile["spectrometer_mhz"],
+        "amplitude_reference": profile.get("amplitude_reference", "largest_total_peak"),
+        "realized_noise_sigma": float(result["noise_sigma"][0]),
+        "default_linewidth_hz": profile.get("default_linewidth_hz"),
+        "exchangeable_H_extra_linewidth_hz": profile.get(
+            "exchangeable_H_extra_linewidth_hz", 0.0
+        ),
+        "intensity_model": profile.get("intensity_model", {}),
+        "baseline_model": profile.get("baseline", {}),
+        "noise_model": profile.get("noise", {}),
+        "acquisition_metadata": profile.get("acquisition_metadata", {}),
+        "calibration_provenance": profile.get("calibration_provenance", {}),
         "named_components": [
             {
                 "id": item.get("id"),

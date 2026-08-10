@@ -17,7 +17,7 @@ import re
 from collections import defaultdict
 from dataclasses import dataclass
 from pathlib import Path
-from typing import Mapping, Sequence
+from typing import Iterable, Mapping, Sequence
 
 from draft_minimum_boltzmann_gate import normalized_weights, parse_orca_qrrho
 from workflow_schema import (
@@ -39,6 +39,7 @@ from workflow_schema import (
 
 
 PROJECT = Path(__file__).resolve().parents[1]
+DEFAULT_WORKFLOW_PROFILES = PROJECT / "config" / "workflow_profiles.json"
 MINIMUM_APPROVED = "APPROVED_FOR_NMR"
 PROTOCOL_APPROVED = "APPROVED_FOR_NMR_PROPERTIES"
 PASS = "PASS"
@@ -59,6 +60,195 @@ class Plan:
     directory: Path
     files: dict[str, bytes]
     row: dict[str, object]
+
+
+def cumulative_population_union(
+    weight_sets: Mapping[tuple[str, str], Mapping[str, object]],
+    scenario_id: str,
+    threshold: float,
+    minimum_conformers: int = 1,
+) -> set[str]:
+    """Return the union needed to reach a population threshold for every nucleus."""
+
+    if not 0.0 < threshold <= 1.0:
+        raise WorkflowValidationError("Cumulative-population threshold must be in (0, 1]")
+    if minimum_conformers < 1:
+        raise WorkflowValidationError("minimum_conformers must be positive")
+    selected: set[str] = set()
+    matched = False
+    for (candidate_scenario, _nucleus), weight_set in sorted(weight_sets.items()):
+        if candidate_scenario != scenario_id:
+            continue
+        matched = True
+        raw_weights = weight_set.get("weights")
+        if not isinstance(raw_weights, list) or not raw_weights:
+            raise WorkflowValidationError(f"Empty population set for {scenario_id}")
+        ordered = sorted(
+            raw_weights,
+            key=lambda item: (-float(item["weight"]), str(item["conformer_id"])),
+        )
+        cumulative = 0.0
+        local: list[str] = []
+        for item in ordered:
+            conformer_id = str(item["conformer_id"])
+            local.append(conformer_id)
+            cumulative += float(item["weight"])
+            if cumulative >= threshold and len(local) >= minimum_conformers:
+                break
+        if cumulative + 1.0e-10 < threshold:
+            raise WorkflowValidationError(
+                f"Population set for {scenario_id} reaches only {cumulative:.8f}, below {threshold}"
+            )
+        selected.update(local)
+    if not matched:
+        raise WorkflowValidationError(f"No population sets for scenario {scenario_id}")
+    return selected
+
+
+def load_workflow_property_scope(
+    path: Path | None, profile_name: str | None, project: Path
+) -> tuple[
+    str,
+    dict[str, object],
+    str,
+    str,
+    str,
+    set[tuple[str, str]],
+    dict[str, tuple[str, str]],
+]:
+    if path is None and profile_name is None:
+        return "ULTRA_LEGACY_DEFAULT", {}, "", "", "", set(), {}
+    resolved = ensure_within(path or DEFAULT_WORKFLOW_PROFILES, project, "workflow profiles")
+    payload = read_json(resolved)
+    selected = str(profile_name or payload.get("default_profile", "")).upper()
+    profiles = payload.get("profiles")
+    if not isinstance(profiles, dict) or selected not in profiles:
+        raise WorkflowValidationError(f"Unknown workflow property profile: {selected}")
+    profile = profiles[selected]
+    if not isinstance(profile, dict):
+        raise WorkflowValidationError(f"Malformed workflow property profile: {selected}")
+    scope = profile.get("property_scope")
+    if not isinstance(scope, dict):
+        raise WorkflowValidationError(f"Workflow profile lacks property_scope: {selected}")
+    config_hash = sha256_file(resolved)
+    compounds = profile.get("compounds")
+    if not isinstance(compounds, dict) or not compounds:
+        raise WorkflowValidationError(f"Workflow profile lacks compounds: {selected}")
+    allowed_pairs = {
+        (str(figure_id), str(scenario["id"]))
+        for figure_id, compound in compounds.items()
+        for scenario in compound.get("scenarios", [])
+    }
+    if not allowed_pairs:
+        raise WorkflowValidationError(f"Workflow profile has no scenarios: {selected}")
+    profile_root = ensure_within(
+        project / "data" / "workflow_profiles" / selected,
+        project,
+        "materialized workflow profile",
+    )
+    profile_manifest = profile_root / "GOAT_explicit_job_manifest.csv"
+    profile_scenarios = profile_root / "explicit_scenario_registry.csv"
+    manifest_rows = read_csv(profile_manifest)
+    scenario_rows = read_csv(profile_scenarios)
+    manifest_pairs = {(row["figure_id"], row["scenario_id"]) for row in manifest_rows}
+    registry_pairs = {(row["figure_id"], row["scenario_id"]) for row in scenario_rows}
+    if manifest_pairs != allowed_pairs or registry_pairs != allowed_pairs:
+        raise WorkflowValidationError(
+            f"Materialized profile scenario set differs from {selected} configuration"
+        )
+    if any(
+        row.get("workflow_profile") != selected
+        or normalize_sha256(row.get("profile_config_sha256", "")) != config_hash
+        for row in manifest_rows
+    ):
+        raise WorkflowValidationError(f"Materialized profile rows are not bound to {selected}")
+    source_job_pairs = {
+        row["job_id"]: (row["figure_id"], row["scenario_id"])
+        for row in manifest_rows
+    }
+    if len(source_job_pairs) != len(manifest_rows):
+        raise WorkflowValidationError(f"Duplicate jobs in materialized profile: {selected}")
+    return (
+        selected,
+        scope,
+        config_hash,
+        sha256_file(profile_manifest),
+        sha256_file(profile_scenarios),
+        allowed_pairs,
+        source_job_pairs,
+    )
+
+
+def validate_workflow_profile_binding(
+    dft_rows: Sequence[Mapping[str, object]],
+    workflow_profile: str,
+    config_hash: str,
+    profile_manifest_hash: str,
+    profile_scenario_registry_hash: str,
+    allowed_pairs: set[tuple[str, str]],
+    allowed_source_job_pairs: Mapping[str, tuple[str, str]],
+) -> None:
+    if not allowed_pairs:
+        return
+    observed_pairs = {
+        (str(row.get("figure_id", "")), str(row.get("scenario_id", "")))
+        for row in dft_rows
+    }
+    if observed_pairs != allowed_pairs:
+        raise WorkflowValidationError(
+            f"DFT scenario set is not exactly bound to {workflow_profile}: "
+            f"missing={sorted(allowed_pairs - observed_pairs)}, "
+            f"extra={sorted(observed_pairs - allowed_pairs)}"
+        )
+    errors: list[str] = []
+    for row in dft_rows:
+        job_id = str(row.get("job_id", ""))
+        source_job_id = str(row.get("source_goat_job_id", ""))
+        row_pair = (str(row.get("figure_id", "")), str(row.get("scenario_id", "")))
+        if (
+            str(row.get("workflow_profile", "")) != workflow_profile
+            or normalize_sha256(str(row.get("workflow_profile_config_sha256", "")))
+            != config_hash
+            or normalize_sha256(str(row.get("source_goat_manifest_sha256", "")))
+            != profile_manifest_hash
+            or normalize_sha256(str(row.get("source_scenario_registry_sha256", "")))
+            != profile_scenario_registry_hash
+            or allowed_source_job_pairs.get(source_job_id) != row_pair
+        ):
+            errors.append(job_id)
+    if errors:
+        raise WorkflowValidationError(
+            f"DFT rows lack exact {workflow_profile} provenance binding: {errors[:10]}"
+        )
+
+
+def scope_selected_conformers(
+    scope: object,
+    weight_sets: Mapping[tuple[str, str], Mapping[str, object]],
+    scenario_id: str,
+    approved_ids: Iterable[str],
+) -> set[str]:
+    approved = set(approved_ids)
+    if isinstance(scope, str):
+        if scope.startswith("all_approved"):
+            return approved
+        raise WorkflowValidationError(f"Unsupported property scope: {scope}")
+    if not isinstance(scope, dict):
+        raise WorkflowValidationError(f"Malformed property scope for {scenario_id}")
+    if scope.get("selection") != "union_of_nucleus_specific_cumulative_population":
+        raise WorkflowValidationError(f"Unsupported population scope for {scenario_id}: {scope}")
+    selected = cumulative_population_union(
+        weight_sets,
+        scenario_id,
+        float(scope.get("cumulative_population", 0.0)),
+        int(scope.get("minimum_conformers_per_fixed_composition", 1)),
+    )
+    unknown = selected - approved
+    if unknown:
+        raise WorkflowValidationError(
+            f"Population scope selected unapproved conformers for {scenario_id}: {sorted(unknown)}"
+        )
+    return selected
 
 
 def safe_token(value: str) -> str:
@@ -623,6 +813,8 @@ def build_property_jobs(
     j_manifest_path: Path,
     weights_path: Path,
     replace_unstarted: bool = False,
+    workflow_profiles_path: Path | None = None,
+    workflow_profile_name: str | None = None,
 ) -> tuple[list[dict[str, object]], list[dict[str, object]], list[dict[str, object]]]:
     project = Path(project).resolve()
     if not gate_paths:
@@ -640,6 +832,24 @@ def build_property_jobs(
     resources, resource_hash = _resource_values(resource_policy_path)
     dft_manifest_hash = sha256_file(dft_manifest_path)
     reference_registry_hash = sha256_file(reference_registry_path)
+    (
+        workflow_profile,
+        property_scope,
+        workflow_profile_hash,
+        workflow_profile_manifest_hash,
+        workflow_profile_scenario_registry_hash,
+        workflow_allowed_pairs,
+        workflow_allowed_source_job_pairs,
+    ) = load_workflow_property_scope(workflow_profiles_path, workflow_profile_name, project)
+    validate_workflow_profile_binding(
+        dft_rows,
+        workflow_profile,
+        workflow_profile_hash,
+        workflow_profile_manifest_hash,
+        workflow_profile_scenario_registry_hash,
+        workflow_allowed_pairs,
+        workflow_allowed_source_job_pairs,
+    )
 
     gate_records = []
     seen_figures: set[str] = set()
@@ -664,6 +874,14 @@ def build_property_jobs(
                 if figure_id != "F3_006":
                     raise WorkflowValidationError(f"Unexpected iodine outside F3_006: {job_id}")
         gate_records.append((gate_path, gate, states, approved, weight_sets, rows_by_job))
+    if workflow_allowed_pairs:
+        required_figures = {figure_id for figure_id, _scenario_id in workflow_allowed_pairs}
+        if seen_figures != required_figures:
+            raise WorkflowValidationError(
+                f"Minimum/Boltzmann gate coverage is not exact for {workflow_profile}: "
+                f"missing={sorted(required_figures - seen_figures)}, "
+                f"extra={sorted(seen_figures - required_figures)}"
+            )
     resolved_j_gate = ensure_within(j_gate_path, project, "J benchmark gate") if any_j else None
     resolved_iodine_gate = (
         ensure_within(iodine_gate_path, project, "F3_006 iodine gate") if need_iodine else None
@@ -688,6 +906,40 @@ def build_property_jobs(
     weight_rows: list[dict[str, object]] = []
     for gate_path, gate, states, approved, weight_sets, rows_by_job in gate_records:
         gate_hash = sha256_file(gate_path)
+        approved_by_scenario: dict[str, set[str]] = defaultdict(set)
+        for approved_job_id in approved:
+            approved_by_scenario[rows_by_job[approved_job_id]["scenario_id"]].add(
+                approved_job_id
+            )
+        pbe0_selected: dict[str, set[str]] = {}
+        revdsd_selected: dict[str, set[str]] = {}
+        j_selected: dict[str, set[str]] = {}
+        for profile_scenario, profile_ids in approved_by_scenario.items():
+            if property_scope:
+                pbe0_selected[profile_scenario] = scope_selected_conformers(
+                    property_scope.get("pbe0_pcsseg3", "all_approved_conformers"),
+                    weight_sets,
+                    profile_scenario,
+                    profile_ids,
+                )
+                revdsd_selected[profile_scenario] = scope_selected_conformers(
+                    property_scope.get("revdsd_pcsseg3", "all_approved_conformers"),
+                    weight_sets,
+                    profile_scenario,
+                    profile_ids,
+                )
+                j_selected[profile_scenario] = scope_selected_conformers(
+                    property_scope.get(
+                        "j_coupling", "all_approved_conformers_after_method_gate"
+                    ),
+                    weight_sets,
+                    profile_scenario,
+                    profile_ids,
+                )
+            else:
+                pbe0_selected[profile_scenario] = set(profile_ids)
+                revdsd_selected[profile_scenario] = set(profile_ids)
+                j_selected[profile_scenario] = set(profile_ids)
         for key, weight_set in sorted(weight_sets.items()):
             for item in weight_set["weights"]:
                 weight_rows.append(
@@ -764,6 +1016,16 @@ def build_property_jobs(
                 for element, indices in sorted(index_map.items())
             ]
             for branch in shield_branches:
+                if branch["branch"] == "production_revdsd_pcsseg3":
+                    if job_id not in revdsd_selected[scenario_id]:
+                        continue
+                    branch_scope_status = "adaptive_cumulative_population_scope"
+                elif branch["branch"] == "crosscheck_pbe0_pcsseg3":
+                    if job_id not in pbe0_selected[scenario_id]:
+                        continue
+                    branch_scope_status = "profile_PBE0_scope"
+                else:
+                    branch_scope_status = "profile_declared_scope"
                 references = {
                     NUCLEUS[element]: _find_reference(
                         reference_entries, NUCLEUS[element], domain, branch["fingerprint"]
@@ -816,6 +1078,13 @@ def build_property_jobs(
                     "reference_registry_sha256": reference_registry_hash,
                     "source_dft_manifest_sha256": dft_manifest_hash,
                     "resource_policy_sha256": resource_hash,
+                    "workflow_profile": workflow_profile,
+                    "workflow_profile_config_sha256": workflow_profile_hash,
+                    "workflow_profile_manifest_sha256": workflow_profile_manifest_hash,
+                    "workflow_profile_scenario_registry_sha256": (
+                        workflow_profile_scenario_registry_hash
+                    ),
+                    "workflow_property_scope": branch_scope_status,
                     "iodine_gate_sha256": iodine_gate_hash if contains_iodine else "",
                 }
                 files = {
@@ -863,12 +1132,20 @@ def build_property_jobs(
                             "source_isotope_map_sha256": isotope_map_hash,
                             "approved_minimum_gate_sha256": gate_hash,
                             "source_opt_freq_state_sha256": evidence["state_sha256"],
+                            "source_dft_manifest_sha256": dft_manifest_hash,
                             "method_fingerprint": branch["fingerprint"],
                             "reference_ids": json.dumps(
                                 {key: value["reference_id"] for key, value in references.items()},
                                 separators=(",", ":"),
                             ),
                             "weights_by_nucleus": json.dumps(weights_json, separators=(",", ":")),
+                            "workflow_profile": workflow_profile,
+                            "workflow_profile_config_sha256": workflow_profile_hash,
+                            "workflow_profile_manifest_sha256": workflow_profile_manifest_hash,
+                            "workflow_profile_scenario_registry_sha256": (
+                                workflow_profile_scenario_registry_hash
+                            ),
+                            "workflow_property_scope": branch_scope_status,
                             "enabled": "true",
                             "readiness": "ready",
                             "approval_status": PROTOCOL_APPROVED,
@@ -876,7 +1153,7 @@ def build_property_jobs(
                         },
                     )
                 )
-            if pairs and j_gate is not None:
+            if pairs and j_gate is not None and job_id in j_selected[scenario_id]:
                 if contains_iodine:
                     assert iodine_j is not None
                     j_fingerprint = iodine_j["fingerprint"]
@@ -944,6 +1221,13 @@ def build_property_jobs(
                     "weights_by_nucleus": weights_json,
                     "resource_policy_sha256": resource_hash,
                     "source_dft_manifest_sha256": dft_manifest_hash,
+                    "workflow_profile": workflow_profile,
+                    "workflow_profile_config_sha256": workflow_profile_hash,
+                    "workflow_profile_manifest_sha256": workflow_profile_manifest_hash,
+                    "workflow_profile_scenario_registry_sha256": (
+                        workflow_profile_scenario_registry_hash
+                    ),
+                    "workflow_property_scope": "profile_J_scope",
                 }
                 files = {
                     "optimized.xyz": optimized_bytes,
@@ -980,10 +1264,18 @@ def build_property_jobs(
                             "source_isotope_map_sha256": isotope_map_hash,
                             "approved_minimum_gate_sha256": gate_hash,
                             "source_opt_freq_state_sha256": evidence["state_sha256"],
+                            "source_dft_manifest_sha256": dft_manifest_hash,
                             "method_fingerprint": j_fingerprint,
                             "j_pair_count": len(pairs),
                             "j_benchmark_gate_sha256": j_gate_hash,
                             "weights_by_nucleus": json.dumps(weights_json, separators=(",", ":")),
+                            "workflow_profile": workflow_profile,
+                            "workflow_profile_config_sha256": workflow_profile_hash,
+                            "workflow_profile_manifest_sha256": workflow_profile_manifest_hash,
+                            "workflow_profile_scenario_registry_sha256": (
+                                workflow_profile_scenario_registry_hash
+                            ),
+                            "workflow_property_scope": "profile_J_scope",
                             "enabled": "true",
                             "readiness": "ready",
                             "approval_status": PROTOCOL_APPROVED,
@@ -1037,6 +1329,18 @@ def parser() -> argparse.ArgumentParser:
     value.add_argument("--shielding-manifest", type=Path)
     value.add_argument("--j-manifest", type=Path)
     value.add_argument("--weights", type=Path)
+    value.add_argument(
+        "--workflow-profiles",
+        type=Path,
+        help=(
+            "Workflow profile configuration; the CLI defaults to "
+            "<project>/config/workflow_profiles.json."
+        ),
+    )
+    value.add_argument(
+        "--workflow-profile",
+        help="Profile ID; when --workflow-profiles is supplied, defaults to its default_profile.",
+    )
     value.add_argument("--replace-unstarted", action="store_true")
     return value
 
@@ -1060,6 +1364,10 @@ def main() -> None:
         j_manifest_path=args.j_manifest or project / "data" / "NMR_j_coupling_job_manifest.csv",
         weights_path=args.weights or project / "data" / "NMR_conformer_weights.csv",
         replace_unstarted=args.replace_unstarted,
+        workflow_profiles_path=(
+            args.workflow_profiles or project / "config" / "workflow_profiles.json"
+        ),
+        workflow_profile_name=args.workflow_profile,
     )
     print(
         f"Built {len(shielding)} shielding and {len(coupling)} J inputs with {len(weights)} weights; "

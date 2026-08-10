@@ -577,6 +577,9 @@ class ExplicitDftHandoffTest(unittest.TestCase):
         )
         self.assertGreaterEqual(len(rows), 2)
         self.assertEqual({row["scenario_id"] for row in rows}, {"D2O_01_primary", "D2O_02_primary"})
+        self.assertTrue(
+            all(row["workflow_profile_coverage"] == "EXACT_SELECTED_MANIFEST_COVERAGE" for row in rows)
+        )
         for row in rows:
             job_dir = Path(str(row["job_directory"]))
             inp = (job_dir / "dft_opt_freq.inp").read_text(encoding="utf-8")
@@ -604,6 +607,26 @@ class ExplicitDftHandoffTest(unittest.TestCase):
             self.assertTrue(any(item["nmr_scope"] == "ENVIRONMENT_EXCLUDED_FROM_ANALYTE_NMR" for item in map_rows))
             self.assertEqual(len(map_rows), provenance["cluster_atom_count"])
 
+    def test_dft_builder_rejects_partial_selected_manifest_coverage(self) -> None:
+        _draft, approved = self._draft_and_approve()
+        partial_manifest = self.project / "data" / "GOAT_manifest_with_missing_figure_gate.csv"
+        rows = [dict(row) for row in self.rows]
+        extra = dict(rows[0])
+        extra["job_id"] = "F3_002_D2O_01_primary_s01"
+        extra["figure_id"] = "F3_002"
+        rows.append(extra)
+        write_csv(partial_manifest, rows, list(rows[0]))
+        with self.assertRaises(WorkflowValidationError):
+            build_dft_jobs(
+                self.project,
+                [approved],
+                partial_manifest,
+                self.registry,
+                self.resource_policy,
+                self.project / "partial_dft_output",
+                self.project / "data" / "partial_dft_manifest.csv",
+            )
+
     def test_opt_runner_lock_and_provenance_tamper_gate(self) -> None:
         _draft, approved = self._draft_and_approve()
         manifest = self.project / "data" / "DFT_explicit_job_manifest.csv"
@@ -624,6 +647,26 @@ class ExplicitDftHandoffTest(unittest.TestCase):
         payload = json.loads(approved.read_text(encoding="utf-8"))
         payload["decision_notes"].append("intentional unit-test tamper")
         write(approved, json.dumps(payload, indent=2) + "\n")
+        with self.assertRaises(WorkflowValidationError):
+            dry_run_validate(self.project, manifest)
+
+    def test_opt_runner_rejects_same_scenario_source_label_substitution(self) -> None:
+        _draft, approved = self._draft_and_approve()
+        manifest = self.project / "data" / "DFT_explicit_job_manifest.csv"
+        rows = build_dft_jobs(
+            self.project,
+            [approved],
+            self.manifest,
+            self.registry,
+            self.resource_policy,
+            self.project / "02_dft_opt_freq_explicit",
+            manifest,
+        )
+        tampered = [dict(row) for row in rows]
+        original = str(tampered[0]["source_goat_job_id"])
+        replacement = original.rsplit("s", 1)[0] + "s02"
+        tampered[0]["source_goat_job_id"] = replacement
+        write_csv(manifest, tampered, list(tampered[0]))
         with self.assertRaises(WorkflowValidationError):
             dry_run_validate(self.project, manifest)
 

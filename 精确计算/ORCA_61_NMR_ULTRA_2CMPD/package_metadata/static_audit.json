@@ -1,6 +1,6 @@
 {
   "schema_version": "1.0",
-  "generated_at_utc": "2026-08-10T06:42:03.908391+00:00",
+  "generated_at_utc": "2026-08-10T09:25:01.787614+00:00",
   "status": "PASS",
   "project": ".",
   "checks": [
@@ -138,6 +138,120 @@
       "detail": []
     },
     {
+      "name": "default_workflow_profile",
+      "status": "PASS",
+      "detail": "PRACTICAL_HIGH_ACCURACY"
+    },
+    {
+      "name": "practical_profile_jobs",
+      "status": "PASS",
+      "detail": {
+        "jobs": 70,
+        "scenarios": 7
+      }
+    },
+    {
+      "name": "practical_profile_exact_master_subset_and_hash_binding",
+      "status": "PASS",
+      "detail": {
+        "configured_pairs": [
+          [
+            "F3_005",
+            "DMSO_00_W00_continuum"
+          ],
+          [
+            "F3_005",
+            "DMSO_02_W00_primary"
+          ],
+          [
+            "F3_005",
+            "DMSO_02_W01_trace_water_sensitivity"
+          ],
+          [
+            "F3_015",
+            "DMSO_00_W00_continuum"
+          ],
+          [
+            "F3_015",
+            "DMSO_02_W00_primary"
+          ],
+          [
+            "F3_015",
+            "DMSO_02_W01_trace_water_sensitivity"
+          ],
+          [
+            "F3_015",
+            "DMSO_03_W00_extended"
+          ]
+        ],
+        "row_errors": [],
+        "scenario_errors": []
+      }
+    },
+    {
+      "name": "practical_trace_water_required_and_isolated",
+      "status": "PASS",
+      "detail": {
+        "wet_jobs": 20
+      }
+    },
+    {
+      "name": "trace_water_has_matched_dry_controls",
+      "status": "PASS",
+      "detail": {
+        "F3_005": {
+          "dry": "DMSO_02_W00_primary",
+          "wet": "DMSO_02_W01_trace_water_sensitivity"
+        },
+        "F3_015": {
+          "dry": "DMSO_02_W00_primary",
+          "wet": "DMSO_02_W01_trace_water_sensitivity"
+        }
+      }
+    },
+    {
+      "name": "trace_water_delta_tool_packaged",
+      "status": "PASS",
+      "detail": "matched dry/wet delta reporting is required"
+    },
+    {
+      "name": "practical_goat_resource_headroom",
+      "status": "PASS",
+      "detail": {
+        "cpus": 8,
+        "memory_mb": 24576,
+        "walltime": "24:00:00",
+        "max_concurrent": 16,
+        "input_default": "goat.inp",
+        "required_artifact_globs": [
+          "*.globalminimum.xyz",
+          "*.finalensemble.xyz"
+        ],
+        "copy_back_globs": [
+          "*.inp",
+          "*.out",
+          "*.stderr.log",
+          "*.xyz",
+          "*.property.txt",
+          "*.gbw",
+          "*.hess",
+          "*.engrad",
+          "*.trj",
+          "*.bibtex"
+        ]
+      }
+    },
+    {
+      "name": "ultra_profile_preserved",
+      "status": "PASS",
+      "detail": 200
+    },
+    {
+      "name": "benzamide_conditioned_appearance_profiles",
+      "status": "PASS",
+      "detail": []
+    },
+    {
       "name": "reference_jobs",
       "status": "PASS",
       "detail": 6
@@ -175,13 +289,18 @@
       "name": "truth_status",
       "status": "PASS",
       "detail": {
-        "schema_version": "1.0",
+        "schema_version": "1.1",
         "package_state": "INPUTS_PREPARED",
         "hpc_execution_state": "NOT_RUN",
         "scientific_validation_state": "DRAFT_NOT_VALIDATED",
         "maximum_validation_scope_token": "VALIDATED_FOR_THIS_TWO_COMPOUND_PROTOCOL_AND_LOCKED_CONDITIONS",
         "calculated_spectra_included": false,
         "experimental_spectra_included": false,
+        "default_workflow_profile": "PRACTICAL_HIGH_ACCURACY",
+        "diagnostic_workflow_profile": "ULTRA_DIAGNOSTIC",
+        "practical_goat_jobs": 70,
+        "practical_trace_water_policy": "MANDATORY_SEPARATE_2DMSO_PLUS_1H2O_SENSITIVITY_BRANCH",
+        "appearance_delivery_policy": "CLEAN_CALCULATED_AND_SEPARATELY_LABELLED_SYNTHETIC_ACQUISITION_APPEARANCE",
         "scope": [
           "F3_005 benzamide 1H/13C",
           "F3_015 neutral (S)-prolinamide 1H/13C"

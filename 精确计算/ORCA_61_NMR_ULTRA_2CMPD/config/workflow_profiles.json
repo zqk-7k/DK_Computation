@@ -1,0 +1,162 @@
+{
+  "schema_version": "1.0",
+  "default_profile": "PRACTICAL_HIGH_ACCURACY",
+  "notice": "CALCULATED WORKFLOW CONFIGURATION - NOT EXPERIMENTAL DATA",
+  "profiles": {
+    "PRACTICAL_HIGH_ACCURACY": {
+      "status": "DRAFT_NOT_VALIDATED",
+      "role": "default_daily_production_with_mandatory_trace_water_sensitivity",
+      "goat": {
+        "starts_per_scenario": 10,
+        "source_input_policy": "reuse_first_deterministic_starts_from_hash_locked_ULTRA_inputs",
+        "input_max_energy_kcal_mol": 12.0
+      },
+      "compounds": {
+        "F3_005": {
+          "display_name": "benzamide",
+          "scenarios": [
+            {
+              "id": "DMSO_00_W00_continuum",
+              "role": "MAIN_CONTINUUM_PREDICTION",
+              "main_prediction_eligibility": true
+            },
+            {
+              "id": "DMSO_02_W00_primary",
+              "role": "DRY_FIRST_SHELL_SENSITIVITY",
+              "main_prediction_eligibility": false
+            },
+            {
+              "id": "DMSO_02_W01_trace_water_sensitivity",
+              "role": "MANDATORY_TRACE_WATER_SENSITIVITY",
+              "main_prediction_eligibility": false
+            }
+          ]
+        },
+        "F3_015": {
+          "display_name": "L-prolinamide",
+          "scenarios": [
+            {
+              "id": "DMSO_00_W00_continuum",
+              "role": "MAIN_CONTINUUM_PREDICTION",
+              "main_prediction_eligibility": true
+            },
+            {
+              "id": "DMSO_03_W00_extended",
+              "role": "DRY_FIRST_SHELL_SENSITIVITY",
+              "main_prediction_eligibility": false
+            },
+            {
+              "id": "DMSO_02_W00_primary",
+              "role": "MATCHED_DRY_CONTROL_FOR_TRACE_WATER",
+              "main_prediction_eligibility": false
+            },
+            {
+              "id": "DMSO_02_W01_trace_water_sensitivity",
+              "role": "MANDATORY_TRACE_WATER_SENSITIVITY",
+              "main_prediction_eligibility": false
+            }
+          ]
+        }
+      },
+      "fixed_composition_policy": {
+        "cross_stoichiometry_boltzmann_mixing": "FORBIDDEN",
+        "cross_stoichiometry_weight": "NONE",
+        "trace_water_interpretation": "conditional sensitivity envelope, not measured water activity",
+        "explicit_water_does_not_generate_appearance_water_peak": true,
+        "matched_water_delta_pairs": {
+          "F3_005": {
+            "dry": "DMSO_02_W00_primary",
+            "wet": "DMSO_02_W01_trace_water_sensitivity"
+          },
+          "F3_015": {
+            "dry": "DMSO_02_W00_primary",
+            "wet": "DMSO_02_W01_trace_water_sensitivity"
+          }
+        }
+      },
+      "property_scope": {
+        "pbe0_pcsseg3": "all_approved_conformers",
+        "revdsd_pcsseg3": {
+          "selection": "union_of_nucleus_specific_cumulative_population",
+          "cumulative_population": 0.95,
+          "minimum_conformers_per_fixed_composition": 1
+        },
+        "j_coupling": {
+          "selection": "union_of_nucleus_specific_cumulative_population",
+          "cumulative_population": 0.95,
+          "nonexchangeable_visible_HH_only": true,
+          "routine_13C_proton_decoupled": true
+        },
+        "ri_mp2": "manual_adaptive_diagnostic_only",
+        "dlpno_mp2": "manual_adaptive_diagnostic_only",
+        "autoci_ccsdt": "manual_adaptive_diagnostic_only",
+        "vpt2": "manual_adaptive_diagnostic_only"
+      },
+      "adaptive_escalation": {
+        "water_sensitivity_flags": {
+          "nonexchangeable_1H_abs_delta_ppm": 0.10,
+          "13C_abs_delta_ppm": 1.0,
+          "exchangeable_1H_abs_delta_ppm": 0.50,
+          "NH_order_change": true
+        },
+        "method_disagreement_flags": {
+          "nonexchangeable_1H_abs_delta_ppm": 0.20,
+          "13C_abs_delta_ppm": 2.0
+        },
+        "escalate_to": "ULTRA_DIAGNOSTIC",
+        "prohibition": "Do not select or mix a wet branch merely because it is closer to experiment."
+      },
+      "deliverables": {
+        "clean_calculated_spectrum": "required",
+        "synthetic_acquisition_appearance": "required_and_separately_labelled",
+        "wet_dry_delta_table": "required"
+      }
+    },
+    "ULTRA_DIAGNOSTIC": {
+      "status": "DRAFT_NOT_VALIDATED",
+      "role": "full_scenario_and_high_level_diagnostic",
+      "goat": {
+        "starts_per_scenario": 20,
+        "source_input_policy": "all_hash_locked_ULTRA_inputs",
+        "input_max_energy_kcal_mol": 12.0
+      },
+      "compounds": {
+        "F3_005": {
+          "display_name": "benzamide",
+          "scenarios": [
+            {"id": "DMSO_00_W00_continuum", "role": "CONTINUUM", "main_prediction_eligibility": true},
+            {"id": "DMSO_01_W00_primary", "role": "ONE_DMSO_SENSITIVITY", "main_prediction_eligibility": false},
+            {"id": "DMSO_02_W00_primary", "role": "TWO_DMSO_SENSITIVITY", "main_prediction_eligibility": false},
+            {"id": "DMSO_03_W00_extended", "role": "THREE_DMSO_SENSITIVITY", "main_prediction_eligibility": false},
+            {"id": "DMSO_02_W01_trace_water_sensitivity", "role": "TRACE_WATER_SENSITIVITY", "main_prediction_eligibility": false}
+          ]
+        },
+        "F3_015": {
+          "display_name": "L-prolinamide",
+          "scenarios": [
+            {"id": "DMSO_00_W00_continuum", "role": "CONTINUUM", "main_prediction_eligibility": true},
+            {"id": "DMSO_01_W00_primary", "role": "ONE_DMSO_SENSITIVITY", "main_prediction_eligibility": false},
+            {"id": "DMSO_02_W00_primary", "role": "TWO_DMSO_SENSITIVITY", "main_prediction_eligibility": false},
+            {"id": "DMSO_03_W00_extended", "role": "THREE_DMSO_SENSITIVITY", "main_prediction_eligibility": false},
+            {"id": "DMSO_02_W01_trace_water_sensitivity", "role": "TRACE_WATER_SENSITIVITY", "main_prediction_eligibility": false}
+          ]
+        }
+      },
+      "fixed_composition_policy": {
+        "cross_stoichiometry_boltzmann_mixing": "FORBIDDEN",
+        "cross_stoichiometry_weight": "NONE"
+      },
+      "property_scope": {
+        "pbe0_pcsseg3": "all_approved_conformers",
+        "revdsd_pcsseg3": "all_approved_conformers",
+        "j_coupling": "all_approved_conformers_after_method_gate",
+        "higher_level_diagnostics": "manual_gate_only"
+      },
+      "deliverables": {
+        "clean_calculated_spectrum": "required",
+        "synthetic_acquisition_appearance": "required_and_separately_labelled",
+        "full_scenario_uncertainty_report": "required"
+      }
+    }
+  }
+}

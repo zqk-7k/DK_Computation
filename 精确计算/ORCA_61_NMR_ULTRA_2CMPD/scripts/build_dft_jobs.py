@@ -475,6 +475,10 @@ def _plan_gate_jobs(
             "approved_gate_sha256": gate_hash,
             "approved_conformer_id": selection.get("conformer_id", ""),
             "source_goat_job_id": source_job_id,
+            "workflow_profile": source_row.get("workflow_profile", "ULTRA_LEGACY_DEFAULT"),
+            "workflow_profile_config_sha256": source_row.get("profile_config_sha256", ""),
+            "source_goat_manifest_sha256": manifest_hash,
+            "source_scenario_registry_sha256": registry_hash,
             "source_state_file": str(evidence["state_path"]),
             "source_state_sha256": evidence["state_sha256"],
             "source_finalensemble_file": str(artifact_path),
@@ -554,6 +558,14 @@ def _plan_gate_jobs(
                     "charge": charge,
                     "multiplicity": multiplicity,
                     "source_goat_job_id": source_job_id,
+                    "workflow_profile": source_row.get(
+                        "workflow_profile", "ULTRA_LEGACY_DEFAULT"
+                    ),
+                    "workflow_profile_config_sha256": source_row.get(
+                        "profile_config_sha256", ""
+                    ),
+                    "source_goat_manifest_sha256": manifest_hash,
+                    "source_scenario_registry_sha256": registry_hash,
                     "source_frame_index_1based": frame_index,
                     "job_directory": str(directory.resolve()),
                     "input_file": "dft_opt_freq.inp",
@@ -603,6 +615,7 @@ def build_dft_jobs(
     output_manifest: Path,
     replace_unstarted: bool = False,
     nucleus_conditions_path: Path | None = None,
+    allow_partial_profile: bool = False,
 ) -> list[dict[str, object]]:
     project = Path(project).resolve()
     if not gate_paths:
@@ -654,6 +667,19 @@ def build_dft_jobs(
                 nucleus_conditions_hash,
             )
         )
+    required_figures = {row["figure_id"] for row in manifest_rows}
+    if seen_figures != required_figures and not allow_partial_profile:
+        raise WorkflowValidationError(
+            "Approved GOAT gate coverage does not match the selected manifest: "
+            f"missing={sorted(required_figures - seen_figures)}, "
+            f"extra={sorted(seen_figures - required_figures)}. "
+            "Use --allow-partial-profile only for an explicitly partial diagnostic run."
+        )
+    coverage_status = (
+        "EXACT_SELECTED_MANIFEST_COVERAGE"
+        if seen_figures == required_figures
+        else "PARTIAL_PROFILE_EXPLICIT_OPT_IN"
+    )
     job_ids = [job.job_id for job in planned]
     if len(job_ids) != len(set(job_ids)):
         raise WorkflowValidationError("Planned DFT job IDs collide")
@@ -676,6 +702,7 @@ def build_dft_jobs(
             atomic_write_bytes(job.directory / relative, data)
         row = dict(job.manifest_row)
         row["queue_order"] = queue_order
+        row["workflow_profile_coverage"] = coverage_status
         rows.append(row)
     fields = list(rows[0].keys()) if rows else []
     if not rows:
@@ -695,6 +722,11 @@ def parser() -> argparse.ArgumentParser:
     value.add_argument("--output-manifest", type=Path)
     value.add_argument("--replace-unstarted", action="store_true")
     value.add_argument("--nucleus-conditions", type=Path)
+    value.add_argument(
+        "--allow-partial-profile",
+        action="store_true",
+        help="Allow an explicitly partial diagnostic DFT manifest; exact selected-manifest coverage is the default.",
+    )
     return value
 
 
@@ -716,6 +748,7 @@ def main() -> None:
         output_manifest=args.output_manifest or project / "data" / "DFT_explicit_job_manifest.csv",
         replace_unstarted=args.replace_unstarted,
         nucleus_conditions_path=args.nucleus_conditions,
+        allow_partial_profile=args.allow_partial_profile,
     )
     print(f"Built {len(rows)} DFT opt/freq inputs; ORCA was not started.")
 

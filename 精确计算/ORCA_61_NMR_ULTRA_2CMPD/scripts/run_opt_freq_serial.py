@@ -31,6 +31,7 @@ from workflow_schema import (
     read_json,
     sha256_file,
     validate_completed_opt_freq_state,
+    validate_dft_manifest_provenance_identity,
 )
 
 
@@ -165,8 +166,7 @@ def validate_manifest_job(row: dict[str, str], project: Path) -> dict[str, objec
         raise WorkflowValidationError(f"Opt/freq input bundle hash mismatch: {job_id}")
     provenance_path = job_dir / "provenance.json"
     provenance = read_json(provenance_path)
-    if provenance.get("job_id") != job_id or provenance.get("scenario_id") != row.get("scenario_id"):
-        raise WorkflowValidationError(f"Opt/freq provenance identity mismatch: {job_id}")
+    validate_dft_manifest_provenance_identity(row, provenance, job_id)
     if normalize_sha256(str(provenance.get("dft_input_sha256", ""))) != input_hash:
         raise WorkflowValidationError(f"Opt/freq provenance input hash mismatch: {job_id}")
     if normalize_sha256(str(provenance.get("dft_input_bundle_sha256", ""))) != bundle_hash:

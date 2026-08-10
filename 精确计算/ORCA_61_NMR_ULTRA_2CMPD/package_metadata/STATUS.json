@@ -1,11 +1,16 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "package_state": "INPUTS_PREPARED",
   "hpc_execution_state": "NOT_RUN",
   "scientific_validation_state": "DRAFT_NOT_VALIDATED",
   "maximum_validation_scope_token": "VALIDATED_FOR_THIS_TWO_COMPOUND_PROTOCOL_AND_LOCKED_CONDITIONS",
   "calculated_spectra_included": false,
   "experimental_spectra_included": false,
+  "default_workflow_profile": "PRACTICAL_HIGH_ACCURACY",
+  "diagnostic_workflow_profile": "ULTRA_DIAGNOSTIC",
+  "practical_goat_jobs": 70,
+  "practical_trace_water_policy": "MANDATORY_SEPARATE_2DMSO_PLUS_1H2O_SENSITIVITY_BRANCH",
+  "appearance_delivery_policy": "CLEAN_CALCULATED_AND_SEPARATELY_LABELLED_SYNTHETIC_ACQUISITION_APPEARANCE",
   "scope": ["F3_005 benzamide 1H/13C", "F3_015 neutral (S)-prolinamide 1H/13C"],
   "truth_boundary": "Prepared inputs, workflow code, locked targets and synthetic appearance tools are included. Production ORCA outputs are not included and must not be inferred."
 }

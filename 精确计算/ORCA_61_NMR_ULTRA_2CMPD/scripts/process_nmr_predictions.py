@@ -46,7 +46,7 @@ DEFAULT_H3PO4_OUTPUT = (
 DEFAULT_OUTPUT_ROOT = PROJECT / "NMR_predictions_CALCULATED_NOT_EXPERIMENTAL"
 
 NOTICE = "CALCULATED PREDICTION — NOT EXPERIMENTAL"
-SCHEMA_VERSION = "1.5.0"
+SCHEMA_VERSION = "1.6.1"
 HARTREE_TO_KCAL_MOL = 627.5094740631
 DEFAULT_SIGNIFICANT_IMAGINARY_CM = -20.0
 WEIGHT_TOLERANCE = 5.0e-6
@@ -940,7 +940,14 @@ def validate_property_provenance(row: dict[str, str]) -> dict[str, Any]:
     if not path.is_file():
         raise ProcessingError(f"Missing property provenance: {path}")
     payload = json.loads(path.read_text(encoding="utf-8"))
-    for field in ("job_id", "figure_id", "scenario_id", "method_fingerprint"):
+    for field in (
+        "job_id",
+        "figure_id",
+        "scenario_id",
+        "method_fingerprint",
+        "workflow_profile",
+        "workflow_property_scope",
+    ):
         if str(payload.get(field, "")) != str(row.get(field, "")):
             raise ProcessingError(f"Property provenance {field} mismatch: {path}")
     hash_bindings = (
@@ -949,10 +956,28 @@ def validate_property_provenance(row: dict[str, str]) -> dict[str, Any]:
         ("source_opt_freq_state_sha256", "source_opt_freq_state_sha256"),
         ("approved_minimum_gate_sha256", "approved_minimum_gate_sha256"),
         ("conformer_xyz_sha256", "optimized_coordinate_sha256"),
+        ("source_dft_manifest_sha256", "source_dft_manifest_sha256"),
+        ("workflow_profile_config_sha256", "workflow_profile_config_sha256"),
+        ("workflow_profile_manifest_sha256", "workflow_profile_manifest_sha256"),
+        (
+            "workflow_profile_scenario_registry_sha256",
+            "workflow_profile_scenario_registry_sha256",
+        ),
     )
     for manifest_field, provenance_field in hash_bindings:
         expected = str(row.get(manifest_field, "")).strip().upper()
         actual = str(payload.get(provenance_field, "")).strip().upper()
+        legacy_profile_hash = (
+            str(row.get("workflow_profile", "")) == "ULTRA_LEGACY_DEFAULT"
+            and manifest_field
+            in {
+                "workflow_profile_config_sha256",
+                "workflow_profile_manifest_sha256",
+                "workflow_profile_scenario_registry_sha256",
+            }
+        )
+        if legacy_profile_hash and not expected and not actual:
+            continue
         if not expected or not re.fullmatch(r"[0-9A-F]{64}", expected):
             raise ProcessingError(
                 f"Property manifest lacks valid {manifest_field}: {row.get('job_id')}"
@@ -965,6 +990,125 @@ def validate_property_provenance(row: dict[str, str]) -> dict[str, Any]:
         "path": str(path),
         "sha256": sha256_file(path),
         "payload": payload,
+    }
+
+
+def resolve_property_profile_binding(
+    validated_property_provenances: Sequence[dict[str, Any]],
+) -> dict[str, str]:
+    """Return one explicit, identical workflow-profile binding for a result bundle."""
+    if not validated_property_provenances:
+        raise ProcessingError("No validated property provenance is available for profile binding")
+    fields = (
+        "workflow_profile",
+        "workflow_profile_config_sha256",
+        "workflow_profile_manifest_sha256",
+        "workflow_profile_scenario_registry_sha256",
+        "source_dft_manifest_sha256",
+    )
+    first = validated_property_provenances[0]["payload"]
+    binding = {field: str(first.get(field, "")).strip() for field in fields}
+    if not binding["workflow_profile"]:
+        raise ProcessingError("Validated property provenance lacks workflow_profile")
+    legacy_profile_fields = {
+        "workflow_profile_config_sha256",
+        "workflow_profile_manifest_sha256",
+        "workflow_profile_scenario_registry_sha256",
+    }
+    if binding["workflow_profile"] == "ULTRA_LEGACY_DEFAULT" and any(
+        binding[field] for field in legacy_profile_fields
+    ):
+        raise ProcessingError(
+            "ULTRA_LEGACY_DEFAULT must not carry pseudo profile-file hashes"
+        )
+    for field in fields[1:]:
+        value = binding[field].upper()
+        if (
+            binding["workflow_profile"] == "ULTRA_LEGACY_DEFAULT"
+            and field in legacy_profile_fields
+            and not value
+        ):
+            continue
+        if not re.fullmatch(r"[0-9A-F]{64}", value):
+            raise ProcessingError(f"Validated property provenance lacks valid {field}")
+        binding[field] = value
+    for record in validated_property_provenances[1:]:
+        payload = record["payload"]
+        for field, expected in binding.items():
+            actual = str(payload.get(field, "")).strip()
+            if field != "workflow_profile":
+                actual = actual.upper()
+            if actual != expected:
+                raise ProcessingError(
+                    f"Property jobs do not share one workflow-profile binding ({field})"
+                )
+    is_legacy = binding["workflow_profile"] == "ULTRA_LEGACY_DEFAULT"
+    return {
+        "name": binding["workflow_profile"],
+        "config_sha256": binding["workflow_profile_config_sha256"],
+        "materialized_manifest_sha256": binding[
+            "workflow_profile_manifest_sha256"
+        ],
+        "scenario_registry_sha256": binding[
+            "workflow_profile_scenario_registry_sha256"
+        ],
+        "source_dft_manifest_sha256": binding["source_dft_manifest_sha256"],
+        "binding_status": (
+            "LEGACY_COMPATIBILITY_NO_PROFILE_CONFIG_HASHES"
+            if is_legacy
+            else "PASS_ROW_PROVENANCE_AND_ALL_PROPERTY_JOBS_IDENTICAL"
+        ),
+    }
+
+
+def validate_live_workflow_profile_binding(
+    binding: dict[str, str],
+    dft_manifest_path: Path,
+    project: Path = PROJECT,
+) -> dict[str, str]:
+    """Bind recorded property provenance to the live inputs used by this processor."""
+    expected_dft = str(binding.get("source_dft_manifest_sha256", "")).upper()
+    actual_dft = sha256_file(dft_manifest_path).upper()
+    if expected_dft != actual_dft:
+        raise ProcessingError(
+            "Property workflow binding source_dft_manifest_sha256 differs from the "
+            "DFT manifest currently read by the processor"
+        )
+    profile_name = str(binding.get("name", ""))
+    if profile_name == "ULTRA_LEGACY_DEFAULT":
+        return {
+            **binding,
+            "live_file_binding_status": "PASS_DFT_MANIFEST_ONLY_LEGACY_COMPATIBILITY",
+        }
+    if not re.fullmatch(r"[A-Z0-9_.-]+", profile_name):
+        raise ProcessingError(f"Unsafe workflow profile name: {profile_name!r}")
+    live_paths = {
+        "config_sha256": project / "config" / "workflow_profiles.json",
+        "materialized_manifest_sha256": (
+            project
+            / "data"
+            / "workflow_profiles"
+            / profile_name
+            / "GOAT_explicit_job_manifest.csv"
+        ),
+        "scenario_registry_sha256": (
+            project
+            / "data"
+            / "workflow_profiles"
+            / profile_name
+            / "explicit_scenario_registry.csv"
+        ),
+    }
+    for field, path in live_paths.items():
+        if not path.is_file():
+            raise ProcessingError(f"Workflow profile live file is missing: {path}")
+        if str(binding.get(field, "")).upper() != sha256_file(path).upper():
+            raise ProcessingError(
+                f"Property workflow binding {field} differs from live file: {path}"
+            )
+    return {
+        **binding,
+        "live_file_binding_status": "PASS_DFT_CONFIG_PROFILE_MANIFEST_AND_REGISTRY",
     }
 
 
@@ -1991,6 +2135,7 @@ def process_figure(
     shielding_runner_records: dict[str, dict[str, Any]] = {}
     coupling_runner_records: dict[str, dict[str, Any]] = {}
     shielding_method_validations: dict[str, dict[str, str]] = {}
+    validated_property_provenances: list[dict[str, Any]] = []
     source_files: list[dict[str, Any]] = [
         *[file_record(path) for path in atom_map_paths],
         *[file_record(path) for path in isotope_provenance["paths"]],
@@ -2038,6 +2183,7 @@ def process_figure(
             parsed_shieldings[conformer_id] = parsed
             shielding_runner_records[conformer_id] = runner
             shielding_method_validations[conformer_id] = method_validation
+            validated_property_provenances.append(property_provenance)
             source_files.extend(
                 [
                     file_record(output),
@@ -2093,6 +2239,7 @@ def process_figure(
                 raise ProcessingError("Coupling output contains no analyte-analyte pairs")
             parsed_couplings[conformer_id] = parsed
             coupling_runner_records[conformer_id] = runner
+            validated_property_provenances.append(property_provenance)
             source_files.extend(
                 [
                     file_record(output),
@@ -2114,6 +2261,13 @@ def process_figure(
         raise ProcessingError(f"No completed shielding results for {figure_id}/{scenario_id}")
     if not parsed_couplings:
         raise ProcessingError(f"No completed coupling results for {figure_id}/{scenario_id}")
+    workflow_profile_binding = resolve_property_profile_binding(
+        validated_property_provenances
+    )
+    workflow_profile_binding = validate_live_workflow_profile_binding(
+        workflow_profile_binding,
+        source_manifest_paths["dft_manifest"],
+    )
 
     shielding_nuclei = {
         NUCLEUS_FROM_ELEMENT[row["element"]]
@@ -2512,24 +2666,46 @@ def process_figure(
         "No linewidth, solvent peak, water peak, noise, baseline or experimental-looking spectrum was generated by this script.",
         "This processor reports configured H, C, F and P shieldings and scalar couplings. It does not infer 33S shifts without a nucleus-specific calculation and reference.",
     ]
+    dft_input_keywords = method_line(
+        Path(first_dft["job_directory"]) / first_dft["input_file"]
+    )
+    shielding_input_keywords = method_line(
+        Path(first_shield["job_directory"]) / first_shield["input_file"]
+    )
+    coupling_input_keywords = method_line(
+        Path(first_coupling["job_directory"]) / first_coupling["input_file"]
+    )
+    opt_freq_qrrho_protocol = {
+        "electronic_structure_keywords": dft_input_keywords,
+        "thermochemistry_engine": "ORCA_QRRHO_FROM_THE_SAME_ISOTOPE_AWARE_OPT_FREQ_HESSIAN",
+        "temperature_policy": "NUCLEUS_SPECIFIC_LOCKED_ACQUISITION_TEMPERATURES",
+        "temperature_source": "config/nucleus_conditions.csv via approved minimum/Boltzmann gate",
+        "isotope_mass_policy": "HASH_LOCKED_JOB_LOCAL_ISOTOPE_MAP_WITH_EXPLICIT_DMSO_D6_DEUTERIUM",
+        "population_normalization": "WITHIN_ONE_FIGURE_SCENARIO_NUCLEUS_TEMPERATURE_ONLY",
+        "processor_reweighting": "FORBIDDEN",
+    }
+    opt_freq_qrrho_protocol_fingerprint = sha256_bytes(
+        json.dumps(
+            opt_freq_qrrho_protocol,
+            sort_keys=True,
+            separators=(",", ":"),
+        ).encode("utf-8")
+    )
     bundle = {
         "schema_version": SCHEMA_VERSION,
         "notice": NOTICE,
         "generated_utc": datetime.now(timezone.utc).isoformat(),
         "generated_by": "scripts/process_nmr_predictions.py",
+        "workflow_profile": workflow_profile_binding,
         "compound": compound,
         "methods": {
             "shielding_method": shielding_method,
             "shielding_method_fingerprint": shielding_method_fingerprint,
-            "dft_opt_freq_input_keywords": method_line(
-                Path(first_dft["job_directory"]) / first_dft["input_file"]
-            ),
-            "shielding_input_keywords": method_line(
-                Path(first_shield["job_directory"]) / first_shield["input_file"]
-            ),
-            "coupling_input_keywords": method_line(
-                Path(first_coupling["job_directory"]) / first_coupling["input_file"]
-            ),
+            "dft_opt_freq_input_keywords": dft_input_keywords,
+            "opt_freq_qrrho_protocol": opt_freq_qrrho_protocol,
+            "opt_freq_qrrho_protocol_fingerprint": opt_freq_qrrho_protocol_fingerprint,
+            "shielding_input_keywords": shielding_input_keywords,
+            "coupling_input_keywords": coupling_input_keywords,
             "tms_reference_output": str(tms_output),
             "cfcl3_19f_reference_output": str(cfcl3_output),
             "h3po4_31p_reference_output": str(h3po4_output),
@@ -2598,6 +2774,9 @@ def process_figure(
         "warnings": warnings,
         "source_files": source_files
         + [file_record(path) for path in source_manifest_paths.values()],
+        "source_manifest_hashes": {
+            key: file_record(path) for key, path in sorted(source_manifest_paths.items())
+        },
     }
 
     output_directory.mkdir(parents=True, exist_ok=True)
@@ -2872,6 +3051,12 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "source_isotope_map_sha256",
                 "approved_minimum_gate_sha256",
                 "source_opt_freq_state_sha256",
+                "source_dft_manifest_sha256",
+                "workflow_profile",
+                "workflow_profile_config_sha256",
+                "workflow_profile_manifest_sha256",
+                "workflow_profile_scenario_registry_sha256",
+                "workflow_property_scope",
             },
         )
         coupling_rows = read_manifest(
@@ -2890,6 +3075,12 @@ def main(argv: Sequence[str] | None = None) -> int:
                 "source_isotope_map_sha256",
                 "approved_minimum_gate_sha256",
                 "source_opt_freq_state_sha256",
+                "source_dft_manifest_sha256",
+                "workflow_profile",
+                "workflow_profile_config_sha256",
+                "workflow_profile_manifest_sha256",
+                "workflow_profile_scenario_registry_sha256",
+                "workflow_property_scope",
             },
         )
         shielding_rows, shielding_method_fingerprint = select_shielding_method_rows(

@@ -42,7 +42,7 @@
 | `DMSO_03_W00` | 3 DMSO | 脯氨酰胺扩展候选 |
 | `DMSO_02_W01` | 2 DMSO + 1 H₂O | 痕量水敏感性，不代表样品水活度 |
 
-每个化合物、每个场景有 20 个确定性起点，共 200 个任务。重建输入时运行：
+ULTRA 母清单中每个化合物、每个场景有 20 个确定性起点，共 200 个任务。重建母输入时运行：
 
 ```bash
 python3 scripts/prepare_explicit_goat_jobs.py \
@@ -51,19 +51,27 @@ python3 scripts/prepare_explicit_goat_jobs.py \
 python3 scripts/audit_explicit_goat_preparation.py
 ```
 
-生产执行使用 `data/GOAT_explicit_job_manifest.csv`。先进行 2 个任务 pilot，再扩展到 10 个，确认稳定后才提交全部数组。
+日常生产默认从母清单物化 `PRACTICAL_HIGH_ACCURACY`：苯甲酰胺 3 个场景、脯氨酰胺 4 个场景，每场景 10 个起点，共 70 个任务。200 个任务只在自适应门控升级到 `ULTRA_DIAGNOSTIC` 后使用。
+
+```bash
+python3 scripts/build_workflow_profile.py
+PROFILE_MANIFEST=data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv
+PROFILE_SCENARIOS=data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/explicit_scenario_registry.csv
+```
+
+先运行普通 2-task pilot，并对清单行 21–22 与 51–52 的两个含水分支分别做 pilot；再扩展到每个含水分支 10 个任务，确认稳定后才提交 practical 全数组。
 
 GOAT 完成后，使用 HPC 收集与桥接工具：
 
 ```bash
 python3 hpc/bin/status.py \
   --package-root "$PWD" \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --stage goat
 
 python3 hpc/bin/collect_results.py \
   --package-root "$PWD" \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --stage goat \
   --require-all \
   --materialize-job-directories
@@ -71,14 +79,14 @@ python3 hpc/bin/collect_results.py \
 python3 hpc/bin/export_workflow_states.py \
   --package-root "$PWD" \
   --stage goat \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --output-state-root logs/goat_explicit_batch/jobs \
   --compat-manifest data/GOAT_manifest_gate_compatible.csv
 
 python3 scripts/draft_goat_selection_gate.py \
   --project "$PWD" \
   --manifest data/GOAT_manifest_gate_compatible.csv \
-  --scenario-registry data/explicit_scenario_registry.csv \
+  --scenario-registry "$PROFILE_SCENARIOS" \
   --state-root logs/goat_explicit_batch/jobs
 ```
 
@@ -87,7 +95,10 @@ python3 scripts/draft_goat_selection_gate.py \
 ## 4. 阶段 2：PBE0-D4 优化与频率
 
 ```bash
-python3 scripts/build_dft_jobs.py --project "$PWD"
+python3 scripts/build_dft_jobs.py \
+  --project "$PWD" \
+  --manifest "$PROFILE_MANIFEST" \
+  --scenario-registry "$PROFILE_SCENARIOS"
 
 python3 hpc/bin/normalize_manifest_paths.py \
   --package-root "$PWD" \
@@ -166,7 +177,10 @@ python3 scripts/prepare_ultra_reference_jobs.py
 在 minimum gates 和参考 registry 均批准后生成属性输入：
 
 ```bash
-python3 scripts/build_property_jobs.py --project "$PWD"
+python3 scripts/build_property_jobs.py \
+  --project "$PWD" \
+  --workflow-profiles config/workflow_profiles.json \
+  --workflow-profile PRACTICAL_HIGH_ACCURACY
 ```
 
 该构建器同时生成：

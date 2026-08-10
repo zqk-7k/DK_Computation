@@ -73,18 +73,24 @@ sha256sum /absolute/path/to/orca
 
 # 输入审计与 HPC 预检
 python3 scripts/audit_explicit_goat_preparation.py
+python3 scripts/build_workflow_profile.py
+PROFILE_MANIFEST=data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv
 python3 hpc/bin/preflight.py \
   --package-root "$PWD" \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --stage goat \
   --scheduler slurm
 
 # 只渲染前两个 SLURM 数组任务；默认不提交
 export HPC_SCHEDULER=slurm
 hpc/submit/submit_goat.sh \
-  data/GOAT_explicit_job_manifest.csv \
+  "$PROFILE_MANIFEST" \
   --array-range 1-2 \
   --max-concurrent 2
+
+# 两个含水场景也必须各自先做 pilot（仍默认只渲染、不提交）
+hpc/submit/submit_goat.sh "$PROFILE_MANIFEST" --array-range 21-22 --max-concurrent 2
+hpc/submit/submit_goat.sh "$PROFILE_MANIFEST" --array-range 51-52 --max-concurrent 2
 ```
 
 人工检查生成的脚本后，才在同一命令末尾添加 `--submit`。PBS Pro 将 `HPC_SCHEDULER` 和预检参数改为 `pbs`。完整服务器步骤见 [docs/SERVER_QUICKSTART.md](docs/SERVER_QUICKSTART.md)，各阶段门控见 [docs/WORKFLOW.md](docs/WORKFLOW.md)。
@@ -98,7 +104,7 @@ hpc/submit/submit_goat.sh \
 ## 关键目录
 
 ```text
-01_goat_explicit/       200 个已生成的 GOAT 输入
+01_goat_explicit/       200 个已生成的 ULTRA 母清单输入；默认 practical 从中选取 70 个
 config/                 方法、条件、资源和显式溶剂策略
 data/                   输入 manifests、场景注册表和审计结果
 docs/                   工作流、服务器操作和方法依据
@@ -130,6 +136,12 @@ deliverables/           只放最终审核通过的表、图和报告
 This is a validation-ready, fail-closed ORCA 6.1.1 workflow for `¹H` and `¹³C` NMR of benzamide (`F3_005`) and neutral `(S)`-prolinamide (`F3_015`) in DMSO-d₆. It contains 200 deterministic GOAT inputs, high-level shielding branches, same-method TMS references, provenance hashes, and SLURM/PBS Pro tooling.
 
 The package has **not** been run on the target HPC system and has **not** completed independent experimental validation. Its production candidate is `revDSD-PBEP86-D4/2021/pcSseg-3/NoFrozenCore`; `PBE0/pcSseg-3` is a cross-check. RI-MP2, DLPNO-MP2, AUTOCI-CCSD(T), and VPT2 are gated diagnostics, not automatically superior production methods. Conformers may be Boltzmann averaged only within an identical explicit-solvent composition. Noise, baseline, solvent peaks, intensity, and linewidth belong to a separately labelled synthetic acquisition layer and are not first-principles observables.
+
+### Default practical profile with explicit trace water
+
+`PRACTICAL_HIGH_ACCURACY` is now the declared default daily profile; `ULTRA_DIAGNOSTIC` remains available for adaptive escalation. The practical profile selects three fixed-composition branches for benzamide and four for `(S)`-prolinamide, with ten deterministic GOAT starts per branch (70 GOAT jobs total). For each compound, `DMSO_02_W01_trace_water_sensitivity` (`2 DMSO + 1 H2O`) is mandatory and is compared only with the matched `DMSO_02_W00_primary` dry control. It remains separate from the main prediction, and cross-stoichiometry Boltzmann mixing is forbidden.
+
+The spectrum pipeline preserves a clean calculated layer and can additionally render a separately labelled synthetic acquisition appearance containing empirical noise, baseline, DMSO/water components, peak heights and linewidths. For benzamide `F3_005`, figure-specific single-sample conditioned profiles use the audited `1-1-H/C` appearance descriptors without fitting or moving any calculated analyte chemical shift. See [docs/PRACTICAL_HIGH_ACCURACY.md](docs/PRACTICAL_HIGH_ACCURACY.md).
 
 ### 2026-08-10 release-critical scientific controls
 

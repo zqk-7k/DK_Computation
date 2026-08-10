@@ -6,5 +6,6 @@
   "raw_data_in_git": false,
   "1H_fid_sha256": "9B70403ED10C3C8AFDA9C8FD5AA9ECC2564AF65C28644F9547F87B37F35C4AD1",
   "13C_fid_sha256": "2304FECFF0A66DF0BCE40241F7E88F47B6906DBF104B49FFD3DCC03CD6A46C01",
-  "note": "Full local paths and raw Bruker data are intentionally excluded from the public portable package. Recompute and record full hashes on the authorized analysis host before calibration approval."
+  "appearance_calibration_relation": "These receiver-domain FIDs were verified later but were not used to re-fit the current appearance parameters, which remain based on processed PDF/XY traces and embedded acquisition metadata.",
+  "note": "Full local paths and raw Bruker data are intentionally excluded from the public portable package. Recompute and record full hashes on the authorized analysis host before any future receiver-domain recalibration approval."
 }

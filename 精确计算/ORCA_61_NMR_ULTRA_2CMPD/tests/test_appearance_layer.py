@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import csv
+import copy
 import importlib.util
 import json
 import sys
@@ -102,7 +103,10 @@ class AppearanceLayerTests(unittest.TestCase):
             self.assertEqual(metadata["profile_status"], "PROVISIONAL_NOT_FITTED")
             self.assertFalse(metadata["scientific_scope"]["calls_orca"])
             self.assertFalse(metadata["scientific_scope"]["first_principles_prediction"])
-            self.assertFalse(metadata["scientific_scope"]["experimental_fit_performed"])
+            self.assertFalse(metadata["scientific_scope"]["analyte_shift_fit_performed"])
+            self.assertFalse(
+                metadata["scientific_scope"]["appearance_parameter_calibration_applied"]
+            )
             identities = {item["identity"] for item in metadata["named_components"]}
             self.assertIn("residual protonated DMSO in DMSO-d6", identities)
             self.assertIn("water in DMSO-d6", identities)
@@ -151,6 +155,92 @@ class AppearanceLayerTests(unittest.TestCase):
             ppm = load_column(outputs["deterministic_csv"], "ppm")
             named = load_column(outputs["deterministic_csv"], "named_solvent_water_signal")
             self.assertGreater(float(named[np.abs(ppm - 39.52) < 1.0].max()), 0.0)
+
+    def test_benzamide_uses_single_sample_calibrated_profiles(self):
+        payload = json.loads(DEFAULT_CONFIG.read_text(encoding="utf-8"))
+        h_id, h_profile = MODULE.select_profile(payload, None, "1H", "F3_005")
+        c_id, c_profile = MODULE.select_profile(payload, None, "13C", "F3_005")
+        self.assertIn("calibrated_single_sample", h_id)
+        self.assertIn("calibrated_single_sample", c_id)
+        self.assertEqual(
+            h_profile["status"], "CALIBRATED_SINGLE_SAMPLE_CONDITIONAL_NOT_TRANSFERABLE"
+        )
+        self.assertAlmostEqual(h_profile["default_linewidth_hz"], 3.33, places=2)
+        self.assertAlmostEqual(c_profile["named_components"][0]["linewidth_hz"], 6.43, places=2)
+        self.assertFalse(h_profile["calibration_provenance"]["per_peak_shift_fit"])
+
+    def test_calibrated_metadata_distinguishes_appearance_calibration_from_shift_fit(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            source = root / "lines.csv"
+            config = small_config(root / "profiles.json")
+            write_lines(source)
+            with source.open(encoding="utf-8", newline="") as handle:
+                rows = list(csv.DictReader(handle))
+            for row in rows:
+                row["figure_id"] = "F3_005"
+            with source.open("w", encoding="utf-8", newline="") as handle:
+                writer = csv.DictWriter(handle, fieldnames=list(rows[0]))
+                writer.writeheader()
+                writer.writerows(rows)
+            outputs = MODULE.render(source, config, root / "calibrated")
+            metadata = json.loads(outputs["metadata"].read_text(encoding="utf-8"))
+            scope = metadata["scientific_scope"]
+            self.assertTrue(scope["appearance_parameter_calibration_applied"])
+            self.assertFalse(scope["analyte_shift_fit_performed"])
+            self.assertFalse(scope["analyte_peak_positions_modified"])
+
+    def test_pseudo_voigt_preserves_declared_fwhm(self):
+        axis = np.linspace(-0.1, 0.1, 200001)
+        target = 0.02
+        values = MODULE.line_profile(axis, 0.0, target, "pseudo_voigt", 0.7)
+        half = float(values.max()) / 2.0
+        positive = axis >= 0
+        positive_axis = axis[positive]
+        positive_values = values[positive]
+        index = int(np.argmin(np.abs(positive_values - half)))
+        measured = 2.0 * float(positive_axis[index])
+        self.assertAlmostEqual(measured, target, delta=2.0e-5)
+
+    def test_calibrated_noise_reference_is_independent_of_solvent_height(self):
+        payload = json.loads(DEFAULT_CONFIG.read_text(encoding="utf-8"))
+        profile = copy.deepcopy(
+            payload["profiles"][
+                "benzamide_1_1_dmso_d6_1H_400MHz_calibrated_single_sample"
+            ]
+        )
+        profile["axis"]["points"] = 4096
+        lines = [MODULE.CleanLine("F3_005", "1H", 7.5, 1.0, None, False, "s", ())]
+        first = MODULE.synthesize(lines, profile, seed=8)
+        for component in profile["named_components"]:
+            component["relative_integral"] *= 100.0
+        second = MODULE.synthesize(lines, profile, seed=8)
+        self.assertAlmostEqual(
+            float(first["noise_sigma"][0]), float(second["noise_sigma"][0]), places=12
+        )
+        np.testing.assert_array_equal(first["noise"], second["noise"])
+
+    def test_resolved_transitions_cannot_be_split_twice(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "resolved.csv"
+            source.write_text(
+                "figure_id,scenario_id,nucleus,shift_variant,representation,ppm,intensity,multiplicity,J_hz\n"
+                "F3_005,DMSO_02_W01_trace_water_sensitivity,1H,raw_TMS,resolved_transitions,7.5,1,d,7.8\n",
+                encoding="utf-8",
+            )
+            with self.assertRaises(MODULE.AppearanceError):
+                MODULE.read_clean_lines(source)
+
+    def test_resolved_transitions_cannot_be_broadened_twice(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            source = Path(temporary) / "resolved.csv"
+            source.write_text(
+                "figure_id,scenario_id,nucleus,shift_variant,representation,ppm,intensity,linewidth_hz,multiplicity,J_hz\n"
+                "F3_005,DMSO_02_W00_primary,1H,raw_TMS,resolved_transitions,7.5,1,3.0,s,\n",
+                encoding="utf-8",
+            )
+            with self.assertRaises(MODULE.AppearanceError):
+                MODULE.read_clean_lines(source)
 
     def test_mixed_spectra_are_rejected(self):
         with tempfile.TemporaryDirectory() as temporary:

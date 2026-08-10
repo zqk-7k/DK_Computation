@@ -80,6 +80,171 @@ def main() -> int:
     check("goat_hashes", not bad_hashes, bad_hashes[:10])
     check("goat_resources", not bad_resources, bad_resources[:10])
 
+    workflow_config_path = PROJECT / "config/workflow_profiles.json"
+    workflow_config = json.loads(workflow_config_path.read_text(encoding="utf-8"))
+    check(
+        "default_workflow_profile",
+        workflow_config.get("default_profile") == "PRACTICAL_HIGH_ACCURACY"
+        and "ULTRA_DIAGNOSTIC" in workflow_config.get("profiles", {}),
+        workflow_config.get("default_profile"),
+    )
+    practical_root = PROJECT / "data/workflow_profiles/PRACTICAL_HIGH_ACCURACY"
+    practical = rows(practical_root / "GOAT_explicit_job_manifest.csv")
+    practical_scenarios = rows(practical_root / "explicit_scenario_registry.csv")
+    practical_counts = Counter(
+        (row["figure_id"], row["scenario_id"]) for row in practical
+    )
+    practical_profile = workflow_config["profiles"]["PRACTICAL_HIGH_ACCURACY"]
+    configured_practical_pairs = {
+        (figure_id, scenario["id"])
+        for figure_id, compound in practical_profile["compounds"].items()
+        for scenario in compound["scenarios"]
+    }
+    master_by_job = {row["job_id"]: row for row in manifest}
+    master_scenarios = rows(PROJECT / "data/explicit_scenario_registry.csv")
+    master_scenario_by_key = {
+        (row["figure_id"], row["scenario_id"]): row for row in master_scenarios
+    }
+    workflow_config_hash = sha256(workflow_config_path)
+    master_manifest_hash = sha256(manifest_path)
+    master_scenario_hash = sha256(PROJECT / "data/explicit_scenario_registry.csv")
+    practical_row_errors: list[str] = []
+    for row in practical:
+        source = master_by_job.get(row["job_id"])
+        if (
+            source is None
+            or any(row.get(field) != value for field, value in source.items())
+            or row.get("workflow_profile") != "PRACTICAL_HIGH_ACCURACY"
+            or row.get("profile_config_sha256") != workflow_config_hash
+            or row.get("source_master_manifest_sha256") != master_manifest_hash
+        ):
+            practical_row_errors.append(row.get("job_id", ""))
+    practical_scenario_errors: list[str] = []
+    for row in practical_scenarios:
+        key = (row["figure_id"], row["scenario_id"])
+        source = master_scenario_by_key.get(key)
+        if (
+            source is None
+            or any(
+                row.get(field) != value
+                for field, value in source.items()
+                if field != "minimum_goat_starts"
+            )
+            or row.get("minimum_goat_starts") != "10"
+            or row.get("workflow_profile") != "PRACTICAL_HIGH_ACCURACY"
+            or row.get("profile_config_sha256") != workflow_config_hash
+            or row.get("source_scenario_registry_sha256") != master_scenario_hash
+        ):
+            practical_scenario_errors.append("/".join(key))
+    wet_practical = [
+        row
+        for row in practical
+        if row.get("scenario_role") == "MANDATORY_TRACE_WATER_SENSITIVITY"
+    ]
+    check(
+        "practical_profile_jobs",
+        len(practical) == 70
+        and len(practical_counts) == 7
+        and set(practical_counts.values()) == {10},
+        {"jobs": len(practical), "scenarios": len(practical_counts)},
+    )
+    check(
+        "practical_profile_exact_master_subset_and_hash_binding",
+        set(practical_counts) == configured_practical_pairs
+        and not practical_row_errors
+        and not practical_scenario_errors,
+        {
+            "configured_pairs": sorted(configured_practical_pairs),
+            "row_errors": practical_row_errors[:10],
+            "scenario_errors": practical_scenario_errors[:10],
+        },
+    )
+    check(
+        "practical_trace_water_required_and_isolated",
+        len(wet_practical) == 20
+        and all(row.get("explicit_water_count") == "1" for row in wet_practical)
+        and all(row.get("main_prediction_eligibility") == "false" for row in wet_practical)
+        and all(row.get("cross_stoichiometry_weight") == "NONE" for row in practical)
+        and sum(
+            row.get("scenario_role") == "MANDATORY_TRACE_WATER_SENSITIVITY"
+            for row in practical_scenarios
+        )
+        == 2,
+        {"wet_jobs": len(wet_practical)},
+    )
+    matched_pairs = workflow_config["profiles"]["PRACTICAL_HIGH_ACCURACY"][
+        "fixed_composition_policy"
+    ].get("matched_water_delta_pairs", {})
+    check(
+        "trace_water_has_matched_dry_controls",
+        matched_pairs
+        == {
+            "F3_005": {
+                "dry": "DMSO_02_W00_primary",
+                "wet": "DMSO_02_W01_trace_water_sensitivity",
+            },
+            "F3_015": {
+                "dry": "DMSO_02_W00_primary",
+                "wet": "DMSO_02_W01_trace_water_sensitivity",
+            },
+        }
+        and all(
+            (figure_id, pair["dry"]) in practical_counts
+            and (figure_id, pair["wet"]) in practical_counts
+            for figure_id, pair in matched_pairs.items()
+        ),
+        matched_pairs,
+    )
+    check(
+        "trace_water_delta_tool_packaged",
+        (PROJECT / "scripts/compare_trace_water_sensitivity.py").is_file()
+        and (PROJECT / "tests/test_trace_water_sensitivity.py").is_file(),
+        "matched dry/wet delta reporting is required",
+    )
+    stage_resources = json.loads(
+        (PROJECT / "hpc/config/stage_resources.json").read_text(encoding="utf-8")
+    )["stages"]["goat"]
+    check(
+        "practical_goat_resource_headroom",
+        int(stage_resources["cpus"]) == 8
+        and int(stage_resources["memory_mb"]) >= 21334
+        and int(stage_resources["max_concurrent"]) <= 16,
+        stage_resources,
+    )
+    ultra_profile = rows(
+        PROJECT / "data/workflow_profiles/ULTRA_DIAGNOSTIC/GOAT_explicit_job_manifest.csv"
+    )
+    check(
+        "ultra_profile_preserved",
+        len(ultra_profile) == 200
+        and {row["job_id"] for row in ultra_profile} == {row["job_id"] for row in manifest},
+        len(ultra_profile),
+    )
+
+    appearance_path = PROJECT / "config/appearance_profiles.json"
+    appearance = json.loads(appearance_path.read_text(encoding="utf-8"))
+    f3_profiles = appearance.get("profile_by_figure_and_nucleus", {}).get("F3_005", {})
+    calibrated_profile_errors: list[str] = []
+    for nucleus in ("1H", "13C"):
+        profile_id = f3_profiles.get(nucleus)
+        profile = appearance.get("profiles", {}).get(profile_id, {})
+        provenance = profile.get("calibration_provenance", {})
+        source = PROJECT / str(provenance.get("source", ""))
+        if (
+            profile.get("status")
+            != "CALIBRATED_SINGLE_SAMPLE_CONDITIONAL_NOT_TRANSFERABLE"
+            or not source.is_file()
+            or sha256(source) != str(provenance.get("source_sha256", "")).upper()
+            or provenance.get("per_peak_shift_fit") is not False
+            or profile.get("amplitude_reference") != "largest_analyte_peak"
+        ):
+            calibrated_profile_errors.append(nucleus)
+    check(
+        "benzamide_conditioned_appearance_profiles",
+        not calibrated_profile_errors,
+        calibrated_profile_errors,
+    )
+
     reference = rows(PROJECT / "data/reference_job_manifest.csv")
     enabled_reference = [row["job_id"] for row in reference if row.get("enabled") == "true"]
     check("reference_jobs", len(reference) == 6, len(reference))

@@ -53,6 +53,44 @@ def normalize_sha256(value: str, field: str = "sha256") -> str:
     return value
 
 
+def validate_dft_manifest_provenance_identity(
+    row: Mapping[str, object], provenance: Mapping[str, object], job_id: str
+) -> None:
+    """Require DFT manifest labels to match the hash-bound job provenance."""
+
+    for field in (
+        "job_id",
+        "figure_id",
+        "scenario_id",
+        "source_goat_job_id",
+        "workflow_profile",
+    ):
+        if str(row.get(field, "")) != str(provenance.get(field, "")):
+            raise WorkflowValidationError(
+                f"Opt/freq row/provenance field mismatch ({field}): {job_id}"
+            )
+    for field in (
+        "workflow_profile_config_sha256",
+        "source_goat_manifest_sha256",
+        "source_scenario_registry_sha256",
+    ):
+        row_value = str(row.get(field, "")).strip()
+        provenance_value = str(provenance.get(field, "")).strip()
+        if (
+            field == "workflow_profile_config_sha256"
+            and str(row.get("workflow_profile", "")) == "ULTRA_LEGACY_DEFAULT"
+            and not row_value
+            and not provenance_value
+        ):
+            continue
+        if normalize_sha256(row_value, field) != normalize_sha256(
+            provenance_value, field
+        ):
+            raise WorkflowValidationError(
+                f"Opt/freq row/provenance hash mismatch ({field}): {job_id}"
+            )
+
+
 def sha256_file(path: Path) -> str:
     path = Path(path)
     if not path.is_file():
@@ -647,8 +685,7 @@ def validate_completed_opt_freq_state(
     provenance_path = job_dir / "provenance.json"
     provenance_hash = sha256_file(provenance_path)
     provenance = read_json(provenance_path)
-    if provenance.get("job_id") != job_id or provenance.get("scenario_id") != scenario_id:
-        raise WorkflowValidationError(f"Opt/freq provenance identity differs for {job_id}")
+    validate_dft_manifest_provenance_identity(row, provenance, job_id)
     if normalize_sha256(str(provenance.get("dft_input_sha256", ""))) != input_hash:
         raise WorkflowValidationError(f"Opt/freq provenance input hash differs for {job_id}")
     state_path = ensure_within(Path(state_path), project, "opt/freq state")

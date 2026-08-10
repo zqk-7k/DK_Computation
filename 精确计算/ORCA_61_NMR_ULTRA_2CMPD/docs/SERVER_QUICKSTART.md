@@ -77,7 +77,15 @@ ORCA 主程序用绝对路径直接启动：
 python3 scripts/audit_explicit_goat_preparation.py
 ```
 
-预期检查 200 个 GOAT 输入、坐标、原子/同位素映射及 SHA-256。任何失败都应先修复，不要通过删除 manifest 行或关闭审计绕过。
+该审计预期检查 200 个 ULTRA 母清单输入、坐标、原子/同位素映射及 SHA-256。任何失败都应先修复，不要通过删除 manifest 行或关闭审计绕过。随后生成/刷新默认 practical 子清单：
+
+```bash
+python3 scripts/build_workflow_profile.py
+PROFILE_MANIFEST=data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/GOAT_explicit_job_manifest.csv
+PROFILE_SCENARIOS=data/workflow_profiles/PRACTICAL_HIGH_ACCURACY/explicit_scenario_registry.csv
+```
+
+默认 practical 包含 70 条；200 条母清单只用于 `ULTRA_DIAGNOSTIC`。
 
 ## 6. 调度器预检
 
@@ -86,7 +94,7 @@ SLURM：
 ```bash
 python3 hpc/bin/preflight.py \
   --package-root "$PWD" \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --stage goat \
   --scheduler slurm
 ```
@@ -96,7 +104,7 @@ PBS Pro：
 ```bash
 python3 hpc/bin/preflight.py \
   --package-root "$PWD" \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --stage goat \
   --scheduler pbs
 ```
@@ -110,7 +118,7 @@ SLURM：
 ```bash
 export HPC_SCHEDULER=slurm
 hpc/submit/submit_goat.sh \
-  data/GOAT_explicit_job_manifest.csv \
+  "$PROFILE_MANIFEST" \
   --array-range 1-2 \
   --max-concurrent 2
 ```
@@ -120,7 +128,7 @@ PBS Pro：
 ```bash
 export HPC_SCHEDULER=pbs
 hpc/submit/submit_goat.sh \
-  data/GOAT_explicit_job_manifest.csv \
+  "$PROFILE_MANIFEST" \
   --array-range 1-2 \
   --max-concurrent 2
 ```
@@ -131,40 +139,51 @@ hpc/submit/submit_goat.sh \
 --submit
 ```
 
+普通 pilot 通过后，还必须分别渲染并提交两个含水场景的 pilot：
+
+```bash
+hpc/submit/submit_goat.sh "$PROFILE_MANIFEST" --array-range 21-22 --max-concurrent 2
+hpc/submit/submit_goat.sh "$PROFILE_MANIFEST" --array-range 51-52 --max-concurrent 2
+```
+
+检查调度脚本后再追加 `--submit`。这些范围对应两个化合物各自的 `2 DMSO + 1 H2O` 分支。
+
 ## 8. 扩大批次
 
-两任务成功后先测试前 10 条：
+所有 pilot 成功后，先扩大普通分支并分别跑完整的 10-task 含水分支：
 
 ```bash
 hpc/submit/submit_goat.sh \
-  data/GOAT_explicit_job_manifest.csv \
+  "$PROFILE_MANIFEST" \
   --array-range 1-10 \
   --max-concurrent 4 \
   --submit
+hpc/submit/submit_goat.sh "$PROFILE_MANIFEST" --array-range 21-30 --max-concurrent 4 --submit
+hpc/submit/submit_goat.sh "$PROFILE_MANIFEST" --array-range 51-60 --max-concurrent 4 --submit
 ```
 
-稳定后删除 `--array-range` 才会覆盖全部 200 条：
+稳定后删除 `--array-range` 才会覆盖默认 practical 的全部 70 条；已经成功的任务会按已核验状态跳过：
 
 ```bash
 hpc/submit/submit_goat.sh \
-  data/GOAT_explicit_job_manifest.csv \
+  "$PROFILE_MANIFEST" \
   --max-concurrent 16 \
   --submit
 ```
 
-示例并发数不是通用推荐值。请根据每节点内存、scratch I/O、许可证并发和队列政策调整。提高 `--max-concurrent` 只增加并行任务数，不提高单个计算的理论精度。
+GOAT 每任务申请 8 CPU 和 24 GiB。初次全量建议并发 16；请根据每节点内存、scratch I/O、许可证并发和队列政策调整。只有 pilot 和扩展批次都稳定时才逐步升到 32 或 60。60 并发需要 480 CPU，并应至少有约 1.44 TiB 可调度内存。提高 `--max-concurrent` 只增加并行任务数，不提高单个计算的理论精度。
 
 ## 9. 状态、失败与收集
 
 ```bash
 python3 hpc/bin/status.py \
   --package-root "$PWD" \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --stage goat
 
 python3 hpc/bin/collect_results.py \
   --package-root "$PWD" \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --stage goat \
   --require-all \
   --materialize-job-directories
@@ -182,14 +201,14 @@ GOAT 完成不等于可以直接计算 NMR。必须先导出兼容状态、生�
 python3 hpc/bin/export_workflow_states.py \
   --package-root "$PWD" \
   --stage goat \
-  --manifest data/GOAT_explicit_job_manifest.csv \
+  --manifest "$PROFILE_MANIFEST" \
   --output-state-root logs/goat_explicit_batch/jobs \
   --compat-manifest data/GOAT_manifest_gate_compatible.csv
 
 python3 scripts/draft_goat_selection_gate.py \
   --project "$PWD" \
   --manifest data/GOAT_manifest_gate_compatible.csv \
-  --scenario-registry data/explicit_scenario_registry.csv \
+  --scenario-registry "$PROFILE_SCENARIOS" \
   --state-root logs/goat_explicit_batch/jobs
 ```
 
@@ -226,6 +245,6 @@ python3 scripts/draft_goat_selection_gate.py \
 
 ## English quick runbook
 
-Upload the inner ASCII directory to Linux, install the Python requirements, configure `hpc/config/site_config.json`, and run the preparation audit and scheduler preflight. Render a two-task GOAT array without `--submit`, inspect the generated scheduler script, then submit a two-task pilot. Expand to ten tasks and finally to all 200 only after the pilot succeeds.
+Upload the inner ASCII directory to Linux, install the Python requirements, configure `hpc/config/site_config.json`, and run the preparation audit, practical-profile materialization, and scheduler preflight. Render dry and trace-water pilot arrays without `--submit`, inspect the generated scheduler scripts, and then submit them. Expand each wet branch to ten tasks and finally run the 70-job practical manifest only after every pilot succeeds. The 200-job master manifest is reserved for `ULTRA_DIAGNOSTIC`.
 
 Use a large machine for array concurrency, not as a single 10,000-rank ORCA job. Do not chain GOAT directly into NMR properties: connectivity, stereochemistry, cluster integrity, stationary points, thermochemistry, same-method TMS references, and every manual gate must be reviewed first. This repository currently contains prepared inputs, not completed HPC results or validated spectra.

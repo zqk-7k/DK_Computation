@@ -1,7 +1,7 @@
 {
   "schema_version": "1.0",
   "status": "PARTLY_NUMERICALLY_CALIBRATED_FROM_LOCAL_REAL_DATA",
-  "source_root": "${LOCAL_SOURCE_NOT_INCLUDED}/处理过的谱图",
+  "source_root": "${LOCAL_SOURCE_NOT_INCLUDED}/processed_spectra",
   "compound": "benzamide",
   "figure_id": "F3_005",
   "sample_code": "1-1",
@@ -9,11 +9,12 @@
     "1H_mnova_sha256": "3485EF47A54AD04F835AF12E193EDD62E4563021743843A2F610DA25D4D860EF",
     "13C_mnova_sha256": "57F55DC15EECBDBDE87EFE3534F35DD7325E3C175A46977AF06550CCB7F53C2D",
     "13C_processed_xy_sha256": "BBD6482952282B210A6BEBE60AA8A728592C2BF1C3130DA3232B2DDFBB36D64F",
-    "vendor_fid_status": "NO_STANDALONE_VENDOR_FID_FOUND; .mnova metadata and processed spectra exist; use Mnova API export to test whether an internal FID layer remains",
-    "do_not_claim": "Do not call an .mnova container or processed XY array a raw vendor FID unless fidCount()>0 is exported and independently checked."
+    "vendor_fid_status": "RAW_BRUKER_FID_LATER_VERIFIED_LOCALLY_AND_HASH_RECORDED_IN_validation/benzamide_raw_fid_provenance.json; raw data are not distributed",
+    "appearance_calibration_source_boundary": "The present appearance parameters were calibrated from processed vector PDF/XY and embedded acquisition metadata. They were not re-fitted from the later-verified receiver-domain FID.",
+    "do_not_claim": "Do not call an .mnova container or processed XY array a raw vendor FID. The separately verified local Bruker FID is provenance evidence, not the numeric source of this appearance calibration."
   },
   "1H": {
-    "data_level": "embedded acquisition/processing metadata plus quantitatively recovered vector PDF trace; no open receiver-domain FID or native processed XY yet",
+    "data_level": "embedded acquisition/processing metadata plus quantitatively recovered vector PDF trace; a raw Bruker FID was later verified locally but was not used to re-fit these appearance values",
     "instrument": "Bruker Avance; TopSpin 4.0.9 metadata",
     "solvent": "DMSO-d6",
     "nucleus": "1H",

@@ -4,9 +4,9 @@
   "stages": {
     "goat": {
       "cpus": 8,
-      "memory_mb": 20480,
+      "memory_mb": 24576,
       "walltime": "24:00:00",
-      "max_concurrent": 100,
+      "max_concurrent": 16,
       "input_default": "goat.inp",
       "required_artifact_globs": ["*.globalminimum.xyz", "*.finalensemble.xyz"],
       "copy_back_globs": ["*.inp", "*.out", "*.stderr.log", "*.xyz", "*.property.txt", "*.gbw", "*.hess", "*.engrad", "*.trj", "*.bibtex"]

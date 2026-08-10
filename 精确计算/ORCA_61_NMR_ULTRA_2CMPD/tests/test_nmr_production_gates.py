@@ -127,6 +127,178 @@ class CorrelatedMethodValidationTests(unittest.TestCase):
                 )
 
 
+class PropertyWorkflowProfileProvenanceTests(unittest.TestCase):
+    @staticmethod
+    def _fixture(root: Path) -> tuple[dict[str, str], dict[str, object]]:
+        digest = "A" * 64
+        job = root / "property_job"
+        job.mkdir()
+        row = {
+            "job_id": "F3_005__DMSO_02_W00_primary__conf01__shielding",
+            "figure_id": "F3_005",
+            "scenario_id": "DMSO_02_W00_primary",
+            "method_fingerprint": "METHOD_FP",
+            "workflow_profile": "PRACTICAL_HIGH_ACCURACY",
+            "workflow_property_scope": "profile_all_conformers_PBE0_plus_cumulative95_revDSD",
+            "workflow_profile_config_sha256": digest,
+            "workflow_profile_manifest_sha256": digest,
+            "workflow_profile_scenario_registry_sha256": digest,
+            "source_dft_manifest_sha256": digest,
+            "nmr_atom_map_sha256": digest,
+            "source_isotope_map_sha256": digest,
+            "source_opt_freq_state_sha256": digest,
+            "approved_minimum_gate_sha256": digest,
+            "conformer_xyz_sha256": digest,
+            "job_directory": str(job),
+        }
+        payload: dict[str, object] = dict(row)
+        payload["optimized_coordinate_sha256"] = payload.pop("conformer_xyz_sha256")
+        (job / "provenance.json").write_text(json.dumps(payload), encoding="utf-8")
+        return row, payload
+
+    def test_property_row_and_provenance_are_profile_hash_bound(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            row, _payload = self._fixture(Path(temporary))
+            validated = processor.validate_property_provenance(row)
+            binding = processor.resolve_property_profile_binding([validated])
+            self.assertEqual(binding["name"], "PRACTICAL_HIGH_ACCURACY")
+            self.assertEqual(
+                binding["binding_status"],
+                "PASS_ROW_PROVENANCE_AND_ALL_PROPERTY_JOBS_IDENTICAL",
+            )
+
+    def test_property_profile_hash_substitution_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            row, payload = self._fixture(Path(temporary))
+            payload["workflow_profile_manifest_sha256"] = "B" * 64
+            (Path(row["job_directory"]) / "provenance.json").write_text(
+                json.dumps(payload), encoding="utf-8"
+            )
+            with self.assertRaisesRegex(
+                processor.ProcessingError, "workflow_profile_manifest_sha256"
+            ):
+                processor.validate_property_provenance(row)
+
+    def test_mixed_property_profile_bindings_fail_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            row, _payload = self._fixture(root)
+            first = processor.validate_property_provenance(row)
+            second_payload = dict(first["payload"])
+            second_payload["source_dft_manifest_sha256"] = "B" * 64
+            with self.assertRaisesRegex(
+                processor.ProcessingError, "source_dft_manifest_sha256"
+            ):
+                processor.resolve_property_profile_binding(
+                    [first, {"payload": second_payload}]
+                )
+
+    @staticmethod
+    def _live_binding_fixture(root: Path) -> tuple[dict[str, str], Path]:
+        profile = "PRACTICAL_HIGH_ACCURACY"
+        config = root / "config" / "workflow_profiles.json"
+        manifest = (
+            root
+            / "data"
+            / "workflow_profiles"
+            / profile
+            / "GOAT_explicit_job_manifest.csv"
+        )
+        registry = manifest.with_name("explicit_scenario_registry.csv")
+        dft_manifest = root / "data" / "DFT_explicit_job_manifest.csv"
+        for path, text in (
+            (config, "profile config\n"),
+            (manifest, "profile manifest\n"),
+            (registry, "scenario registry\n"),
+            (dft_manifest, "dft manifest\n"),
+        ):
+            path.parent.mkdir(parents=True, exist_ok=True)
+            path.write_text(text, encoding="utf-8")
+        return (
+            {
+                "name": profile,
+                "config_sha256": processor.sha256_file(config).upper(),
+                "materialized_manifest_sha256": processor.sha256_file(manifest).upper(),
+                "scenario_registry_sha256": processor.sha256_file(registry).upper(),
+                "source_dft_manifest_sha256": processor.sha256_file(dft_manifest).upper(),
+                "binding_status": "PASS_ROW_PROVENANCE_AND_ALL_PROPERTY_JOBS_IDENTICAL",
+            },
+            dft_manifest,
+        )
+
+    def test_live_profile_and_dft_files_are_hash_bound(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            binding, dft_manifest = self._live_binding_fixture(root)
+            checked = processor.validate_live_workflow_profile_binding(
+                binding, dft_manifest, root
+            )
+            self.assertEqual(
+                checked["live_file_binding_status"],
+                "PASS_DFT_CONFIG_PROFILE_MANIFEST_AND_REGISTRY",
+            )
+
+    def test_live_dft_manifest_substitution_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            binding, dft_manifest = self._live_binding_fixture(root)
+            dft_manifest.write_text("substituted dft manifest\n", encoding="utf-8")
+            with self.assertRaisesRegex(
+                processor.ProcessingError, "source_dft_manifest_sha256"
+            ):
+                processor.validate_live_workflow_profile_binding(
+                    binding, dft_manifest, root
+                )
+
+    def test_live_profile_config_substitution_fails_closed(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            binding, dft_manifest = self._live_binding_fixture(root)
+            (root / "config" / "workflow_profiles.json").write_text(
+                "substituted config\n", encoding="utf-8"
+            )
+            with self.assertRaisesRegex(processor.ProcessingError, "config_sha256"):
+                processor.validate_live_workflow_profile_binding(
+                    binding, dft_manifest, root
+                )
+
+    def test_legacy_property_binding_remains_explicitly_marked_compatibility(self) -> None:
+        with tempfile.TemporaryDirectory() as temporary:
+            root = Path(temporary)
+            row, payload = self._fixture(root)
+            row["workflow_profile"] = "ULTRA_LEGACY_DEFAULT"
+            payload["workflow_profile"] = "ULTRA_LEGACY_DEFAULT"
+            for field in (
+                "workflow_profile_config_sha256",
+                "workflow_profile_manifest_sha256",
+                "workflow_profile_scenario_registry_sha256",
+            ):
+                row[field] = ""
+                payload[field] = ""
+            (Path(row["job_directory"]) / "provenance.json").write_text(
+                json.dumps(payload), encoding="utf-8"
+            )
+            validated = processor.validate_property_provenance(row)
+            binding = processor.resolve_property_profile_binding([validated])
+            self.assertEqual(
+                binding["binding_status"],
+                "LEGACY_COMPATIBILITY_NO_PROFILE_CONFIG_HASHES",
+            )
+
+    def test_legacy_binding_rejects_pseudo_profile_file_hashes(self) -> None:
+        payload = {
+            "workflow_profile": "ULTRA_LEGACY_DEFAULT",
+            "workflow_profile_config_sha256": "A" * 64,
+            "workflow_profile_manifest_sha256": "",
+            "workflow_profile_scenario_registry_sha256": "",
+            "source_dft_manifest_sha256": "B" * 64,
+        }
+        with self.assertRaisesRegex(
+            processor.ProcessingError, "must not carry pseudo profile-file hashes"
+        ):
+            processor.resolve_property_profile_binding([{"payload": payload}])
+
+
 class RunnerAndReferenceProvenanceTests(unittest.TestCase):
     @staticmethod
     def _local_runner_fixture(root: Path) -> tuple[dict[str, str], Path, Path, Path]:
