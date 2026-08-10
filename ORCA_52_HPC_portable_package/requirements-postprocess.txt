@@ -1,5 +1,0 @@
-numpy>=1.26,<3
-scipy>=1.11,<2
-matplotlib>=3.8,<4
-psutil>=5.9,<8
-rdkit>=2023.9

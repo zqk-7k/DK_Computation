@@ -1,7 +1,0 @@
-# Preserve the byte identity of frozen scientific inputs and Python engines;
-# their SHA256 values are part of the provenance model. Linux entry-point
-# scripts alone are normalized to LF so Bash/Slurm never see CRLF tokens.
-* -text whitespace=-trailing-space
-*.sh text eol=lf whitespace
-*.slurm text eol=lf whitespace
-.gitattributes text eol=lf whitespace
