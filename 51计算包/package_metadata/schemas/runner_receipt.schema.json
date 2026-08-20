@@ -1,0 +1,13 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "runner_receipt.schema.json",
+  "type": "object",
+  "required": ["schema_version", "attempt_id", "started_utc", "profile", "orca_executable", "command", "outer_mpi_launcher", "status", "files_sha256"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "outer_mpi_launcher": {"const": false},
+    "status": {"enum": ["COMPLETED", "FAILED", "FAILED_RUNNER"]},
+    "files_sha256": {"type": "object", "additionalProperties": {"pattern": "^[0-9a-f]{64}$"}}
+  },
+  "additionalProperties": true
+}

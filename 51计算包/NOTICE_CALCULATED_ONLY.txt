@@ -1,0 +1,29 @@
+CALCULATED NMR WORKFLOW — NOT EXPERIMENTAL DATA
+
+This package prepares and processes ORCA calculations for 51 compounds. It does
+not contain experimental confirmation unless a file is explicitly labelled as an
+external experimental input with provenance.
+
+CLEAN_CALCULATED outputs contain calculated shieldings/shifts, calculated or
+assumed scalar couplings, assignments and idealized line shapes.
+
+SYNTHETIC_APPEARANCE outputs may add user-specified line widths, peak amplitudes,
+solvent/residual-water peaks, noise, baseline and other display effects. Those
+features are post-processing assumptions. Static first-principles ORCA calculations
+do not determine a real instrument baseline, noise realization, receiver response,
+phasing, concentration-dependent intensity, exchange broadening or all peak widths.
+
+PBE0 and revDSD raw shieldings are separate method branches and must not be mixed.
+PBE/pcJ-3 and PBE0/pcJ-2 coupling branches are separate and must not be averaged.
+Different fixed explicit-solvent compositions, protonation states, salt states,
+charges or multiplicities are separate models and must not be Boltzmann averaged
+together.
+
+The usual 2 + 3 + 5 GOAT success counts are minimum first-pass targets, not proof
+of conformational convergence. Every production result requires passed identity,
+composition, stereochemistry, coverage, thermochemistry, reference, calibration,
+method and provenance gates.
+
+No file in this package should be described as "validated", "experimental", or
+"guaranteed exact" unless the corresponding independent validation evidence and
+gate receipt are present.

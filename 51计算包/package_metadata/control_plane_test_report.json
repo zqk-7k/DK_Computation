@@ -1,0 +1,19 @@
+{
+  "schema_version": "1.0",
+  "command": "python -m unittest discover -s tests -v",
+  "status": "PASS",
+  "tests_run": 10,
+  "failures": 0,
+  "errors": 0,
+  "scope": "HPC control-plane unit tests only; ORCA was not executed and spectral accuracy was not validated.",
+  "tested_components": [
+    "adaptive GOAT held-wave and stop-gate logic",
+    "no-release while a prior job is active",
+    "stale gate assessment fail-closed behavior",
+    "failure classification",
+    "resource memory inequality",
+    "ORCA input/profile agreement",
+    "scheduler state normalization",
+    "Slurm template fail-closed rendering"
+  ]
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": "1.0",
+  "figure_id": null,
+  "species_hash": null,
+  "scenario_id": null,
+  "scenario_position": null,
+  "fixed_composition": {
+    "solute_count": 1,
+    "DMSO_count": 0,
+    "H2O_count": 0,
+    "D2O_count": 0,
+    "counterion_formula_and_count": [],
+    "total_charge": null,
+    "multiplicity": 1
+  },
+  "continuum": {
+    "model": null,
+    "solvent": null
+  },
+  "interpretation": "microsolvation_sensitivity_branch_not_measured_bulk_composition",
+  "may_Boltzmann_mix_with_other_scenario_ids": false,
+  "goat": {
+    "complexity_tier": null,
+    "minimum_success_target": null,
+    "candidate_ceiling": null,
+    "released_wave": 0
+  },
+  "input_bundle_sha256": null,
+  "approval_status": "PROVISIONAL"
+}

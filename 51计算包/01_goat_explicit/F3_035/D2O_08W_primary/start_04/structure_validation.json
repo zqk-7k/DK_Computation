@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_basis": "AUTHOR_APPROVED_PROTOCOL_ASSUMPTIONS_2026-07-20",
+  "figure_id": "F3_035",
+  "job_id": "F3_035_D2O_08W_primary_s04",
+  "scenario_id": "D2O_08W_primary",
+  "registry_inchikey": "IIACRCGMVDHOTQ-UHFFFAOYSA-N",
+  "registry_isomeric_smiles": "NS(=O)(=O)O",
+  "scenario_isomeric_smiles": "NS(=O)(=O)[O-]",
+  "scenario_inchikey": "IIACRCGMVDHOTQ-UHFFFAOYSA-M",
+  "complete_cluster_charge": -1,
+  "multiplicity": 1,
+  "primary_solvent": "D2O",
+  "continuum_keyword": "WATER",
+  "explicit_solvent_count": 8,
+  "assumed_pd": "7.0 ASSUMED; sulfamate anion",
+  "preparation_seed": 699814201,
+  "coordinate_sha256": "B33123C7C063B4A407455B8B5BAA29E04BAC3D38B49783F5882953CA6A7A8FC2",
+  "atom_map_sha256": "3D2027CFEA590CE258F59A6CEFB5079D3F4B253C3D55866D15AA8689AEEB5C7A",
+  "isotope_map_sha256": "2C023D0E24E94FCF43FCFC50533362392467C0CC426EB9F0EFFDC4D329E75DBF",
+  "isotope_mass_policy": {
+    "goat_external_xyz": "PLAIN_H_FOUR_COLUMN_EXTERNAL_XYZ",
+    "downstream_opt_freq": "INLINE_XYZ_M_EQUALS_FROM_SELECTED_GOAT_GEOMETRY",
+    "downstream_coordinate_source": "REVIEWED_GOAT_SELECTED_GEOMETRY_ONLY",
+    "deuterium_inline_syntax": "H {x_A} {y_A} {z_A} M=2.01410177812",
+    "policy_file": "data/ORCA_6_1_1_isotope_mass_policy.json"
+  },
+  "checks": {
+    "registry_identity_available": "PASS",
+    "scenario_species_parse": "PASS",
+    "stereochemistry_preserved_by_rdkit_embed": "PASS",
+    "formal_charge_explicit": "PASS",
+    "environment_atoms_excluded_from_analyte_nmr": "PASS",
+    "coordinate_clash_gate": "PASS",
+    "goat_xyz_has_exactly_four_atom_fields": "PASS",
+    "isotope_map_retained_for_downstream_opt_freq": "PASS",
+    "downstream_inline_M_equals_syntax_recorded": "PASS"
+  }
+}

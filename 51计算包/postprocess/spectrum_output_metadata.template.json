@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "result_label": "CALCULATED",
+  "output_layer": "CLEAN_CALCULATED",
+  "figure_id": null,
+  "species_hash": null,
+  "scenario_id": null,
+  "nucleus": null,
+  "method_branch": null,
+  "J_branch": null,
+  "temperature_K": null,
+  "solvent_model": null,
+  "reference_record_sha256": null,
+  "population_manifest_sha256": null,
+  "coverage_fraction": null,
+  "frequency_axis_ppm": {
+    "start": null,
+    "stop": null,
+    "points": null,
+    "direction": "decreasing_left_to_right"
+  },
+  "display_FWHM_Hz": null,
+  "display_FWHM_is_assumption": true,
+  "noise_baseline_and_solvent_peaks_first_principles": false,
+  "limitations": [],
+  "data_csv_sha256": null,
+  "plot_sha256": null
+}

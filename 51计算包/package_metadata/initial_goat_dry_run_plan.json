@@ -1,0 +1,3641 @@
+{
+  "created_utc": "2026-08-19T18:15:30.812683+00:00",
+  "decisions": [
+    {
+      "compound_id": "F3_001",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_001_DMSO_00_W00_continuum_s01",
+        "F3_001_DMSO_00_W00_continuum_s02",
+        "F3_001_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_001",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_001_DMSO_02_W00_primary_s01",
+        "F3_001_DMSO_02_W00_primary_s02",
+        "F3_001_DMSO_02_W00_primary_s03",
+        "F3_001_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_001",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_001_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_001_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_001_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_001_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_001_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_001_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_001_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_002",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_002_DMSO_00_W00_continuum_s01",
+        "F3_002_DMSO_00_W00_continuum_s02",
+        "F3_002_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_002",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_002_DMSO_02_W00_primary_s01",
+        "F3_002_DMSO_02_W00_primary_s02",
+        "F3_002_DMSO_02_W00_primary_s03",
+        "F3_002_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_002",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_002_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_002_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_002_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_002_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_002_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_002_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_002_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_003",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_003_DMSO_00_W00_continuum_s01",
+        "F3_003_DMSO_00_W00_continuum_s02",
+        "F3_003_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_003",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_003_DMSO_02_W00_primary_s01",
+        "F3_003_DMSO_02_W00_primary_s02",
+        "F3_003_DMSO_02_W00_primary_s03",
+        "F3_003_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_003",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_003_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_003_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_003_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_003_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_003_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_003_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_003_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_004",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_004_DMSO_00_W00_continuum_s01",
+        "F3_004_DMSO_00_W00_continuum_s02",
+        "F3_004_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_004",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_004_DMSO_02_W00_primary_s01",
+        "F3_004_DMSO_02_W00_primary_s02",
+        "F3_004_DMSO_02_W00_primary_s03",
+        "F3_004_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_004",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_004_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_004_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_004_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_004_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_004_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_004_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_004_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_006",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_006_DMSO_00_W00_continuum_s01",
+        "F3_006_DMSO_00_W00_continuum_s02",
+        "F3_006_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_006",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_006_DMSO_02_W00_primary_s01",
+        "F3_006_DMSO_02_W00_primary_s02",
+        "F3_006_DMSO_02_W00_primary_s03",
+        "F3_006_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_006",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_006_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_006_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_006_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_006_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_006_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_006_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_006_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_007",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_007_DMSO_00_W00_continuum_s01",
+        "F3_007_DMSO_00_W00_continuum_s02",
+        "F3_007_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_007",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_007_DMSO_02_W00_primary_s01",
+        "F3_007_DMSO_02_W00_primary_s02",
+        "F3_007_DMSO_02_W00_primary_s03",
+        "F3_007_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_007",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_007_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_007_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_007_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_007_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_007_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_007_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_007_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_008",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_008_DMSO_00_W00_continuum_s01",
+        "F3_008_DMSO_00_W00_continuum_s02",
+        "F3_008_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_008",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_008_DMSO_02_W00_primary_s01",
+        "F3_008_DMSO_02_W00_primary_s02",
+        "F3_008_DMSO_02_W00_primary_s03",
+        "F3_008_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_008",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_008_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_008_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_008_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_008_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_008_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_008_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_008_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_009",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_009_DMSO_00_W00_continuum_s01",
+        "F3_009_DMSO_00_W00_continuum_s02",
+        "F3_009_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_009",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_009_DMSO_02_W00_primary_s01",
+        "F3_009_DMSO_02_W00_primary_s02",
+        "F3_009_DMSO_02_W00_primary_s03",
+        "F3_009_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_009",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_009_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_009_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_009_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_009_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_009_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_009_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_009_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_010",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_010_DMSO_00_W00_continuum_s01",
+        "F3_010_DMSO_00_W00_continuum_s02",
+        "F3_010_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_010",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_010_DMSO_02_W00_primary_s01",
+        "F3_010_DMSO_02_W00_primary_s02",
+        "F3_010_DMSO_02_W00_primary_s03",
+        "F3_010_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_010",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_010_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_010_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_010_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_010_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_010_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_010_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_010_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_011",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_011_DMSO_00_W00_continuum_s01",
+        "F3_011_DMSO_00_W00_continuum_s02",
+        "F3_011_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_011",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_011_DMSO_02_W00_primary_s01",
+        "F3_011_DMSO_02_W00_primary_s02",
+        "F3_011_DMSO_02_W00_primary_s03",
+        "F3_011_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_011",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_011_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_011_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_011_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_011_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_011_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_011_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_011_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_012",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_012_DMSO_00_W00_continuum_s01",
+        "F3_012_DMSO_00_W00_continuum_s02",
+        "F3_012_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_012",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_012_DMSO_02_W00_primary_s01",
+        "F3_012_DMSO_02_W00_primary_s02",
+        "F3_012_DMSO_02_W00_primary_s03",
+        "F3_012_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_012",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_012_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_012_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_012_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_012_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_012_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_012_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_012_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_013",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_013_DMSO_00_W00_continuum_s01",
+        "F3_013_DMSO_00_W00_continuum_s02",
+        "F3_013_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_013",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_013_DMSO_02_W00_primary_s01",
+        "F3_013_DMSO_02_W00_primary_s02",
+        "F3_013_DMSO_02_W00_primary_s03",
+        "F3_013_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_013",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_013_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_013_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_013_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_013_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_013_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_013_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_013_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_014",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_014_DMSO_00_W00_continuum_s01",
+        "F3_014_DMSO_00_W00_continuum_s02",
+        "F3_014_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_014",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_014_DMSO_02_W00_primary_s01",
+        "F3_014_DMSO_02_W00_primary_s02",
+        "F3_014_DMSO_02_W00_primary_s03",
+        "F3_014_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_014",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_014_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_014_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_014_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_014_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_014_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_014_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_014_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_015",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_015_DMSO_00_W00_continuum_s01",
+        "F3_015_DMSO_00_W00_continuum_s02",
+        "F3_015_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_015",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_015_DMSO_02_W00_primary_s01",
+        "F3_015_DMSO_02_W00_primary_s02",
+        "F3_015_DMSO_02_W00_primary_s03",
+        "F3_015_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_015",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_015_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_015_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_015_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_015_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_015_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_015_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_015_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_016",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_016_DMSO_00_W00_continuum_s01",
+        "F3_016_DMSO_00_W00_continuum_s02",
+        "F3_016_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_016",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_016_DMSO_02_W00_primary_s01",
+        "F3_016_DMSO_02_W00_primary_s02",
+        "F3_016_DMSO_02_W00_primary_s03",
+        "F3_016_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_016",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_016_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_016_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_016_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_016_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_016_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_016_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_016_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_017",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_017_DMSO_00_W00_continuum_s01",
+        "F3_017_DMSO_00_W00_continuum_s02",
+        "F3_017_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_017",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_017_DMSO_02_W00_primary_s01",
+        "F3_017_DMSO_02_W00_primary_s02",
+        "F3_017_DMSO_02_W00_primary_s03",
+        "F3_017_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_017",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_017_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_017_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_017_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_017_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_017_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_017_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_017_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_018",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_018_DMSO_00_W00_continuum_s01",
+        "F3_018_DMSO_00_W00_continuum_s02",
+        "F3_018_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_018",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_018_DMSO_02_W00_primary_s01",
+        "F3_018_DMSO_02_W00_primary_s02",
+        "F3_018_DMSO_02_W00_primary_s03",
+        "F3_018_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_018",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_018_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_018_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_018_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_018_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_018_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_018_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_018_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_019",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_019_D2O_06W_primary_s01",
+        "F3_019_D2O_06W_primary_s02",
+        "F3_019_D2O_06W_primary_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_06W_primary",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_019",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_019_D2O_08W_primary_s01",
+        "F3_019_D2O_08W_primary_s02",
+        "F3_019_D2O_08W_primary_s03",
+        "F3_019_D2O_08W_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_08W_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_019",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_019_D2O_10W_primary_s01",
+        "F3_019_D2O_10W_primary_s02",
+        "F3_019_D2O_10W_primary_s03",
+        "F3_019_D2O_10W_primary_s04",
+        "F3_019_D2O_10W_primary_s05",
+        "F3_019_D2O_10W_primary_s06",
+        "F3_019_D2O_10W_primary_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_10W_primary",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_020",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_020_D2O_06W_primary_s01",
+        "F3_020_D2O_06W_primary_s02",
+        "F3_020_D2O_06W_primary_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_06W_primary",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_020",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_020_D2O_08W_primary_s01",
+        "F3_020_D2O_08W_primary_s02",
+        "F3_020_D2O_08W_primary_s03",
+        "F3_020_D2O_08W_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_08W_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_020",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_020_D2O_10W_primary_s01",
+        "F3_020_D2O_10W_primary_s02",
+        "F3_020_D2O_10W_primary_s03",
+        "F3_020_D2O_10W_primary_s04",
+        "F3_020_D2O_10W_primary_s05",
+        "F3_020_D2O_10W_primary_s06",
+        "F3_020_D2O_10W_primary_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_10W_primary",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_021",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_021_D2O_08W_primary_s01",
+        "F3_021_D2O_08W_primary_s02",
+        "F3_021_D2O_08W_primary_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_08W_primary",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_021",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_021_D2O_10W_primary_s01",
+        "F3_021_D2O_10W_primary_s02",
+        "F3_021_D2O_10W_primary_s03",
+        "F3_021_D2O_10W_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_10W_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_021",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_021_D2O_12W_primary_s01",
+        "F3_021_D2O_12W_primary_s02",
+        "F3_021_D2O_12W_primary_s03",
+        "F3_021_D2O_12W_primary_s04",
+        "F3_021_D2O_12W_primary_s05",
+        "F3_021_D2O_12W_primary_s06",
+        "F3_021_D2O_12W_primary_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_12W_primary",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_022",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_022_DMSO_00_W00_continuum_s01",
+        "F3_022_DMSO_00_W00_continuum_s02",
+        "F3_022_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_022",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_022_DMSO_02_W00_primary_s01",
+        "F3_022_DMSO_02_W00_primary_s02",
+        "F3_022_DMSO_02_W00_primary_s03",
+        "F3_022_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_022",
+      "counts": {
+        "active": 0,
+        "held": 24,
+        "released": 0,
+        "terminal": 0,
+        "total": 24
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_022_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_022_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_022_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_022_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_022_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_022_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_022_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_023",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_023_DMSO_00_W00_continuum_s01",
+        "F3_023_DMSO_00_W00_continuum_s02",
+        "F3_023_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_023",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_023_DMSO_02_W00_primary_s01",
+        "F3_023_DMSO_02_W00_primary_s02",
+        "F3_023_DMSO_02_W00_primary_s03",
+        "F3_023_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_023",
+      "counts": {
+        "active": 0,
+        "held": 24,
+        "released": 0,
+        "terminal": 0,
+        "total": 24
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_023_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_023_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_023_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_023_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_023_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_023_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_023_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_024",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_024_DMSO_00_W00_continuum_s01",
+        "F3_024_DMSO_00_W00_continuum_s02",
+        "F3_024_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_024",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_024_DMSO_02_W00_primary_s01",
+        "F3_024_DMSO_02_W00_primary_s02",
+        "F3_024_DMSO_02_W00_primary_s03",
+        "F3_024_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_024",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_024_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_024_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_024_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_024_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_024_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_024_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_024_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_025",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_025_DMSO_00_W00_continuum_s01",
+        "F3_025_DMSO_00_W00_continuum_s02",
+        "F3_025_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_025",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_025_DMSO_02_W00_primary_s01",
+        "F3_025_DMSO_02_W00_primary_s02",
+        "F3_025_DMSO_02_W00_primary_s03",
+        "F3_025_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_025",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_025_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_025_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_025_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_025_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_025_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_025_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_025_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_026",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_026_DMSO_00_W00_continuum_s01",
+        "F3_026_DMSO_00_W00_continuum_s02",
+        "F3_026_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_026",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_026_DMSO_02_W00_primary_s01",
+        "F3_026_DMSO_02_W00_primary_s02",
+        "F3_026_DMSO_02_W00_primary_s03",
+        "F3_026_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_026",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_026_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_026_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_026_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_026_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_026_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_026_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_026_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_027",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_027_DMSO_00_W00_continuum_s01",
+        "F3_027_DMSO_00_W00_continuum_s02",
+        "F3_027_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_027",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_027_DMSO_02_W00_primary_s01",
+        "F3_027_DMSO_02_W00_primary_s02",
+        "F3_027_DMSO_02_W00_primary_s03",
+        "F3_027_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_027",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_027_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_027_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_027_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_027_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_027_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_027_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_027_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_028",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_028_DMSO_00_W00_continuum_s01",
+        "F3_028_DMSO_00_W00_continuum_s02",
+        "F3_028_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_028",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_028_DMSO_02_W00_primary_s01",
+        "F3_028_DMSO_02_W00_primary_s02",
+        "F3_028_DMSO_02_W00_primary_s03",
+        "F3_028_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_028",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_028_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_028_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_028_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_028_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_028_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_028_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_028_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_029",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_029_DMSO_00_W00_continuum_s01",
+        "F3_029_DMSO_00_W00_continuum_s02",
+        "F3_029_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_029",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_029_DMSO_02_W00_primary_s01",
+        "F3_029_DMSO_02_W00_primary_s02",
+        "F3_029_DMSO_02_W00_primary_s03",
+        "F3_029_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_029",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_029_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_029_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_029_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_029_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_029_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_029_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_029_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_030",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_030_DMSO_00_W00_continuum_s01",
+        "F3_030_DMSO_00_W00_continuum_s02",
+        "F3_030_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_030",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_030_DMSO_02_W00_primary_s01",
+        "F3_030_DMSO_02_W00_primary_s02",
+        "F3_030_DMSO_02_W00_primary_s03",
+        "F3_030_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_030",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_030_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_030_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_030_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_030_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_030_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_030_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_030_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_031",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_031_DMSO_00_W00_continuum_s01",
+        "F3_031_DMSO_00_W00_continuum_s02",
+        "F3_031_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_031",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_031_DMSO_02_W00_primary_s01",
+        "F3_031_DMSO_02_W00_primary_s02",
+        "F3_031_DMSO_02_W00_primary_s03",
+        "F3_031_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_031",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_031_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_031_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_031_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_031_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_031_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_031_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_031_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_032",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_032_DMSO_00_W00_continuum_s01",
+        "F3_032_DMSO_00_W00_continuum_s02",
+        "F3_032_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_032",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_032_DMSO_02_W00_primary_s01",
+        "F3_032_DMSO_02_W00_primary_s02",
+        "F3_032_DMSO_02_W00_primary_s03",
+        "F3_032_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_032",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_032_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_032_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_032_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_032_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_032_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_032_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_032_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_033",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_033_DMSO_00_W00_continuum_s01",
+        "F3_033_DMSO_00_W00_continuum_s02",
+        "F3_033_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_033",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_033_DMSO_02_W00_primary_s01",
+        "F3_033_DMSO_02_W00_primary_s02",
+        "F3_033_DMSO_02_W00_primary_s03",
+        "F3_033_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_033",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_033_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_033_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_033_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_033_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_033_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_033_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_033_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_034",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_034_DMSO_00_W00_continuum_s01",
+        "F3_034_DMSO_00_W00_continuum_s02",
+        "F3_034_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_034",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_034_DMSO_02_W00_primary_s01",
+        "F3_034_DMSO_02_W00_primary_s02",
+        "F3_034_DMSO_02_W00_primary_s03",
+        "F3_034_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_034",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_034_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_034_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_034_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_034_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_034_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_034_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_034_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_035",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_035_D2O_04W_primary_s01",
+        "F3_035_D2O_04W_primary_s02",
+        "F3_035_D2O_04W_primary_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_04W_primary",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_035",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_035_D2O_06W_primary_s01",
+        "F3_035_D2O_06W_primary_s02",
+        "F3_035_D2O_06W_primary_s03",
+        "F3_035_D2O_06W_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_06W_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_035",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_035_D2O_08W_primary_s01",
+        "F3_035_D2O_08W_primary_s02",
+        "F3_035_D2O_08W_primary_s03",
+        "F3_035_D2O_08W_primary_s04",
+        "F3_035_D2O_08W_primary_s05",
+        "F3_035_D2O_08W_primary_s06",
+        "F3_035_D2O_08W_primary_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_08W_primary",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_036",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_036_DMSO_00_W00_continuum_s01",
+        "F3_036_DMSO_00_W00_continuum_s02",
+        "F3_036_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_036",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_036_DMSO_02_W00_primary_s01",
+        "F3_036_DMSO_02_W00_primary_s02",
+        "F3_036_DMSO_02_W00_primary_s03",
+        "F3_036_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_036",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_036_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_036_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_036_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_036_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_036_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_036_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_036_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_037",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_037_DMSO_00_W00_continuum_s01",
+        "F3_037_DMSO_00_W00_continuum_s02",
+        "F3_037_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_037",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_037_DMSO_02_W00_primary_s01",
+        "F3_037_DMSO_02_W00_primary_s02",
+        "F3_037_DMSO_02_W00_primary_s03",
+        "F3_037_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_037",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_037_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_037_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_037_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_037_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_037_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_037_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_037_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_038",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_038_DMSO_00_W00_continuum_s01",
+        "F3_038_DMSO_00_W00_continuum_s02",
+        "F3_038_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_038",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_038_DMSO_02_W00_primary_s01",
+        "F3_038_DMSO_02_W00_primary_s02",
+        "F3_038_DMSO_02_W00_primary_s03",
+        "F3_038_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_038",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_038_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_038_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_038_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_038_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_038_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_038_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_038_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_039",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_039_DMSO_00_W00_continuum_s01",
+        "F3_039_DMSO_00_W00_continuum_s02",
+        "F3_039_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_039",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_039_DMSO_02_W00_primary_s01",
+        "F3_039_DMSO_02_W00_primary_s02",
+        "F3_039_DMSO_02_W00_primary_s03",
+        "F3_039_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_039",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_039_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_039_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_039_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_039_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_039_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_039_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_039_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_040",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_040_DMSO_00_W00_continuum_s01",
+        "F3_040_DMSO_00_W00_continuum_s02",
+        "F3_040_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_040",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_040_DMSO_02_W00_primary_s01",
+        "F3_040_DMSO_02_W00_primary_s02",
+        "F3_040_DMSO_02_W00_primary_s03",
+        "F3_040_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_040",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_040_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_040_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_040_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_040_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_040_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_040_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_040_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_041",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_041_DMSO_00_W00_continuum_s01",
+        "F3_041_DMSO_00_W00_continuum_s02",
+        "F3_041_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_041",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_041_DMSO_02_W00_primary_s01",
+        "F3_041_DMSO_02_W00_primary_s02",
+        "F3_041_DMSO_02_W00_primary_s03",
+        "F3_041_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_041",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_041_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_041_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_041_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_041_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_041_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_041_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_041_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_042",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_042_DMSO_00_W00_continuum_s01",
+        "F3_042_DMSO_00_W00_continuum_s02",
+        "F3_042_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_042",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_042_DMSO_02_W00_primary_s01",
+        "F3_042_DMSO_02_W00_primary_s02",
+        "F3_042_DMSO_02_W00_primary_s03",
+        "F3_042_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_042",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_042_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_042_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_042_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_042_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_042_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_042_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_042_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_043",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_043_D2O_04W_primary_s01",
+        "F3_043_D2O_04W_primary_s02",
+        "F3_043_D2O_04W_primary_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_04W_primary",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_043",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_043_D2O_06W_primary_s01",
+        "F3_043_D2O_06W_primary_s02",
+        "F3_043_D2O_06W_primary_s03",
+        "F3_043_D2O_06W_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_06W_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_043",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_043_D2O_08W_primary_s01",
+        "F3_043_D2O_08W_primary_s02",
+        "F3_043_D2O_08W_primary_s03",
+        "F3_043_D2O_08W_primary_s04",
+        "F3_043_D2O_08W_primary_s05",
+        "F3_043_D2O_08W_primary_s06",
+        "F3_043_D2O_08W_primary_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_08W_primary",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_044",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_044_D2O_04W_primary_s01",
+        "F3_044_D2O_04W_primary_s02",
+        "F3_044_D2O_04W_primary_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_04W_primary",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_044",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_044_D2O_06W_primary_s01",
+        "F3_044_D2O_06W_primary_s02",
+        "F3_044_D2O_06W_primary_s03",
+        "F3_044_D2O_06W_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_06W_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_044",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_044_D2O_08W_primary_s01",
+        "F3_044_D2O_08W_primary_s02",
+        "F3_044_D2O_08W_primary_s03",
+        "F3_044_D2O_08W_primary_s04",
+        "F3_044_D2O_08W_primary_s05",
+        "F3_044_D2O_08W_primary_s06",
+        "F3_044_D2O_08W_primary_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "D2O_08W_primary",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_045",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_045_DMSO_00_W00_continuum_s01",
+        "F3_045_DMSO_00_W00_continuum_s02",
+        "F3_045_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_045",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_045_DMSO_02_W00_primary_s01",
+        "F3_045_DMSO_02_W00_primary_s02",
+        "F3_045_DMSO_02_W00_primary_s03",
+        "F3_045_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_045",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_045_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_045_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_045_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_045_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_045_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_045_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_045_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_046",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_046_DMSO_00_W00_continuum_s01",
+        "F3_046_DMSO_00_W00_continuum_s02",
+        "F3_046_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_046",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_046_DMSO_02_W00_primary_s01",
+        "F3_046_DMSO_02_W00_primary_s02",
+        "F3_046_DMSO_02_W00_primary_s03",
+        "F3_046_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_046",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_046_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_046_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_046_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_046_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_046_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_046_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_046_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_047",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_047_DMSO_00_W00_continuum_s01",
+        "F3_047_DMSO_00_W00_continuum_s02",
+        "F3_047_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_047",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_047_DMSO_02_W00_primary_s01",
+        "F3_047_DMSO_02_W00_primary_s02",
+        "F3_047_DMSO_02_W00_primary_s03",
+        "F3_047_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_047",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_047_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_047_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_047_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_047_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_047_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_047_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_047_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_048",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_048_DMSO_00_W00_continuum_s01",
+        "F3_048_DMSO_00_W00_continuum_s02",
+        "F3_048_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_048",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_048_DMSO_02_W00_primary_s01",
+        "F3_048_DMSO_02_W00_primary_s02",
+        "F3_048_DMSO_02_W00_primary_s03",
+        "F3_048_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_048",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_048_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_048_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_048_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_048_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_048_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_048_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_048_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_049",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_049_DMSO_00_W00_continuum_s01",
+        "F3_049_DMSO_00_W00_continuum_s02",
+        "F3_049_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_049",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_049_DMSO_02_W00_primary_s01",
+        "F3_049_DMSO_02_W00_primary_s02",
+        "F3_049_DMSO_02_W00_primary_s03",
+        "F3_049_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_049",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_049_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_049_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_049_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_049_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_049_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_049_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_049_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_050",
+      "counts": {
+        "active": 0,
+        "held": 8,
+        "released": 0,
+        "terminal": 0,
+        "total": 8
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_050_DMSO_00_W00_continuum_s01",
+        "F3_050_DMSO_00_W00_continuum_s02",
+        "F3_050_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_050",
+      "counts": {
+        "active": 0,
+        "held": 12,
+        "released": 0,
+        "terminal": 0,
+        "total": 12
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_050_DMSO_02_W00_primary_s01",
+        "F3_050_DMSO_02_W00_primary_s02",
+        "F3_050_DMSO_02_W00_primary_s03",
+        "F3_050_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_050",
+      "counts": {
+        "active": 0,
+        "held": 20,
+        "released": 0,
+        "terminal": 0,
+        "total": 20
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_050_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_050_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_050_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_050_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_050_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_050_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_050_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_051",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_051_DMSO_00_W00_continuum_s01",
+        "F3_051_DMSO_00_W00_continuum_s02",
+        "F3_051_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_051",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_051_DMSO_02_W00_primary_s01",
+        "F3_051_DMSO_02_W00_primary_s02",
+        "F3_051_DMSO_02_W00_primary_s03",
+        "F3_051_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_051",
+      "counts": {
+        "active": 0,
+        "held": 16,
+        "released": 0,
+        "terminal": 0,
+        "total": 16
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_051_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_051_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_051_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_051_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_051_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_051_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_051_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    },
+    {
+      "compound_id": "F3_052",
+      "counts": {
+        "active": 0,
+        "held": 4,
+        "released": 0,
+        "terminal": 0,
+        "total": 4
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_052_DMSO_00_W00_continuum_s01",
+        "F3_052_DMSO_00_W00_continuum_s02",
+        "F3_052_DMSO_00_W00_continuum_s03"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_00_W00_continuum",
+      "target_success": 2
+    },
+    {
+      "compound_id": "F3_052",
+      "counts": {
+        "active": 0,
+        "held": 6,
+        "released": 0,
+        "terminal": 0,
+        "total": 6
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_052_DMSO_02_W00_primary_s01",
+        "F3_052_DMSO_02_W00_primary_s02",
+        "F3_052_DMSO_02_W00_primary_s03",
+        "F3_052_DMSO_02_W00_primary_s04"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W00_primary",
+      "target_success": 3
+    },
+    {
+      "compound_id": "F3_052",
+      "counts": {
+        "active": 0,
+        "held": 10,
+        "released": 0,
+        "terminal": 0,
+        "total": 10
+      },
+      "decision": "RELEASE_WAVE",
+      "reasons": [
+        "initial wave; no prior released jobs"
+      ],
+      "release_job_ids": [
+        "F3_052_DMSO_02_W01_trace_water_sensitivity_s01",
+        "F3_052_DMSO_02_W01_trace_water_sensitivity_s02",
+        "F3_052_DMSO_02_W01_trace_water_sensitivity_s03",
+        "F3_052_DMSO_02_W01_trace_water_sensitivity_s04",
+        "F3_052_DMSO_02_W01_trace_water_sensitivity_s05",
+        "F3_052_DMSO_02_W01_trace_water_sensitivity_s06",
+        "F3_052_DMSO_02_W01_trace_water_sensitivity_s07"
+      ],
+      "release_wave": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "target_success": 5
+    }
+  ],
+  "limits": {
+    "c_max_delta_ppm": 0.5,
+    "h_nonexchangeable_max_delta_ppm": 0.05,
+    "nh_max_delta_ppm": 0.2
+  },
+  "manifest": "E:\\For_codex\\C_N_coupling\\ORCA_260820\\ORCA_51_NMR_PRACTICAL_HIGH_ACCURACY_v1\\data\\GOAT_explicit_job_manifest.csv",
+  "manifest_state_sha256": "250436e59cd32c62a5e5d2c47021638123ef02d604f3db956435a2c1bfe14a2f",
+  "mode": "DRY_RUN",
+  "policy": "E:\\For_codex\\C_N_coupling\\ORCA_260820\\ORCA_51_NMR_PRACTICAL_HIGH_ACCURACY_v1\\config\\adaptive_goat_policy.json",
+  "safety": {
+    "cancels_running_jobs": false,
+    "releases_only_held": true,
+    "requires_released_terminal_before_next_wave": true
+  },
+  "schema_version": "1.0"
+}

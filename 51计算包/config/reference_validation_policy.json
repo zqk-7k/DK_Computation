@@ -1,0 +1,77 @@
+{
+  "schema_version": "1.0",
+  "policy_name": "SAME_METHOD_REFERENCE_AND_INDEPENDENT_VALIDATION",
+  "chemical_shift_definition": "delta_sample = sigma_reference - population_weighted_sigma_sample unless a predeclared independently fitted linear model is used",
+  "same_method_reference_gate": {
+    "same_functional": true,
+    "same_orbital_basis": true,
+    "same_density_treatment": true,
+    "same_relativistic_and_picture_change_treatment": true,
+    "same_solvent_model": true,
+    "same_ORCA_version": true,
+    "same_grid_and_SCF_quality": true,
+    "reference_input_and_output_hashes_required": true
+  },
+  "references": {
+    "default": "TMS",
+    "aqueous_candidates": [
+      "DSS",
+      "TSP"
+    ],
+    "aqueous_candidate_use": "requires_predeclared_experimental_reference_convention_and_separate_computed_protocol"
+  },
+  "calibration": {
+    "allowed_models": [
+      "unit_slope_reference_subtraction",
+      "predeclared_linear_delta_equals_a_plus_b_sigma"
+    ],
+    "training_data": "independent_compounds_not_target_spectrum_being_predicted",
+    "cross_validation_required": true,
+    "nucleus_solvent_method_and_chemical_class_scope_recorded": true,
+    "coefficients_frozen_before_target_application": true,
+    "target_specific_peak_warping_forbidden": true,
+    "exchangeable_protons_fitted_separately_or_excluded": true,
+    "report_intercept_slope_covariance_and_residual_distribution": true
+  },
+  "method_branch_rules": {
+    "PBE0_and_revDSD_raw_shieldings_combined": false,
+    "PBE0_and_revDSD_each_need_own_reference": true,
+    "revDSD_coverage_below_0_95": "diagnostic_partial_result_only",
+    "NoFrozenCore_and_FrozenCore_are_distinct_methods": true
+  },
+  "J_method_gate": {
+    "candidate_branches": [
+      "PBE_pcJ3",
+      "PBE0_pcJ2"
+    ],
+    "branches_averaged": false,
+    "selection_basis": "predeclared_cross_compound_experimental_validation",
+    "selection_metrics": [
+      "signed_error_Hz",
+      "MAE_Hz",
+      "coupling_sign_accuracy",
+      "multiplet_topology_accuracy"
+    ],
+    "exchangeable_H_J": "table_only_and_excluded_from_coherent_fine_structure_by_default"
+  },
+  "uncertainty_components": [
+    "conformer_population",
+    "fixed_composition_scenario",
+    "electronic_structure_method",
+    "reference_and_calibration",
+    "temperature_and_condition",
+    "exchange_and_protonation",
+    "basis_and_relativistic_treatment"
+  ],
+  "reporting_levels": {
+    "provisional": "condition_or_species_not_confirmed",
+    "calculated": "workflow_complete_but_no_independent_experimental_validation",
+    "validated_within_scope": "independent_predeclared_validation_gate_passed_for_stated_nucleus_solvent_and_chemical_domain"
+  },
+  "forbidden": [
+    "fit_calibration_to_the_same_target_peaks_then_call_prediction",
+    "hide_method_or_scenario_disagreement",
+    "label_synthetic_appearance_as_experimental",
+    "claim_universal_accuracy_from_benzamide"
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "schema_version": "1.0",
+  "figure_id": null,
+  "species_hash": null,
+  "scenario_id": null,
+  "branch_id": null,
+  "method": null,
+  "basis": null,
+  "density_treatment": null,
+  "frozen_core": null,
+  "relativistic_route": null,
+  "picture_change": null,
+  "solvent_model": null,
+  "orca_version": "6.1.1",
+  "geometry_manifest_sha256": null,
+  "population_manifest_sha256": null,
+  "cumulative_population_coverage": null,
+  "required_motifs_covered": false,
+  "same_method_reference": {
+    "reference_name": null,
+    "input_sha256": null,
+    "output_sha256": null,
+    "gate_pass": false
+  },
+  "basis_preflight_pass": false,
+  "normal_termination_for_all_included_jobs": false,
+  "may_enter_final_average": false,
+  "method_mixed_with_other_raw_shieldings": false,
+  "reviewed_by": null,
+  "reviewed_at_utc": null,
+  "receipt_sha256": null
+}

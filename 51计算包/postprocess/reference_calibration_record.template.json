@@ -1,0 +1,23 @@
+{
+  "schema_version": "1.0",
+  "nucleus": null,
+  "method_branch": null,
+  "solvent_condition": null,
+  "reference_name": null,
+  "reference_shielding_ppm": null,
+  "reference_input_sha256": null,
+  "reference_output_sha256": null,
+  "calibration_model": "unit_slope_reference_subtraction",
+  "linear_model": {
+    "intercept_a": null,
+    "slope_b": null,
+    "covariance": null
+  },
+  "independent_training_dataset": null,
+  "training_dataset_sha256": null,
+  "cross_validation_summary": null,
+  "target_compound_excluded_from_training": null,
+  "exchangeable_protons_included": false,
+  "approved": false,
+  "record_sha256": null
+}

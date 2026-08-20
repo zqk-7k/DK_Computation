@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "job_state.schema.json",
+  "type": "object",
+  "required": ["schema_version", "state", "updated_utc", "accepted"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "state": {"enum": ["HELD", "RELEASED", "PENDING", "RUNNING", "COMPLETING", "COMPLETED", "FAILED", "CANCELLED", "TIMEOUT"]},
+    "accepted": {"type": "boolean"},
+    "scheduler_job_id": {"type": "string"},
+    "attempt_id": {"type": "string"},
+    "updated_utc": {"type": "string", "format": "date-time"}
+  },
+  "additionalProperties": true
+}

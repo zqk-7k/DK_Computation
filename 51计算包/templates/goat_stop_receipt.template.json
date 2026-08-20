@@ -1,0 +1,34 @@
+{
+  "schema_version": "1.0",
+  "figure_id": null,
+  "species_hash": null,
+  "scenario_id": null,
+  "evaluated_after_wave": null,
+  "all_released_jobs_terminal": false,
+  "counts": {
+    "released": 0,
+    "completed_normal": 0,
+    "failed": 0,
+    "identity_rejected": 0,
+    "unique_approved_basins": 0,
+    "approved_rediscoveries": 0
+  },
+  "gates": {
+    "minimum_success_target": false,
+    "major_basin_rediscovery": false,
+    "required_motif_coverage": false,
+    "no_new_important_basin_latest_wave": false,
+    "peak_order_stable": null,
+    "nonexchangeable_1H_weighted_delta_ppm": null,
+    "13C_weighted_delta_ppm": null,
+    "exchangeable_NH_weighted_delta_ppm": null,
+    "identity_stereo_and_composition": false
+  },
+  "decision": "ESCALATE_OR_HOLD_PENDING_REVIEW",
+  "next_wave_to_release": null,
+  "running_jobs_cancelled_for_stop": false,
+  "evidence_files": [],
+  "reviewed_by": null,
+  "reviewed_at_utc": null,
+  "receipt_sha256": null
+}

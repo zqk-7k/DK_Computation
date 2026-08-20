@@ -1,0 +1,128 @@
+{
+  "schema_version": "1.0",
+  "extends": "config/adaptive_goat_policy.json",
+  "compatibility_note": "Core target, initial-release and candidate-ceiling values are identical to the generator-owned policy. This file adds auditable wave, state, stop and receipt contracts.",
+  "notice": "CALCULATED MODELS - NOT EXPERIMENTAL DATA",
+  "orca_version_target": "6.1.1",
+  "excluded_compounds": [
+    "F3_005"
+  ],
+  "fixed_composition_rule": "NEVER_BOLTZMANN_MIX_ACROSS_SCENARIOS",
+  "minimum_success_by_scenario_position": [
+    2,
+    3,
+    5
+  ],
+  "initial_release_by_scenario_position": [
+    3,
+    4,
+    7
+  ],
+  "maximum_candidates_by_complexity": {
+    "R": [4, 6, 10],
+    "M": [6, 10, 16],
+    "H": [8, 12, 20],
+    "X": [10, 16, 24]
+  },
+  "wave_release": {
+    "release_counts_by_complexity": {
+      "R": [[3, 1], [4, 2], [7, 3]],
+      "M": [[3, 2, 1], [4, 3, 3], [7, 5, 4]],
+      "H": [[3, 2, 3], [4, 4, 4], [7, 6, 7]],
+      "X": [[3, 3, 4], [4, 5, 7], [7, 7, 10]]
+    },
+    "outer_dimension": "scenario_position_1_2_3",
+    "inner_dimension": "successive_release_waves",
+    "all_released_jobs_must_reach_terminal_state_before_gate": true,
+    "running_or_completing_jobs_cancelled_for_target_stop": false,
+    "only_held_or_unreleased_candidates_may_be_suppressed": true,
+    "fastest_only_completion_selection_forbidden": true
+  },
+  "state_machine": {
+    "states": [
+      "HELD",
+      "RELEASE_READY",
+      "SUBMITTED",
+      "RUNNING",
+      "COMPLETING",
+      "COMPLETED_NORMAL",
+      "FAILED",
+      "CANCELLED_BY_SCHEDULER",
+      "VALIDATED_UNIQUE",
+      "VALIDATED_REDISCOVERY",
+      "REJECTED_IDENTITY_OR_COMPOSITION",
+      "STOP_APPROVED",
+      "ESCALATE_APPROVED"
+    ],
+    "initial_candidate_state": "HELD",
+    "first_wave_state": "RELEASE_READY",
+    "terminal_scheduler_states": [
+      "COMPLETED_NORMAL",
+      "FAILED",
+      "CANCELLED_BY_SCHEDULER"
+    ],
+    "validation_follows_terminal_state": true,
+    "stale_lock_clearance_requires_scheduler_absence_and_heartbeat_timeout": true,
+    "manual_state_change_requires_operator_timestamp_reason_and_receipt": true
+  },
+  "success_definition": {
+    "normal_ORCA_termination": true,
+    "graph_and_atom_map_pass": true,
+    "stereochemistry_pass": true,
+    "charge_and_multiplicity_pass": true,
+    "fixed_cluster_composition_pass": true,
+    "geometry_sanity_pass": true,
+    "classified_as_unique_basin_or_valid_independent_rediscovery": true
+  },
+  "stop_gates": {
+    "quantity": "minimum_success_by_scenario_position_met",
+    "major_basin_evidence": "important_low_energy_basins_rediscovered_or_independently_supported",
+    "motif_coverage": "predeclared_solute_solvent_hydrogen_bond_orientation_and_ion_pair_motifs_covered",
+    "latest_wave_novelty": "no_new_important_basin_in_latest_complete_wave",
+    "ensemble_stability": "weighted_shifts_and_peak_order_stable_between_last_two_complete_waves",
+    "identity": "graph_atom_map_stereochemistry_charge_multiplicity_and_fixed_cluster_composition_pass",
+    "all_required": true,
+    "success_count_alone_sufficient": false
+  },
+  "engineering_thresholds": {
+    "weighted_shift_change_nonexchangeable_1H_ppm": {
+      "preferred": 0.03,
+      "maximum": 0.05
+    },
+    "weighted_shift_change_13C_ppm": {
+      "preferred": 0.3,
+      "maximum": 0.5
+    },
+    "weighted_shift_change_exchangeable_NH_ppm": {
+      "maximum": 0.2
+    },
+    "peak_order_must_remain_stable": true,
+    "interpretation": "engineering_stop_gates_not_claimed_universal_accuracy_limits"
+  },
+  "escalation_triggers": [
+    "minimum_success_not_met",
+    "new_low_energy_basin_in_latest_wave",
+    "required_motif_missing",
+    "weighted_shift_stability_gate_failed",
+    "peak_order_changed",
+    "effective_population_concentrated_in_one_unrediscovered_start",
+    "correlated_identity_or_composition_failures"
+  ],
+  "escalation_order": [
+    "release_next_held_wave",
+    "repair_correlated_start_placement_or_identity_failures",
+    "raise_complexity_ceiling_one_level",
+    "manual_review_before_exceeding_X_ceiling"
+  ],
+  "required_receipts": [
+    "released_wave_manifest",
+    "terminal_job_ledger",
+    "structure_validation_receipt",
+    "cluster_and_motif_coverage_table",
+    "weighted_shift_delta_and_peak_order_table",
+    "signed_stop_or_escalate_decision"
+  ],
+  "release_rule": "Release wave 1 only. Wait until every released job is terminal, validate identity, stereochemistry, composition and unique-basin coverage, then release held waves only if needed.",
+  "stop_rule": "Target-success count is necessary but not sufficient; never cancel RUNNING or COMPLETING work.",
+  "goat_method": "GOAT-ENTROPY XTB ALPB; 8 ranks; maxcore 2000 MB per rank"
+}

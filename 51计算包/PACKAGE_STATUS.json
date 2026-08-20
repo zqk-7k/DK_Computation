@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "package_id": "ORCA_51_NMR_PRACTICAL_HIGH_ACCURACY_v1",
+  "scope": "F3_001-F3_052 excluding F3_005 benzamide",
+  "status": [
+    "INPUTS_PREPARED",
+    "HPC_NOT_RUN",
+    "DRAFT_NOT_VALIDATED"
+  ],
+  "goat": {
+    "compounds": 51,
+    "fixed_composition_scenarios": 153,
+    "candidate_jobs": 1560,
+    "wave_1_release_ready": 714,
+    "later_waves_held": 846
+  },
+  "execution_boundary": {
+    "goat_and_hpc_runner": "READY_AFTER_REAL_SITE_CONFIG_AND_OPERATOR_REVIEW",
+    "direct_goat_to_pbe0_compatibility_builder": "INCLUDED_FAIL_CLOSED",
+    "default_r2scan_to_pbe0_automatic_handoff": "NOT_COMMISSIONED_FAIL_CLOSED",
+    "orca_calculations_executed": false
+  },
+  "interpretation": "CALCULATED WORKFLOW INPUTS - NOT EXPERIMENTAL DATA"
+}

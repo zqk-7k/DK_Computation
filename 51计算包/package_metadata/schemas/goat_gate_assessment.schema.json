@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "goat_gate_assessment.schema.json",
+  "type": "object",
+  "required": ["schema_version", "compound_id", "scenario_id", "evaluated_job_ids", "accepted_success_count", "identity_gate_pass", "composition_gate_pass", "stereochemistry_gate_pass", "low_energy_basin_rediscovered", "motif_coverage_pass", "shift_stability"],
+  "properties": {
+    "schema_version": {"const": "1.0"},
+    "compound_id": {"pattern": "^F3_[0-9]{3}$"},
+    "scenario_id": {"type": "string", "minLength": 1},
+    "evaluated_job_ids": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "accepted_success_count": {"type": "integer", "minimum": 0},
+    "identity_gate_pass": {"type": "boolean"},
+    "composition_gate_pass": {"type": "boolean"},
+    "stereochemistry_gate_pass": {"type": "boolean"},
+    "low_energy_basin_rediscovered": {"type": "boolean"},
+    "motif_coverage_pass": {"type": "boolean"},
+    "shift_stability": {
+      "type": "object",
+      "required": ["evaluated", "h_nonexchangeable_max_delta_ppm", "c_max_delta_ppm", "nh_max_delta_ppm", "peak_order_stable"],
+      "properties": {
+        "evaluated": {"type": "boolean"},
+        "h_nonexchangeable_max_delta_ppm": {"type": "number", "minimum": 0},
+        "c_max_delta_ppm": {"type": "number", "minimum": 0},
+        "nh_max_delta_ppm": {"type": "number", "minimum": 0},
+        "peak_order_stable": {"type": "boolean"}
+      }
+    }
+  },
+  "additionalProperties": true
+}

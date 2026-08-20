@@ -1,0 +1,58 @@
+{
+  "schema_version": "1.0",
+  "record_status": "PROVISIONAL",
+  "compound": {
+    "figure_id": null,
+    "display_name": null,
+    "mapped_isomeric_smiles": null,
+    "inchi": null,
+    "inchikey": null,
+    "formula": null,
+    "net_charge": null,
+    "multiplicity": 1,
+    "stereochemistry_confirmed": false,
+    "sample_batch_or_source": null,
+    "identity_notes": null
+  },
+  "species": {
+    "protonation_state": null,
+    "tautomer_state": null,
+    "salt_state": null,
+    "counterions": [],
+    "species_hash": null,
+    "owner_confirmation": null
+  },
+  "experimental_condition": {
+    "solvent": null,
+    "isotopic_solvent": null,
+    "temperature_K": null,
+    "concentration_mol_per_L": null,
+    "pH_or_pD": null,
+    "spectrometer_frequency_MHz_1H": null,
+    "reference_compound": null,
+    "reference_scale": null,
+    "water_content_or_activity": null,
+    "condition_source": null
+  },
+  "requested_nuclei": {
+    "1H": true,
+    "13C": null,
+    "19F": false,
+    "31P": false,
+    "15N": false
+  },
+  "workflow": {
+    "mode": "PRACTICAL_HIGH_ACCURACY",
+    "orca_version": "6.1.1",
+    "stage_methods_hash": null,
+    "adaptive_goat_policy_hash": null,
+    "qrrho_policy_hash": null,
+    "resource_profile_hash": null
+  },
+  "approval": {
+    "required_fields_complete": false,
+    "approved_by": null,
+    "approved_at_utc": null,
+    "record_sha256": null
+  }
+}

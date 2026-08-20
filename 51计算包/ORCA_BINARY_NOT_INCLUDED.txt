@@ -1,0 +1,8 @@
+ORCA is proprietary software and is not included in this repository.
+
+The operator must install a licensed ORCA 6.1.1 distribution on the target HPC
+system, use the matching MPI runtime required by that distribution, and set the
+absolute executable path in a site-specific copy of hpc/site_config.example.json.
+
+Do not commit the ORCA binary, licence material, passwords, private keys, cluster
+credentials, or a user-specific site configuration to GitHub.

@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "policy": {
+    "memory_fraction_limit": 0.70,
+    "scheduler_cpu_note": "scheduler_cpus is the allocation request; orca_nprocs is the value placed in %pal. They are intentionally separate.",
+    "maxcore_note": "%maxcore is MB per ORCA process. The audit enforces nprocs*maxcore <= memory_fraction_limit*requested_memory_mb.",
+    "threads_per_process": 1
+  },
+  "profiles": {
+    "goat_small": {"scheduler_cpus": 8, "orca_nprocs": 8, "maxcore_mb": 2000, "requested_memory_mb": 32000, "scratch_mb": 80000, "walltime": "72:00:00"},
+    "goat_medium": {"scheduler_cpus": 16, "orca_nprocs": 8, "maxcore_mb": 2000, "requested_memory_mb": 64000, "scratch_mb": 140000, "walltime": "120:00:00"},
+    "goat_large": {"scheduler_cpus": 32, "orca_nprocs": 8, "maxcore_mb": 2000, "requested_memory_mb": 114000, "scratch_mb": 220000, "walltime": "168:00:00"},
+    "r2scan_screen": {"scheduler_cpus": 16, "orca_nprocs": 8, "maxcore_mb": 4500, "requested_memory_mb": 72000, "scratch_mb": 160000, "walltime": "96:00:00"},
+    "pbe0_optfreq": {"scheduler_cpus": 32, "orca_nprocs": 8, "maxcore_mb": 6000, "requested_memory_mb": 114000, "scratch_mb": 220000, "walltime": "120:00:00"},
+    "pbe0_shielding": {"scheduler_cpus": 32, "orca_nprocs": 8, "maxcore_mb": 7000, "requested_memory_mb": 128000, "scratch_mb": 220000, "walltime": "120:00:00"},
+    "j_coupling": {"scheduler_cpus": 32, "orca_nprocs": 8, "maxcore_mb": 6000, "requested_memory_mb": 114000, "scratch_mb": 220000, "walltime": "120:00:00"},
+    "revdsd_pilot": {"scheduler_cpus": 32, "orca_nprocs": 8, "maxcore_mb": 7000, "requested_memory_mb": 128000, "scratch_mb": 250000, "walltime": "120:00:00"},
+    "revdsd_medium": {"scheduler_cpus": 48, "orca_nprocs": 8, "maxcore_mb": 9000, "requested_memory_mb": 192000, "scratch_mb": 350000, "walltime": "168:00:00"},
+    "revdsd_large_4rank": {"scheduler_cpus": 64, "orca_nprocs": 4, "maxcore_mb": 16000, "requested_memory_mb": 256000, "scratch_mb": 500000, "walltime": "168:00:00"},
+    "revdsd_large_8rank": {"scheduler_cpus": 64, "orca_nprocs": 8, "maxcore_mb": 12000, "requested_memory_mb": 256000, "scratch_mb": 500000, "walltime": "168:00:00"}
+  }
+}

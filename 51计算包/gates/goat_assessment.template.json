@@ -1,0 +1,22 @@
+{
+  "schema_version": "1.0",
+  "compound_id": "F3_XXX",
+  "scenario_id": "CHANGE_ME",
+  "evaluated_job_ids": [],
+  "accepted_success_count": 0,
+  "identity_gate_pass": false,
+  "composition_gate_pass": false,
+  "stereochemistry_gate_pass": false,
+  "low_energy_basin_rediscovered": false,
+  "motif_coverage_pass": false,
+  "shift_stability": {
+    "evaluated": false,
+    "h_nonexchangeable_max_delta_ppm": 999.0,
+    "c_max_delta_ppm": 999.0,
+    "nh_max_delta_ppm": 999.0,
+    "peak_order_stable": false
+  },
+  "reviewer": "CHANGE_ME",
+  "reviewed_utc": "CHANGE_ME",
+  "notes": "Fail closed until populated from validated outputs."
+}

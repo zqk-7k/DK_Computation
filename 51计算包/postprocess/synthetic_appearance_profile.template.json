@@ -1,0 +1,39 @@
+{
+  "schema_version": "1.0",
+  "profile_id": null,
+  "output_label": "SYNTHETIC_APPEARANCE_NOT_EXPERIMENTAL",
+  "input_clean_spectrum_sha256": null,
+  "nucleus": null,
+  "spectrometer_frequency_MHz": null,
+  "lineshape": {
+    "type": "Voigt",
+    "FWHM_Hz": null,
+    "gaussian_fraction": null,
+    "parameter_source": "DISPLAY_ASSUMPTION"
+  },
+  "relative_intensity": {
+    "model": "transition_intensity_or_proton_count",
+    "relaxation_or_NOE_model": "not_modelled",
+    "parameter_source": "DISPLAY_ASSUMPTION"
+  },
+  "solvent_and_reference_peaks": [],
+  "baseline": {
+    "enabled": false,
+    "model": null,
+    "parameters": {},
+    "parameter_source": "DISPLAY_ASSUMPTION"
+  },
+  "noise": {
+    "enabled": false,
+    "distribution": "normal",
+    "standard_deviation_relative": null,
+    "random_seed": 20260820,
+    "parameter_source": "DISPLAY_ASSUMPTION"
+  },
+  "exchangeable_protons": {
+    "line_model": "separate_or_omitted_without_independent_exchange_parameters",
+    "parameter_source": null
+  },
+  "target_experimental_spectrum_used_to_fit_profile": false,
+  "profile_sha256": null
+}

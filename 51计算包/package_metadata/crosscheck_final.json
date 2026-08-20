@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-08-19T18:25:17.786982+00:00",
+  "status": "PASS",
+  "errors": [],
+  "checks": {
+    "python_ast_files": 18,
+    "valid_json_files": 1591,
+    "compound_profiles": 51,
+    "fixed_composition_scenarios": 153,
+    "goat_manifest_jobs": 1560,
+    "release_ready": 714,
+    "held": 846,
+    "compound_ids": 51,
+    "F3_005_excluded": true,
+    "docx_paragraphs": 77,
+    "docx_tables": 18,
+    "docx_sections": 3,
+    "docx_comments": false,
+    "docx_tracked_revisions": false,
+    "credential_leaks": []
+  },
+  "scope": "static crosscheck; no ORCA calculation executed"
+}

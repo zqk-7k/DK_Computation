@@ -1,0 +1,113 @@
+{
+  "schema_version": "1.0",
+  "default_action": "continue_only_after_standard_identity_condition_basis_and_composition_gates",
+  "heavy_iodine": {
+    "compound_ids": [
+      "F3_006"
+    ],
+    "status": "FAIL_CLOSED",
+    "required_gate_items": [
+      "choose_and_document_X2C_or_ZORA_or_ECP_route",
+      "verify_orbital_basis_coverage_for_I_and_all_other_elements",
+      "verify_auxiliary_basis_coverage",
+      "verify_gauge_and_picture_change_treatment_for_NMR_property",
+      "run_ORCA_6_1_1_version_specific_single_point_and_property_pilot",
+      "compute_reference_with_identical_relativistic_method",
+      "approve_input_output_and_basis_hash_receipt"
+    ],
+    "forbidden_until_pass": [
+      "production_shielding",
+      "production_J",
+      "claim_comparability_to_light_element_branch"
+    ]
+  },
+  "basis_preflight": {
+    "fluorine": {
+      "compound_ids": [
+        "F3_003",
+        "F3_037",
+        "F3_039"
+      ],
+      "extra_optional_nucleus": "19F"
+    },
+    "chlorine": {
+      "compound_ids": [
+        "F3_016",
+        "F3_017",
+        "F3_021"
+      ]
+    },
+    "phosphorus": {
+      "compound_ids": [
+        "F3_043",
+        "F3_044",
+        "F3_045",
+        "F3_046",
+        "F3_047",
+        "F3_048",
+        "F3_049",
+        "F3_050",
+        "F3_051",
+        "F3_052"
+      ],
+      "extra_optional_nucleus": "31P"
+    },
+    "required_checks": [
+      "orbital_basis_exists_for_every_element",
+      "RI_or_JK_auxiliary_basis_exists_or_explicit_fallback_is_documented",
+      "NMR_specific_basis_exists_for_every_requested_nucleus",
+      "J_specific_basis_exists_for_every_requested_coupled_atom",
+      "one_small_version_specific_ORCA_pilot_passes"
+    ]
+  },
+  "no_carbon": {
+    "compound_ids": [
+      "F3_035",
+      "F3_043",
+      "F3_044"
+    ],
+    "13C_output": "NOT_APPLICABLE",
+    "required_behavior": "do_not_create_empty_or_fabricated_13C_spectrum"
+  },
+  "D2O_exchange": {
+    "compound_ids": [
+      "F3_019",
+      "F3_020",
+      "F3_021",
+      "F3_035",
+      "F3_043",
+      "F3_044"
+    ],
+    "rule": "static_shieldings_of_exchangeable_H_do_not_establish_observable_1H_peaks",
+    "report": [
+      "exchangeable_assignments_separately",
+      "possible_H_D_exchange_and_broadening",
+      "nonexchangeable_1H_spectrum_only_when_appropriate"
+    ]
+  },
+  "salt_and_cation_states": {
+    "compound_ids": [
+      "F3_016",
+      "F3_017"
+    ],
+    "rule": "full_salt_and_cation_only_are_distinct_species_and_never_Boltzmann_mixed",
+    "production_default": "full_salt_if_confirmed_by_sample_owner",
+    "cation_only": "separate_sensitivity_branch_with_own_hash_reference_and_label"
+  },
+  "species_confirmation_required": {
+    "F3_019": "confirm_L_configuration_and_zwitterionic_state_under_measured_conditions",
+    "F3_020": "registry_neutral_drawing_and_working_D2O_zwitterion_are_distinct_species; confirm_primary_state",
+    "F3_021": "confirm_dihydrochloride_stoichiometry_protonation_and_pD",
+    "F3_023": "confirm_sample_identity_against_current_registry_structure_and_resolve_historical_name_conflict"
+  },
+  "explicit_solvent_interpretation": {
+    "two_DMSO_plus_one_water": "local_microsolvation_sensitivity_model",
+    "one_water_equals_real_sample_water_content": false,
+    "different_stoichiometries_mixed": false,
+    "condition_lock_required": true
+  },
+  "LVK": {
+    "included_in_NMR_workflow": false,
+    "reason": "candidate_pair_sky_and_time_statistics_are_unrelated_to_molecular_NMR_calculation"
+  }
+}

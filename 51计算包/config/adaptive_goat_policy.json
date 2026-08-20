@@ -1,0 +1,54 @@
+{
+  "schema_version": "1.0",
+  "notice": "CALCULATED MODELS - NOT EXPERIMENTAL DATA",
+  "orca_version_target": "6.1.1",
+  "excluded_compounds": [
+    "F3_005"
+  ],
+  "fixed_composition_rule": "NEVER_BOLTZMANN_MIX_ACROSS_SCENARIOS",
+  "minimum_success_by_scenario_position": [
+    2,
+    3,
+    5
+  ],
+  "initial_release_by_scenario_position": [
+    3,
+    4,
+    7
+  ],
+  "maximum_candidates_by_complexity": {
+    "R": [
+      4,
+      6,
+      10
+    ],
+    "M": [
+      6,
+      10,
+      16
+    ],
+    "H": [
+      8,
+      12,
+      20
+    ],
+    "X": [
+      10,
+      16,
+      24
+    ]
+  },
+  "release_rule": "Release wave 1 only. Wait until every released job is terminal, validate identity, stereochemistry, composition and unique-basin coverage, then release held waves only if needed.",
+  "stop_rule": "Target-success count is necessary but not sufficient: stop only after low-energy basin rediscovery, no new important basin in the latest completed wave, motif coverage and downstream ensemble-stability gates pass. Never cancel RUNNING or COMPLETING work.",
+  "suggested_ensemble_delta_gates": {
+    "nonexchangeable_1H_ppm": 0.05,
+    "13C_ppm": 0.5,
+    "exchangeable_NH_ppm": 0.2,
+    "peak_order_stable": true
+  },
+  "goat_method": "GOAT-ENTROPY XTB ALPB; 8 ranks; maxcore 2000 MB per rank",
+  "state_contract": {
+    "wave_1": "RELEASE_READY",
+    "later_waves": "HELD"
+  }
+}

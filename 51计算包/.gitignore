@@ -1,0 +1,26 @@
+# Site-private configuration and credentials
+hpc/site_config.json
+*.pem
+*.key
+.env
+
+# Runtime state and scheduler output
+runtime/
+scratch/
+logs/
+slurm-*.out
+*.lock
+*.heartbeat
+
+# ORCA outputs are retained in the archival result store, not committed by default
+*.gbw
+*.tmp
+*.densities
+*.prop
+
+# Python caches
+__pycache__/
+*.py[cod]
+
+# Office lock files
+~$*.docx

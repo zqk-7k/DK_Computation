@@ -1,0 +1,457 @@
+{
+  "checks": [
+    {
+      "detail": "",
+      "label": "required directory exists: config",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required directory exists: data",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required directory exists: 01_goat_explicit",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required directory exists: hpc",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required directory exists: scripts",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required directory exists: gates",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required directory exists: package_metadata",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "resource profiles exist",
+      "pass": true
+    },
+    {
+      "detail": "0.7",
+      "label": "memory fraction is conservative",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile goat_small has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.500, limit=0.700",
+      "label": "profile goat_small passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile goat_small scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile goat_medium has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.250, limit=0.700",
+      "label": "profile goat_medium passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile goat_medium scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile goat_large has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.140, limit=0.700",
+      "label": "profile goat_large passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile goat_large scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile r2scan_screen has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.500, limit=0.700",
+      "label": "profile r2scan_screen passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile r2scan_screen scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile pbe0_optfreq has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.421, limit=0.700",
+      "label": "profile pbe0_optfreq passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile pbe0_optfreq scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile pbe0_shielding has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.438, limit=0.700",
+      "label": "profile pbe0_shielding passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile pbe0_shielding scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile j_coupling has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.421, limit=0.700",
+      "label": "profile j_coupling passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile j_coupling scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile revdsd_pilot has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.438, limit=0.700",
+      "label": "profile revdsd_pilot passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile revdsd_pilot scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile revdsd_medium has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.375, limit=0.700",
+      "label": "profile revdsd_medium passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile revdsd_medium scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile revdsd_large_4rank has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.250, limit=0.700",
+      "label": "profile revdsd_large_4rank passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile revdsd_large_4rank scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile revdsd_large_8rank has required fields",
+      "pass": true
+    },
+    {
+      "detail": "ratio=0.375, limit=0.700",
+      "label": "profile revdsd_large_8rank passes memory inequality",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "profile revdsd_large_8rank scheduler CPUs cover ORCA ranks",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required profile revdsd_pilot exists",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required profile revdsd_medium exists",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required profile revdsd_large_4rank exists",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "GOAT source manifest exists",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "GOAT source manifest is nonempty",
+      "pass": true
+    },
+    {
+      "detail": "missing=[], extra=[]",
+      "label": "manifest contains exactly 51 expected compounds",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "benzamide F3_005 is excluded",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "manifest job IDs are unique and nonblank",
+      "pass": true
+    },
+    {
+      "detail": "missing=[]",
+      "label": "manifest has adaptive/HPC fields",
+      "pass": true
+    },
+    {
+      "detail": "checked 1560/1560 jobs",
+      "label": "input bundle existence/hash scan",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: scripts/adaptive_goat_controller.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: scripts/run_orca_job.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: scripts/classify_failure.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: scripts/write_package_checksums.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: scripts/verify_receipt.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: scripts/prepare_hpc_jobs.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: scripts/sync_scheduler_states.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: hpc/slurm/run_manifest_task.sbatch.in",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "required control file exists: hpc/site_config.example.json",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\adaptive_goat_controller.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "controller code does not invoke scheduler cancellation: scripts\\adaptive_goat_controller.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\audit_package.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\classify_failure.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\package_io.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\prepare_explicit_goat_jobs.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\prepare_hpc_jobs.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\render_slurm.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\run_orca_job.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\sync_scheduler_states.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "controller code does not invoke scheduler cancellation: scripts\\sync_scheduler_states.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\verify_receipt.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in scripts\\write_package_checksums.py",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "no outer MPI ORCA invocation in hpc\\slurm\\run_manifest_task.sbatch.in",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "runner contains Heartbeat safeguard",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "runner contains publish_results safeguard",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "runner contains sha256_file safeguard",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "runner contains node-local scratch safeguard",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "runner contains os.replace safeguard",
+      "pass": true
+    },
+    {
+      "detail": "E:\\For_codex\\C_N_coupling\\ORCA_260820\\ORCA_51_NMR_PRACTICAL_HIGH_ACCURACY_v1\\hpc\\site_config.example.json",
+      "label": "site config exists",
+      "pass": true
+    },
+    {
+      "detail": "/opt/orca/6.1.1/orca",
+      "label": "ORCA executable is an absolute path",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "ORCA version lock is 6.1.1",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "site config fixes OMP_NUM_THREADS=1",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "site config fixes MKL_NUM_THREADS=1",
+      "pass": true
+    },
+    {
+      "detail": "",
+      "label": "site config fixes OPENBLAS_NUM_THREADS=1",
+      "pass": true
+    },
+    {
+      "label": "valid JSON: adaptive_goat_manifest.schema.json",
+      "pass": true
+    },
+    {
+      "label": "valid JSON: goat_gate_assessment.schema.json",
+      "pass": true
+    },
+    {
+      "label": "valid JSON: job_state.schema.json",
+      "pass": true
+    },
+    {
+      "label": "valid JSON: runner_receipt.schema.json",
+      "pass": true
+    }
+  ],
+  "created_utc": "2026-08-19T18:15:44.544167+00:00",
+  "errors": [],
+  "package_root": "E:\\For_codex\\C_N_coupling\\ORCA_260820\\ORCA_51_NMR_PRACTICAL_HIGH_ACCURACY_v1",
+  "schema_version": "1.0",
+  "scope": "static package audit; no ORCA calculation was executed",
+  "status": "PASS",
+  "warnings": []
+}

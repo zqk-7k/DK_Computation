@@ -1,0 +1,21 @@
+{
+  "schema_version": "1.0",
+  "notice": "MANUAL SENSITIVITY ROUTES; NOT PART OF PRIMARY ENSEMBLE",
+  "cross_species_averaging": "FORBIDDEN",
+  "scenarios": [
+    {
+      "figure_id": "F3_016",
+      "scenario_id": "DMSO_cation_only_manual_sensitivity",
+      "species_smiles": "NC(=O)[C@@H]([NH3+])CO",
+      "status": "DISABLED_FAIL_CLOSED_MANUAL_ONLY",
+      "reason": "Primary route retains the complete hydrochloride salt; cation-only is a separate species sensitivity test."
+    },
+    {
+      "figure_id": "F3_017",
+      "scenario_id": "DMSO_cation_only_manual_sensitivity",
+      "species_smiles": "CC(C)C[C@H]([NH3+])C(N)=O",
+      "status": "DISABLED_FAIL_CLOSED_MANUAL_ONLY",
+      "reason": "Primary route retains the complete hydrochloride salt; cation-only is a separate species sensitivity test."
+    }
+  ]
+}

@@ -1,0 +1,40 @@
+{
+  "schema_version": "1.0",
+  "notice": "CALCULATED MODEL - NOT EXPERIMENTAL DATA",
+  "approval_basis": "AUTHOR_APPROVED_PROTOCOL_ASSUMPTIONS_2026-07-20",
+  "figure_id": "F3_010",
+  "job_id": "F3_010_DMSO_00_W00_continuum_s05",
+  "scenario_id": "DMSO_00_W00_continuum",
+  "registry_inchikey": "OLKQIWCQICCYQS-UHFFFAOYSA-N",
+  "registry_isomeric_smiles": "COc1ccc(CC(N)=O)cc1",
+  "scenario_isomeric_smiles": "COc1ccc(CC(N)=O)cc1",
+  "scenario_inchikey": "OLKQIWCQICCYQS-UHFFFAOYSA-N",
+  "complete_cluster_charge": 0,
+  "multiplicity": 1,
+  "primary_solvent": "DMSO-d6",
+  "continuum_keyword": "DMSO",
+  "explicit_solvent_count": 0,
+  "assumed_pd": "NOT_APPLICABLE",
+  "preparation_seed": 1704371491,
+  "coordinate_sha256": "4BAEDC706ABE6CFF0AA3C3C8DE0E5C9653F516A9FE2DFB8CA3395E2F494AEB31",
+  "atom_map_sha256": "5F6F8172E6E0F7C38D33EF901F3F340B3A5965EA8F750443D0B561D496043B05",
+  "isotope_map_sha256": "3088C2C2278CB80412F76AB1883C937C2F2FB6A4E81545E319A9BCA7C3EE5A59",
+  "isotope_mass_policy": {
+    "goat_external_xyz": "PLAIN_H_FOUR_COLUMN_EXTERNAL_XYZ",
+    "downstream_opt_freq": "INLINE_XYZ_M_EQUALS_FROM_SELECTED_GOAT_GEOMETRY",
+    "downstream_coordinate_source": "REVIEWED_GOAT_SELECTED_GEOMETRY_ONLY",
+    "deuterium_inline_syntax": "H {x_A} {y_A} {z_A} M=2.01410177812",
+    "policy_file": "data/ORCA_6_1_1_isotope_mass_policy.json"
+  },
+  "checks": {
+    "registry_identity_available": "PASS",
+    "scenario_species_parse": "PASS",
+    "stereochemistry_preserved_by_rdkit_embed": "PASS",
+    "formal_charge_explicit": "PASS",
+    "environment_atoms_excluded_from_analyte_nmr": "PASS",
+    "coordinate_clash_gate": "PASS",
+    "goat_xyz_has_exactly_four_atom_fields": "PASS",
+    "isotope_map_retained_for_downstream_opt_freq": "PASS",
+    "downstream_inline_M_equals_syntax_recorded": "PASS"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "notice": "CALCULATED MODELS - NOT EXPERIMENTAL DATA",
+  "author_protocol_approval_recorded": false,
+  "compounds": 51,
+  "scenarios": 153,
+  "goat_jobs": 1560,
+  "target_success_pattern": [
+    2,
+    3,
+    5
+  ],
+  "initial_release_pattern": [
+    3,
+    4,
+    7
+  ],
+  "max_candidate_patterns": {
+    "R": [
+      4,
+      6,
+      10
+    ],
+    "M": [
+      6,
+      10,
+      16
+    ],
+    "H": [
+      8,
+      12,
+      20
+    ],
+    "X": [
+      10,
+      16,
+      24
+    ]
+  },
+  "initial_release_jobs": 714,
+  "held_jobs": 846,
+  "manifest": "data/GOAT_explicit_job_manifest.csv",
+  "manifest_sha256": "A542FE4080B5AE73B5621609CB5CB4966A00B38AF148F7C676A3FCE2A9E03E58",
+  "scenario_registry_sha256": "40FA6ED3AA2E7107B36291F11BB5306686D0FF7E091933007EE14E309D6BF651",
+  "isotope_mass_policy": "data/ORCA_6_1_1_isotope_mass_policy.json",
+  "isotope_mass_policy_sha256": "F4570BA237036F7BA0A50BCB4005F82F036A4309BAA2FC14C13DBA59278E8316",
+  "goat_xyz_mass_policy": "PLAIN_H_FOUR_COLUMN_EXTERNAL_XYZ",
+  "downstream_deuterium_mass_policy": "INLINE_XYZ_M_EQUALS_FROM_SELECTED_GOAT_GEOMETRY",
+  "wave_jobs": {
+    "1": 714,
+    "2": 442,
+    "3": 404
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "1.0",
+  "created_utc": "2026-08-19T18:27:30.766146+00:00",
+  "package_id": "ORCA_51_NMR_PRACTICAL_HIGH_ACCURACY_v1",
+  "counting_rule": "excludes package_metadata/SHA256SUMS and this inventory file",
+  "file_count": 9444,
+  "total_bytes": 18367545,
+  "by_top_level": {
+    ".gitignore": {
+      "files": 1,
+      "bytes": 361
+    },
+    "01_goat_explicit": {
+      "files": 9360,
+      "bytes": 13385927
+    },
+    "NOTICE_CALCULATED_ONLY.txt": {
+      "files": 1,
+      "bytes": 1610
+    },
+    "ORCA_BINARY_NOT_INCLUDED.txt": {
+      "files": 1,
+      "bytes": 456
+    },
+    "PACKAGE_STATUS.json": {
+      "files": 1,
+      "bytes": 774
+    },
+    "README.md": {
+      "files": 1,
+      "bytes": 10313
+    },
+    "config": {
+      "files": 9,
+      "bytes": 47549
+    },
+    "data": {
+      "files": 7,
+      "bytes": 3589242
+    },
+    "docs": {
+      "files": 10,
+      "bytes": 96072
+    },
+    "gates": {
+      "files": 2,
+      "bytes": 1747
+    },
+    "hpc": {
+      "files": 4,
+      "bytes": 5592
+    },
+    "package_metadata": {
+      "files": 11,
+      "bytes": 139825
+    },
+    "postprocess": {
+      "files": 5,
+      "bytes": 4963
+    },
+    "registry": {
+      "files": 6,
+      "bytes": 794583
+    },
+    "scripts": {
+      "files": 17,
+      "bytes": 277360
+    },
+    "templates": {
+      "files": 6,
+      "bytes": 5473
+    },
+    "tests": {
+      "files": 2,
+      "bytes": 5698
+    }
+  },
+  "scientific_scope": {
+    "compounds": 51,
+    "excluded": [
+      "F3_005"
+    ],
+    "fixed_composition_scenarios": 153,
+    "goat_candidate_jobs": 1560
+  },
+  "status": [
+    "INPUTS_PREPARED",
+    "HPC_NOT_RUN",
+    "DRAFT_NOT_VALIDATED"
+  ]
+}

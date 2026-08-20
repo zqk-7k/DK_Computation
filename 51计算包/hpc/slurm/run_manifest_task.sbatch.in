@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+# Render this file with scripts/render_slurm.py. Unresolved {{...}} tokens are fatal.
+#SBATCH --job-name={{JOB_NAME}}
+#SBATCH --cpus-per-task={{SCHEDULER_CPUS}}
+#SBATCH --mem={{REQUEST_MEMORY_MB}}M
+#SBATCH --time={{WALLTIME}}
+#SBATCH --output={{JOB_DIR}}/scheduler-%j.out
+#SBATCH --error={{JOB_DIR}}/scheduler-%j.err
+
+set -euo pipefail
+
+export OMP_NUM_THREADS=1
+export MKL_NUM_THREADS=1
+export OPENBLAS_NUM_THREADS=1
+export BLIS_NUM_THREADS=1
+export VECLIB_MAXIMUM_THREADS=1
+export NUMEXPR_NUM_THREADS=1
+
+"{{PYTHON_EXECUTABLE}}" "{{PACKAGE_ROOT}}/scripts/run_orca_job.py" \
+  --package-root "{{PACKAGE_ROOT}}" \
+  --site-config "{{SITE_CONFIG}}" \
+  --resource-profiles "{{RESOURCE_PROFILES}}" \
+  --profile "{{PROFILE}}" \
+  --job-dir "{{JOB_DIR}}" \
+  --input "{{INPUT_FILE}}"

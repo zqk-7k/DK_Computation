@@ -1,0 +1,28 @@
+{
+  "schema_version": "1.0",
+  "site_name": "CHANGE_ME",
+  "orca_version_required": "6.1.1",
+  "orca_executable": "/opt/orca/6.1.1/orca",
+  "python_executable": "/usr/bin/python3",
+  "scheduler": "slurm",
+  "submit_command": ["sbatch"],
+  "query_command": ["sacct", "-n", "-X", "-j", "{scheduler_job_id}", "--format=State"],
+  "terminal_scheduler_states": ["COMPLETED", "FAILED", "CANCELLED", "TIMEOUT", "OUT_OF_MEMORY", "NODE_FAIL"],
+  "node_local_scratch_environment_variables": ["SLURM_TMPDIR", "TMPDIR"],
+  "fallback_scratch_root": "/scratch/$USER/orca_nmr",
+  "allow_fallback_scratch": false,
+  "heartbeat_seconds": 60,
+  "stale_lock_seconds": 900,
+  "stageout_hash": "sha256",
+  "environment": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "BLIS_NUM_THREADS": "1",
+    "VECLIB_MAXIMUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  },
+  "mpi_note": "ORCA must be invoked by its absolute driver path. Do not wrap the ORCA driver in mpirun/srun. The matching OpenMPI runtime must be provided by the site module/container.",
+  "fabric_environment": {},
+  "modules_to_load": ["CHANGE_ME_ORCA_6.1.1_WITH_MATCHING_OPENMPI"]
+}

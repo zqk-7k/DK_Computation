@@ -1,0 +1,12 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "adaptive_goat_manifest.schema.json",
+  "description": "CSV contract represented as a JSON object for documentation.",
+  "type": "object",
+  "required": ["job_id", "compound_id", "scenario_id", "wave", "target_success", "state", "job_dir", "submit_script"],
+  "properties": {
+    "state": {"enum": ["HELD", "RELEASED", "PENDING", "RUNNING", "COMPLETING", "COMPLETED", "FAILED", "CANCELLED", "TIMEOUT"]},
+    "wave": {"type": "integer", "minimum": 1},
+    "target_success": {"type": "integer", "minimum": 1}
+  }
+}
