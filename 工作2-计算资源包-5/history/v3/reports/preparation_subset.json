@@ -1,0 +1,14 @@
+{
+  "status": "INITIAL_STRUCTURES_PREPARED_NO_QM",
+  "products": 3,
+  "solute_model_branches_excluding_reference": 3,
+  "reference_models": 0,
+  "fixed_composition_scenarios_including_TMS": 9,
+  "jobs": 42,
+  "wave1_jobs": 42,
+  "held_jobs": 0,
+  "sampling_converged": false,
+  "ORCA_GOAT_run": false,
+  "DFT_run": false,
+  "NMR_spectra_generated": false
+}

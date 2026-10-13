@@ -1,0 +1,281 @@
+{
+  "package": "工作2-计算资源包-（3）",
+  "protocol_hash": "68f2ccc1ee103477",
+  "products": 64,
+  "models_including_TMS": 67,
+  "GOAT_initial_inputs": 938,
+  "scenario_prerequisites": {},
+  "example_scenario": "DMSO_02_W01_trace_water_sensitivity",
+  "models": [
+    {
+      "species_id": "F2_E01_rep_R__DMSO",
+      "compound_id": "F2_E01"
+    },
+    {
+      "species_id": "F2_E03_rep_R__DMSO",
+      "compound_id": "F2_E03"
+    },
+    {
+      "species_id": "F2_E05_rep_R__DMSO",
+      "compound_id": "F2_E05"
+    },
+    {
+      "species_id": "F2_E09_rep_R__DMSO",
+      "compound_id": "F2_E09"
+    },
+    {
+      "species_id": "F2_E11_endo__DMSO",
+      "compound_id": "F2_E11"
+    },
+    {
+      "species_id": "F2_E11_exo__DMSO",
+      "compound_id": "F2_E11"
+    },
+    {
+      "species_id": "F2_E13_cis__DMSO",
+      "compound_id": "F2_E13"
+    },
+    {
+      "species_id": "F2_E12_rep_R__DMSO",
+      "compound_id": "F2_E12"
+    },
+    {
+      "species_id": "F2_E14_source__DMSO",
+      "compound_id": "F2_E14"
+    },
+    {
+      "species_id": "F2_E15_source__DMSO",
+      "compound_id": "F2_E15"
+    },
+    {
+      "species_id": "F2_E17_source__DMSO",
+      "compound_id": "F2_E17"
+    },
+    {
+      "species_id": "F2_E19_source__DMSO",
+      "compound_id": "F2_E19"
+    },
+    {
+      "species_id": "F2_E21_source__DMSO",
+      "compound_id": "F2_E21"
+    },
+    {
+      "species_id": "F2_E22_face_1__DMSO",
+      "compound_id": "F2_E22"
+    },
+    {
+      "species_id": "F2_E22_face_2__DMSO",
+      "compound_id": "F2_E22"
+    },
+    {
+      "species_id": "F2_E23_trans_rep__DMSO",
+      "compound_id": "F2_E23"
+    },
+    {
+      "species_id": "F2_E24_cis_fused_rep__DMSO",
+      "compound_id": "F2_E24"
+    },
+    {
+      "species_id": "F2_E18_source__DMSO",
+      "compound_id": "F2_E18"
+    },
+    {
+      "species_id": "F2_E20_source__DMSO",
+      "compound_id": "F2_E20"
+    },
+    {
+      "species_id": "F2_S01_rep_R__DMSO",
+      "compound_id": "F2_S01"
+    },
+    {
+      "species_id": "F2_S06_source__DMSO",
+      "compound_id": "F2_S06"
+    },
+    {
+      "species_id": "F2_S07_rep_R__DMSO",
+      "compound_id": "F2_S07"
+    },
+    {
+      "species_id": "F2_S19_rep_R__DMSO",
+      "compound_id": "F2_S19"
+    },
+    {
+      "species_id": "F2_S22_rep_R__DMSO",
+      "compound_id": "F2_S22"
+    },
+    {
+      "species_id": "F2_S23_rep_R__DMSO",
+      "compound_id": "F2_S23"
+    },
+    {
+      "species_id": "F2_S12_source__DMSO",
+      "compound_id": "F2_S12"
+    },
+    {
+      "species_id": "F2_S24_source__DMSO",
+      "compound_id": "F2_S24"
+    },
+    {
+      "species_id": "F2_S25_source__DMSO",
+      "compound_id": "F2_S25"
+    },
+    {
+      "species_id": "F2_S11_source__DMSO",
+      "compound_id": "F2_S11"
+    },
+    {
+      "species_id": "F2_S26_source__DMSO",
+      "compound_id": "F2_S26"
+    },
+    {
+      "species_id": "F2_S27_source__DMSO",
+      "compound_id": "F2_S27"
+    },
+    {
+      "species_id": "F2_S28_source__DMSO",
+      "compound_id": "F2_S28"
+    },
+    {
+      "species_id": "F3_N01_source__DMSO",
+      "compound_id": "F3_N01"
+    },
+    {
+      "species_id": "F3_N06_source__DMSO",
+      "compound_id": "F3_N06"
+    },
+    {
+      "species_id": "F3_N14_source__DMSO",
+      "compound_id": "F3_N14"
+    },
+    {
+      "species_id": "F3_N15_source__DMSO",
+      "compound_id": "F3_N15"
+    },
+    {
+      "species_id": "F3_N16_source__DMSO",
+      "compound_id": "F3_N16"
+    },
+    {
+      "species_id": "F3_N17_source__DMSO",
+      "compound_id": "F3_N17"
+    },
+    {
+      "species_id": "F3_N18_source__DMSO",
+      "compound_id": "F3_N18"
+    },
+    {
+      "species_id": "F3_N25_source__DMSO",
+      "compound_id": "F3_N25"
+    },
+    {
+      "species_id": "F3_N26_source__DMSO",
+      "compound_id": "F3_N26"
+    },
+    {
+      "species_id": "F3_N28_source__DMSO",
+      "compound_id": "F3_N28"
+    },
+    {
+      "species_id": "F3_N09_source__DMSO",
+      "compound_id": "F3_N09"
+    },
+    {
+      "species_id": "F3_N10_source__DMSO",
+      "compound_id": "F3_N10"
+    },
+    {
+      "species_id": "F3_N19_source__DMSO",
+      "compound_id": "F3_N19"
+    },
+    {
+      "species_id": "F3_N29_source__DMSO",
+      "compound_id": "F3_N29"
+    },
+    {
+      "species_id": "F3_N30_source__DMSO",
+      "compound_id": "F3_N30"
+    },
+    {
+      "species_id": "F3_N32_source__DMSO",
+      "compound_id": "F3_N32"
+    },
+    {
+      "species_id": "F3_N33_outward_NO__DMSO",
+      "compound_id": "F3_N33"
+    },
+    {
+      "species_id": "F3_B01_source__DMSO",
+      "compound_id": "F3_B01"
+    },
+    {
+      "species_id": "F3_B03_source__DMSO",
+      "compound_id": "F3_B03"
+    },
+    {
+      "species_id": "F3_B05_rep_R__DMSO",
+      "compound_id": "F3_B05"
+    },
+    {
+      "species_id": "F3_B06_cage_rep__DMSO",
+      "compound_id": "F3_B06"
+    },
+    {
+      "species_id": "F3_B08_source__DMSO",
+      "compound_id": "F3_B08"
+    },
+    {
+      "species_id": "F3_B14_rep_R__DMSO",
+      "compound_id": "F3_B14"
+    },
+    {
+      "species_id": "F3_B15_source__DMSO",
+      "compound_id": "F3_B15"
+    },
+    {
+      "species_id": "F3_B16_source__DMSO",
+      "compound_id": "F3_B16"
+    },
+    {
+      "species_id": "F3_B18_source_rel_rep__DMSO",
+      "compound_id": "F3_B18"
+    },
+    {
+      "species_id": "F3_B20_source__DMSO",
+      "compound_id": "F3_B20"
+    },
+    {
+      "species_id": "F3_B21_source_rel_rep__DMSO",
+      "compound_id": "F3_B21"
+    },
+    {
+      "species_id": "F4_D01_rep_R__DMSO",
+      "compound_id": "F4_D01"
+    },
+    {
+      "species_id": "F4_D02_rep_R__DMSO",
+      "compound_id": "F4_D02"
+    },
+    {
+      "species_id": "F4_D03_rep_R__DMSO",
+      "compound_id": "F4_D03"
+    },
+    {
+      "species_id": "F4_D04_rep_R__DMSO",
+      "compound_id": "F4_D04"
+    },
+    {
+      "species_id": "F4_D05_rep_R__DMSO",
+      "compound_id": "F4_D05"
+    },
+    {
+      "species_id": "F4_D07_neutral__DMSO",
+      "compound_id": "F4_D07"
+    },
+    {
+      "species_id": "TMS_DMSO",
+      "compound_id": "TMS"
+    }
+  ],
+  "downstream_jobs_prepared": 0,
+  "status": "CODE_AVAILABLE_REAL_SAMPLING_DFT_AND_BENCHMARK_NOT_RUN"
+}

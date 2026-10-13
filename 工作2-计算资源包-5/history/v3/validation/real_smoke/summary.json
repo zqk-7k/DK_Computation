@@ -1,0 +1,46 @@
+[
+  {
+    "stage": "shielding",
+    "scope": "SIX_ATOM_WATER_DIMER_ENGINEERING_TEST_NOT_TARGET_PRODUCT",
+    "returncode": 0,
+    "normal_termination": true,
+    "expected_analyte_nuclei_or_pairs": [
+      1,
+      2
+    ],
+    "actual": [
+      1,
+      2
+    ],
+    "passed": true,
+    "elapsed_seconds": 82.03455429989845,
+    "input_sha256": "1f3cf2a6963a44b493a0393b320db2f8d9dbd2ccb90a7198eb83c2795fa75f31",
+    "output_sha256": "ed24b419ca307ccb5d90fa0a43405fb09eeba84ddcfd40c9d8db119f429cbf7d",
+    "18O_and_D_inline_mass_annotations": true,
+    "does_not_validate_GOAT_DMSO_thermochemistry_or_accuracy": true
+  },
+  {
+    "stage": "j_PBE_pcJ3",
+    "scope": "SIX_ATOM_WATER_DIMER_ENGINEERING_TEST_NOT_TARGET_PRODUCT",
+    "returncode": 0,
+    "normal_termination": true,
+    "expected_analyte_nuclei_or_pairs": [
+      [
+        1,
+        2
+      ]
+    ],
+    "actual": [
+      [
+        1,
+        2
+      ]
+    ],
+    "passed": true,
+    "elapsed_seconds": 35.55652359966189,
+    "input_sha256": "19bea776ba776d0fab39f12222913afb631b5670a8a757fc99dbfec1707f3bef",
+    "output_sha256": "2d5fd38859f90e3e22ac06a24ee7f4c50ebbe28a3f83a9849d9b35ded83b3dc0",
+    "18O_and_D_inline_mass_annotations": true,
+    "does_not_validate_GOAT_DMSO_thermochemistry_or_accuracy": true
+  }
+]

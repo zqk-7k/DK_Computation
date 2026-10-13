@@ -1,0 +1,17 @@
+{
+  "species_id": "F4_D07_neutral__DMSO",
+  "compound_id": "F4_D07",
+  "smiles": "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+  "solvent": "DMSO",
+  "solvent_experimental_label": "DMSO-d6",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "drawn_net_neutral_N_oxide_reference",
+  "formula": "C19H24N2O",
+  "rotatable_bonds": 4,
+  "labelled_18O_count": 1,
+  "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+  "sampling_converged": false,
+  "default_run_enabled": true,
+  "has_Br": false
+}

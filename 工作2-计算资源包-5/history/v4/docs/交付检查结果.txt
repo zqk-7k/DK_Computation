@@ -1,0 +1,27 @@
+工作2-计算资源包-（4）：交付检查结果
+
+本次仅修改工作流、生成初始结构和执行软件测试，未启动真实GOAT或DFT。
+
+1. 237项软件测试全部通过，无跳过项。测试使用临时合成夹具，不能当作实验或量化结果。
+   记录：reports/engineering_tests_v4.json 和 .log。
+2. 全部1020个活动起点逐一检查通过：源结构、同位素/原子映射、文件哈希、初始几何及计数。
+   记录：reports/initial_cluster_audit_v4.json。
+   静态初始检查不能证明稳定溶剂簇、采样收敛、Boltzmann权重或NMR准确度。
+3. 独立程序审计检查图4六分子J3路由、虚频人工复核链和历史收敛证据、线宽显示覆盖、实验多重峰入口。
+   记录：reports/independent_v4_audit.json，绑定24个文件哈希。
+4. Excel用电子表格工具生成，检查64行产物编号及起点数、66个结构分支、独立TMS，以及公式重算。
+   合计1012个产物起点 + 8个TMS起点 = 1020；已检查导出后缓存数值和各页预览。
+   Excel是审核副本，不会自动更改registry/sampling_plan_v4.json中的执行计划。
+5. 原（3）版按其交付清单6052个文件逐一校验，均未改变。
+   本（4）版中的旧两份说明归档到history/v3/docs，旧版小体系结果仍明确为历史记录。
+
+采样数量是本项目的结构启发式首轮预算，不是文献规定的通用最优数。
+GOAT会收集搜索中找到的构象；一次起点可产生多个构象，且固定起点数不保证穷尽采样。
+官方方法说明（2026-10-14核对）：
+https://www.faccts.de/docs/orca/6.1/manual/contents/structurereactivity/goat.html
+NMR参数接口说明：
+https://www.faccts.de/docs/orca/6.1/manual/contents/spectroscopyproperties/nmr.html
+
+尚需实际执行与科学审核：GOAT/xTB运行环境、样品结构/盐型/溶剂含水量、真实GOAT与DFT结果、
+异常模式判断、重要构象覆盖和采样稳定性、实验J基准与真实多重峰比较。
+大自旋块和含F体系的完整全自旋计算仍需外部模型及所需参数，不把内置近似冒称完整精确谱图。

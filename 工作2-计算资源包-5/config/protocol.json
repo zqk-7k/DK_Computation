@@ -1,0 +1,136 @@
+{
+  "schema_version": "5.0",
+  "package_name": "工作2-计算资源包-（5）",
+  "reference_commit": "933cb6159294813a79f443921920127032fb01d4",
+  "mode": "51_DESIGN_EXPLICIT_CLUSTER_PBE0_ONLY_SHIELDING",
+  "orca_version": "6.1.1",
+  "temperature_K": 298.15,
+  "temperature_status": "USER_CONFIRMED_COMPUTATIONAL_298.15_K_NOT_EXPERIMENTAL_MEASUREMENT",
+  "solvent": "DMSO",
+  "experimental_solvent": "DMSO-d6",
+  "independent_scenarios": [
+    "DMSO_00_W00_continuum",
+    "DMSO_02_W00_primary",
+    "DMSO_02_W01_trace_water_sensitivity"
+  ],
+  "scenario_prerequisites": {},
+  "example_scenario": "DMSO_02_W01_trace_water_sensitivity",
+  "qrrho_reference_frequency_cm1": 100.0,
+  "qrrho_cutoff_frequency_cm1": 1.0,
+  "imaginary_frequency_tolerance_cm1": 0.0,
+  "scientific_issue_policy": "user_review",
+  "issue_handling": {
+    "numeric_thresholds_are_recommendations": true,
+    "automatic_retry": false,
+    "missing_or_unconverged_results_are_not_complete": true,
+    "review_file": "scientific_review.json"
+  },
+  "geometry": {
+    "max_component_contact_A": 4.5,
+    "dedup_rms_A": 0.1,
+    "dedup_energy_kcal": 0.1
+  },
+  "conformer_policy": {
+    "population_scope": "ONE_SPECIES_CHARGE_MULTIPLICITY_FIXED_COMPOSITION",
+    "energy": "ORCA_FINAL_NATIVE_QRRHO_G",
+    "production_selection": "ALL_DISTINCT_ACCEPTED_PRESCREEN_CONFORMERS",
+    "degeneracy": 1,
+    "no_cross_composition_pooling": true,
+    "no_cross_stereoisomer_pooling": true,
+    "minimum_success_is_not_convergence": true,
+    "sampling_gate_required_for_production": true,
+    "thermochemical_standard_state": "ORCA_1atm; constant_same_composition_correction_cancels_in_weights; no_cross_composition_free_energy_claim",
+    "convergence_thresholds_are_advisory": true,
+    "stable_minimum_target_is_not_convergence": true,
+    "final_stable_target_plan": "registry/batch_plan_v5.json"
+  },
+  "prescreen": {
+    "keywords": "r2SCAN-3c TightOpt TightSCF DefGrid3",
+    "nprocs": 8,
+    "maxcore_mb": 2500
+  },
+  "optfreq": {
+    "keywords": "PBE0 D4 def2-TZVPP def2/J RIJCOSX VeryTightOpt VeryTightSCF DefGrid3",
+    "nprocs": 8,
+    "maxcore_mb": 3500
+  },
+  "shielding": {
+    "keywords": "PBE0 pcSseg-3 AutoAux RIJCOSX VeryTightSCF DefGrid3",
+    "nprocs": 8,
+    "maxcore_mb": 3500,
+    "reference": "TMS",
+    "nuclei": [
+      "H",
+      "C"
+    ],
+    "scope": "ANALYTE_ONLY_WITH_FULL_CLUSTER_ELECTRONIC_ENVIRONMENT"
+  },
+  "j_methods": [
+    "PBE_pcJ3",
+    "PBE0_pcJ2"
+  ],
+  "j_routing": {
+    "figure4_compounds": [
+      "F4_D01",
+      "F4_D02",
+      "F4_D03",
+      "F4_D04",
+      "F4_D05",
+      "F4_D07"
+    ],
+    "figure4_method": "PBE_pcJ3",
+    "figure4_selection_basis": "USER_REQUEST_NOT_EXPERIMENTAL_VALIDATION",
+    "other_candidates": [
+      "PBE_pcJ3",
+      "PBE0_pcJ2"
+    ],
+    "other_exploratory_default": "PBE0_pcJ2"
+  },
+  "j_PBE_pcJ3": {
+    "keywords": "PBE pcJ-3 AutoAux RIJCOSX VeryTightSCF DefGrid3",
+    "nprocs": 8,
+    "maxcore_mb": 3500,
+    "bromine_basis": "def2-TZVPP",
+    "distance_cutoff_A": 1000.0
+  },
+  "j_PBE0_pcJ2": {
+    "keywords": "PBE0 pcJ-2 AutoAux RIJCOSX VeryTightSCF DefGrid3",
+    "nprocs": 8,
+    "maxcore_mb": 3500,
+    "bromine_basis": "def2-TZVPP",
+    "distance_cutoff_A": 1000.0
+  },
+  "j": {
+    "distance_cutoff_A": 1000.0,
+    "pair_policy": "ALL_ANALYTE_HH_HF_CF_PAIRS",
+    "bromine_basis": "def2-TZVPP",
+    "mixed_Br_basis_requires_scope_specific_validation": true
+  },
+  "reference": {
+    "species_id": "TMS_DMSO",
+    "same_scenario_required": true,
+    "same_method_basis_solvent_version_required": true,
+    "separate_weighted_reference_ensemble": true,
+    "calibration": "TMS_SUBTRACTION_NO_TARGET_FITTING"
+  },
+  "spectrum": {
+    "proton_frequency_MHz": 400.0,
+    "carbon_frequency_MHz": 100.61,
+    "proton_linewidth_Hz": 1.0,
+    "carbon_linewidth_Hz": 2.0,
+    "linewidth_definition": "Lorentzian FWHM; adjustable display assumption, not predicted relaxation",
+    "max_exact_proton_spins": 10,
+    "J_graph_threshold_Hz": 0.1,
+    "exchangeable_H_couplings": "EXCLUDE_FROM_FINE_SPLITTING_REPORT_IN_TABLE",
+    "heteronuclear_F_model": "FIRST_ORDER_EXPLICIT_APPROXIMATION",
+    "carbon_mode": "13C_PROTON_DECOUPLED_INDEPENDENT_SITES_NO_13C_13C_SATELLITES",
+    "noise": false
+  },
+  "execution": {
+    "automatic_cluster_submission": false,
+    "quantum_jobs_started_during_package_build": false,
+    "explicit_run_command_required": true,
+    "never_silently_skip_failed_conformers": true
+  },
+  "validation_status": "IMPLEMENTATION_REQUIRES_ACTUAL_GOAT_DFT_PILOT_AND_INDEPENDENT_EXPERIMENTAL_BENCHMARK"
+}

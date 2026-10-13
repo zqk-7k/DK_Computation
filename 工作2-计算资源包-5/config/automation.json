@@ -1,0 +1,34 @@
+{
+  "schema_version": "5.0",
+  "automatic_handoff": {
+    "enabled": true,
+    "explicit_execute_required": true,
+    "complete_entire_GOAT_batch_before_selection": true,
+    "stable_target_scope": "FINAL_DFT_UNIQUE_MINIMA_BEFORE_NMR",
+    "minimum_targets_by_complexity": {
+      "R": 3,
+      "M": 5,
+      "H": 10,
+      "X": 15
+    }
+  },
+  "selection": {
+    "rmsd_A": 0.1,
+    "representative_energy_window_kcal_mol": 6.0,
+    "retain_high_energy_reserve_but_do_not_force_quota": true
+  },
+  "stable_minima": {
+    "energy_window_kcal_mol": 6.0,
+    "negative_frequencies_eligible": false,
+    "human_reviewed_approximations_count_toward_target": false
+  },
+  "stability_advice": {
+    "nonexchangeable_H_ppm": 0.05,
+    "C_ppm": 0.5,
+    "thresholds_are_advisory_not_accuracy": true
+  },
+  "scientific_convergence_may_be_auto_approved": false,
+  "finite_pool_exhaustion": "REPORT_SHORTFALL_NEVER_PAD_OR_SILENTLY_LOWER_TARGET",
+  "failed_DFT": "PAUSE_FOR_DIAGNOSIS_DO_NOT_SILENTLY_EXCLUDE_LOW_ENERGY_CANDIDATE",
+  "notice": "Software planning; no actual GOAT, DFT, or spectra were calculated during package creation."
+}

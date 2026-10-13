@@ -1,0 +1,44 @@
+{
+  "package_name": "工作2-计算资源包-（4）",
+  "status": "INITIAL_STRUCTURES_PREPARED_NO_QM",
+  "n_products": 64,
+  "n_product_species": 66,
+  "n_TMS_species": 1,
+  "product_starts": 1012,
+  "TMS_starts": 8,
+  "total_starts": 1020,
+  "by_figure": {
+    "2": {
+      "n_products": 30,
+      "n_starts": 480
+    },
+    "3": {
+      "n_products": 28,
+      "n_starts": 372
+    },
+    "4": {
+      "n_products": 6,
+      "n_starts": 160
+    }
+  },
+  "product_species_by_start_count": {
+    "8": 12,
+    "12": 23,
+    "16": 18,
+    "24": 8,
+    "32": 5
+  },
+  "n_optional_control_products": 8,
+  "n_enabled_control_starts": 0,
+  "jobs": 1020,
+  "active_composition_scenarios": 67,
+  "sampling_converged": false,
+  "ORCA_GOAT_run": false,
+  "DFT_run": false,
+  "NMR_spectra_generated": false,
+  "reused_initial_jobs": 469,
+  "new_initial_jobs": 551,
+  "inactive_old_control_directories": "Retained for provenance; absent from active registry/jobs.json",
+  "jobs_manifest_sha256": "b8e9b2e4218d953d0738fe99e50139ae4c01ffdeef449bd985e4f7a948322c3f",
+  "sampling_plan_sha256": "e32eb8a1b1189b6c5fd602ea5971db05dbba2231f907c2b3f0072cdb8806c770"
+}

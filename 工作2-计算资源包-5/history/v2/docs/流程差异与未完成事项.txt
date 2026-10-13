@@ -1,0 +1,65 @@
+64 产品 18O 显式溶剂流程：差异、已完成范围与未完成事项
+核查日期：2026-10-13
+
+结论
+
+v2 是参照 51 计算包设计、针对 64 产品重新适配的初始显式溶剂模型包，不是对旧程序的简单复制，也不是已经完成的 NMR 生产流水线。当前已生成初始簇、GOAT 输入、映射和运行前检查工具；没有运行 GOAT、DFT 或 NMR 计算，没有生成计算谱图，没有宣布构象采样收敛。
+
+来源与证据路径约定
+
+GitHub 参照：zqk-7k/DK_Computation，固定提交 933cb6159294813a79f443921920127032fb01d4。选用的参照文件及 SHA-256 记录在 registry/source_provenance.json；副本保存在 reference_51/。
+下文“旧51”指核查的本地包：E:/For_codex/C_N_coupling/ORCA_260820/ORCA_51_NMR_PRACTICAL_HIGH_ACCURACY_v1。
+下文“v1”指：E:/For_codex/isotope_work/ORCA_64_18O_NMR_WORKFLOW_v1。
+下文“v2”或不带前缀的路径指本文件所在计算包。旧51的源码核查用于识别设计与实现差异，不代表所有旧脚本都已移植到 v2；行号对应本次核查快照。
+
+一、v2 当前完成了什么
+
+1. 范围为 64 个产品、66 个样品模型分支和 1 个 TMS 参比分支。每个分支分别建立以下三种固定组成模型：
+   DMSO_00_W00_continuum：无显式溶剂，3 个起点；
+   DMSO_02_W00_primary：2 个显式 DMSO-d6，4 个起点；
+   DMSO_02_W01_trace_water_sensitivity：2 个显式 DMSO-d6 加 1 个普通水，7 个起点。
+   合计 201 个组成情景、938 个初始任务，即 (66+1)×(3+4+7)。938 是准备数量，不是成功计算数。证据：reports/preparation.json；config/microsolvation_policy.json。
+
+2. 恢复旧51的固定组成 GOAT/ALPB 采样框架，保留独立情景和多起点。3/4/7 是首轮起点数；2/3/5 是最低成功数量目标，不是收敛标准。后续波次尚未生成、执行或通过科学审查，不能把候选上限配置当作已完成的自适应控制器。
+
+3. 使用 64 产品自身的结构、立体化学和物种记录，不搬用旧51的化合物编号或结构。初始溶剂方位和氢键朝向只是采样起点；2 个 DMSO 不代表已测得配位数、完整溶剂壳层或精度保证，1 个水也不代表实际含水浓度。
+
+4. 保存分析物 18O、DMSO-d6 的 D，以及分析物/环境原子分区。GOAT 外部 XYZ 仍为元素与三坐标四列；独立映射保存同位素，不在外部 XYZ 中添加质量字段。分析物可交换 H 保持 H，不自动假定发生 H/D 交换。
+
+5. scripts/mass_handoff.py:35 提供内联坐标质量恢复辅助函数：18O 为 17.99915961286 u，D 为 2.01410177812 u；:52 提供分析物 H/C/F 掩码及 HH/HF/CF 配对，排除环境原子。该工具要求保持原子顺序，检查元素序列、拓扑映射和质量，不自动重排原子；它不是 GOAT 构象审批、完整 DFT 输入生成器或完整性质后处理器。
+
+6. scripts/goat_job.py 提供运行前检查及需显式调用、确认模型假设的单任务执行入口。本次未调用真实计算；不存在自动批量 ORCA 启动或自动集群提交。二进制标记/路径检查不是 ORCA、xTB、MPI 的运行验证；即使以后正常结束，科学接受状态仍需另行评估。证据：该文件 :1、:101、:236、:309。
+
+二、与 64 产品 v1 的主要差异
+
+采样：v1 是 ETKDGv3 初始构象，经 MMFF94s/UFF 处理，最多保留 12 个；GOAT 默认关闭。v2 增加独立微溶剂化情景和 GOAT 初始任务，但当前尚未得到 GOAT 系综。证据：v1/config/protocol.json:13、:20；v2/config/microsolvation_policy.json。
+
+溶剂：v1 的主线仅为 CPCM(DMSO) 连续介质；v2 增加 2 DMSO-d6 和加水敏感性模型。不同组成、立体异构体、质子化状态和溶剂不得合并作一个 Boltzmann 系综。加显式分子不是事后给原有谱图加溶剂峰。
+
+已实现下游：v1 有 r2SCAN-3c 预筛、PBE0-D4/def2-TZVPP Opt/Freq、PBE0/pcSseg-3 屏蔽、PBE0/pcJ-2 J、同方法 TMS 相减及谱图处理。该实现不能直接接收 v2 显式簇：环境原子、质量、参比情景、系综来源和输出索引均须重新适配。v2 当前仅移入方法设计，不宣称以上下游已完成移植。证据：v1/config/protocol.json:21–25；v1/nmrflow/pipeline.py:102；v2/config/stage_methods_51_aligned.json:137–148。
+
+三、旧51存在的“方法配置—实际代码”差异
+
+1. 优化/Freq：旧51/config/stage_methods.json:28 设计了 r2SCAN-3c 广泛预筛，再做 PBE0-D4/def2-TZVPP；但已核查的 scripts/build_dft_jobs.py 通过 scripts/workflow_schema.py:558，从批准 GOAT 构象直接生成 PBE0 Opt/Freq。不能仅凭配置说旧脚本已执行了两级优化。
+
+2. 屏蔽/revDSD：旧配置 :61–94 规定 PBE0/pcSseg-3 完整基线，revDSD-PBEP86-D4/2021/pcSseg-3 为独立高成本验证支路，默认冻结芯，NoFrozenCore 需小/轻体系 ULTRA 等闸门。旧 scripts/build_property_jobs.py:274–299 却硬编码 revDSD 为 production、NoFrozenCore、Relaxed density、ExtremeSCF，并把 PBE0/ExtremeSCF 标为 crosscheck。v2 移植的是有状态标记的方法设计，不盲目继承这段存在漂移的生产脚本；后续须明确锁定采用哪一版分支。
+
+3. J：旧配置 :106 同列 PBE/pcJ-3 和 PBE0/pcJ-2 候选，要求跨化合物验证后选择。旧普通性质代码实际锁定 PBE/pcJ-3（build_property_jobs.py:46、:513、:1156），并非已实现任意切换；其 scripts/build_j_benchmark_jobs.py:1–21 还是 FAIL_CLOSED 占位程序，需要代表性测试集及新实现。不能声称旧51的 J 校验已全部自动化或已验证。
+
+4. 同位素：旧 scripts/workflow_schema.py:443–480 只接受 H 的精确 D 质量，直接输入 18O 会失败。因此 v2 必须扩展映射及质量交接，不能原样套用旧校验器。旧显式 DMSO-d6 的氘标记、痕量水普通 H 和 GOAT 四列坐标策略分别见 prepare_explicit_goat_jobs.py:605、:713、:119。
+
+5. qRRHO：旧政策指定 Grimme/100 cm-1、锁定温度和固定组成；旧实际 renderer 的 %freq 只显式写 Temp（workflow_schema.py:567），后处理再检查输出 qRRHO。v1 则显式写 QuasiRRHO true、参考频率 100、CutOffFreq 1、温度和压力。旧政策的 1 M 标准态声明不能自动当作已实现校正；本次所核查旧 scripts 未找到该校正实现。v2 的热化学执行仍未移植，正式运行前必须冻结实际参数与处理方法。
+
+6. 参比/拟合：旧设计要求每个电子结构分支采用同方法、基组、溶剂、版本参比；允许独立训练并提前冻结的线性校准，禁止用目标峰拟合自己。v1 仅同方法 TMS 相减，不用经验回归。v2 已准备各组成情景的 TMS 初始模型，但没有 TMS 计算结果或批准的参比注册表。证据：旧 config/reference_validation_policy.json:4–34；build_property_jobs.py:459–496；v1/config/protocol.json:23。
+
+四、仍未完成且不可跳过的工作
+
+1. 锁定实际样品条件：298.15 K 仍是暂定值；确认溶剂、温度、含水情况、盐形态/质子化状态和参比约定，不把模型假设写成实验事实。
+2. 先做小规模真实 GOAT 运行验证，再执行获授权的采样。检查身份、立体化学、原子顺序、组成、溶剂脱离/质子转移、氢键 motif、低能盆地重现和新增起点的影响；最低成功数不代替采样收敛。
+3. 获得真实输出后才建立经审查的构象选择及后续 DFT 输入。随后验证最小值/Freq、qRRHO 权重、去重和固定组成归一化；再实现显式簇屏蔽/J、每分支 TMS、掩码解析、谱图和完整来源绑定。
+4. 样品状态未确认项继续保留。F4_D07 当前仅采用绘图对应的净中性 N-oxide/DMSO 默认模型，不等于已确认真实样品为该状态。NOH 阳离子敏感性、Methanol 分支、NOH/Cl 离子对及替代质子化位点仍在 registry/held_species.json 和 held_models.json；不因能生成结构就自动启用、混合或批准。
+5. 不生成虚假审核人或 PASS/APPROVED 记录。旧 draft_goat_selection_gate.py:224 明言生成器不能批准；build_dft_jobs.py:171 要求审查人和时间；draft_minimum_boltzmann_gate.py:377 要求驻点及簇完整性人工检查。v2 也不能以程序正常结束、静态测试通过替代科学审查。
+
+静态检查只能支持文件、索引、几何起点和映射的一致性，不能证明 GOAT 会成功、电子结构方法准确、系综已收敛或谱图吻合实验。18O 质量注入可参与质量相关热化学处理，但不等于已计算出实验 18O 同位素化学位移。
+
+本说明对应的交付状态：INITIAL_STRUCTURES_PREPARED_NO_QM；下游 NOT_COMMISSIONED_FOR_EXPLICIT_18O_CLUSTERS。完成初始化不等于完成计算，恢复设计不等于照搬旧代码。

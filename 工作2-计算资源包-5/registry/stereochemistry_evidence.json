@@ -1,0 +1,1422 @@
+{
+  "schema_version": "1.0",
+  "rdkit_version": "2026.03.3",
+  "input_index": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+  "scope": "24 previously stereo-unspecified products plus B18/B21 representative enantiomers and D07 salt form. Other source targets retain finalized input structures including corrected literature-R E19.",
+  "general_rules": [
+    "Conventional isotropic H/C NMR in achiral DMSO and ordinary electronic-structure methods permits one representative of a pure mirror pair; this does not establish experimental absolute configuration, ee or racemic composition.",
+    "Diastereomers, tautomers, protonation states and salt/ion-pair states are separate chemical-model branches. Do not combine them using a single conformer Boltzmann sum without experimental equilibria/speciation evidence.",
+    "Provided epoxide SMILES encode the stated local face relationships. The root workflow must independently embed and verify the face tests, preservation of specified centres, and all stereochemistry by 3D roundtrip before ORCA.",
+    "18O synthesis/enrichment/configuration/ee remains prospective. Model choices and source assignments are separate metadata."
+  ],
+  "general_method_sources": [
+    {
+      "url": "https://www.nature.com/articles/s41467-024-49966-8",
+      "supports": "Conventional enantiomers have identical NMR spectra in achiral surroundings; article studies a specialized chirality discrimination method, not the present isotropic-shift model."
+    },
+    {
+      "url": "https://www.rdkit.org/docs/source/rdkit.Chem.rdCIPLabeler.html",
+      "supports": "Use modern true-CIP labels, not legacy label outputs, for final descriptors."
+    }
+  ],
+  "summary": {
+    "records": 27,
+    "explicit_smiles_ready_compounds": [
+      "F2_E01",
+      "F2_E03",
+      "F2_E05",
+      "F2_E09",
+      "F2_E12",
+      "F2_S01",
+      "F2_S07",
+      "F2_S19",
+      "F2_S22",
+      "F2_S23",
+      "F3_B05",
+      "F3_B14",
+      "F4_D01",
+      "F4_D02",
+      "F4_D03",
+      "F4_D04",
+      "F4_D05",
+      "F2_E13",
+      "F2_E22",
+      "F2_E23",
+      "F2_E24",
+      "F3_B18",
+      "F3_B21",
+      "F4_D07"
+    ],
+    "geometry_constrained_pending_explicit_smiles": [
+      "F2_E11",
+      "F3_B06",
+      "F3_N33"
+    ],
+    "must_keep_two_diastereomer_branches": [
+      "F2_E11",
+      "F2_E22"
+    ],
+    "single_unspecified_center_representative_ids": [
+      "F2_E01",
+      "F2_E03",
+      "F2_E05",
+      "F2_E09",
+      "F2_E12",
+      "F2_S01",
+      "F2_S07",
+      "F2_S19",
+      "F2_S22",
+      "F2_S23",
+      "F3_B05",
+      "F3_B14",
+      "F4_D01",
+      "F4_D02",
+      "F4_D03",
+      "F4_D04",
+      "F4_D05"
+    ]
+  },
+  "decisions": [
+    {
+      "compound_id": "F2_E01",
+      "input_smiles": "c1ccc(C2C[18O]2)cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "c1ccc([C@@H]2C[18O]2)cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E01_rep_R",
+          "smiles": "c1ccc([C@@H]2C[18O]2)cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.mcat.2021.111988",
+          "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+          "location": "Table 4, entry 1; PDF p. 9",
+          "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "c1ccc([C@H]2C[18O]2)cc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "c1ccc([C@@H]2C[18O]2)cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_E03",
+      "input_smiles": "Clc1ccc(C2C[18O]2)cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "Clc1ccc([C@@H]2C[18O]2)cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E03_rep_R",
+          "smiles": "Clc1ccc([C@@H]2C[18O]2)cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/C3OB42274G",
+          "url": "https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/7849/WATKINSONcatalyticandmechanistic2014.pdf?isAllowed=y&sequence=7",
+          "location": "Table 2, catalytic system 1, entry 5; Table 1 and preceding experimental description",
+          "evidence_note": "Exact substrate and HPLC epoxide result verified in the institution-hosted original article's indexed Table 2; H2O2 dose was not transcribed. Acetone-containing oxidation needs isotope-source validation. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "Clc1ccc([C@H]2C[18O]2)cc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "Clc1ccc([C@@H]2C[18O]2)cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "6": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_E05",
+      "input_smiles": "N#Cc1ccc(C2C[18O]2)cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "N#Cc1ccc([C@@H]2C[18O]2)cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E05_rep_R",
+          "smiles": "N#Cc1ccc([C@@H]2C[18O]2)cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/C3OB42274G",
+          "url": "https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/7849/WATKINSONcatalyticandmechanistic2014.pdf?isAllowed=y&sequence=7",
+          "location": "Table 2, catalytic system 1, entry 8; Table 1 and preceding experimental description",
+          "evidence_note": "Exact substrate and HPLC epoxide result verified in the institution-hosted original article's indexed Table 2; H2O2 dose was not transcribed. Acetone-containing oxidation needs isotope-source validation. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "N#Cc1ccc([C@H]2C[18O]2)cc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "N#Cc1ccc([C@@H]2C[18O]2)cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "7": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_E09",
+      "input_smiles": "CCCCCCC1C[18O]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "CCCCCC[C@@H]1C[18O]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E09_rep_R",
+          "smiles": "CCCCCC[C@@H]1C[18O]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/D0RA02785E",
+          "url": "https://pubs.rsc.org/en/content/articlehtml/2020/ra/d0ra02785e",
+          "location": "Table 3, entry 18; Experimental: Oxidation of olefins 1-7",
+          "evidence_note": "Table footnote and experimental section agree on 0.5 mmol olefin/0.5 mmol H2O2. A preceding prose sentence instead states 0.05 mmol; use the experimental section and resolve scale before replication. 'Yield' in Table 3 is normalized to converted substrate. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "CCCCCC[C@H]1C[18O]1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CCCCCC[C@@H]1C[18O]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "7": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_E12",
+      "input_smiles": "OCC1C[18O]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "OC[C@@H]1C[18O]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E12_rep_R",
+          "smiles": "OC[C@@H]1C[18O]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/S0021-9517(02)00170-7",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0021951702001707",
+          "location": "Abstract and dedicated allyl-alcohol-to-glycidol catalytic study",
+          "evidence_note": "Precise named substrate/product verified in the original primary abstract; full experimental dosing not transcribed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "OC[C@H]1C[18O]1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "OC[C@@H]1C[18O]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "3": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_S01",
+      "input_smiles": "CS(=[18O])c1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "C[S@@](=[18O])c1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S01_rep_R",
+          "smiles": "C[S@@](=[18O])c1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1038/s41598-017-07590-1",
+          "url": "https://www.nature.com/articles/s41598-017-07590-1",
+          "location": "Figure 2, compound 2a; Figure 2 caption",
+          "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "C[S@](=[18O])c1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C[S@@](=[18O])c1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_S07",
+      "input_smiles": "CS(=[18O])Cc1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "C[S@@](=[18O])Cc1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S07_rep_R",
+          "smiles": "C[S@@](=[18O])Cc1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1002/cctc.201901353",
+          "url": "https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cctc.201901353",
+          "location": "Experimental: Chemicals and Synthesis of Sulfoxides; product 11*; purchased-compound exclusions explicitly checked",
+          "evidence_note": "This citation supports the chemical H2O2 preparation of reference standards, NOT the paper's O2-driven enzyme reactions. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "C[S@](=[18O])Cc1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C[S@@](=[18O])Cc1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_S19",
+      "input_smiles": "CS(=[18O])c1ccc([N+](=O)[O-])cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "C[S@@](=[18O])c1ccc([N+](=O)[O-])cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S19_rep_R",
+          "smiles": "C[S@@](=[18O])c1ccc([N+](=O)[O-])cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1038/s41598-017-07590-1",
+          "url": "https://www.nature.com/articles/s41598-017-07590-1",
+          "location": "Figure 2, compound 2b; Figure 2 caption",
+          "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "C[S@](=[18O])c1ccc([N+](=O)[O-])cc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C[S@@](=[18O])c1ccc([N+](=O)[O-])cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_S22",
+      "input_smiles": "[18O]=S(c1ccccc1)C1CC1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "[18O]=[S@@](c1ccccc1)C1CC1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S22_rep_R",
+          "smiles": "[18O]=[S@@](c1ccccc1)C1CC1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1038/s41598-017-07590-1",
+          "url": "https://www.nature.com/articles/s41598-017-07590-1",
+          "location": "Figure 2, compound 2f; Figure 2 caption",
+          "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "[18O]=[S@](c1ccccc1)C1CC1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "[18O]=[S@@](c1ccccc1)C1CC1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_S23",
+      "input_smiles": "C=CS(=[18O])c1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "C=C[S@@](=[18O])c1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S23_rep_R",
+          "smiles": "C=C[S@@](=[18O])c1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1038/s41598-017-07590-1",
+          "url": "https://www.nature.com/articles/s41598-017-07590-1",
+          "location": "Figure 2, compound 2g; Figure 2 caption",
+          "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "C=C[S@](=[18O])c1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C=C[S@@](=[18O])c1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "3": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F3_B05",
+      "input_smiles": "CC(C)(C)C1CC[18O]C(=O)CC1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "CC(C)(C)[C@H]1CC[18O]C(=O)CC1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F3_B05_rep_R",
+          "smiles": "CC(C)(C)[C@H]1CC[18O]C(=O)CC1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.tet.2015.08.037",
+          "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+          "location": "Table 2 entry 3; section 4.5, product 9",
+          "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Labelled-UHP preparation or adaptation to aqueous electro-generated H2O2 needs validation. GP1's printed UHP mass disagrees with mmol; verify stoichiometry.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "CC(C)(C)[C@@H]1CC[18O]C(=O)CC1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CC(C)(C)[C@H]1CC[18O]C(=O)CC1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F3_B14",
+      "input_smiles": "O=C1CCC(c2ccccc2)CC[18O]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "O=C1CC[C@@H](c2ccccc2)CC[18O]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F3_B14_rep_R",
+          "smiles": "O=C1CC[C@@H](c2ccccc2)CC[18O]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.tet.2015.08.037",
+          "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+          "location": "Table 2 entry 4; section 4.6, product 11",
+          "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Labelled-UHP preparation or adaptation to aqueous electro-generated H2O2 needs validation. GP1's printed UHP mass disagrees with mmol; verify stoichiometry.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "O=C1CC[C@H](c2ccccc2)CC[18O]1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "O=C1CC[C@@H](c2ccccc2)CC[18O]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F4_D01",
+      "input_smiles": "NC(=O)CS(=[18O])C(c1ccccc1)c1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "NC(=O)C[S@@](=[18O])C(c1ccccc1)c1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D01_rep_R",
+          "smiles": "NC(=O)C[S@@](=[18O])C(c1ccccc1)c1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/US4177290A/en",
+          "location": "Example 1, step (3), CRL 40476",
+          "evidence_note": "Exact sulfide-to-modafinil preparation, not metabolite detection. Acid/peroxide activation may operate; the precedent does not establish the labelled oxygen balance.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "NC(=O)C[S@](=[18O])C(c1ccccc1)c1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "NC(=O)C[S@@](=[18O])C(c1ccccc1)c1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F4_D02",
+      "input_smiles": "CCCS(=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "CCC[S@@](=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D02_rep_R",
+          "smiles": "CCC[S@@](=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/CN101270090B/en",
+          "location": "Embodiment 1",
+          "evidence_note": "Exact albendazole-to-sulfoxide preparation. In situ performic-acid involvement is chemically plausible, not demonstrated in this patent; ordinary-H2O2 use alone does not prove isotope-source fidelity.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "CCC[S@](=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+      "additional_state_policy": "Keep the drawn benzimidazole tautomer initially; assess other neutral tautomers/protonated states in separate branches, not automatic weighted merging.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CCC[S@@](=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "4": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F4_D03",
+      "input_smiles": "COc1ccc2nc(S(=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "COc1ccc2nc([S@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D03_rep_R",
+          "smiles": "COc1ccc2nc([S@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/EP1575935A1/en",
+          "location": "Example 4, explicitly using Example 2 oxidation conditions",
+          "evidence_note": "Exact omeprazole sulfide-to-omeprazole worked example. Sulfur configuration and isotope enrichment were not established.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "COc1ccc2nc([S@@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+      "additional_state_policy": "Keep the drawn benzimidazole tautomer initially; assess other neutral tautomers/protonated states in separate branches, not automatic weighted merging.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "COc1ccc2nc([S@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "9": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F4_D04",
+      "input_smiles": "Cc1c(OCC(F)(F)F)ccnc1CS(=[18O])c1nc2ccccc2[nH]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "Cc1c(OCC(F)(F)F)ccnc1C[S@@](=[18O])c1nc2ccccc2[nH]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D04_rep_R",
+          "smiles": "Cc1c(OCC(F)(F)F)ccnc1C[S@@](=[18O])c1nc2ccccc2[nH]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/EP1575935A1/en",
+          "location": "Example 2",
+          "evidence_note": "Exact lansoprazole sulfide oxidation. The crude yield must not be substituted for the purified isolated yield.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "Cc1c(OCC(F)(F)F)ccnc1C[S@](=[18O])c1nc2ccccc2[nH]1",
+      "additional_state_policy": "Keep the drawn benzimidazole tautomer initially; assess other neutral tautomers/protonated states in separate branches, not automatic weighted merging.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "Cc1c(OCC(F)(F)F)ccnc1C[S@@](=[18O])c1nc2ccccc2[nH]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "15": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F4_D05",
+      "input_smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc(S(C)=[18O])cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc([S@@](C)=[18O])cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D05_rep_R",
+          "smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc([S@@](C)=[18O])cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/CN117326991B/zh",
+          "location": "Example 2, steps 3 and 4; compound 3 to compound 4 (sulindac)",
+          "evidence_note": "The free-acid sulfide is oxidized to sulindac. Patent HTML joins compound numbers with quantities, so use the original document for an operational scale-up protocol. Peracid activation and isotope-source fidelity are not established here.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc([S@](C)=[18O])cc1",
+      "additional_state_policy": "Preserve modern-CIP Z exocyclic alkene; neutral acid and any experimental salt are independent states.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc([S@@](C)=[18O])cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "21": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_E11",
+      "input_smiles": "C1CC2CC1C1[18O]C21",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "retain_exo_and_endo_as_separate_physical_diastereomer_models",
+      "allowed_isomeric_smiles": [],
+      "model_branches": [],
+      "relative_constraints": [
+        {
+          "type": "cage_topology",
+          "bridgeheads": [
+            3,
+            5
+          ],
+          "one_carbon_bridge_atom": 4,
+          "epoxide_carbon_atoms": [
+            6,
+            8
+          ],
+          "epoxide_oxygen": 7,
+          "description": "Preserve norbornane cage. The bridgehead stereocentres are constrained by cage topology, not independent choices."
+        },
+        {
+          "type": "exo_endo_face_test",
+          "face_reference_atoms": [
+            3,
+            5,
+            6,
+            8
+          ],
+          "comparison_atoms": [
+            7,
+            4
+          ],
+          "branches": {
+            "exo": "epoxide oxygen and one-carbon bridge on opposite sides of the C3/C5/C6/C8 reference plane",
+            "endo": "epoxide oxygen and one-carbon bridge on the same side of that reference plane"
+          },
+          "required_checks": [
+            "geometry physically embeddable",
+            "all bridge bonds retained",
+            "no inside-out cage",
+            "roundtrip explicit stereo from 3D"
+          ]
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.mcat.2021.111988",
+          "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+          "location": "Table 4, entry 4; PDF p. 9",
+          "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v6_work\\sources_fig2\\nb2021_p9.png",
+          "location": "Table 4 entry 4; norbornene substrate shown, no product exo/endo drawing or ratio."
+        }
+      ],
+      "unresolved_reason": "Source Table 4 entry 4 gives conversion and epoxide selectivity but no exo/endo product assignment or ratio. Do not replace this with an assumed measured exo product. Explicit SMILES must be generated only after physical cage screening."
+    },
+    {
+      "compound_id": "F2_E13",
+      "input_smiles": "C1CCCC2[18O]C2CC1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "source_guided_cis_ring_epoxide_single_relative_configuration",
+      "allowed_isomeric_smiles": [
+        "C1CCC[C@H]2[18O][C@H]2CC1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E13_cis",
+          "smiles": "C1CCC[C@H]2[18O][C@H]2CC1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "cis_source_guided_modelling_target"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "epoxide_plane_substituent_faces",
+          "plane_atoms": [
+            5,
+            6,
+            7
+          ],
+          "substituent_atoms": [
+            4,
+            8
+          ],
+          "face_relation": "same",
+          "description": "Two ring-continuation substituents on the same side of the epoxide plane; sample ring conformers, not trans-fused epoxide as default."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.mcat.2021.111988",
+          "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+          "location": "Table 4, entry 2; PDF p. 9",
+          "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v6_work\\sources_fig2\\nb2021_p9.png",
+          "location": "Table 4 entry 2; regular cis cyclooctene depiction; no product wedges/dr."
+        }
+      ],
+      "unresolved_reason": "Table 4 entry 2 draws the usual cis cyclooctene substrate; cis product is a source-guided stereospecificity assumption, not an independently measured dr or labelled-product assignment.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C1CCC[C@H]2[18O][C@H]2CC1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R",
+            "7": "S"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_E22",
+      "input_smiles": "C=C(C)[C@H]1CC(=O)C2(C)[18O]C2C1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "two_physical_cis_fused_epoxide_diastereomer_branches_keep_existing_R",
+      "allowed_isomeric_smiles": [
+        "C=C(C)[C@H]1CC(=O)[C@]2(C)[18O][C@H]2C1",
+        "C=C(C)[C@H]1CC(=O)[C@@]2(C)[18O][C@@H]2C1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E22_face_1",
+          "smiles": "C=C(C)[C@H]1CC(=O)[C@]2(C)[18O][C@H]2C1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "unassigned_new_epoxide_face_diastereomer"
+        },
+        {
+          "model_id": "F2_E22_face_2",
+          "smiles": "C=C(C)[C@H]1CC(=O)[C@@]2(C)[18O][C@@H]2C1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "unassigned_new_epoxide_face_diastereomer"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "fixed_existing_tetrahedral_center",
+          "atom": 4,
+          "modern_CIP": "R"
+        },
+        {
+          "type": "epoxide_plane_substituent_faces",
+          "plane_atoms": [
+            8,
+            10,
+            11
+          ],
+          "substituent_atoms": [
+            6,
+            12
+          ],
+          "face_relation": "same",
+          "description": "Keep physically cis 3/6 ring fusion; the two alternatives differ by attack face relative to the retained R centre."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1021/ed083p1058",
+          "url": "https://doi.org/10.1021/ed083p1058",
+          "location": "J. Chem. Educ. 2006,83,1058-1061; Scheme III p1058; results and Figure 3 p1059; note 1 p1061. Primary article PDF: https://agregationstrasbourg.chimie.unistra.fr/lib/exe/fetch.php/epoxydation_carvone.pdf",
+          "evidence_note": "Enone site is identified by 1H/13C NMR, IR and MS. Source compares a separate MCPBA route; only the H2O2 branch is used here. Carbonyl oxygen exchange must be checked in the labelled project.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7_work\\epoxy_sources\\carvone_JCE2006_p1.png",
+          "location": "p1058 Scheme III; existing dashed bond retained; no new epoxide wedges."
+        }
+      ],
+      "unresolved_reason": "Primary Scheme III leaves both new epoxide stereocentres unassigned. Do not pick one diastereomer as measured major or thermally mix irreversible stereoisomers with conformer Boltzmann weights.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C=C(C)[C@H]1CC(=O)[C@]2(C)[18O][C@H]2C1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "4": "R",
+            "8": "R",
+            "11": "S"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        },
+        {
+          "canonical_smiles": "C=C(C)[C@H]1CC(=O)[C@@]2(C)[18O][C@@H]2C1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "4": "R",
+            "8": "S",
+            "11": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_E23",
+      "input_smiles": "O=C(c1ccccc1)C1[18O]C1c1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "trans_epoxide_representative_enantiomer_source_guided_default",
+      "allowed_isomeric_smiles": [
+        "O=C(c1ccccc1)[C@H]1[18O][C@@H]1c1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E23_trans_rep",
+          "smiles": "O=C(c1ccccc1)[C@H]1[18O][C@@H]1c1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "source_guided_trans_representative_not_ee_assignment"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "epoxide_plane_substituent_faces",
+          "plane_atoms": [
+            9,
+            10,
+            11
+          ],
+          "substituent_atoms": [
+            2,
+            12
+          ],
+          "face_relation": "opposite",
+          "description": "Benzoyl and phenyl substituents trans across the oxirane plane."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.catcom.2005.04.021",
+          "url": "https://doi.org/10.1016/j.catcom.2005.04.021",
+          "location": "Joy et al., Catal. Commun. 2005,6,573-577, section 2.2 Preparation of chalcone epoxide: https://www.sciencedirect.com/science/article/abs/pii/S1566736705000993. Independent HPLC-confirmed reaction: DOI10.1021/ie101716a, Scheme 2 and Experimental p12328; author PDF https://engfac.cooper.edu/pages/rsavizky/uploads/Savizky_IECR_20100.pdf",
+          "evidence_note": "Primary section 2.2 explicitly prepares, isolates and recrystallizes chalcone epoxide until pure by NMR; no numerical isolated yield given there. The paper's 90% yield concerns subsequent acid-clay rearrangement and MUST NOT be assigned to epoxidation. Independent 2010 work confirms exact epoxide by HPLC against authentic standard.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7_work\\epoxy_sources\\chalcone_IECR2010_p2.png",
+          "location": "p12328 Chemicals and product HPLC confirmation; trans-chalcone, epoxide catalogue L03874."
+        },
+        {
+          "type": "primary_database_identity_correspondence",
+          "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Chalcone-epoxide",
+          "note": "CID 92219 connects L03874 and trans-chalcone epoxide synonyms but its displayed graph is stereo-unspecified; use only identity support, not a supplied stereo graph."
+        }
+      ],
+      "unresolved_reason": "Local 2010 primary paper uses trans-chalcone and HPLC confirmation against Lancaster L03874 epoxide; the paper does not provide a quantitative cis/trans product ratio. Default trans follows the project source note and named-standard correspondence, not an independent dr measurement. Add a separate cis sensitivity branch only if experimental comparison suggests it.",
+      "mirror_equivalent_smiles": "O=C(c1ccccc1)[C@@H]1[18O][C@H]1c1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "O=C(c1ccccc1)[C@H]1[18O][C@@H]1c1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "9": "S",
+            "11": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F2_E24",
+      "input_smiles": "CC12[18O]C1C(=O)c1ccccc1C2=O",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "physical_cis_fused_epoxide_representative_enantiomer",
+      "allowed_isomeric_smiles": [
+        "C[C@]12[18O][C@H]1C(=O)c1ccccc1C2=O"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E24_cis_fused_rep",
+          "smiles": "C[C@]12[18O][C@H]1C(=O)c1ccccc1C2=O",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "representative_of_source_racemic_fused_epoxide"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "epoxide_plane_substituent_faces",
+          "plane_atoms": [
+            2,
+            3,
+            4
+          ],
+          "substituent_atoms": [
+            13,
+            5
+          ],
+          "face_relation": "same",
+          "description": "Both six-membered-ring continuation bonds on the same face. Do not generate the trans-fused three/six-membered formal stereoisomer."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/C7DT01767G",
+          "url": "https://doi.org/10.1039/C7DT01767G",
+          "location": "Dalton Trans. 2017,46,12114-12124; SI section 1.1 and Scheme S1, PDF page 3 (printed p3); https://www.rsc.org/suppdata/c7/dt/c7dt01767g/c7dt01767g1.pdf. Independently corroborated by US8987503 examples 1-2 (91.5% isolated); original scheme on PDF page 5 visually verified: https://patentimages.storage.googleapis.com/5b/6d/0a/77ecdeb1bfa3af/US8987503.pdf",
+          "evidence_note": "The exact epoxide is isolated before a separate acid ring-opening step. Only the first step is selected. The later 92% ring-opening yield is not the epoxide yield. Check carbonyl isotope exchange separately; do not label pre-existing carbonyl O by assumption.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_patent_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7_work\\epoxy_sources\\menadione_patent_p5.png",
+          "location": "US8987503B2 printed pp7-8, Examples 1-2; fused menadione epoxide without absolute wedges."
+        }
+      ],
+      "unresolved_reason": "No absolute configuration claimed; racemic/achiral preparation recorded in the project. Only one mirror representative is needed for isotropic achiral-solution H/C NMR.",
+      "mirror_equivalent_smiles": "C[C@@]12[18O][C@@H]1C(=O)c1ccccc1C2=O",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C[C@]12[18O][C@H]1C(=O)c1ccccc1C2=O",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "S",
+            "4": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F3_B06",
+      "input_smiles": "O=C1[18O]C2CC3CC(C2)CC1C3",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "physical_adamantane_derived_cage_template_then_collapse_mirror_equivalent_models",
+      "allowed_isomeric_smiles": [],
+      "model_branches": [],
+      "relative_constraints": [
+        {
+          "type": "cage_bridgehead_geometry",
+          "bridgehead_atoms": [
+            4,
+            6,
+            8,
+            11
+          ],
+          "inserted_lactone_oxygen": 3,
+          "lactone_carbonyl_carbon": 2,
+          "description": "Use the real adamantane-derived cage topology. All four bridgehead H atoms must point outward from the cage; do not interpret formal 2^4 assignments as freely accessible products."
+        },
+        {
+          "type": "geometry_acceptance",
+          "requirements": [
+            "proper ring closures and positive nonbonded separation",
+            "outward bridgehead H at each bridgehead",
+            "no self-intersecting/inside-out cage",
+            "reperceive explicit stereo from 3D",
+            "group identical and mirror-equivalent graphs; retain any genuinely distinct physical diastereomer separately if more than one survives"
+          ]
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/C7RA03830E",
+          "url": "https://pubs.rsc.org/en/content/articlehtml/2017/ra/c7ra03830e",
+          "location": "Scheme 5; section 2.2; section 3.4",
+          "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Additional isolated UHP precedent: 10.1016/j.tet.2015.08.037, section 4.14, 82%.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Source product connectivity is verified, but no absolute descriptors are specified. A physically constrained cage embedding is required before supplying an explicit isomeric SMILES. Do not invent stereoisomer ratios."
+    },
+    {
+      "compound_id": "F3_N33",
+      "input_smiles": "C=C[C@H]1C[N+]2([18O-])CC[C@H]1C[C@H]2[C@H](O)c1ccnc2ccc(OC)cc12",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "unique_outward_quinuclidine_N_oxide_geometry_keep_four_source_carbon_centres",
+      "allowed_isomeric_smiles": [],
+      "model_branches": [],
+      "relative_constraints": [
+        {
+          "type": "keep_all_assigned_carbon_stereocentres",
+          "atom_indices": [
+            3,
+            9,
+            11,
+            12
+          ],
+          "CIP_from_input": {
+            "3": "R",
+            "9": "S",
+            "11": "S",
+            "12": "R"
+          }
+        },
+        {
+          "type": "outward_bridgehead_N_oxide",
+          "N_atom": 5,
+          "O_atom": 6,
+          "opposite_bridgehead_C": 9,
+          "N_carbon_neighbors": [
+            4,
+            7,
+            11
+          ],
+          "vector_test": "dot(rO-rN, rN-rOppositeBridgehead)>0 and dot(rO-rN, rN-mean(rC4,rC7,rC11))>0",
+          "description": "N-O must project away from the cage interior. Choose the N tag only after a physical embedding; an inward N-O formal stereoisomer is not a second solution-NMR product."
+        },
+        {
+          "type": "site_specificity",
+          "description": "Oxidation is at quinuclidine N5, not quinoline N17; preserve four carbon configurations."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.4028/www.scientific.net/KEM.874.69",
+          "url": "https://www.scientific.net/KEM.874.69",
+          "location": "Experimental Sections, Procedure; Figure 1; major product 2 characterization",
+          "evidence_note": "Original author-uploaded full text was read. Major quinuclidine N-oxide is preparatively isolated; trace further oxidation and alkene-translocation products are also reported. Do not claim perfect chemoselectivity.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_template_provenance",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7_work\\fetch_cage_templates.py",
+          "pubchem_cid": 14589188,
+          "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14589188",
+          "note": "2D product template recovered and connectivity compared previously; N stereo is not specified in that template."
+        }
+      ],
+      "unresolved_reason": "Existing PubChem-derived 2D template also leaves N unspecified. Geometry, not an arbitrary N@/N@@ choice, must determine the outward cage configuration."
+    },
+    {
+      "compound_id": "F3_B18",
+      "input_smiles": "O=C1C[C@@H]2CC[C@@H](C2)[18O]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "retain_source_relative_configuration_and_encoded_representative_enantiomer",
+      "allowed_isomeric_smiles": [
+        "O=C1C[C@@H]2CC[C@@H](C2)[18O]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F3_B18_source_rel_rep",
+          "smiles": "O=C1C[C@@H]2CC[C@@H](C2)[18O]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "source_relative_stereo_representative_not_absolute_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/EP2636665B1/en",
+          "location": "Table 5, Example 64, printed page 16; paragraphs [0057], [0061], [0079]-[0080], printed page 19; original PDF https://patentimages.storage.googleapis.com/37/37/1e/c0c21cf45d4176/EP2636665B1.pdf",
+          "evidence_note": "Exact Table 5 drawing, conditions, product-specific NMR and general preparative work-up were inspected in the original patent PDF. This is an aqueous-H2O2 precedent. It does not demonstrate 18O labelling, isotope retention or the same performance with dilute catholyte. Acid-promoted oxygen exchange must be checked experimentally.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Source does not establish enantiopurity or absolute configuration; preserve the source relative configuration.",
+      "mirror_equivalent_smiles": "O=C1C[C@H]2CC[C@H](C2)[18O]1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "O=C1C[C@@H]2CC[C@@H](C2)[18O]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "4": "R",
+            "7": "S"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F3_B21",
+      "input_smiles": "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "retain_source_relative_configuration_and_encoded_representative_enantiomer",
+      "allowed_isomeric_smiles": [
+        "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F3_B21_source_rel_rep",
+          "smiles": "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "source_relative_stereo_representative_not_absolute_assignment"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "source_wedge_relationship",
+          "description": "Both fusion H atoms and Br on the same face; OTBS on the opposite face. Do not invert individual centres."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/EP2636665B1/en",
+          "location": "Table 6, Example 70, printed page 17; paragraphs [0086]-[0087], printed page 19; original PDF https://patentimages.storage.googleapis.com/37/37/1e/c0c21cf45d4176/EP2636665B1.pdf",
+          "evidence_note": "Original PDF reaction drawing, all relative wedges, exact no-oxalic-acid conditions and distinct product NMR were inspected. Both C-Br and OTBS are retained. This supports the ordinary-O isolated compound, not a validated 18O analogue or direct use of electro-generated peroxide. Ketone carbonyl isotope exchange and isotope retention still require tests. Exact preparation/availability of the specialized precursor must be scheduled separately.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Source does not establish enantiopurity or absolute configuration; preserve the source relative configuration.",
+      "mirror_equivalent_smiles": "CC(C)(C)[Si](C)(C)O[C@@H]1C[C@@H]2[18O]C(=O)C[C@@H]2[C@H]1Br",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "9": "S",
+            "11": "R",
+            "16": "R",
+            "17": "S"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    {
+      "compound_id": "F4_D07",
+      "input_smiles": "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "neutral_and_O_protonated_hydrochloride_independent_state_branches",
+      "allowed_isomeric_smiles": [
+        "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+        "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21.[Cl-]"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D07_neutral",
+          "smiles": "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "drawn_net_neutral_N_oxide_reference"
+        },
+        {
+          "model_id": "F4_D07_NOH_Cl",
+          "smiles": "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21.[Cl-]",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "O_protonated_N_oxide_plus_chloride_salt_hypothesis_not_site_proved",
+          "geometry_policy": "explicit ion pair; sample chloride contact positions; do not leave chloride at an arbitrary unoptimized distance"
+        },
+        {
+          "model_id": "F4_D07_NOH_cation_sensitivity",
+          "smiles": "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21",
+          "charge": 1,
+          "multiplicity": 1,
+          "role": "optional_separated_cation_DMSO_sensitivity_state"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "source_salt_identity_not_proton_site_assignment",
+          "description": "Prior verified source record explicitly states isolated hydrochloride; it does not establish the protonation microsite in this audit."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1248/jhs.50.396",
+          "url": "https://www.jstage.jst.go.jp/article/jhs/50/4/50_4_396/_article",
+          "location": "Page 402, Table 5, imipramine N-oxide (HCl salt) row and footnote; N-oxide preparation section; pages 403-404 characterization",
+          "evidence_note": "Preparative oxidation, chloroform extraction and crystallization, not just LC-MS detection. The product yield is for the hydrochloride salt, while the scope drawing represents its neutral molecular framework.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "primary_full_text_rechecked_and_pages_visually_inspected",
+          "url": "https://www.jstage.jst.go.jp/article/jhs/50/4/50_4_396/_pdf",
+          "local_pdf": "E:\\For_codex\\isotope_work\\ORCA_NMR_64_work_20261013\\evidence_D07_Ogamo2004_primary.pdf",
+          "locations": [
+            "p398: methanolic HCl addition and crystallization; Spectroscopy says CD3OD for H/C NMR",
+            "p402: Table5 expressly lists Imipramine N-oxide (HCl salt)",
+            "p404: terminal-N-adjacent H/C move downfield; imipramine numerical shifts are data not shown"
+          ],
+          "note": "Confirms isolated hydrochloride and source NMR solvent, but not the protonation microsite in DMSO or a specific ion-pair geometry."
+        }
+      ],
+      "unresolved_reason": "Use N-oxide O-protonation as a declared initial salt model, not an established HCl microsite. The ring diarylamine N is another chemically valid protomer candidate if solution/pKa evidence requires testing. Never pool neutral, cation and ion-pair energies as conformers.",
+      "alternative_protomer_candidate": {
+        "smiles": "C[N+](C)([18O-])CCC[NH+]1c2ccccc2CCc2ccccc21.[Cl-]",
+        "role": "ring_N_protonated_sensitivity_not_default",
+        "source_status": "chemically_valid_hypothesis_no_site_assignment_in_inspected_source_record"
+      },
+      "solvent_policy": {
+        "user_prediction_solvent": "DMSO",
+        "source_experimental_NMR_solvent": "CD3OD",
+        "source_solvent_reference_ppm": {
+          "1H": 3.31,
+          "13C": 49.0
+        },
+        "literature_comparison_branch": "Use methanol continuum in a separate branch if comparing the source characterization; never describe source spectra as DMSO spectra.",
+        "source_imipramine_numeric_HC_shifts_available_in_article": false,
+        "exchangeable_proton_note": "N-OH proton may exchange in protic deuterated solvent; its computed shift is not an obligatory observed peak."
+      }
+    }
+  ]
+}

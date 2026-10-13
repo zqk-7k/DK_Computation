@@ -1,0 +1,145 @@
+[
+  {
+    "index_zero_based": 0,
+    "index_one_based": 1,
+    "element": "O",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      1,
+      5
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 1,
+    "index_one_based": 2,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      0,
+      2,
+      6,
+      7
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 2,
+    "index_one_based": 3,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      1,
+      3,
+      4,
+      8
+    ],
+    "exchangeable_H": false,
+    "CIP": "R"
+  },
+  {
+    "index_zero_based": 3,
+    "index_one_based": 4,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      2,
+      4,
+      9,
+      10
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 4,
+    "index_one_based": 5,
+    "element": "O",
+    "isotope": 18,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      3,
+      2
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 5,
+    "index_one_based": 6,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      0
+    ],
+    "exchangeable_H": true,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 6,
+    "index_one_based": 7,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      1
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 7,
+    "index_one_based": 8,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      1
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 8,
+    "index_one_based": 9,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      2
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 9,
+    "index_one_based": 10,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      3
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 10,
+    "index_one_based": 11,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      3
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  }
+]

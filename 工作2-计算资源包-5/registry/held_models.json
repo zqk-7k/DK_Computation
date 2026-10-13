@@ -1,0 +1,17 @@
+[
+  {
+    "compound_id": "F4_D07",
+    "model_id": "F4_D07_NOH_Cl",
+    "smiles": "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21.[Cl-]",
+    "reason": "ion_pair_needs_explicit_contact_sampling_and_solution_speciation_review"
+  },
+  {
+    "compound_id": "F4_D07",
+    "reason": "alternative_protomer_requires_solution_evidence",
+    "candidate": {
+      "smiles": "C[N+](C)([18O-])CCC[NH+]1c2ccccc2CCc2ccccc21.[Cl-]",
+      "role": "ring_N_protonated_sensitivity_not_default",
+      "source_status": "chemically_valid_hypothesis_no_site_assignment_in_inspected_source_record"
+    }
+  }
+]

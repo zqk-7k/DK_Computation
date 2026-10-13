@@ -1,0 +1,12 @@
+{
+  "status": "PASS_FORMULA_RECALCULATION_AND_64_RECORDS",
+  "products": 64,
+  "models_including_TMS": 67,
+  "source": "registry/batch_plan_v5.json",
+  "stable_target_product_branches": 526,
+  "TMS_target": 3,
+  "actual_stable_conformers": null,
+  "formula_errors": 0,
+  "renderer": "@oai/artifact-tool",
+  "output": "E:\\For_codex\\isotope_work\\工作2-计算资源包-（5）\\工作2-计算资源包-（5）-64个产物溶剂与稳定构象目标.xlsx"
+}

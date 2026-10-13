@@ -1,0 +1,64 @@
+{
+  "schema_version": "1.0",
+  "policy_name": "FIXED_COMPOSITION_QRRHO_AND_CONFORMER_AVERAGING",
+  "temperature": {
+    "source": "locked_experimental_condition",
+    "provisional_fallback_K": 298.15,
+    "fallback_must_remain_labelled_provisional": true
+  },
+  "qrrho": {
+    "model": "Grimme_quasi_rigid_rotor_harmonic_oscillator",
+    "frequency_cutoff_cm-1": 100.0,
+    "interpolation_exponent": 4,
+    "low_frequency_limit": "free_rotor_interpolation",
+    "standard_state": "1_mol_per_L_solution",
+    "standard_state_correction": "apply_consistently_per_fixed_composition_branch",
+    "parameter_changes_require_new_policy_hash": true
+  },
+  "frequency_gate": {
+    "true_transition_state_forbidden": true,
+    "imaginary_frequency_handling": "never_take_absolute_value_silently",
+    "reoptimize_if_cm-1_below": -20.0,
+    "range_minus20_to_0": "manual_numerical_and_mode_inspection",
+    "intermolecular_floppy_modes": "retain_and_treat_by_frozen_QRRHO_rule_after_geometry_gate"
+  },
+  "duplicate_gate": {
+    "exact_graph_charge_multiplicity_and_cluster_composition_required": true,
+    "stereochemistry_must_match": true,
+    "solute_heavy_atom_RMSD_starting_threshold_A": 0.35,
+    "relative_energy_starting_threshold_kcal_per_mol": 0.10,
+    "explicit_solvent_permutation_aware": true,
+    "distinct_hydrogen_bond_or_orientation_motif_must_be_retained": true,
+    "thresholds_are_engineering_starting_values": true,
+    "manual_review_for_near_threshold_cases": true
+  },
+  "population": {
+    "energy_quantity": "G_QRRHO_at_locked_temperature",
+    "include_degeneracy_when_documented": true,
+    "normalization_scope": "one_fixed_composition_charge_multiplicity_and_species_branch",
+    "cross_composition_normalization_forbidden": true,
+    "cross_protonation_or_salt_state_normalization_forbidden": true
+  },
+  "PBE0_optfreq_selection": {
+    "default_minimum_cumulative_prescreen_population_fraction": 0.95,
+    "all_required_motifs_retained": true,
+    "all_near_degenerate_peak_order_sensitive_structures_retained": true,
+    "minimum_representatives_if_available": 3,
+    "small_rigid_or_ULTRA": "all_unique_approved_conformers",
+    "renormalize_only_after_final_PBE0_gate": true
+  },
+  "revDSD_selection": {
+    "population_source": "final_PBE0_QRRHO_population",
+    "minimum_cumulative_population_fraction": 0.95,
+    "all_required_motifs_retained": true,
+    "insufficient_coverage_action": "add_revDSD_conformers_not_mix_PBE0_raw_shieldings"
+  },
+  "reporting": {
+    "per_conformer_geometry_hash_required": true,
+    "per_conformer_energy_and_weight_required": true,
+    "cluster_and_motif_assignment_required": true,
+    "discard_reason_required": true,
+    "effective_sample_size_reported": true,
+    "sensitivity_to_cutoff_and_temperature_reported_for_flexible_or_ionic_cases": true
+  }
+}

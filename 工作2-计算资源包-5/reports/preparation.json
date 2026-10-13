@@ -1,0 +1,11 @@
+{
+ "package_name":"工作2-计算资源包-（5）",
+ "status":"INITIAL_STRUCTURES_PREPARED_NO_QM",
+ "n_products":64,"n_product_species":66,"n_TMS_species":1,
+ "jobs":1020,"initially_released":469,"held":551,
+ "stable_target_product_branches":526,"stable_target_TMS":3,
+ "actual_stable_conformers":null,
+ "sampling_converged":false,"ORCA_GOAT_run":false,"DFT_run":false,"NMR_spectra_generated":false,
+ "initial_geometry_source":"Unchanged v4 cluster inputs; v5 updates release policy and final stable-minimum handoff.",
+ "active_quantity_authority":"registry/batch_plan_v5.json"
+}

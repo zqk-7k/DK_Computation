@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "tests_run": 237,
+  "failures": [],
+  "errors": [],
+  "skipped": [],
+  "notice": "Engineering and synthetic-fixture tests only; not actual QM or experimental validation.",
+  "generated_utc": "2026-10-13T13:50:33.538206+00:00"
+}

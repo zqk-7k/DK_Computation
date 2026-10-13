@@ -1,0 +1,17 @@
+{
+  "species_id": "F4_D03_rep_R__DMSO",
+  "compound_id": "F4_D03",
+  "smiles": "COc1ccc2nc([S@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+  "solvent": "DMSO",
+  "solvent_experimental_label": "DMSO-d6",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "arbitrary_modelling_representative_not_experimental_R_assignment",
+  "formula": "C17H19N3O3S",
+  "rotatable_bonds": 5,
+  "labelled_18O_count": 1,
+  "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+  "sampling_converged": false,
+  "default_run_enabled": true,
+  "has_Br": false
+}

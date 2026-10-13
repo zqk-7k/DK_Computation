@@ -1,0 +1,13 @@
+{
+  "species_id": "TMS_DMSO",
+  "compound_id": "TMS",
+  "smiles": "C[Si](C)(C)C",
+  "solvent": "DMSO",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "same_protocol_reference",
+  "rotatable_bonds": 0,
+  "default_run_enabled": true,
+  "model_status": "REFERENCE",
+  "has_Br": false
+}

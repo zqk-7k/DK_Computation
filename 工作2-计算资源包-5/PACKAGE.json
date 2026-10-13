@@ -1,0 +1,21 @@
+{
+ "schema_version":"5.0","package_name":"工作2-计算资源包-（5）","created_date":"2026-10-14",
+ "parent_package":"工作2-计算资源包-（4）","parent_preserved":true,
+ "reference_repository":"zqk-7k/DK_Computation","reference_folder":"51计算包",
+ "reference_commit":"933cb6159294813a79f443921920127032fb01d4",
+ "active_protocol":"config/protocol.json","active_automation_config":"config/automation.json",
+ "active_GOAT_registry":"registry/jobs.json","active_plan":"registry/batch_plan_v5.json",
+ "product_workbook":"工作2-计算资源包-（5）-64个产物溶剂与稳定构象目标.xlsx",
+ "counts":{"products":64,"product_structure_models":66,"TMS_models":1,"GOAT_start_pool":1020,"initially_released":469,"held":551,"product_stable_targets_sum":526,"TMS_stable_target":3,"actual_stable_minima":null},
+ "stable_targets_by_complexity":{"R":3,"M":5,"H":10,"X":15},
+ "target_definition":"FINAL_DFT_OPTIMIZED_FREQUENCY_CHECKED_DISTINCT_LOW_ENERGY_MINIMA_BEFORE_FIRST_NMR",
+ "target_is_not_start_count_or_convergence_certificate":true,
+ "active_scenario":"DMSO_02_W01_trace_water_sensitivity",
+ "solvent_model":{"explicit_DMSO_d6":2,"explicit_ordinary_H2O":1,"sampling_continuum":"ALPB(DMSO)","DFT_continuum":"CPCM(DMSO)","temperature_K":298.15,"status":"UNIFORM_ASSUMPTION_NOT_UNIVERSALLY_VALIDATED_SOLVATION_SHELL"},
+ "revDSD_active":false,"figure4_J_method":"PBE_pcJ3","HPC_configuration_performed":false,
+ "GOAT_or_DFT_launched_in_v5_build":false,"sampling_convergence_established":false,"experimental_accuracy_validated":false,
+ "complete_51_feature_parity_claimed":false,"complete_exact_multiplet_engine_for_all_64_claimed":false,
+ "current_documents":["README_先读.txt","docs/自动分批流程接口.txt","docs/51流程覆盖说明_v5.txt","docs/稳定构象计数与溶剂假设_v5.txt","docs/异常处理与人工复核.txt","docs/多重峰裂分验证.txt"],
+ "historical_not_current_authority":["history/","reference_51/","registry/sampling_plan_v4.json","registry/product_solvent_sampling_v4.json","scripts/validate_delivery_v4.py","scripts/plan_sampling_v4.py","scripts/prepare_v4.py","scripts/initialize_v3.py","scripts/package_work2.py"],
+ "status":"SOFTWARE_AND_INITIAL_MODELS_ONLY_NO_ACTUAL_QUANTUM_RESULTS"
+}

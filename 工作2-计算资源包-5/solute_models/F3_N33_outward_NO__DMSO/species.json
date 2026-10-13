@@ -1,0 +1,17 @@
+{
+  "species_id": "F3_N33_outward_NO__DMSO",
+  "compound_id": "F3_N33",
+  "smiles": "C=C[C@H]1C[N@+]2([18O-])CC[C@H]1C[C@H]2[C@H](O)c1ccnc2ccc(OC)cc12",
+  "solvent": "DMSO",
+  "solvent_experimental_label": "DMSO-d6",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "physically_screened_geometry_not_new_experimental_configuration",
+  "formula": "C20H24N2O3",
+  "rotatable_bonds": 4,
+  "labelled_18O_count": 1,
+  "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+  "sampling_converged": false,
+  "default_run_enabled": true,
+  "has_Br": false
+}

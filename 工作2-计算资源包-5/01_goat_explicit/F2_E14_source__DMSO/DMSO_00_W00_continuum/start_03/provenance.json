@@ -1,0 +1,41 @@
+{
+  "job_id": "F2_E14_source__DMSO__DMSO_00_W00_continuum__s03",
+  "source_model_sha256": "4b040f9c998e2c7bd634326cafbbc1e48f905ae24d5030d3adb1c4a3110a0291",
+  "source_species": {
+    "species_id": "F2_E14_source__DMSO",
+    "compound_id": "F2_E14",
+    "smiles": "CCC[C@H]1[18O][C@H]1CO",
+    "solvent": "DMSO",
+    "solvent_experimental_label": "DMSO-d6",
+    "charge": 0,
+    "multiplicity": 1,
+    "role": "source_explicit_structure",
+    "formula": "C6H12O2",
+    "rotatable_bonds": 3,
+    "labelled_18O_count": 1,
+    "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+    "sampling_converged": false,
+    "default_run_enabled": true,
+    "has_Br": false
+  },
+  "analyte_start": {
+    "method": "INDEPENDENT_ETKDGv3_WITH_FIXED_ATOM_ORDER",
+    "seed": 503044061,
+    "forcefield": "MMFF94s",
+    "forcefield_converged": true,
+    "rejected_attempts": [],
+    "global_sampling_converged": false
+  },
+  "environment_seed": 1907171400,
+  "motifs": [],
+  "environment_atoms_excluded_from_analyte_nmr": true,
+  "cluster_optimization": "NOT_RUN",
+  "orca_calculation": "NOT_RUN",
+  "stereo_geometry_issues": [],
+  "composition": {
+    "DMSO_d6": 0,
+    "H2O": 0
+  },
+  "reference_commit": "933cb6159294813a79f443921920127032fb01d4",
+  "assumption": "Two explicit DMSO is a prescribed sensitivity model, not a proven complete solvation shell."
+}

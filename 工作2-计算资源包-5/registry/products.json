@@ -1,0 +1,2691 @@
+[
+  {
+    "compound_id": "F2_E01",
+    "name": "Styrene oxide",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "c1ccc(C2C[18O]2)cc1",
+    "literature": {
+      "doi": "10.1016/j.mcat.2021.111988",
+      "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+      "source_location": "Table 4, entry 1; PDF p. 9",
+      "oxidant": "30 wt% aqueous H2O2, 2 equivalents",
+      "conditions": "Immobilized Nb(V)-peroxido catalyst 1, 0.1 mol% Nb; no added solvent; 80 C; 6 h",
+      "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "99% conversion; 99% epoxide selectivity, not isolated yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "One carbon stereocentre is possible. Absolute configuration and enantiomeric composition are unassigned; do not label as enantioenriched.",
+    "modelling_decision": {
+      "compound_id": "F2_E01",
+      "input_smiles": "c1ccc(C2C[18O]2)cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "c1ccc([C@@H]2C[18O]2)cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E01_rep_R",
+          "smiles": "c1ccc([C@@H]2C[18O]2)cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.mcat.2021.111988",
+          "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+          "location": "Table 4, entry 1; PDF p. 9",
+          "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "c1ccc([C@H]2C[18O]2)cc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "c1ccc([C@@H]2C[18O]2)cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E03",
+    "name": "4-Chlorostyrene oxide",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "Clc1ccc(C2C[18O]2)cc1",
+    "literature": {
+      "doi": "10.1039/C3OB42274G",
+      "url": "https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/7849/WATKINSONcatalyticandmechanistic2014.pdf?isAllowed=y&sequence=7",
+      "source_location": "Table 2, catalytic system 1, entry 5; Table 1 and preceding experimental description",
+      "oxidant": "H2O2; not the separate peracetic-acid system 2",
+      "conditions": "MnSO4 and ligand 7 (1 mol% each); MeCN, peroxide introduced in acetone; room temperature; 5 h",
+      "evidence_note": "Exact substrate and HPLC epoxide result verified in the institution-hosted original article's indexed Table 2; H2O2 dose was not transcribed. Acetone-containing oxidation needs isotope-source validation. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "100% conversion; 75% epoxide yield by HPLC.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Epoxide carbon stereochemistry is unassigned. No enantiomeric preference is claimed.",
+    "modelling_decision": {
+      "compound_id": "F2_E03",
+      "input_smiles": "Clc1ccc(C2C[18O]2)cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "Clc1ccc([C@@H]2C[18O]2)cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E03_rep_R",
+          "smiles": "Clc1ccc([C@@H]2C[18O]2)cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/C3OB42274G",
+          "url": "https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/7849/WATKINSONcatalyticandmechanistic2014.pdf?isAllowed=y&sequence=7",
+          "location": "Table 2, catalytic system 1, entry 5; Table 1 and preceding experimental description",
+          "evidence_note": "Exact substrate and HPLC epoxide result verified in the institution-hosted original article's indexed Table 2; H2O2 dose was not transcribed. Acetone-containing oxidation needs isotope-source validation. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "Clc1ccc([C@H]2C[18O]2)cc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "Clc1ccc([C@@H]2C[18O]2)cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "6": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E05",
+    "name": "4-Cyanostyrene oxide",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "N#Cc1ccc(C2C[18O]2)cc1",
+    "literature": {
+      "doi": "10.1039/C3OB42274G",
+      "url": "https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/7849/WATKINSONcatalyticandmechanistic2014.pdf?isAllowed=y&sequence=7",
+      "source_location": "Table 2, catalytic system 1, entry 8; Table 1 and preceding experimental description",
+      "oxidant": "H2O2; not the separate peracetic-acid system 2",
+      "conditions": "MnSO4 and ligand 7 (1 mol% each); MeCN, peroxide introduced in acetone; room temperature; 4 h",
+      "evidence_note": "Exact substrate and HPLC epoxide result verified in the institution-hosted original article's indexed Table 2; H2O2 dose was not transcribed. Acetone-containing oxidation needs isotope-source validation. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "100% conversion; 73% epoxide yield by HPLC.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Epoxide carbon stereochemistry is unassigned. No enantiomeric preference is claimed.",
+    "modelling_decision": {
+      "compound_id": "F2_E05",
+      "input_smiles": "N#Cc1ccc(C2C[18O]2)cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "N#Cc1ccc([C@@H]2C[18O]2)cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E05_rep_R",
+          "smiles": "N#Cc1ccc([C@@H]2C[18O]2)cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/C3OB42274G",
+          "url": "https://qmro.qmul.ac.uk/xmlui/bitstream/handle/123456789/7849/WATKINSONcatalyticandmechanistic2014.pdf?isAllowed=y&sequence=7",
+          "location": "Table 2, catalytic system 1, entry 8; Table 1 and preceding experimental description",
+          "evidence_note": "Exact substrate and HPLC epoxide result verified in the institution-hosted original article's indexed Table 2; H2O2 dose was not transcribed. Acetone-containing oxidation needs isotope-source validation. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "N#Cc1ccc([C@H]2C[18O]2)cc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "N#Cc1ccc([C@@H]2C[18O]2)cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "7": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E09",
+    "name": "1,2-Epoxyoctane",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "CCCCCCC1C[18O]1",
+    "literature": {
+      "doi": "10.1039/D0RA02785E",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2020/ra/d0ra02785e",
+      "source_location": "Table 3, entry 18; Experimental: Oxidation of olefins 1-7",
+      "oxidant": "35 wt% aqueous H2O2, 1 equivalent",
+      "conditions": "PAMAM/crown-ether/MWCNT-supported methyltrioxorhenium V H; 0.5 mol% Re; CH2Cl2; 25 C, 5 h",
+      "evidence_note": "Table footnote and experimental section agree on 0.5 mmol olefin/0.5 mmol H2O2. A preceding prose sentence instead states 0.05 mmol; use the experimental section and resolve scale before replication. 'Yield' in Table 3 is normalized to converted substrate. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": ">98% conversion and >98% epoxide fraction of converted substrate; not an isolated yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "One epoxide carbon stereocentre is possible. Absolute configuration and enantiomeric composition are unassigned.",
+    "modelling_decision": {
+      "compound_id": "F2_E09",
+      "input_smiles": "CCCCCCC1C[18O]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "CCCCCC[C@@H]1C[18O]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E09_rep_R",
+          "smiles": "CCCCCC[C@@H]1C[18O]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/D0RA02785E",
+          "url": "https://pubs.rsc.org/en/content/articlehtml/2020/ra/d0ra02785e",
+          "location": "Table 3, entry 18; Experimental: Oxidation of olefins 1-7",
+          "evidence_note": "Table footnote and experimental section agree on 0.5 mmol olefin/0.5 mmol H2O2. A preceding prose sentence instead states 0.05 mmol; use the experimental section and resolve scale before replication. 'Yield' in Table 3 is normalized to converted substrate. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "CCCCCC[C@H]1C[18O]1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CCCCCC[C@@H]1C[18O]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "7": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E11",
+    "name": "Norbornene oxide",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "C1CC2CC1C1[18O]C21",
+    "literature": {
+      "doi": "10.1016/j.mcat.2021.111988",
+      "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+      "source_location": "Table 4, entry 4; PDF p. 9",
+      "oxidant": "30 wt% aqueous H2O2, 2 equivalents",
+      "conditions": "Immobilized Nb(V)-peroxido catalyst 1, 0.1 mol% Nb; no added solvent; 80 C; 1.5 h",
+      "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "100% conversion; 97% epoxide selectivity; no exo/endo ratio transcribed.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No exo/endo product assignment is made. A physically valid exo or endo representative must be explicitly chosen for ORCA and kept distinct from any measured product assignment.",
+    "modelling_decision": {
+      "compound_id": "F2_E11",
+      "input_smiles": "C1CC2CC1C1[18O]C21",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "retain_exo_and_endo_as_separate_physical_diastereomer_models",
+      "allowed_isomeric_smiles": [],
+      "model_branches": [],
+      "relative_constraints": [
+        {
+          "type": "cage_topology",
+          "bridgeheads": [
+            3,
+            5
+          ],
+          "one_carbon_bridge_atom": 4,
+          "epoxide_carbon_atoms": [
+            6,
+            8
+          ],
+          "epoxide_oxygen": 7,
+          "description": "Preserve norbornane cage. The bridgehead stereocentres are constrained by cage topology, not independent choices."
+        },
+        {
+          "type": "exo_endo_face_test",
+          "face_reference_atoms": [
+            3,
+            5,
+            6,
+            8
+          ],
+          "comparison_atoms": [
+            7,
+            4
+          ],
+          "branches": {
+            "exo": "epoxide oxygen and one-carbon bridge on opposite sides of the C3/C5/C6/C8 reference plane",
+            "endo": "epoxide oxygen and one-carbon bridge on the same side of that reference plane"
+          },
+          "required_checks": [
+            "geometry physically embeddable",
+            "all bridge bonds retained",
+            "no inside-out cage",
+            "roundtrip explicit stereo from 3D"
+          ]
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.mcat.2021.111988",
+          "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+          "location": "Table 4, entry 4; PDF p. 9",
+          "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v6_work\\sources_fig2\\nb2021_p9.png",
+          "location": "Table 4 entry 4; norbornene substrate shown, no product exo/endo drawing or ratio."
+        }
+      ],
+      "unresolved_reason": "Source Table 4 entry 4 gives conversion and epoxide selectivity but no exo/endo product assignment or ratio. Do not replace this with an assumed measured exo product. Explicit SMILES must be generated only after physical cage screening."
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E13",
+    "name": "Cyclooctene oxide",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "C1CCCC2[18O]C2CC1",
+    "literature": {
+      "doi": "10.1016/j.mcat.2021.111988",
+      "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+      "source_location": "Table 4, entry 2; PDF p. 9",
+      "oxidant": "30 wt% aqueous H2O2, 2 equivalents",
+      "conditions": "Immobilized Nb(V)-peroxido catalyst 1, 0.1 mol% Nb; no added solvent; 80 C; 0.75 h",
+      "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "100% conversion; 100% epoxide selectivity, not isolated yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Stereochemistry unassigned in this connectivity drawing; choose a declared, physically valid stereoisomer for ORCA.",
+    "modelling_decision": {
+      "compound_id": "F2_E13",
+      "input_smiles": "C1CCCC2[18O]C2CC1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "source_guided_cis_ring_epoxide_single_relative_configuration",
+      "allowed_isomeric_smiles": [
+        "C1CCC[C@H]2[18O][C@H]2CC1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E13_cis",
+          "smiles": "C1CCC[C@H]2[18O][C@H]2CC1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "cis_source_guided_modelling_target"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "epoxide_plane_substituent_faces",
+          "plane_atoms": [
+            5,
+            6,
+            7
+          ],
+          "substituent_atoms": [
+            4,
+            8
+          ],
+          "face_relation": "same",
+          "description": "Two ring-continuation substituents on the same side of the epoxide plane; sample ring conformers, not trans-fused epoxide as default."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.mcat.2021.111988",
+          "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+          "location": "Table 4, entry 2; PDF p. 9",
+          "evidence_note": "Preformed catalyst contains ordinary peroxo ligands: preconditioning or a quantified initial isotope-dilution correction is needed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v6_work\\sources_fig2\\nb2021_p9.png",
+          "location": "Table 4 entry 2; regular cis cyclooctene depiction; no product wedges/dr."
+        }
+      ],
+      "unresolved_reason": "Table 4 entry 2 draws the usual cis cyclooctene substrate; cis product is a source-guided stereospecificity assumption, not an independently measured dr or labelled-product assignment.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C1CCC[C@H]2[18O][C@H]2CC1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R",
+            "7": "S"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E12",
+    "name": "Glycidol",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "OCC1C[18O]1",
+    "literature": {
+      "doi": "10.1016/S0021-9517(02)00170-7",
+      "url": "https://www.sciencedirect.com/science/article/abs/pii/S0021951702001707",
+      "source_location": "Abstract and dedicated allyl-alcohol-to-glycidol catalytic study",
+      "oxidant": "Aqueous H2O2",
+      "conditions": "Ti-MWW, 12 wt% catalyst/substrate; 333 K, 30 min; water or MeCN medium investigated",
+      "evidence_note": "Precise named substrate/product verified in the original primary abstract; full experimental dosing not transcribed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "95% allyl-alcohol conversion; 99% glycidol selectivity; no isolated yield inferred.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary_abstract"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Epoxide carbon stereochemistry is unassigned. The pre-existing hydroxyl oxygen is not isotope-labelled in the target definition; oxygen exchange and ring-opening by-products require controls.",
+    "modelling_decision": {
+      "compound_id": "F2_E12",
+      "input_smiles": "OCC1C[18O]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "OC[C@@H]1C[18O]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E12_rep_R",
+          "smiles": "OC[C@@H]1C[18O]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/S0021-9517(02)00170-7",
+          "url": "https://www.sciencedirect.com/science/article/abs/pii/S0021951702001707",
+          "location": "Abstract and dedicated allyl-alcohol-to-glycidol catalytic study",
+          "evidence_note": "Precise named substrate/product verified in the original primary abstract; full experimental dosing not transcribed. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "OC[C@H]1C[18O]1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "OC[C@@H]1C[18O]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "3": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E14",
+    "name": "((2S,3R)-3-Propyloxiran-2-yl)methanol",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "CCC[C@H]1[18O][C@H]1CO",
+    "literature": {
+      "doi": "10.1021/ja411379e",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3985688/",
+      "source_location": "Chart 1, product 2a; SI pp. S10, S18; main Table 1, entry 17 (ja411379e_si_001.pdf)",
+      "oxidant": "30 wt% aqueous H2O2, 2 equivalents",
+      "conditions": "WO2(acac)2 2 mol%, BHA-5 2.4 mol%, NaCl 0.5 equiv; CH2Cl2, room temperature, 3 h",
+      "evidence_note": "Original SI synthesis, NMR characterization and explicit absolute-configuration name visually verified. The encoded stereoisomer represents the literature major product for modelling, not a measured labelled product. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "92% isolated unlabelled yield; 95% ee in main Table 1.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "SI p. S10 explicitly names and characterizes product 2a as ((2S,3R)-3-propyloxiran-2-yl)methanol. This SMILES encodes that reported cis major stereoisomer as an ORCA target. Verified RDKit CIP: hydroxymethyl-bearing ring C2 = S; propyl-bearing ring C3 = R, unchanged by 18O substitution. This is not an experimentally established configuration or ee for the prospective labelled reaction; only the new ring oxygen is labelled.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E15",
+    "name": "((2S,3S)-3-Phenyloxiran-2-yl)methanol",
+    "reaction_class": "epoxidation",
+    "drawn_product_smiles": "OC[C@@H]1[18O][C@H]1c1ccccc1",
+    "literature": {
+      "doi": "10.1021/ja411379e",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3985688/",
+      "source_location": "Chart 1, product 2f; SI pp. S10-S11; main Chart 1 (ja411379e_si_001.pdf)",
+      "oxidant": "30 wt% aqueous H2O2, 2 equivalents",
+      "conditions": "WO2(acac)2 5 mol%, BHA-5 5.5 mol%, NaCl 0.5 equiv; CH2Cl2, room temperature, 24 h",
+      "evidence_note": "Original SI synthesis, NMR characterization and explicit absolute-configuration name visually verified. The encoded stereoisomer represents the literature major product for modelling, not a measured labelled product. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "87% isolated unlabelled yield; 94% ee.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "SI p. S11 explicitly names and characterizes product 2f as ((2S,3S)-3-phenyloxiran-2-yl)methanol. This SMILES encodes that reported trans major stereoisomer as an ORCA target. Verified RDKit CIP: hydroxymethyl-bearing ring C2 = S; phenyl-bearing ring C3 = S, unchanged by 18O substitution. This is not an experimentally established configuration or ee for the prospective labelled reaction. Existing hydroxyl oxygen remains unlabelled.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E17",
+    "name": "Nerol-derived 2,3-epoxide (2k)",
+    "reaction_class": "epoxide",
+    "drawn_product_smiles": "CC(C)=CCC[C@@]1(C)[18O][C@H]1CO",
+    "literature": {
+      "doi": "10.1021/ja411379e",
+      "url": "https://doi.org/10.1021/ja411379e",
+      "source_location": "Chart 1; original SI S10 and S12-S13, compound 2k; ACS SI https://ndownloader.figshare.com/files/3599304",
+      "oxidant": "30% aqueous H2O2, 2 equivalents",
+      "conditions": "WO2(acac)2/BHA-5, NaCl, DCM; Chart 1/general SI procedure. Default 2/2.4 mol% catalyst/ligand and 0.5 equivalent NaCl, room temperature.",
+      "evidence_note": "Exact structure and isolated material/NMR verified in SI; ordinary-isotope synthesis only.",
+      "reported_result": "82 mg, 96% isolated yield (2k).",
+      "verification_level": "exact_primary_SI_structure_and_isolated_product"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Reported (2S,3R); assigned by comparison with a known compound. The distal alkene is retained. Encoded configuration is the ordinary-isotope literature major product, not a measured result of the labelled project.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E19",
+    "name": "(R)-1-(Oxiran-2-yl)cyclohexanol (2n; ring-18O)",
+    "reaction_class": "epoxide",
+    "drawn_product_smiles": "OC1([C@H]2C[18O]2)CCCCC1",
+    "literature": {
+      "doi": "10.1021/ja411379e",
+      "url": "https://doi.org/10.1021/ja411379e",
+      "source_location": "Chart 1 entry 1n; SI S10 and S13, compound 2n; https://ndownloader.figshare.com/files/3599304",
+      "oxidant": "30% aqueous H2O2, 2 equivalents",
+      "conditions": "WO2(acac)2 5 mol%, BHA-5 5.5 mol%, NaCl 0.5 equivalent, DCM, room temperature, 24 h.",
+      "evidence_note": "Exact isolated product and NMR verified, including reported R assignment.",
+      "reported_result": "61 mg, 86% isolated yield (2n).",
+      "verification_level": "exact_primary_SI_structure_and_isolated_product"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "The primary SI S13 names ordinary-oxygen product 2n as (R)-1-(oxiran-2-yl)cyclohexanol; its absolute configuration was assigned by analogy (reference 8). The v7 input graph encoded S under modern CIP. In this new output only, the sole oxirane carbon stereocentre was inverted to restore the literature-declared R modelling target; modern CIP is R for both the 18O graph and its ordinary-O analogue. This differs from the original v7 graph. It is not a measured configuration or ee of the prospective labelled reaction.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E21",
+    "name": "Cyclic homoallylic-alcohol epoxide (4g)",
+    "reaction_class": "epoxide",
+    "drawn_product_smiles": "CC1(C)CCC[C@]2(C)[18O][C@]12CCO",
+    "literature": {
+      "doi": "10.1021/ja411379e",
+      "url": "https://doi.org/10.1021/ja411379e",
+      "source_location": "Chart 2 and accompanying discussion; SI S16 compound 4g; https://ndownloader.figshare.com/files/3599304",
+      "oxidant": "30% aqueous H2O2, 2 equivalents",
+      "conditions": "WO2(acac)2/BHA-5 (2/2.4 mol%), NaCl 1 equivalent, DCM, 0 C, 8 h. Lower temperature and increased NaCl suppress side reaction.",
+      "evidence_note": "Exact isolated product with NMR/HRMS; target-specific condition adjustment is essential.",
+      "reported_result": "66 mg, 72% isolated yield; source reports 96% ee (4g).",
+      "verification_level": "exact_primary_SI_structure_and_isolated_product"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "SI exact product: 2-((1R,6S)-2,2,6-trimethyl-7-oxabicyclo[4.1.0]heptan-1-yl)ethanol. Reported absolute configuration is by analogy (reference 8).",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E22",
+    "name": "Carvone enone epoxide (carvone-1,2-oxide, 3)",
+    "reaction_class": "epoxide",
+    "drawn_product_smiles": "C=C(C)[C@H]1CC(=O)C2(C)[18O]C2C1",
+    "literature": {
+      "doi": "10.1021/ed083p1058",
+      "url": "https://doi.org/10.1021/ed083p1058",
+      "source_location": "J. Chem. Educ. 2006,83,1058-1061; Scheme III p1058; results and Figure 3 p1059; note 1 p1061. Primary article PDF: https://agregationstrasbourg.chimie.unistra.fr/lib/exe/fetch.php/epoxydation_carvone.pdf",
+      "oxidant": "35% aqueous H2O2 with aqueous NaOH (not MCPBA)",
+      "conditions": "Methanol, 6 M aqueous NaOH, 0 C for 15 min then room temperature for 20 min; product extracted with dichloromethane.",
+      "evidence_note": "Enone site is identified by 1H/13C NMR, IR and MS. Source compares a separate MCPBA route; only the H2O2 branch is used here. Carbonyl oxygen exchange must be checked in the labelled project.",
+      "reported_result": "80% average recovered product yield in the teaching-laboratory series; reported range 58-95%. This is not a single optimized yield or a project result.",
+      "verification_level": "exact_primary_structure_product_characterization_and_recovered_yield"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "The existing carvone stereocentre is geometrically retained from the source precursor; modern CIP assigns R to the precursor, 18O product and ordinary-O analogue. The previous R-to-S wording reflected the legacy label assignment and is not carried forward. The current molecular graph is unchanged. Scheme III does not specify the new epoxide stereocentres; these remain unassigned and physically compatible fused-ring diastereomers must be modelled separately.",
+    "modelling_decision": {
+      "compound_id": "F2_E22",
+      "input_smiles": "C=C(C)[C@H]1CC(=O)C2(C)[18O]C2C1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "two_physical_cis_fused_epoxide_diastereomer_branches_keep_existing_R",
+      "allowed_isomeric_smiles": [
+        "C=C(C)[C@H]1CC(=O)[C@]2(C)[18O][C@H]2C1",
+        "C=C(C)[C@H]1CC(=O)[C@@]2(C)[18O][C@@H]2C1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E22_face_1",
+          "smiles": "C=C(C)[C@H]1CC(=O)[C@]2(C)[18O][C@H]2C1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "unassigned_new_epoxide_face_diastereomer"
+        },
+        {
+          "model_id": "F2_E22_face_2",
+          "smiles": "C=C(C)[C@H]1CC(=O)[C@@]2(C)[18O][C@@H]2C1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "unassigned_new_epoxide_face_diastereomer"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "fixed_existing_tetrahedral_center",
+          "atom": 4,
+          "modern_CIP": "R"
+        },
+        {
+          "type": "epoxide_plane_substituent_faces",
+          "plane_atoms": [
+            8,
+            10,
+            11
+          ],
+          "substituent_atoms": [
+            6,
+            12
+          ],
+          "face_relation": "same",
+          "description": "Keep physically cis 3/6 ring fusion; the two alternatives differ by attack face relative to the retained R centre."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1021/ed083p1058",
+          "url": "https://doi.org/10.1021/ed083p1058",
+          "location": "J. Chem. Educ. 2006,83,1058-1061; Scheme III p1058; results and Figure 3 p1059; note 1 p1061. Primary article PDF: https://agregationstrasbourg.chimie.unistra.fr/lib/exe/fetch.php/epoxydation_carvone.pdf",
+          "evidence_note": "Enone site is identified by 1H/13C NMR, IR and MS. Source compares a separate MCPBA route; only the H2O2 branch is used here. Carbonyl oxygen exchange must be checked in the labelled project.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7_work\\epoxy_sources\\carvone_JCE2006_p1.png",
+          "location": "p1058 Scheme III; existing dashed bond retained; no new epoxide wedges."
+        }
+      ],
+      "unresolved_reason": "Primary Scheme III leaves both new epoxide stereocentres unassigned. Do not pick one diastereomer as measured major or thermally mix irreversible stereoisomers with conformer Boltzmann weights.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C=C(C)[C@H]1CC(=O)[C@]2(C)[18O][C@H]2C1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "4": "R",
+            "8": "R",
+            "11": "S"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        },
+        {
+          "canonical_smiles": "C=C(C)[C@H]1CC(=O)[C@@]2(C)[18O][C@@H]2C1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "4": "R",
+            "8": "S",
+            "11": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E23",
+    "name": "Chalcone alpha,beta-epoxide",
+    "reaction_class": "epoxide",
+    "drawn_product_smiles": "O=C(c1ccccc1)C1[18O]C1c1ccccc1",
+    "literature": {
+      "doi": "10.1016/j.catcom.2005.04.021",
+      "url": "https://doi.org/10.1016/j.catcom.2005.04.021",
+      "source_location": "Joy et al., Catal. Commun. 2005,6,573-577, section 2.2 Preparation of chalcone epoxide: https://www.sciencedirect.com/science/article/abs/pii/S1566736705000993. Independent HPLC-confirmed reaction: DOI10.1021/ie101716a, Scheme 2 and Experimental p12328; author PDF https://engfac.cooper.edu/pages/rsavizky/uploads/Savizky_IECR_20100.pdf",
+      "oxidant": "30% aqueous H2O2",
+      "conditions": "2005 preparation: chalcone 1 g in CH2Cl2 20 mL; NaOH 800 mg in 30% H2O2 10 mL; tetraoctylammonium bromide 0.1314 g (5 mol%); vigorous stirring 48 h; extraction and repeated hexane/CH2Cl2 90:10 recrystallization.",
+      "evidence_note": "Primary section 2.2 explicitly prepares, isolates and recrystallizes chalcone epoxide until pure by NMR; no numerical isolated yield given there. The paper's 90% yield concerns subsequent acid-clay rearrangement and MUST NOT be assigned to epoxidation. Independent 2010 work confirms exact epoxide by HPLC against authentic standard.",
+      "reported_result": "Isolated, recrystallized, NMR-pure chalcone epoxide from H2O2; numerical isolated yield not specified in the verified preparation section.",
+      "verification_level": "exact_primary_isolated_recrystallized_NMR_checked_product_plus_independent_HPLC"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Achiral Weitz-Scheffer conditions. Product drawing is stereochemically unspecified; do not describe it as enantiopure. For ORCA use the source-matched trans epoxide enantiomeric pair and verify relative configuration against an authentic standard.",
+    "modelling_decision": {
+      "compound_id": "F2_E23",
+      "input_smiles": "O=C(c1ccccc1)C1[18O]C1c1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "trans_epoxide_representative_enantiomer_source_guided_default",
+      "allowed_isomeric_smiles": [
+        "O=C(c1ccccc1)[C@H]1[18O][C@@H]1c1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E23_trans_rep",
+          "smiles": "O=C(c1ccccc1)[C@H]1[18O][C@@H]1c1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "source_guided_trans_representative_not_ee_assignment"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "epoxide_plane_substituent_faces",
+          "plane_atoms": [
+            9,
+            10,
+            11
+          ],
+          "substituent_atoms": [
+            2,
+            12
+          ],
+          "face_relation": "opposite",
+          "description": "Benzoyl and phenyl substituents trans across the oxirane plane."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.catcom.2005.04.021",
+          "url": "https://doi.org/10.1016/j.catcom.2005.04.021",
+          "location": "Joy et al., Catal. Commun. 2005,6,573-577, section 2.2 Preparation of chalcone epoxide: https://www.sciencedirect.com/science/article/abs/pii/S1566736705000993. Independent HPLC-confirmed reaction: DOI10.1021/ie101716a, Scheme 2 and Experimental p12328; author PDF https://engfac.cooper.edu/pages/rsavizky/uploads/Savizky_IECR_20100.pdf",
+          "evidence_note": "Primary section 2.2 explicitly prepares, isolates and recrystallizes chalcone epoxide until pure by NMR; no numerical isolated yield given there. The paper's 90% yield concerns subsequent acid-clay rearrangement and MUST NOT be assigned to epoxidation. Independent 2010 work confirms exact epoxide by HPLC against authentic standard.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7_work\\epoxy_sources\\chalcone_IECR2010_p2.png",
+          "location": "p12328 Chemicals and product HPLC confirmation; trans-chalcone, epoxide catalogue L03874."
+        },
+        {
+          "type": "primary_database_identity_correspondence",
+          "url": "https://pubchem.ncbi.nlm.nih.gov/compound/Chalcone-epoxide",
+          "note": "CID 92219 connects L03874 and trans-chalcone epoxide synonyms but its displayed graph is stereo-unspecified; use only identity support, not a supplied stereo graph."
+        }
+      ],
+      "unresolved_reason": "Local 2010 primary paper uses trans-chalcone and HPLC confirmation against Lancaster L03874 epoxide; the paper does not provide a quantitative cis/trans product ratio. Default trans follows the project source note and named-standard correspondence, not an independent dr measurement. Add a separate cis sensitivity branch only if experimental comparison suggests it.",
+      "mirror_equivalent_smiles": "O=C(c1ccccc1)[C@@H]1[18O][C@H]1c1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "O=C(c1ccccc1)[C@H]1[18O][C@@H]1c1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "9": "S",
+            "11": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E24",
+    "name": "Menadione-2,3-epoxide",
+    "reaction_class": "epoxide",
+    "drawn_product_smiles": "CC12[18O]C1C(=O)c1ccccc1C2=O",
+    "literature": {
+      "doi": "10.1039/C7DT01767G",
+      "url": "https://doi.org/10.1039/C7DT01767G",
+      "source_location": "Dalton Trans. 2017,46,12114-12124; SI section 1.1 and Scheme S1, PDF page 3 (printed p3); https://www.rsc.org/suppdata/c7/dt/c7dt01767g/c7dt01767g1.pdf. Independently corroborated by US8987503 examples 1-2 (91.5% isolated); original scheme on PDF page 5 visually verified: https://patentimages.storage.googleapis.com/5b/6d/0a/77ecdeb1bfa3af/US8987503.pdf",
+      "oxidant": "30% aqueous H2O2, 8 mmol for 5.8 mmol menadione (source calls 1.3 equivalents)",
+      "conditions": "Menadione 1.0 g; water/methanol 1:4; 2 M NaOH 1.5 mL; 30% H2O2 0.9 mL; 0 C 10 min then room temperature 2 h; isolated crystalline epoxide intermediate.",
+      "evidence_note": "The exact epoxide is isolated before a separate acid ring-opening step. Only the first step is selected. The later 92% ring-opening yield is not the epoxide yield. Check carbonyl isotope exchange separately; do not label pre-existing carbonyl O by assumption.",
+      "reported_result": "0.89 g, 81% isolated epoxide intermediate, used without further purification.",
+      "verification_level": "exact_primary_SI_structure_and_isolated_intermediate"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Achiral conditions; racemic fused-ring epoxide. SMILES does not encode one enantiomer. Only physically compatible fused-ring stereoisomers should be generated for ORCA, not unconstrained enumeration of impossible trans-fused epoxides.",
+    "modelling_decision": {
+      "compound_id": "F2_E24",
+      "input_smiles": "CC12[18O]C1C(=O)c1ccccc1C2=O",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "physical_cis_fused_epoxide_representative_enantiomer",
+      "allowed_isomeric_smiles": [
+        "C[C@]12[18O][C@H]1C(=O)c1ccccc1C2=O"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_E24_cis_fused_rep",
+          "smiles": "C[C@]12[18O][C@H]1C(=O)c1ccccc1C2=O",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "representative_of_source_racemic_fused_epoxide"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "epoxide_plane_substituent_faces",
+          "plane_atoms": [
+            2,
+            3,
+            4
+          ],
+          "substituent_atoms": [
+            13,
+            5
+          ],
+          "face_relation": "same",
+          "description": "Both six-membered-ring continuation bonds on the same face. Do not generate the trans-fused three/six-membered formal stereoisomer."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/C7DT01767G",
+          "url": "https://doi.org/10.1039/C7DT01767G",
+          "location": "Dalton Trans. 2017,46,12114-12124; SI section 1.1 and Scheme S1, PDF page 3 (printed p3); https://www.rsc.org/suppdata/c7/dt/c7dt01767g/c7dt01767g1.pdf. Independently corroborated by US8987503 examples 1-2 (91.5% isolated); original scheme on PDF page 5 visually verified: https://patentimages.storage.googleapis.com/5b/6d/0a/77ecdeb1bfa3af/US8987503.pdf",
+          "evidence_note": "The exact epoxide is isolated before a separate acid ring-opening step. Only the first step is selected. The later 92% ring-opening yield is not the epoxide yield. Check carbonyl isotope exchange separately; do not label pre-existing carbonyl O by assumption.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_primary_patent_page_reinspected",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7_work\\epoxy_sources\\menadione_patent_p5.png",
+          "location": "US8987503B2 printed pp7-8, Examples 1-2; fused menadione epoxide without absolute wedges."
+        }
+      ],
+      "unresolved_reason": "No absolute configuration claimed; racemic/achiral preparation recorded in the project. Only one mirror representative is needed for isotropic achiral-solution H/C NMR.",
+      "mirror_equivalent_smiles": "C[C@@]12[18O][C@@H]1C(=O)c1ccccc1C2=O",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C[C@]12[18O][C@H]1C(=O)c1ccccc1C2=O",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "S",
+            "4": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E18",
+    "name": "Ester-functionalized farnesol-derived epoxide (2m)",
+    "reaction_class": "epoxide",
+    "drawn_product_smiles": "CCOC(=O)/C(C)=C/CC/C(C)=C/CC[C@]1(C)[18O][C@H]1CO",
+    "literature": {
+      "doi": "10.1021/ja411379e",
+      "url": "https://doi.org/10.1021/ja411379e",
+      "source_location": "Chart 1; SI S10 and S13, exact named/depicted compound 2m; https://ndownloader.figshare.com/files/3599304",
+      "oxidant": "30% aqueous H2O2, 2 equivalents",
+      "conditions": "WO2(acac)2/BHA-5, NaCl, DCM; Chart 1/general SI procedure, room temperature.",
+      "evidence_note": "Exact structure, isolation and NMR verified; 18O atom-source fidelity is not established by this source.",
+      "reported_result": "124 mg, 84% isolated yield (2m).",
+      "verification_level": "exact_primary_SI_structure_and_isolated_product"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "SI names the oxirane as (2S,3S) and both remaining alkenes as E. Absolute epoxide configuration was assigned by analogy in the source (reference 8), not independently proved for this substrate.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_E20",
+    "name": "Primary/tertiary-diol polyene-derived epoxide (2u)",
+    "reaction_class": "epoxide",
+    "drawn_product_smiles": "C/C(=C\\CC[C@]1(C)[18O][C@H]1CO)CC/C=C(\\C)C(C)(C)O",
+    "literature": {
+      "doi": "10.1021/ja411379e",
+      "url": "https://doi.org/10.1021/ja411379e",
+      "source_location": "Chart 4 and associated text; SI S14, compound 2u; general method S10; https://ndownloader.figshare.com/files/3599304",
+      "oxidant": "Aqueous H2O2",
+      "conditions": "W-BHA/NaCl epoxidation in DCM, as Chart 4 and SI general procedure. Consult source-specific Chart 4 conditions before experimental execution; no new common recipe is assumed.",
+      "evidence_note": "Exact depicted/named isolated product and NMR verified; source reports nearly complete regioselectivity for 1u/1v.",
+      "reported_result": "120 mg, 85% isolated yield (2u).",
+      "verification_level": "exact_primary_SI_structure_and_isolated_product"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "SI reports (2S,3S) oxirane and E/E remaining alkenes; absolute epoxide assignment is by analogy (reference 8). The terminal tertiary alcohol has two equivalent methyl groups and is achiral.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S01",
+    "name": "Methyl phenyl sulfoxide",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "CS(=[18O])c1ccccc1",
+    "literature": {
+      "doi": "10.1038/s41598-017-07590-1",
+      "url": "https://www.nature.com/articles/s41598-017-07590-1",
+      "source_location": "Figure 2, compound 2a; Figure 2 caption",
+      "oxidant": "30 wt% aqueous H2O2, 1.01 equivalents",
+      "conditions": "Ti(SO4)2@GOF, MeOH, room temperature; 0.5 h",
+      "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "98% isolated unlabelled sulfoxide yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur configuration and enantiomeric composition are unassigned. ORCA requires a separately declared representative sulfur enantiomer; it must not be presented as an experimental assignment.",
+    "modelling_decision": {
+      "compound_id": "F2_S01",
+      "input_smiles": "CS(=[18O])c1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "C[S@@](=[18O])c1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S01_rep_R",
+          "smiles": "C[S@@](=[18O])c1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1038/s41598-017-07590-1",
+          "url": "https://www.nature.com/articles/s41598-017-07590-1",
+          "location": "Figure 2, compound 2a; Figure 2 caption",
+          "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "C[S@](=[18O])c1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C[S@@](=[18O])c1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S06",
+    "name": "Diphenyl sulfoxide",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "[18O]=S(c1ccccc1)c1ccccc1",
+    "literature": {
+      "doi": "10.1038/s41598-017-07590-1",
+      "url": "https://www.nature.com/articles/s41598-017-07590-1",
+      "source_location": "Figure 2, compound 2h; Figure 2 caption",
+      "oxidant": "30 wt% aqueous H2O2, 1.01 equivalents",
+      "conditions": "Ti(SO4)2@GOF, MeOH, room temperature; 5 h",
+      "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "98% isolated unlabelled sulfoxide yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur is not a stereogenic centre because the two phenyl substituents are identical. No enantiomeric assignment is applicable.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S07",
+    "name": "Benzyl methyl sulfoxide",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "CS(=[18O])Cc1ccccc1",
+    "literature": {
+      "doi": "10.1002/cctc.201901353",
+      "url": "https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cctc.201901353",
+      "source_location": "Experimental: Chemicals and Synthesis of Sulfoxides; product 11*; purchased-compound exclusions explicitly checked",
+      "oxidant": "30 wt% aqueous H2O2",
+      "conditions": "TiCl3(aq)/MeOH-water, 20 C; approximately 25 min",
+      "evidence_note": "This citation supports the chemical H2O2 preparation of reference standards, NOT the paper's O2-driven enzyme reactions. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "Racemic reference sulfoxide synthesized after complete substrate conversion; no individual isolated yield reported here.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur configuration is unassigned; no enantiomeric enrichment is claimed. Select and record one representative sulfur enantiomer separately for ORCA.",
+    "modelling_decision": {
+      "compound_id": "F2_S07",
+      "input_smiles": "CS(=[18O])Cc1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "C[S@@](=[18O])Cc1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S07_rep_R",
+          "smiles": "C[S@@](=[18O])Cc1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1002/cctc.201901353",
+          "url": "https://chemistry-europe.onlinelibrary.wiley.com/doi/10.1002/cctc.201901353",
+          "location": "Experimental: Chemicals and Synthesis of Sulfoxides; product 11*; purchased-compound exclusions explicitly checked",
+          "evidence_note": "This citation supports the chemical H2O2 preparation of reference standards, NOT the paper's O2-driven enzyme reactions. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "C[S@](=[18O])Cc1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C[S@@](=[18O])Cc1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S19",
+    "name": "Methyl (4-nitrophenyl) sulfoxide",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "CS(=[18O])c1ccc([N+](=O)[O-])cc1",
+    "literature": {
+      "doi": "10.1038/s41598-017-07590-1",
+      "url": "https://www.nature.com/articles/s41598-017-07590-1",
+      "source_location": "Figure 2, compound 2b; Figure 2 caption",
+      "oxidant": "30 wt% aqueous H2O2, 1.01 equivalents",
+      "conditions": "Ti(SO4)2@GOF, MeOH, room temperature; 3.5 h",
+      "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "94% isolated unlabelled sulfoxide yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur stereochemistry is unassigned; the reference route gives a racemic standard. Record a representative S enantiomer separately for ORCA. The two nitro oxygens remain unlabelled.",
+    "modelling_decision": {
+      "compound_id": "F2_S19",
+      "input_smiles": "CS(=[18O])c1ccc([N+](=O)[O-])cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "C[S@@](=[18O])c1ccc([N+](=O)[O-])cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S19_rep_R",
+          "smiles": "C[S@@](=[18O])c1ccc([N+](=O)[O-])cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1038/s41598-017-07590-1",
+          "url": "https://www.nature.com/articles/s41598-017-07590-1",
+          "location": "Figure 2, compound 2b; Figure 2 caption",
+          "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "C[S@](=[18O])c1ccc([N+](=O)[O-])cc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C[S@@](=[18O])c1ccc([N+](=O)[O-])cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S22",
+    "name": "Cyclopropyl phenyl sulfoxide",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "[18O]=S(c1ccccc1)C1CC1",
+    "literature": {
+      "doi": "10.1038/s41598-017-07590-1",
+      "url": "https://www.nature.com/articles/s41598-017-07590-1",
+      "source_location": "Figure 2, compound 2f; Figure 2 caption",
+      "oxidant": "30 wt% aqueous H2O2, 1.01 equivalents",
+      "conditions": "Ti(SO4)2@GOF, MeOH, room temperature; 3 h",
+      "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "94% isolated unlabelled sulfoxide yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur stereochemistry is unassigned; the reference route gives a racemic standard. Record a representative S enantiomer separately for ORCA.",
+    "modelling_decision": {
+      "compound_id": "F2_S22",
+      "input_smiles": "[18O]=S(c1ccccc1)C1CC1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "[18O]=[S@@](c1ccccc1)C1CC1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S22_rep_R",
+          "smiles": "[18O]=[S@@](c1ccccc1)C1CC1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1038/s41598-017-07590-1",
+          "url": "https://www.nature.com/articles/s41598-017-07590-1",
+          "location": "Figure 2, compound 2f; Figure 2 caption",
+          "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "[18O]=[S@](c1ccccc1)C1CC1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "[18O]=[S@@](c1ccccc1)C1CC1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "2": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S23",
+    "name": "Phenyl vinyl sulfoxide",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "C=CS(=[18O])c1ccccc1",
+    "literature": {
+      "doi": "10.1038/s41598-017-07590-1",
+      "url": "https://www.nature.com/articles/s41598-017-07590-1",
+      "source_location": "Figure 2, compound 2g; Figure 2 caption",
+      "oxidant": "30 wt% aqueous H2O2, 1.01 equivalents",
+      "conditions": "Ti(SO4)2@GOF, MeOH, room temperature; 4 h",
+      "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "91% isolated unlabelled sulfoxide yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur stereochemistry is unassigned; the reference route gives a racemic standard. Record a representative S enantiomer separately for ORCA.",
+    "modelling_decision": {
+      "compound_id": "F2_S23",
+      "input_smiles": "C=CS(=[18O])c1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "C=C[S@@](=[18O])c1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F2_S23_rep_R",
+          "smiles": "C=C[S@@](=[18O])c1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1038/s41598-017-07590-1",
+          "url": "https://www.nature.com/articles/s41598-017-07590-1",
+          "location": "Figure 2, compound 2g; Figure 2 caption",
+          "evidence_note": "Exact product drawing and isolated yield visually verified in publisher Figure 2. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "C=C[S@](=[18O])c1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "C=C[S@@](=[18O])c1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "3": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S12",
+    "name": "Di-n-butyl sulfone",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "CCCCS(=[18O])(=[18O])CCCC",
+    "literature": {
+      "doi": "10.1016/j.mcat.2021.111988",
+      "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+      "source_location": "Table 5, entry 3; catalyst 1; PDF p. 10",
+      "oxidant": "50 wt% aqueous H2O2, 2 equivalents",
+      "conditions": "Immobilized Nb(V)-peroxido catalyst 1, 0.1 mol% Nb; room temperature, no added solvent; 60 min",
+      "evidence_note": "Exact precursor/product drawings visually verified. Two oxygen insertions; quantify P0/P1/P2 isotopologues. Catalyst's pre-existing unlabelled peroxo ligands require a carry-over control. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "95% isolated unlabelled sulfone yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "The fully doubly labelled target is achiral. Both newly introduced sulfone oxygens are 18O in the target definition; no measured isotopologue abundance is implied.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S24",
+    "name": "Allyl phenyl sulfone",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "C=CCS(=[18O])(=[18O])c1ccccc1",
+    "literature": {
+      "doi": "10.1016/j.mcat.2021.111988",
+      "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+      "source_location": "Table 5, entry 8; catalyst 1; PDF p. 10",
+      "oxidant": "50 wt% aqueous H2O2, 2 equivalents",
+      "conditions": "Immobilized Nb(V)-peroxido catalyst 1, 0.1 mol% Nb; room temperature, no added solvent; 140 min",
+      "evidence_note": "Exact precursor/product drawings visually verified. Two oxygen insertions; quantify P0/P1/P2 isotopologues. Catalyst's pre-existing unlabelled peroxo ligands require a carry-over control. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "94% isolated unlabelled sulfone yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Both new sulfur-bound oxygens are 18O in the target; no stereocentre is present. P0/P1/P2 distributions are not predicted.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S25",
+    "name": "2-(Phenylsulfonyl)ethan-1-ol",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "OCCS(=[18O])(=[18O])c1ccccc1",
+    "literature": {
+      "doi": "10.1016/j.mcat.2021.111988",
+      "url": "https://nowgonggirlscollege.edu.in/upload/publication_scopus/1671614748.pdf",
+      "source_location": "Table 5, entry 10; catalyst 1; PDF p. 10",
+      "oxidant": "50 wt% aqueous H2O2, 2 equivalents",
+      "conditions": "Immobilized Nb(V)-peroxido catalyst 1, 0.1 mol% Nb; room temperature, no added solvent; 205 min",
+      "evidence_note": "Exact precursor/product drawings visually verified. Two oxygen insertions; quantify P0/P1/P2 isotopologues. Catalyst's pre-existing unlabelled peroxo ligands require a carry-over control. Exact unlabelled H2O2 reaction reported; 18O incorporation and isolated labelled yield remain prospective.",
+      "reported_result": "98% isolated unlabelled sulfone yield.",
+      "verification_level": "exact_unlabelled_transformation_verified_primary"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Existing hydroxyl oxygen is unlabelled; both newly inserted sulfone oxygens are labelled. No stereocentre is present.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S11",
+    "name": "Dibenzothiophene 5,5-dioxide",
+    "reaction_class": "sulfone synthesis",
+    "drawn_product_smiles": "[18O]=S1(=[18O])c2ccccc2-c2ccccc21",
+    "literature": {
+      "doi": "",
+      "url": "https://acta-arhiv.chem-soc.si/55/55-2-257.pdf",
+      "title": "Carbon-based Solid Acid Catalyzed Highly Efficient Selective Oxidations of Sulfides to Sulfoxides or Sulfones with Hydrogen Peroxide",
+      "year": 2008,
+      "source_location": "Table 2 entry 9; section 2.2, pp. 258-259",
+      "oxidant": "30% aqueous H2O2, 5 equivalents",
+      "conditions": "Carbon-based solid acid (0.20 g per mmol substrate), 1,2-dichloroethane reflux, 45 min; column chromatography.",
+      "reported_result": "75% isolated yield for dibenzothiophene sulfone.",
+      "evidence_note": "Primary journal experiment; not oxidative desulfurization conversion alone. This restores a previously unverified candidate with direct evidence, not a new identity assigned to an old ID. 18O adaptation untested.",
+      "verification_level": "Original journal PDF, table and general experimental procedure checked."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereocentre; both newly introduced sulfonyl oxygen atoms carry isotope 18 in the planned isotopologue.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S26",
+    "name": "Thianthrene 5-oxide",
+    "reaction_class": "sulfoxidation",
+    "drawn_product_smiles": "[18O]=S1c2ccccc2Sc2ccccc21",
+    "literature": {
+      "doi": "",
+      "url": "https://patents.google.com/patent/KR100918556B1/en",
+      "source_location": "Example 1, thianthrene-5-oxide",
+      "oxidant": "35% aqueous H2O2",
+      "conditions": "H2O2 addition to thianthrene in AcOH at 90 C; supplementary oxidant addition; water precipitation.",
+      "reported_result": "77% isolated yield reported; 17.8 g product.",
+      "evidence_note": "Original patent preparation, not a peer-reviewed replication. The printed masses and mmol values are internally inconsistent; use as evidence of the transformation, not as a copy-ready quantitative SOP. 18O enrichment is untested.",
+      "verification_level": "Exact precursor/product and peroxide preparation checked in original patent text."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No point stereochemical assignment is made; ring conformations require separate 3D sampling.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S27",
+    "name": "Thioxanthen-9-one 10-oxide",
+    "reaction_class": "sulfoxidation",
+    "drawn_product_smiles": "O=C1c2ccccc2S(=[18O])c2ccccc21",
+    "literature": {
+      "doi": "",
+      "url": "https://patents.google.com/patent/KR100918556B1/en",
+      "source_location": "Example 5, 10-oxo-9H-thioxanthen-9-one",
+      "oxidant": "35% aqueous H2O2",
+      "conditions": "Thioxanthone in AcOH, 80 C, 30 min; chromatographic isolation.",
+      "reported_result": "72% isolated yield reported; 8.44 g yellow solid. The printed mass and percentage are not mutually consistent (mass-based calculation approximately 76%).",
+      "evidence_note": "Original patent preparation; no 18O experiment reported. Carbonyl oxygen exchange must be tested separately. The source mass/yield discrepancy and oxidant quantities must be reconciled before an SOP; no corrected experimental yield is asserted here.",
+      "verification_level": "Exact substrate/product and isolated H2O2 preparation checked in original patent text."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No absolute stereochemical claim; only the newly introduced sulfinyl oxygen is labelled, not the pre-existing ketone oxygen.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F2_S28",
+    "name": "d-Biocytin sulfone",
+    "reaction_class": "sulfone synthesis",
+    "drawn_product_smiles": "N[C@@H](CCCCNC(=O)CCCC[C@H]1[C@H]2NC(=O)N[C@H]2CS1(=[18O])=[18O])C(=O)O",
+    "literature": {
+      "doi": "10.3181/00379727-132-34246",
+      "url": "https://doi.org/10.3181/00379727-132-34246",
+      "title": "Chemical Syntheses and Biocytinase Specificity for Sulfoxides and Sulfone of d-Biocytin",
+      "year": 1969,
+      "source_location": "Materials and Methods, p. 502; product characterization p. 503",
+      "oxidant": "30% aqueous H2O2, over 10 equivalents",
+      "conditions": "d-Biocytin in glacial AcOH; room temperature overnight; acetone precipitation.",
+      "reported_result": "Approximately 90% product yield after precipitation; elemental analysis, melting point, IR and TLC reported.",
+      "evidence_note": "Exact primary preparative report. Older characterization does not include modern LC purity or NMR; obtain these in the new work. Two fully labelled sulfonyl oxygens are planned, not measured. Carboxyl/amide oxygen exchange needs controls. Historical peroxide-containing work-up is not endorsed as a current SOP.",
+      "verification_level": "Original journal PDF read, exact precursor, peroxide and sulfone isolation verified.",
+      "open_full_text_url": "https://public-pages-files-2025.ebm-journal.org/journals/experimental-biology-and-medicine/articles/10.3181/00379727-132-34246/pdf"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "d-Biocytin starting configuration from PubChem CID 83814 is retained in the proposed target. The 1969 paper does not independently establish modern ee/dr. Sulfone adds no new sulfur stereocentre; sample conformers separately.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N01",
+    "name": "Pyridine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1ccccc1",
+    "literature": {
+      "doi": "10.1007/s12039-022-02038-0",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8960697/",
+      "source_location": "Table 2, row 1; Procedure for the N-Oxidation reaction",
+      "oxidant": "30% aqueous H2O2, 3 equivalents",
+      "conditions": "W/HAP, water, 80 C, 20 h. Nominal catalyst/substrate loading 20 wt% (not W loading); printed catalyst masses conflict, so verify loading before execution.",
+      "reported_result": "90% analytical yield (HPLC), as labelled in Table 2.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Analytical yield, not isolated yield.",
+      "verification_level": "exact_structure_table_and_general_procedure_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry is specified.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N06",
+    "name": "Quinoline N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1cccc2ccccc21",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Table 1 entry 19; Table 2 product 2; GP1; scope discussion",
+      "oxidant": "30% aqueous H2O2; 1.5 equivalents",
+      "conditions": "PMA catalyst, MeCN, 50 C, 12 h (GP1); substrate-specific loading in named experimental entry.",
+      "reported_result": "Quinoline N-oxide explicitly reported; gram-scale preparation discussed.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Some printed catalyst mmol versus mol% values disagree; verify arithmetic before execution.",
+      "verification_level": "exact_table_product_and_general_procedure_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry is specified.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N14",
+    "name": "Pyrimidine mono-N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1cccnc1",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Table 2; named experimental product (4); GP1",
+      "oxidant": "30% aqueous H2O2; 1.5 equivalents",
+      "conditions": "PMA catalyst, MeCN, 50 C, 12 h (GP1); substrate-specific loading in named experimental entry.",
+      "reported_result": "61% isolated yield of the unlabelled product.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Some printed catalyst mmol versus mol% values disagree; verify arithmetic before execution. H2O2 equivalents follow the named experimental paragraph; Table 2 footnotes differ.",
+      "verification_level": "exact_named_product_experimental_entry_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry assigned. Only the newly added oxygen is labelled 18O.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N15",
+    "name": "2-Bromopyridine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1ccccc1Br",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Table 2; named experimental product (5); GP1",
+      "oxidant": "30% aqueous H2O2; 3 equivalents",
+      "conditions": "PMA catalyst, MeCN, 50 C, 12 h (GP1); substrate-specific loading in named experimental entry.",
+      "reported_result": "95% isolated yield of the unlabelled product.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Some printed catalyst mmol versus mol% values disagree; verify arithmetic before execution.",
+      "verification_level": "exact_named_product_experimental_entry_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry assigned. Only the newly added oxygen is labelled 18O.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N16",
+    "name": "2-(Hydroxymethyl)pyridine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "OCc1cccc[n+]1[18O-]",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Table 2; named experimental product (7); GP1",
+      "oxidant": "30% aqueous H2O2; 4.5 equivalents",
+      "conditions": "PMA catalyst, MeCN, 50 C, 12 h (GP1); substrate-specific loading in named experimental entry.",
+      "reported_result": "65% isolated yield of the unlabelled product.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Some printed catalyst mmol versus mol% values disagree; verify arithmetic before execution.",
+      "verification_level": "exact_named_product_experimental_entry_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry assigned. Only the newly added oxygen is labelled 18O.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N17",
+    "name": "Quinoxaline mono-N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1ccnc2ccccc21",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Table 2; named experimental product (8); GP1",
+      "oxidant": "30% aqueous H2O2; 1.5 equivalents",
+      "conditions": "PMA catalyst, MeCN, 50 C, 12 h (GP1); substrate-specific loading in named experimental entry.",
+      "reported_result": "94% isolated yield of the unlabelled product.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Some printed catalyst mmol versus mol% values disagree; verify arithmetic before execution. H2O2 equivalents follow the named experimental paragraph; Table 2 footnotes differ.",
+      "verification_level": "exact_named_product_experimental_entry_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry assigned. Only the newly added oxygen is labelled 18O.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N18",
+    "name": "Thiazole N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1ccsc1",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Table 2; named experimental product (9); GP1",
+      "oxidant": "30% aqueous H2O2; 3 equivalents",
+      "conditions": "PMA catalyst, MeCN, 50 C, 12 h (GP1); substrate-specific loading in named experimental entry.",
+      "reported_result": "62% isolated yield of the unlabelled product.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Some printed catalyst mmol versus mol% values disagree; verify arithmetic before execution.",
+      "verification_level": "exact_named_product_experimental_entry_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry assigned. Only the newly added oxygen is labelled 18O.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N25",
+    "name": "4-Cyanopyridine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "N#Cc1cc[n+]([18O-])cc1",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Experimental: 4-Cyanopyridine 1-oxide (33); discussion preceding Scheme 1",
+      "oxidant": "30% aqueous H2O2; 2 equivalents",
+      "conditions": "MoO3 (5 mol%) / H3PO4 (1.25 mol%), MeCN, 50 C, GP1; exact entry 33.",
+      "reported_result": "86% isolated yield of the unlabelled product.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Some printed catalyst mmol versus mol% values disagree; verify arithmetic before execution.",
+      "verification_level": "exact_named_product_experimental_entry_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry assigned. Only the newly added oxygen is labelled 18O.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N26",
+    "name": "N-Methylpiperidine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "C[N+]1([18O-])CCCCC1",
+    "literature": {
+      "doi": "10.1007/s12039-022-02038-0",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8960697/",
+      "source_location": "Table 2, row 6; Procedure for the N-Oxidation reaction",
+      "oxidant": "30% aqueous H2O2, 3 equivalents",
+      "conditions": "W/HAP, water, 80 C, 20 h. Nominal catalyst/substrate loading 20 wt% (not W loading); printed catalyst masses conflict, so verify loading before execution.",
+      "reported_result": "94% analytical yield (GC), as labelled in Table 2.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Analytical yield, not isolated yield.",
+      "verification_level": "exact_structure_table_and_general_procedure_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Equivalent substituents at N; no configurational stereochemistry assigned.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N28",
+    "name": "N,N-Dimethylcyclohexylamine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "C[N+](C)([18O-])C1CCCCC1",
+    "literature": {
+      "doi": "10.1007/s12039-022-02038-0",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC8960697/",
+      "source_location": "Table 2, row 10; Procedure for the N-Oxidation reaction",
+      "oxidant": "30% aqueous H2O2, 3 equivalents",
+      "conditions": "W/HAP, water, 80 C, 20 h. Nominal catalyst/substrate loading 20 wt% (not W loading); printed catalyst masses conflict, so verify loading before execution.",
+      "reported_result": "92% analytical yield (GC), as labelled in Table 2.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Analytical yield, not isolated yield.",
+      "verification_level": "exact_structure_table_and_general_procedure_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Equivalent substituents at N; no configurational stereochemistry assigned.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N09",
+    "name": "[18O]2,2'-Bipyridine mono-N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1ccccc1-c1ccccn1",
+    "literature": {
+      "doi": "10.1007/s10822-025-00640-1",
+      "url": "https://link.springer.com/article/10.1007/s10822-025-00640-1",
+      "source_location": "Chemistry: Synthesis and characterization of N-hydroxy-2,2'-bipyridine-6-carboxamide (1A), first paragraph; Scheme 1 step a",
+      "oxidant": "30% aqueous H2O2; 5.5 mL per 32 mmol substrate as reported",
+      "conditions": "Trifluoroacetic acid, room temperature, 2 h; neutralization and extraction give the mono-N-oxide intermediate.",
+      "reported_result": "Preparative intermediate obtained and used on gram scale; an independent isolated yield for this oxidation step is not reported in the main text.",
+      "evidence_note": "Exact precursor and mono-N-oxide confirmed. The 33% yield printed later belongs to the final hydroxamic acid, not this oxidation. In situ peracid activation is compatible with H2O2 as the terminal oxidant but label fidelity remains untested.",
+      "verification_level": "primary_full_text_exact_preparative_intermediate_and_conditions_verified_no_step_yield"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No fixed stereocentre; sample biaryl conformers. The two precursor N sites are symmetry-equivalent. Only one N is oxidized in the target.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N10",
+    "name": "[18O]1,10-Phenanthroline mono-N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1cccc2ccc3cccnc3c21",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Table 2 and named experimental product 16; GP1",
+      "oxidant": "30% aqueous H2O2, 4.5 equivalents",
+      "conditions": "Phosphomolybdic acid catalyst; MeCN; 50 degrees C, 12 h (GP1).",
+      "reported_result": "82% isolated yield of ordinary-oxygen mono-N-oxide.",
+      "evidence_note": "Exact product and preparative conditions verified in v6 audit. Printed catalyst mmol and mol% are not fully consistent; reconcile before an experimental SOP. No labelled result is reported.",
+      "verification_level": "exact_named_product_experimental_entry_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry. The two starting N sites are symmetry-equivalent; the drawn mono-N-oxide is not a dioxide.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N19",
+    "name": "[18O]phenanthridine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1cc2ccccc2c2ccccc21",
+    "literature": {
+      "doi": "10.1039/C4OB00115J",
+      "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC4134924/",
+      "source_location": "Table 2 and named experimental product 11; GP1",
+      "oxidant": "30% aqueous H2O2, 3 equivalents",
+      "conditions": "Phosphomolybdic acid catalyst; MeCN; 50 degrees C, 12 h (GP1).",
+      "reported_result": "76% isolated yield.",
+      "evidence_note": "Exact ordinary-oxygen precursor/product verified. Some printed catalyst mmol and mol% disagree; verify arithmetic. This reference does not establish electro-generated-peroxide compatibility.",
+      "verification_level": "exact_named_product_experimental_entry_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry; only the ring N is oxidized.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N29",
+    "name": "[18O3]2,2':6',2''-Terpyridine 1,1',1''-trioxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "[18O-][n+]1ccccc1-c1cccc(-c2cccc[n+]2[18O-])[n+]1[18O-]",
+    "literature": {
+      "doi": "10.1039/C4NJ00545G",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2014/nj/c4nj00545g",
+      "full_text_url": "https://digital.library.adelaide.edu.au/server/api/core/bitstreams/ac562021-0365-46a3-9944-1bf14a8443a8/content",
+      "source_location": "Page 4056, Experimental, Synthesis of ligands, Trinitro-terpyridine: Terpyridine trioxide paragraph",
+      "oxidant": "30% aqueous H2O2 in two additions; 28 mL total per 17.1 mmol substrate as reported",
+      "conditions": "Glacial acetic acid; 80 degrees C for 2 h, then second peroxide addition and 90 degrees C for 18 h; acetone precipitation.",
+      "reported_result": "4.2 g isolated pure trioxide from 4.0 g terpyridine; 88% yield.",
+      "evidence_note": "Publisher-version original PDF read directly. This is the trioxide before subsequent nitration, not mono- or di-N-oxide. Three equivalent-labelled input oxygens do not ensure quantitative triple labelling.",
+      "verification_level": "primary_publisher_version_exact_named_preparation_isolated_yield_and_NMR_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No fixed stereocentre. Sample inter-ring conformers. All three newly added oxygens are 18O in the target definition; measured P0-P3 isotope populations cannot be assumed.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N30",
+    "name": "[18O]1-Carboxyphenazine 5-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "O=C(O)c1cccc2c1nc1ccccc1[n+]2[18O-]",
+    "literature": {
+      "doi": null,
+      "patent": "US20160355487A1",
+      "url": "https://patents.google.com/patent/US20160355487A1/en",
+      "source_location": "Experimental: 1-Carboxyphenazine 5-oxide (7), paragraph [0360], followed by NMR and HRMS",
+      "oxidant": "30% aqueous H2O2, 6.12 mmol per 0.154 mmol substrate (about 40 equivalents)",
+      "conditions": "Glacial acetic acid; 55 degrees C, 17 h; precipitation and isolation of two crops.",
+      "reported_result": "21.5 mg isolated from 34.5 mg precursor; 58% yield.",
+      "evidence_note": "Exact regioisomer named and preparatively characterized. This is a patent-reported ordinary-oxygen experiment; no 18O enrichment or independent reproduction claimed.",
+      "verification_level": "primary_patent_exact_preparation_and_spectroscopic_characterization_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No stereocentre. N5, not the carboxyl-adjacent N10, is the labelled site. Both pre-existing carboxyl oxygens remain unlabelled in the target definition.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N32",
+    "name": "[N-oxide-18O]oxymatrine",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "O=C1CCC[C@@H]2[C@H]3CCC[N@+]4([18O-])CCC[C@@H](CN12)[C@@H]34",
+    "literature": {
+      "doi": null,
+      "patent": "CN1772752A",
+      "url": "https://patents.google.com/patent/CN1772752A/zh",
+      "source_location": "Example 1; product definition in background identifies oxymatrine hydrate as the main component of kushensu",
+      "oxidant": "Approximately 30% aqueous H2O2; 1:1 solution-to-matrine mass ratio in Example 1",
+      "conditions": "50-80 degrees C, 48 h; peroxide quench, extraction of residual matrine, alcohol dissolution and crystallization/refining.",
+      "reported_result": "Preparative crystalline oxymatrine product is described; the greater-than-80% process-yield statement is general, not a separately quantified Example 1 isolated yield.",
+      "evidence_note": "Use the original Chinese text: machine translation incorrectly renders kushensu as kurarinol/kurarinone. The patent defines oxymatrine C15H24N2O2.H2O. An earlier independent patent example also isolates oxymatrine from matrine/H2O2.",
+      "verification_level": "primary_patent_exact_H2O2_preparation_verified_yield_scope_explicit"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Natural matrine and oxymatrine carbon stereochemistry and oxymatrine N configuration follow PubChem reference identities. Ordinary-oxygen product identity is reported; no new isotope-specific stereoselectivity is asserted. Account for hydrate/solvent form when comparing NMR.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_N33",
+    "name": "[18O]quinine quinuclidine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "C=C[C@H]1C[N+]2([18O-])CC[C@H]1C[C@H]2[C@H](O)c1ccnc2ccc(OC)cc12",
+    "literature": {
+      "doi": "10.4028/www.scientific.net/KEM.874.69",
+      "url": "https://www.scientific.net/KEM.874.69",
+      "full_text_url": "https://www.researchgate.net/publication/348684249_Catalytic_Oxidation_of_Quinine_Using_Hydrogen_Peroxide_with_Palladium_as_Catalyst",
+      "source_location": "Experimental Sections, Procedure; Figure 1; major product 2 characterization",
+      "oxidant": "30% aqueous H2O2, 9.67 equivalents",
+      "conditions": "PdCl2 2.5 mol%; acetone/water with methanolic quinine; room temperature, 24 h; chromatographic isolation.",
+      "reported_result": "1.8635 g isolated N-oxide from 3.2501 g quinine; 55% yield.",
+      "evidence_note": "Original author-uploaded full text was read. Major quinuclidine N-oxide is preparatively isolated; trace further oxidation and alkene-translocation products are also reported. Do not claim perfect chemoselectivity.",
+      "verification_level": "primary_author_full_text_exact_preparation_isolation_and_characterization_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Retain all four quinine carbon stereocentres. The quinuclidine N-oxide geometry must point out of the cage in a physical 3D model. No oxidation at quinoline N is encoded in this target; minor by-products must be distinguished.",
+    "modelling_decision": {
+      "compound_id": "F3_N33",
+      "input_smiles": "C=C[C@H]1C[N+]2([18O-])CC[C@H]1C[C@H]2[C@H](O)c1ccnc2ccc(OC)cc12",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "unique_outward_quinuclidine_N_oxide_geometry_keep_four_source_carbon_centres",
+      "allowed_isomeric_smiles": [],
+      "model_branches": [],
+      "relative_constraints": [
+        {
+          "type": "keep_all_assigned_carbon_stereocentres",
+          "atom_indices": [
+            3,
+            9,
+            11,
+            12
+          ],
+          "CIP_from_input": {
+            "3": "R",
+            "9": "S",
+            "11": "S",
+            "12": "R"
+          }
+        },
+        {
+          "type": "outward_bridgehead_N_oxide",
+          "N_atom": 5,
+          "O_atom": 6,
+          "opposite_bridgehead_C": 9,
+          "N_carbon_neighbors": [
+            4,
+            7,
+            11
+          ],
+          "vector_test": "dot(rO-rN, rN-rOppositeBridgehead)>0 and dot(rO-rN, rN-mean(rC4,rC7,rC11))>0",
+          "description": "N-O must project away from the cage interior. Choose the N tag only after a physical embedding; an inward N-O formal stereoisomer is not a second solution-NMR product."
+        },
+        {
+          "type": "site_specificity",
+          "description": "Oxidation is at quinuclidine N5, not quinoline N17; preserve four carbon configurations."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.4028/www.scientific.net/KEM.874.69",
+          "url": "https://www.scientific.net/KEM.874.69",
+          "location": "Experimental Sections, Procedure; Figure 1; major product 2 characterization",
+          "evidence_note": "Original author-uploaded full text was read. Major quinuclidine N-oxide is preparatively isolated; trace further oxidation and alkene-translocation products are also reported. Do not claim perfect chemoselectivity.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "local_template_provenance",
+          "path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7_work\\fetch_cage_templates.py",
+          "pubchem_cid": 14589188,
+          "url": "https://pubchem.ncbi.nlm.nih.gov/compound/14589188",
+          "note": "2D product template recovered and connectivity compared previously; N stereo is not specified in that template."
+        }
+      ],
+      "unresolved_reason": "Existing PubChem-derived 2D template also leaves N unspecified. Geometry, not an arbitrary N@/N@@ choice, must determine the outward cage configuration."
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B01",
+    "name": "gamma-Butyrolactone",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "O=C1CCC[18O]1",
+    "literature": {
+      "doi": "10.1016/j.tet.2015.08.037",
+      "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+      "source_location": "Table 2 entry 11; section 4.13, product 25",
+      "oxidant": "Urea-hydrogen peroxide adduct (UHP), 6 equivalents; NOT aqueous peroxide in the scope experiment",
+      "conditions": "PhCN (6 equiv), KHCO3 (0.2 equiv), TFE (0.5 M), 50 C, 18 h; General Procedure 1.",
+      "reported_result": "85% isolated yield.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Labelled-UHP preparation or adaptation to aqueous electro-generated H2O2 needs validation. GP1's printed UHP mass disagrees with mmol; verify stoichiometry.",
+      "verification_level": "exact_unlabelled_UHP_scope_and_isolated_product_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry is specified. The two carbonyl-adjacent ring bonds are symmetry-equivalent.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B03",
+    "name": "epsilon-Caprolactone",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "O=C1CCCCC[18O]1",
+    "literature": {
+      "doi": "10.1016/j.tet.2015.08.037",
+      "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+      "source_location": "Table 2 entry 1; section 4.3, product 5",
+      "oxidant": "Urea-hydrogen peroxide adduct (UHP), 6 equivalents; NOT aqueous peroxide in the scope experiment",
+      "conditions": "PhCN (6 equiv), KHCO3 (0.2 equiv), TFE (0.5 M), 50 C, 48 h; General Procedure 1.",
+      "reported_result": "70% isolated yield.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Labelled-UHP preparation or adaptation to aqueous electro-generated H2O2 needs validation. GP1's printed UHP mass disagrees with mmol; verify stoichiometry.",
+      "verification_level": "exact_unlabelled_UHP_scope_and_isolated_product_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry is specified. The two carbonyl-adjacent ring bonds are symmetry-equivalent.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B05",
+    "name": "5-tert-Butyloxepan-2-one",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "CC(C)(C)C1CC[18O]C(=O)CC1",
+    "literature": {
+      "doi": "10.1016/j.tet.2015.08.037",
+      "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+      "source_location": "Table 2 entry 3; section 4.5, product 9",
+      "oxidant": "Urea-hydrogen peroxide adduct (UHP), 6 equivalents; NOT aqueous peroxide in the scope experiment",
+      "conditions": "PhCN (6 equiv), KHCO3 (0.2 equiv), TFE (0.5 M), 50 C, 48 h; General Procedure 1.",
+      "reported_result": "81% isolated yield.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Labelled-UHP preparation or adaptation to aqueous electro-generated H2O2 needs validation. GP1's printed UHP mass disagrees with mmol; verify stoichiometry.",
+      "verification_level": "exact_unlabelled_UHP_scope_and_isolated_product_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Ring desymmetrization gives an unspecified product stereocentre at the tert-butyl-bearing carbon. No absolute configuration or ee is assigned.",
+    "modelling_decision": {
+      "compound_id": "F3_B05",
+      "input_smiles": "CC(C)(C)C1CC[18O]C(=O)CC1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "CC(C)(C)[C@H]1CC[18O]C(=O)CC1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F3_B05_rep_R",
+          "smiles": "CC(C)(C)[C@H]1CC[18O]C(=O)CC1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.tet.2015.08.037",
+          "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+          "location": "Table 2 entry 3; section 4.5, product 9",
+          "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Labelled-UHP preparation or adaptation to aqueous electro-generated H2O2 needs validation. GP1's printed UHP mass disagrees with mmol; verify stoichiometry.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "CC(C)(C)[C@@H]1CC[18O]C(=O)CC1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CC(C)(C)[C@H]1CC[18O]C(=O)CC1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B06",
+    "name": "Adamantan-2-one-derived lactone",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "O=C1[18O]C2CC3CC(C2)CC1C3",
+    "literature": {
+      "doi": "10.1039/C7RA03830E",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2017/ra/c7ra03830e",
+      "source_location": "Scheme 5; section 2.2; section 3.4",
+      "oxidant": "30% aqueous H2O2",
+      "conditions": "Sn-beta, 1,2-dichloroethane/water, 80 C, 24 h; section 3.4: 3 mmol ketone and 20 mmol H2O2.",
+      "reported_result": "83% reported yield; >99% selectivity.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Additional isolated UHP precedent: 10.1016/j.tet.2015.08.037, section 4.14, 82%.",
+      "verification_level": "exact_primary_article_product_and_general_procedure_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Cage connectivity is specified, but no stereochemical descriptors are imposed on the prospective product.",
+    "modelling_decision": {
+      "compound_id": "F3_B06",
+      "input_smiles": "O=C1[18O]C2CC3CC(C2)CC1C3",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "physical_adamantane_derived_cage_template_then_collapse_mirror_equivalent_models",
+      "allowed_isomeric_smiles": [],
+      "model_branches": [],
+      "relative_constraints": [
+        {
+          "type": "cage_bridgehead_geometry",
+          "bridgehead_atoms": [
+            4,
+            6,
+            8,
+            11
+          ],
+          "inserted_lactone_oxygen": 3,
+          "lactone_carbonyl_carbon": 2,
+          "description": "Use the real adamantane-derived cage topology. All four bridgehead H atoms must point outward from the cage; do not interpret formal 2^4 assignments as freely accessible products."
+        },
+        {
+          "type": "geometry_acceptance",
+          "requirements": [
+            "proper ring closures and positive nonbonded separation",
+            "outward bridgehead H at each bridgehead",
+            "no self-intersecting/inside-out cage",
+            "reperceive explicit stereo from 3D",
+            "group identical and mirror-equivalent graphs; retain any genuinely distinct physical diastereomer separately if more than one survives"
+          ]
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1039/C7RA03830E",
+          "url": "https://pubs.rsc.org/en/content/articlehtml/2017/ra/c7ra03830e",
+          "location": "Scheme 5; section 2.2; section 3.4",
+          "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Additional isolated UHP precedent: 10.1016/j.tet.2015.08.037, section 4.14, 82%.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Source product connectivity is verified, but no absolute descriptors are specified. A physically constrained cage embedding is required before supplying an explicit isomeric SMILES. Do not invent stereoisomer ratios."
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B08",
+    "name": "4-Methoxyphenyl acetate",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "COc1ccc([18O]C(C)=O)cc1",
+    "literature": {
+      "doi": "10.1039/C7RA03830E",
+      "url": "https://pubs.rsc.org/en/content/articlehtml/2017/ra/c7ra03830e",
+      "source_location": "Table 2, model 3 -> 3a; Table 3; section 3.4",
+      "oxidant": "30% aqueous H2O2",
+      "conditions": "Sn-beta, 1,2-dichloroethane/water, 45 C, 24 h; section 3.4: 3 mmol ketone and 20 mmol H2O2.",
+      "reported_result": "81% reported product yield and 90% selectivity at 45 C.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Aryl-migration ester identified; hydrolysis can give 4-methoxyphenol.",
+      "verification_level": "exact_primary_article_product_and_general_procedure_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereochemistry is specified. Measure the aryl-versus-methyl migration ratio and verify the labelled oxygen site.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B14",
+    "name": "5-Phenyloxepan-2-one",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "O=C1CCC(c2ccccc2)CC[18O]1",
+    "literature": {
+      "doi": "10.1016/j.tet.2015.08.037",
+      "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+      "source_location": "Table 2 entry 4; section 4.6, product 11",
+      "oxidant": "Urea-hydrogen peroxide adduct (UHP), 6 equivalents; NOT aqueous peroxide in the scope experiment",
+      "conditions": "PhCN (6 equiv), KHCO3 (0.2 equiv), TFE (0.5 M), 50 C, 72 h; General Procedure 1.",
+      "reported_result": "83% isolated yield.",
+      "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Labelled-UHP preparation or adaptation to aqueous electro-generated H2O2 needs validation. GP1's printed UHP mass disagrees with mmol; verify stoichiometry.",
+      "verification_level": "exact_unlabelled_UHP_scope_and_isolated_product_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Carbonyl-adjacent ring paths in the precursor are equivalent. Ring expansion creates a stereocentre at product C5; configuration unspecified, no ee claimed.",
+    "modelling_decision": {
+      "compound_id": "F3_B14",
+      "input_smiles": "O=C1CCC(c2ccccc2)CC[18O]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "O=C1CC[C@@H](c2ccccc2)CC[18O]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F3_B14_rep_R",
+          "smiles": "O=C1CC[C@@H](c2ccccc2)CC[18O]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1016/j.tet.2015.08.037",
+          "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+          "location": "Table 2 entry 4; section 4.6, product 11",
+          "evidence_note": "Unlabelled precedent only. 18O incorporation and adaptation to electro-generated peroxide remain untested. Labelled-UHP preparation or adaptation to aqueous electro-generated H2O2 needs validation. GP1's printed UHP mass disagrees with mmol; verify stoichiometry.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "O=C1CC[C@H](c2ccccc2)CC[18O]1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "O=C1CC[C@@H](c2ccccc2)CC[18O]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B15",
+    "name": "(4R,7S)-7-Isopropyl-4-methyloxepan-2-one (ring-18O)",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "CC(C)[C@@H]1CC[C@@H](C)CC(=O)[18O]1",
+    "literature": {
+      "doi": "10.1016/j.tet.2015.08.037",
+      "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+      "source_location": "Table 2 entry 9; General Procedure 1; section 4.11, (4R,7S)-7-isopropyl-4-methyloxepan-2-one (21)",
+      "oxidant": "Urea-hydrogen peroxide complex (UHP), 6 equivalents; NOT an exact precedent using dilute electrogenerated aqueous H2O2",
+      "conditions": "PhCN 6 equivalents, KHCO3 20 mol%, TFE (0.5 M), 50 C, 72 h. Follow the reaction-scheme equivalent specification; the GP1 printed UHP mass/mmol contains an inconsistency and must be reconciled before an executable SOP is prepared.",
+      "reported_result": "51% isolated yield: 344 mg, 2.0 mmol, from 4.0 mmol (-)-menthone. Optical rotation, 1H/13C NMR, HRMS and IR reported.",
+      "evidence_note": "Original author manuscript inspected, including exact substrate/product structures and experimental entry. UHP activates H2O2 via a nitrile/peroxyimidic-acid route. The identity, selectivity and yield of the 18O reaction are not established by this ordinary-O precedent; adaptation from aqueous electrogenerated peroxide requires validation.",
+      "verification_level": "exact_original_table_and_isolated_product_characterization_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Exact named (4R,7S) product; RDKit confirms S at the isopropyl-bearing carbon and R at the methyl-bearing carbon. The ordinary-O paper reports optical rotation and NMR. Retention of the stereochemical relationship is encoded.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B16",
+    "name": "1,4,8-Trioxaspiro[4.6]undecan-9-one (inserted ring-18O)",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "O=C1CCC2(CC[18O]1)OCCO2",
+    "literature": {
+      "doi": "10.1016/j.tet.2015.08.037",
+      "url": "https://strathprints.strath.ac.uk/56183/7/Bradley_etal_Tetrahedron_2015_Baeyer_Villiger_oxidation_under_Payne.pdf",
+      "source_location": "Table 2 entry 8; General Procedure 1; section 4.10, 1,4,8-trioxaspiro[4.6]undecan-9-one (19)",
+      "oxidant": "Urea-hydrogen peroxide complex (UHP), 6 equivalents",
+      "conditions": "PhCN 6 equivalents, KHCO3 20 mol%, TFE (0.5 M), 50 C, 72 h. GP1 UHP mass/mmol inconsistency requires reconciliation, as for B15.",
+      "reported_result": "36% isolated yield: 244 mg, 1.4 mmol, from 4.0 mmol ketone 18. 1H/13C NMR, HRMS and IR reported.",
+      "evidence_note": "Exact isolated product and retained ketal verified in the original author manuscript. Modest yield is real, not a conjecture. No 18O incorporation, isotope retention or direct use of electro-generated aqueous peroxide was demonstrated.",
+      "verification_level": "exact_original_table_and_isolated_product_characterization_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No configurational stereocentre. The ethylene ketal oxygens are unlabelled in the proposed target; only the newly inserted lactone oxygen is 18O.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B18",
+    "name": "2-Oxabicyclo[3.2.1]octan-3-one (major regioisomer, ring-18O)",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "O=C1C[C@@H]2CC[C@@H](C2)[18O]1",
+    "literature": {
+      "doi": null,
+      "publication_id": "EP2636665B1",
+      "source_type": "original experimental patent, not claimed here as a peer-reviewed exact entry",
+      "url": "https://patents.google.com/patent/EP2636665B1/en",
+      "source_location": "Table 5, Example 64, printed page 16; paragraphs [0057], [0061], [0079]-[0080], printed page 19; original PDF https://patentimages.storage.googleapis.com/37/37/1e/c0c21cf45d4176/EP2636665B1.pdf",
+      "oxidant": "30% aqueous H2O2, 1.1 equivalents",
+      "conditions": "Ca[B(C6F5)4]2 1 mol%, oxalic acid 5 mol%, DCE (0.1 M), room temperature, 22 h; chromatographic work-up follows general experimental procedure [0057].",
+      "reported_result": "Table 5 reports 82% major lactone and 10% minor regioisomer. The two products have separate TLC/NMR entries, [0079] and [0080]. Treat these as the source's reported product yields, not as 92% yield of one compound.",
+      "evidence_note": "Exact Table 5 drawing, conditions, product-specific NMR and general preparative work-up were inspected in the original patent PDF. This is an aqueous-H2O2 precedent. It does not demonstrate 18O labelling, isotope retention or the same performance with dilute catholyte. Acid-promoted oxygen exchange must be checked experimentally.",
+      "verification_level": "exact_original_patent_structure_conditions_and_separate_product_NMR_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "One representative enantiomer is encoded to preserve the bridge connectivity/relative configuration for 3D modelling. The patent does not claim an enantiopure preparation; do not infer ee. The major and minor constitutional products are separately described by TLC and NMR.",
+    "modelling_decision": {
+      "compound_id": "F3_B18",
+      "input_smiles": "O=C1C[C@@H]2CC[C@@H](C2)[18O]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "retain_source_relative_configuration_and_encoded_representative_enantiomer",
+      "allowed_isomeric_smiles": [
+        "O=C1C[C@@H]2CC[C@@H](C2)[18O]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F3_B18_source_rel_rep",
+          "smiles": "O=C1C[C@@H]2CC[C@@H](C2)[18O]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "source_relative_stereo_representative_not_absolute_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/EP2636665B1/en",
+          "location": "Table 5, Example 64, printed page 16; paragraphs [0057], [0061], [0079]-[0080], printed page 19; original PDF https://patentimages.storage.googleapis.com/37/37/1e/c0c21cf45d4176/EP2636665B1.pdf",
+          "evidence_note": "Exact Table 5 drawing, conditions, product-specific NMR and general preparative work-up were inspected in the original patent PDF. This is an aqueous-H2O2 precedent. It does not demonstrate 18O labelling, isotope retention or the same performance with dilute catholyte. Acid-promoted oxygen exchange must be checked experimentally.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Source does not establish enantiopurity or absolute configuration; preserve the source relative configuration.",
+      "mirror_equivalent_smiles": "O=C1C[C@H]2CC[C@H](C2)[18O]1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "O=C1C[C@@H]2CC[C@@H](C2)[18O]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "4": "R",
+            "7": "S"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B20",
+    "name": "Phthalide (ring-18O)",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "O=C1[18O]Cc2ccccc21",
+    "literature": {
+      "doi": null,
+      "publication_id": "EP2636665B1",
+      "source_type": "original experimental patent",
+      "url": "https://patents.google.com/patent/EP2636665B1/en",
+      "source_location": "Table 6, Example 72, printed page 17; paragraphs [0089]-[0090], printed page 19; original PDF https://patentimages.storage.googleapis.com/37/37/1e/c0c21cf45d4176/EP2636665B1.pdf",
+      "oxidant": "30% aqueous H2O2, 1.1 equivalents",
+      "conditions": "Ca[B(C6F5)4]2 1 mol%, oxalic acid 5 mol%, DCE (0.1 M), 50 C, 6 h; general chromatographic work-up [0057].",
+      "reported_result": "Table reports 63% phthalide and 24% other regioisomer. Separate TLC and 1H/13C NMR are supplied for each; major product has OCH2 at 5.34 ppm and minor product CH2 at 3.75 ppm.",
+      "evidence_note": "The exact product drawing and separate original NMR entries were checked; phthalide, not the aryl-migration isomer, is the encoded major product. The transformation is not perfectly regioselective, but products are separately characterized. Ordinary-O precedent only; acid/water isotope exchange and electrogenerated-H2O2 transfer need controls.",
+      "verification_level": "exact_original_patent_structure_conditions_and_separate_1H13C_NMR_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Achiral target. Oxygen insertion is between carbonyl carbon and methylene, as shown for the actual major product; the aryl-migration product is a separate minor regioisomer, not this graph.",
+    "modelling_decision": {
+      "state_policy": "retain_existing_explicit_structure"
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F3_B21",
+    "name": "Br/OTBS-substituted Corey-type fused lactone (Example 70 major regioisomer, ring-18O)",
+    "reaction_class": "Baeyer-Villiger",
+    "drawn_product_smiles": "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br",
+    "literature": {
+      "doi": null,
+      "publication_id": "EP2636665B1",
+      "source_type": "original experimental patent",
+      "url": "https://patents.google.com/patent/EP2636665B1/en",
+      "source_location": "Table 6, Example 70, printed page 17; paragraphs [0086]-[0087], printed page 19; original PDF https://patentimages.storage.googleapis.com/37/37/1e/c0c21cf45d4176/EP2636665B1.pdf",
+      "oxidant": "30% aqueous H2O2, 1.1 equivalents",
+      "conditions": "Li[B(C6F5)4] 1 mol%, DCE (0.2 M), room temperature, 24 h. NO oxalic acid is listed in the exact Example 70 arrow; do not silently add the acid from neighbouring entries.",
+      "reported_result": "Table reports 72% major lactone and 12% minor regioisomer. Major: white solid, Rf 0.28 (hexane/EtOAc 4:1), separate 1H/13C NMR [0086]. Minor: Rf 0.36, separate 1H/13C NMR [0087].",
+      "evidence_note": "Original PDF reaction drawing, all relative wedges, exact no-oxalic-acid conditions and distinct product NMR were inspected. Both C-Br and OTBS are retained. This supports the ordinary-O isolated compound, not a validated 18O analogue or direct use of electro-generated peroxide. Ketone carbonyl isotope exchange and isotope retention still require tests. Exact preparation/availability of the specialized precursor must be scheduled separately.",
+      "verification_level": "exact_original_patent_wedge_structure_conditions_and_separate_1H13C_NMR_verified"
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Relative stereochemistry was transcribed from the patent's exact wedges: both fusion hydrogens and Br lie on the same face, OTBS on the opposite face. One enantiomer is encoded as a modelling representative; the source figure does not establish absolute configuration or ee. Do not label this as an enantiopure Corey lactone unless separately demonstrated.",
+    "modelling_decision": {
+      "compound_id": "F3_B21",
+      "input_smiles": "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "retain_source_relative_configuration_and_encoded_representative_enantiomer",
+      "allowed_isomeric_smiles": [
+        "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F3_B21_source_rel_rep",
+          "smiles": "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "source_relative_stereo_representative_not_absolute_assignment"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "source_wedge_relationship",
+          "description": "Both fusion H atoms and Br on the same face; OTBS on the opposite face. Do not invert individual centres."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/EP2636665B1/en",
+          "location": "Table 6, Example 70, printed page 17; paragraphs [0086]-[0087], printed page 19; original PDF https://patentimages.storage.googleapis.com/37/37/1e/c0c21cf45d4176/EP2636665B1.pdf",
+          "evidence_note": "Original PDF reaction drawing, all relative wedges, exact no-oxalic-acid conditions and distinct product NMR were inspected. Both C-Br and OTBS are retained. This supports the ordinary-O isolated compound, not a validated 18O analogue or direct use of electro-generated peroxide. Ketone carbonyl isotope exchange and isotope retention still require tests. Exact preparation/availability of the specialized precursor must be scheduled separately.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Source does not establish enantiopurity or absolute configuration; preserve the source relative configuration.",
+      "mirror_equivalent_smiles": "CC(C)(C)[Si](C)(C)O[C@@H]1C[C@@H]2[18O]C(=O)C[C@@H]2[C@H]1Br",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CC(C)(C)[Si](C)(C)O[C@H]1C[C@H]2[18O]C(=O)C[C@H]2[C@@H]1Br",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "9": "S",
+            "11": "R",
+            "16": "R",
+            "17": "S"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F4_D01",
+    "name": "[Sulfinyl-18O]modafinil",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "NC(=O)CS(=[18O])C(c1ccccc1)c1ccccc1",
+    "literature": {
+      "doi": null,
+      "patent": "US4177290A",
+      "url": "https://patents.google.com/patent/US4177290A/en",
+      "source_location": "Example 1, step (3), CRL 40476",
+      "oxidant": "Aqueous H2O2 (approximately 110-volume solution)",
+      "conditions": "Benzhydrylthioacetamide in acetic acid; 40 degrees C overnight; water precipitation and methanol recrystallization.",
+      "evidence_note": "Exact sulfide-to-modafinil preparation, not metabolite detection. Acid/peroxide activation may operate; the precedent does not establish the labelled oxygen balance.",
+      "reported_result": "73% isolated crystalline unlabelled modafinil (11.2 g from 14.39 g sulfide).",
+      "verification_level": "Primary patent full-text experimental example; ordinary-isotope synthesis only. Not independently reproduced here."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur configuration is unspecified; no ee is claimed. Use an assigned single enantiomer for a 3D model. Enantiomers have equal isotropic shifts in an achiral solvent. Do not call the unspecified product armodafinil.",
+    "modelling_decision": {
+      "compound_id": "F4_D01",
+      "input_smiles": "NC(=O)CS(=[18O])C(c1ccccc1)c1ccccc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "NC(=O)C[S@@](=[18O])C(c1ccccc1)c1ccccc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D01_rep_R",
+          "smiles": "NC(=O)C[S@@](=[18O])C(c1ccccc1)c1ccccc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/US4177290A/en",
+          "location": "Example 1, step (3), CRL 40476",
+          "evidence_note": "Exact sulfide-to-modafinil preparation, not metabolite detection. Acid/peroxide activation may operate; the precedent does not establish the labelled oxygen balance.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "NC(=O)C[S@](=[18O])C(c1ccccc1)c1ccccc1",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "NC(=O)C[S@@](=[18O])C(c1ccccc1)c1ccccc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "5": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F4_D02",
+    "name": "[Sulfinyl-18O]albendazole sulfoxide",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "CCCS(=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+    "literature": {
+      "doi": null,
+      "patent": "CN101270090B",
+      "url": "https://patents.google.com/patent/CN101270090B/en",
+      "source_location": "Embodiment 1",
+      "oxidant": "35 wt% aqueous H2O2, approximately 1.10 equivalents",
+      "conditions": "Albendazole in 85 wt% formic acid with activated carbon and chromatographic silica; 50-55 degrees C, HPLC-monitored endpoint; neutralization to pH 7 and isolation.",
+      "evidence_note": "Exact albendazole-to-sulfoxide preparation. In situ performic-acid involvement is chemically plausible, not demonstrated in this patent; ordinary-H2O2 use alone does not prove isotope-source fidelity.",
+      "reported_result": "Patent reports 55.6 g isolated product from 53 g albendazole: 98.9% yield and greater than 99% content.",
+      "verification_level": "Primary patent full-text worked example; ordinary-isotope synthesis only. No reaction duration or ee asserted."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur configuration is unspecified and no ee is claimed. Retain the explicit benzimidazole tautomer as an input; assess relevant tautomers, protonation and conformer populations for solution NMR.",
+    "modelling_decision": {
+      "compound_id": "F4_D02",
+      "input_smiles": "CCCS(=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "CCC[S@@](=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D02_rep_R",
+          "smiles": "CCC[S@@](=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/CN101270090B/en",
+          "location": "Embodiment 1",
+          "evidence_note": "Exact albendazole-to-sulfoxide preparation. In situ performic-acid involvement is chemically plausible, not demonstrated in this patent; ordinary-H2O2 use alone does not prove isotope-source fidelity.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "CCC[S@](=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+      "additional_state_policy": "Keep the drawn benzimidazole tautomer initially; assess other neutral tautomers/protonated states in separate branches, not automatic weighted merging.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CCC[S@@](=[18O])c1ccc2nc(NC(=O)OC)[nH]c2c1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "4": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F4_D03",
+    "name": "[Sulfinyl-18O]omeprazole",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "COc1ccc2nc(S(=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+    "literature": {
+      "doi": null,
+      "patent": "EP1575935A1",
+      "url": "https://patents.google.com/patent/EP1575935A1/en",
+      "source_location": "Example 4, explicitly using Example 2 oxidation conditions",
+      "oxidant": "33% aqueous H2O2, approximately 1.22 equivalents",
+      "conditions": "Methyltrioxorhenium, approximately 0.1 mol%; methanol; 5 degrees C, 4 h; aqueous precipitation and ethanol/water crystallization.",
+      "evidence_note": "Exact omeprazole sulfide-to-omeprazole worked example. Sulfur configuration and isotope enrichment were not established.",
+      "reported_result": "39.2 g isolated crystalline omeprazole from 46.8 g sulfide; 80% yield.",
+      "verification_level": "Primary patent full-text experimental example; ordinary-isotope synthesis only."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur configuration is unspecified; this is not esomeprazole. Benzimidazole tautomerism, protonation and acidic degradation require explicit consideration.",
+    "modelling_decision": {
+      "compound_id": "F4_D03",
+      "input_smiles": "COc1ccc2nc(S(=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "COc1ccc2nc([S@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D03_rep_R",
+          "smiles": "COc1ccc2nc([S@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/EP1575935A1/en",
+          "location": "Example 4, explicitly using Example 2 oxidation conditions",
+          "evidence_note": "Exact omeprazole sulfide-to-omeprazole worked example. Sulfur configuration and isotope enrichment were not established.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "COc1ccc2nc([S@@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+      "additional_state_policy": "Keep the drawn benzimidazole tautomer initially; assess other neutral tautomers/protonated states in separate branches, not automatic weighted merging.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "COc1ccc2nc([S@](=[18O])Cc3ncc(C)c(OC)c3C)[nH]c2c1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "9": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F4_D04",
+    "name": "[Sulfinyl-18O]lansoprazole",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "Cc1c(OCC(F)(F)F)ccnc1CS(=[18O])c1nc2ccccc2[nH]1",
+    "literature": {
+      "doi": null,
+      "patent": "EP1575935A1",
+      "url": "https://patents.google.com/patent/EP1575935A1/en",
+      "source_location": "Example 2",
+      "oxidant": "33% aqueous H2O2, approximately 1.22 equivalents",
+      "conditions": "Methyltrioxorhenium, approximately 0.1 mol%; methanol; 5 degrees C, 4 h; aqueous precipitation and ethanol/water crystallization.",
+      "evidence_note": "Exact lansoprazole sulfide oxidation. The crude yield must not be substituted for the purified isolated yield.",
+      "reported_result": "95% crude yield; 75% isolated crystallized product from sulfide, with greater than 99.5% HPLC purity.",
+      "verification_level": "Primary patent full-text experimental example; ordinary-isotope synthesis only."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "Sulfur configuration is unspecified; no dexlansoprazole or enantiopurity claim. Treat benzimidazole tautomers, acidity and acid sensitivity explicitly.",
+    "modelling_decision": {
+      "compound_id": "F4_D04",
+      "input_smiles": "Cc1c(OCC(F)(F)F)ccnc1CS(=[18O])c1nc2ccccc2[nH]1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "Cc1c(OCC(F)(F)F)ccnc1C[S@@](=[18O])c1nc2ccccc2[nH]1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D04_rep_R",
+          "smiles": "Cc1c(OCC(F)(F)F)ccnc1C[S@@](=[18O])c1nc2ccccc2[nH]1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/EP1575935A1/en",
+          "location": "Example 2",
+          "evidence_note": "Exact lansoprazole sulfide oxidation. The crude yield must not be substituted for the purified isolated yield.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "Cc1c(OCC(F)(F)F)ccnc1C[S@](=[18O])c1nc2ccccc2[nH]1",
+      "additional_state_policy": "Keep the drawn benzimidazole tautomer initially; assess other neutral tautomers/protonated states in separate branches, not automatic weighted merging.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "Cc1c(OCC(F)(F)F)ccnc1C[S@@](=[18O])c1nc2ccccc2[nH]1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "15": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F4_D05",
+    "name": "[Sulfinyl-18O]sulindac",
+    "reaction_class": "sulfur oxidation",
+    "drawn_product_smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc(S(C)=[18O])cc1",
+    "literature": {
+      "doi": null,
+      "patent": "CN117326991B",
+      "url": "https://patents.google.com/patent/CN117326991B/zh",
+      "source_location": "Example 2, steps 3 and 4; compound 3 to compound 4 (sulindac)",
+      "oxidant": "30 wt% aqueous H2O2; preferred stated loading 1-1.2 equivalents",
+      "conditions": "Acetic acid/dichloromethane, 30-40 degrees C, 3-5 h; ethyl acetate isolation, then isopropanol recrystallization.",
+      "evidence_note": "The free-acid sulfide is oxidized to sulindac. Patent HTML joins compound numbers with quantities, so use the original document for an operational scale-up protocol. Peracid activation and isotope-source fidelity are not established here.",
+      "reported_result": "Oxidation isolation: 95.5% molar yield, 98.83% HPLC purity. Subsequent recrystallization: 95.75% mass recovery and 99.68% HPLC purity; this recovery is not a second reaction yield.",
+      "verification_level": "Primary Chinese patent full-text worked example; ordinary-isotope synthesis only. Patent results are not independently reproduced."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "The database-defined Z alkene geometry is explicit. Sulfoxide chirality is unspecified. Model neutral acid and any experimentally used salt separately; preserve Z/E identity.",
+    "modelling_decision": {
+      "compound_id": "F4_D05",
+      "input_smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc(S(C)=[18O])cc1",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "one_declared_representative_enantiomer_for_achiral_solution_HC_NMR",
+      "allowed_isomeric_smiles": [
+        "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc([S@@](C)=[18O])cc1"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D05_rep_R",
+          "smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc([S@@](C)=[18O])cc1",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "arbitrary_modelling_representative_not_experimental_R_assignment"
+        }
+      ],
+      "relative_constraints": [],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": null,
+          "url": "https://patents.google.com/patent/CN117326991B/zh",
+          "location": "Example 2, steps 3 and 4; compound 3 to compound 4 (sulindac)",
+          "evidence_note": "The free-acid sulfide is oxidized to sulindac. Patent HTML joins compound numbers with quantities, so use the original document for an operational scale-up protocol. Peracid activation and isotope-source fidelity are not established here.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        }
+      ],
+      "unresolved_reason": "Experimental enantiomeric composition remains unassigned; it is not needed for conventional isotropic H/C shifts in an achiral DMSO continuum without a chiral agent.",
+      "mirror_equivalent_smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc([S@](C)=[18O])cc1",
+      "additional_state_policy": "Preserve modern-CIP Z exocyclic alkene; neutral acid and any experimental salt are independent states.",
+      "explicit_structure_QA": [
+        {
+          "canonical_smiles": "CC1=C(CC(=O)O)c2cc(F)ccc2/C1=C\\c1ccc([S@@](C)=[18O])cc1",
+          "modern_CIP_by_1_based_atom_of_this_smiles": {
+            "21": "R"
+          },
+          "remaining_unspecified_potential_stereo": 0
+        }
+      ]
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  },
+  {
+    "compound_id": "F4_D07",
+    "name": "[18O]imipramine N-oxide",
+    "reaction_class": "N-oxidation",
+    "drawn_product_smiles": "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+    "literature": {
+      "doi": "10.1248/jhs.50.396",
+      "url": "https://www.jstage.jst.go.jp/article/jhs/50/4/50_4_396/_article",
+      "full_text_url": "https://www.jstage.jst.go.jp/article/jhs/50/4/50_4_396/_pdf",
+      "source_location": "Page 402, Table 5, imipramine N-oxide (HCl salt) row and footnote; N-oxide preparation section; pages 403-404 characterization",
+      "oxidant": "30% aqueous H2O2, 4 equivalents",
+      "conditions": "2 mmol scale; titanosilicate 200 mg; 1.0 M carbonate buffer pH 10.5 with 50% methanol; 60 degrees C, 1 h.",
+      "evidence_note": "Preparative oxidation, chloroform extraction and crystallization, not just LC-MS detection. The product yield is for the hydrochloride salt, while the scope drawing represents its neutral molecular framework.",
+      "reported_result": "85.7% N-oxide in the chloroform extract; 73.5% isolated crystalline hydrochloride, reported purity 100%.",
+      "verification_level": "Publisher-hosted original full-text PDF, exact Table 5 row and conditions verified; ordinary-isotope synthesis only."
+    },
+    "project_status": "Literature-supported unlabelled reaction; 18O synthesis and enrichment NOT measured in this project",
+    "source_stereo_note": "No new N stereocentre because two methyl substituents are identical. Ring and propyl conformers require sampling. The drawing is the net-neutral molecular N-oxide; the cited isolated crystals are its hydrochloride, not this neutral solid form. Match the measured salt/protonation state in NMR calculations.",
+    "modelling_decision": {
+      "compound_id": "F4_D07",
+      "input_smiles": "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+      "constraint_atom_indexing": "1-based RDKit atom indices in input_smiles, not MOL/ChemDraw IDs.",
+      "state_policy": "neutral_and_O_protonated_hydrochloride_independent_state_branches",
+      "allowed_isomeric_smiles": [
+        "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+        "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21.[Cl-]"
+      ],
+      "model_branches": [
+        {
+          "model_id": "F4_D07_neutral",
+          "smiles": "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "drawn_net_neutral_N_oxide_reference"
+        },
+        {
+          "model_id": "F4_D07_NOH_Cl",
+          "smiles": "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21.[Cl-]",
+          "charge": 0,
+          "multiplicity": 1,
+          "role": "O_protonated_N_oxide_plus_chloride_salt_hypothesis_not_site_proved",
+          "geometry_policy": "explicit ion pair; sample chloride contact positions; do not leave chloride at an arbitrary unoptimized distance"
+        },
+        {
+          "model_id": "F4_D07_NOH_cation_sensitivity",
+          "smiles": "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21",
+          "charge": 1,
+          "multiplicity": 1,
+          "role": "optional_separated_cation_DMSO_sensitivity_state"
+        }
+      ],
+      "relative_constraints": [
+        {
+          "type": "source_salt_identity_not_proton_site_assignment",
+          "description": "Prior verified source record explicitly states isolated hydrochloride; it does not establish the protonation microsite in this audit."
+        }
+      ],
+      "experimental_assignment_status": "18O-labelled product configuration/ee not measured in this project.",
+      "sources": [
+        {
+          "type": "existing_verified_project_record",
+          "index_path": "E:\\For_codex\\isotope_work\\ChemDraw_Scope_v7\\Product_only_figures\\ChemDraw_products_for_ORCA_20261013\\product_structure_index.json",
+          "doi": "10.1248/jhs.50.396",
+          "url": "https://www.jstage.jst.go.jp/article/jhs/50/4/50_4_396/_article",
+          "location": "Page 402, Table 5, imipramine N-oxide (HCl salt) row and footnote; N-oxide preparation section; pages 403-404 characterization",
+          "evidence_note": "Preparative oxidation, chloroform extraction and crystallization, not just LC-MS detection. The product yield is for the hydrochloride salt, while the scope drawing represents its neutral molecular framework.",
+          "reinspection": "Not all 64 reactions re-audited; targeted pages listed separately."
+        },
+        {
+          "type": "primary_full_text_rechecked_and_pages_visually_inspected",
+          "url": "https://www.jstage.jst.go.jp/article/jhs/50/4/50_4_396/_pdf",
+          "local_pdf": "E:\\For_codex\\isotope_work\\ORCA_NMR_64_work_20261013\\evidence_D07_Ogamo2004_primary.pdf",
+          "locations": [
+            "p398: methanolic HCl addition and crystallization; Spectroscopy says CD3OD for H/C NMR",
+            "p402: Table5 expressly lists Imipramine N-oxide (HCl salt)",
+            "p404: terminal-N-adjacent H/C move downfield; imipramine numerical shifts are data not shown"
+          ],
+          "note": "Confirms isolated hydrochloride and source NMR solvent, but not the protonation microsite in DMSO or a specific ion-pair geometry."
+        }
+      ],
+      "unresolved_reason": "Use N-oxide O-protonation as a declared initial salt model, not an established HCl microsite. The ring diarylamine N is another chemically valid protomer candidate if solution/pKa evidence requires testing. Never pool neutral, cation and ion-pair energies as conformers.",
+      "alternative_protomer_candidate": {
+        "smiles": "C[N+](C)([18O-])CCC[NH+]1c2ccccc2CCc2ccccc21.[Cl-]",
+        "role": "ring_N_protonated_sensitivity_not_default",
+        "source_status": "chemically_valid_hypothesis_no_site_assignment_in_inspected_source_record"
+      },
+      "solvent_policy": {
+        "user_prediction_solvent": "DMSO",
+        "source_experimental_NMR_solvent": "CD3OD",
+        "source_solvent_reference_ppm": {
+          "1H": 3.31,
+          "13C": 49.0
+        },
+        "literature_comparison_branch": "Use methanol continuum in a separate branch if comparing the source characterization; never describe source spectra as DMSO spectra.",
+        "source_imipramine_numeric_HC_shifts_available_in_article": false,
+        "exchangeable_proton_note": "N-OH proton may exchange in protic deuterated solvent; its computed shift is not an obligatory observed peak."
+      }
+    },
+    "source_index_sha256": "5095332ffc6d497e351cfd4e681bc5012c9b6cdc2056c5ed5adf7440268b9980"
+  }
+]

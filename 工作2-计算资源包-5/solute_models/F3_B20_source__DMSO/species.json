@@ -1,0 +1,17 @@
+{
+  "species_id": "F3_B20_source__DMSO",
+  "compound_id": "F3_B20",
+  "smiles": "O=C1[18O]Cc2ccccc21",
+  "solvent": "DMSO",
+  "solvent_experimental_label": "DMSO-d6",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "source_explicit_structure",
+  "formula": "C8H6O2",
+  "rotatable_bonds": 0,
+  "labelled_18O_count": 1,
+  "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+  "sampling_converged": false,
+  "default_run_enabled": true,
+  "has_Br": false
+}

@@ -1,0 +1,154 @@
+工作2-计算资源包-（5）：多重峰裂分模式验证
+
+1. 本模块完成的是什么
+
+提供“真实计算结果 + 真实实验资料 → 数值比较 → 人工科学判断”的完整核查工作流。
+它不是已经完成的实验验证，不会生成实验数据、自动批准或宣称64个分子谱图准确。
+未提供实验资料时，可以计算理论谱图，但不能把理论谱图与其自身的吻合当作验证。
+tests/test_multiplet.py 全部为临时合成的软件测试数据，不可作为实验资料引用。
+
+入口：
+    from clusterflow.multiplet import validate_multiplets
+    report = validate_multiplets(package_root, "validation/my_experimental_panel.json")
+
+可选参数 write=False 只读取和计算比较结果；output_path 可指定新的包内相对输出路径。
+默认写入 results/multiplet_validation/<时间和唯一编号>/report.json，拒绝覆盖旧报告。
+workflow.py 的 multiplet --panel 命令调用同一接口。
+
+2. 检查项目
+
+每个分子、每种核、每个采集条件分别建立实验面板。包括：
+  a. 实验样品、溶剂、温度、仪器频率、参考物、去耦及数据处理说明；
+  b. 每段多重峰的原子归属、峰数、组分峰位置、相邻间距和相对积分；
+  c. 峰组总积分与对应核数；
+  d. 重叠、未分辨峰、交换性氢和二阶效应；
+  e. 用相同场强计算出的跃迁、可分辨峰组及所用自旋模型；
+  f. 真实 ORCA 结果、构象/TMS 权重和实验资料的可追踪性。
+
+输出同时保留绝对峰位误差，以及整体居中后的裂分模式误差。
+居中仅用于额外的诊断指标，不会修改原始化学位移，不会对每条峰任意平移或拟合 J。
+峰数不等时仍报告不一致，不把未匹配的峰悄悄丢掉后宣称模式吻合。
+每个观察核必须被归属，或者明确写出排除理由；排除项永远显示在报告中。
+“全部原子已登记”不等于“每个区域已经验证”，重叠或未分辨区域会保留未完成状态。
+
+3. 线宽可以修改
+
+氢谱1 Hz、碳谱2 Hz均是可修改的展示/展宽参数，不是量子化学计算结果，也不是精度指标。
+本模块允许 spectrum_settings 中设置 linewidth_Hz_H、linewidth_Hz_C。
+比较所用 field_MHz 来自真实实验仪器，不使用默认400 MHz替代真实采集场强。
+
+resolution_Hz 与绘图线宽不同：它表示实验中可分辨组分的有效间隔。
+本模块对距离小于该值的理想跃迁按积分合并，得到积分重心；不是对实验谱线做自动拟合。
+relative_area_floor 是显式记录的相对检测阈值，应依据实验信噪比合理设定。
+输入 line area 必须是拟合或归属得到的组分积分，不能用峰高替代积分。
+若积分无法定量比较，保留数据但把相应 quantitative 标记设为 false，程序不评分。
+普通宽带去耦13C谱受到弛豫和NOE影响，通常不能直接验证各碳位点的积分比例。
+
+4. 自旋模型的边界
+
+内置程序对不超过10个氢的独立H-H耦合块采用精确自旋1/2哈密顿量。
+这能描述该模型中的二阶效应，但不是所有复杂分子的无条件全自旋解。
+含H-F耦合或过大的氢自旋块仍使用明确标记的一阶近似；碳谱采用13C{1H}独立位点模型，
+保留一阶C-F裂分，不包含实验NOE/弛豫强度预测、13C卫星及四极核耦合。
+交换性氢不进入相干裂分模拟；实际交换速率必须结合实验解释。
+
+delta-nu/|J| 小时程序提示复核二阶效应。等价氢的该比值也可能很小，不能仅凭比值断言
+实验一定存在可见的二阶畸变。报告同时列出模型性质和实验 second_order_observed。
+
+对强耦合的大自旋系统，可提供独立自旋程序输出的完整跃迁表。
+本模块会核查其参数、原子范围、场强和来源绑定，再对实验比较；不会声称已独立证明
+外部求解器的正确性。外部程序的设置、参数截断、磁等价处理、遗漏自旋等仍需人工复核。
+ORCA的J计算得到耦合参数，本身不等于所有复杂分子的完整实验裂分谱已通过验证。
+
+5. 实验面板 JSON 结构
+
+以下仅说明字段，不是已填好的实验数据。所有路径须为计算包内相对路径，所有SHA256
+须由实际文件计算。不要把占位符、软件测试谱图或模拟峰位置填写为实验结果。
+
+{
+  "schema_version": "1.0",
+  "data_kind": "EXPERIMENTAL_NMR",
+  "prediction": {"path": "results/.../prediction.json", "sha256": "实际SHA256"},
+  "experimental_artifacts": [
+    {"path": "validation/experiment/.../原始或处理后谱文件", "sha256": "实际SHA256"},
+    {"path": "validation/experiment/.../归属和拟合记录", "sha256": "实际SHA256"}
+  ],
+  "assignment_review": {
+    "reviewer": "实际审核人", "date": "审核日期", "notes": "归属依据及不确定性"
+  },
+  "experiment": {
+    "sample_identity": "实际species_id或compound_id",
+    "solvent": "DMSO-d6", "temperature_K": "填写实际数字",
+    "nucleus": "1H", "field_MHz": "填写实际数字",
+    "reference": "实际参考物和方式", "decoupling": "none",
+    "processing": "相位、基线、加窗、零填充、拟合方法等"
+  },
+  "spectrum_settings": {"linewidth_Hz_H": 1.0, "linewidth_Hz_C": 2.0},
+  "regions": [{
+    "id": "唯一峰组编号",
+    "assigned_atom_indices_zero_based": ["实际原子序号，数字，从0开始"],
+    "experimental_window_ppm": ["实际下界数字", "实际上界数字"],
+    "model_window_ppm": ["明确记录的计算谱区间下界", "上界"],
+    "overlap": false, "second_order_observed": "unknown",
+    "multiplicity_description": "实验中实际观察到的d/t/dd/m等及说明",
+    "lines": [{"ppm": "实际峰位数字", "area": "实际积分数字"}],
+    "line_area_kind": "fitted_or_assigned_component_area",
+    "line_area_quantitative": true,
+    "resolution_Hz": "实验有效分辨间隔数字", "relative_area_floor": 0.01,
+    "integral": {
+      "value": "实际峰组总积分数字", "normalization_per_nucleus": "每个核的归一化值",
+      "quantitative": true, "normalization_description": "参考峰及定量适用性"
+    }
+  }],
+  "excluded_atoms": [{"atom_index_zero_based": "实际序号", "reason": "明确科学理由"}]
+}
+
+13C面板使用 nucleus="13C"、decoupling="1H"，并填真实碳频率。
+1H面板使用 nucleus="1H"、decoupling="none"。
+second_order_observed 可填 yes、no、unknown。
+若实验某区完全未分辨，可以把 lines 设为空列表，但必须添加 unresolved_reason。
+model_window_ppm 可省略，届时采用实验区间；若计算偏移较大，可另设模型区间并说明。
+区间截断、其他峰混入或同一精确自旋块共享跃迁，会产生人工复核提示。
+
+6. 容差和人工决策
+
+tolerances 可覆盖以下初始建议值：
+absolute_position_rmse_ppm       0.15
+centered_position_rmse_Hz        1.0
+adjacent_spacing_rmse_Hz         1.0
+relative_line_area_mae           0.10
+relative_region_integral_error   0.15
+line_count_difference           0
+strong_coupling_ratio_warning   10.0
+
+这些是可调整的工程提示值，不是已建立的普适准确度或强制接受线。
+应在查看该批比较结果前，根据实验分辨率、噪声、核类型及用途确定合理标准。
+超出值时报告原因和建议，不自动丢弃构象、改J值、改实验峰或禁止继续检查。
+只有缺文件、来源校验失败、核归属遗漏、无效数值等输入完整性问题会停止比较。
+最终状态始终为 METRICS_COMPLETE_AWAITING_HUMAN_REVIEW，不自动签发PASS。
+
+7. 外部完整跃迁表（可选）
+
+在面板加入 external_transitions={"path":"...json","sha256":"..."}。
+此文件至少包括：
+  prediction_sha256：实际prediction.json哈希；
+  parameter_digest：由 multiplet.parameter_digest(spectrum_atom_rows,j_pairs,nucleus,field_MHz)生成；
+  solver、solver_version、hamiltonian_description、limitations：非空说明；
+  spin_model_scope：REVIEWED_FULL_SPIN_MODEL 或 DECLARED_APPROXIMATION，必须准确声明；
+  solver_artifacts：原始输入/输出的包内路径及SHA256列表；
+  review：reviewer、date、notes；
+  observed_atom_indices_zero_based：完整且升序的观察核序号；
+  sticks：[{"ppm":数字,"intensity":数字,"source_atom_indices":[原子序号...]}]。
+跃迁积分总和须归一化为观察核数。禁止遗漏耦合后仍标为完整精确模型。
+本模块保存外部求解器说明及限制，以 reviewed external output 区别于内置模型。
+特别是含F的完整自旋系统：当前计算输出不包含19F化学位移和F-F耦合。若声明
+REVIEWED_FULL_SPIN_MODEL，必须通过additional_spin_parameters说明这些额外参数
+的来源及适用范围，并用artifacts的路径和SHA256绑定资料；不能用缺失值默认为零。
+
+8. 原始资料保护
+
+每次比较都从真实完成的ORCA输出只读重新汇总，逐项核对chemical shifts、J、方法、
+温度、构象权重、TMS权重、输入/输出哈希及冻结ensemble。修改prediction并重新哈希
+不能绕开数值重新计算的比较。实验资料和归属复核记录单独绑定到报告。
+这能防止无意改动和来源混淆；文件哈希本身不能证明某份谱图真正来自实验。
+真实采集来源、样品身份、结构归属及峰组处理仍由实验人员负责并作最终判断。

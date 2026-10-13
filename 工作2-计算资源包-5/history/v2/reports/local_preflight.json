@@ -1,0 +1,24 @@
+{
+  "status": "PREFLIGHT_BLOCKED",
+  "passed": false,
+  "reasons": [
+    "External xTB executable missing or not executable",
+    "Windows xTB runtime libiomp5md.dll missing beside ORCA"
+  ],
+  "orca_executable": "D:\\ORCA_6.1.1\\orca.exe",
+  "orca_sha256": "8d6b51bf4093c967dbed997cc651f0212b8f94313ee77ea56f548f000672c42f",
+  "orca_required_version": "6.1.1",
+  "embedded_versions": [
+    "6.1.1"
+  ],
+  "version_evidence": "READ_ONLY_BINARY_MARKER_NOT_RUNTIME_VERIFICATION",
+  "xtb_executable": "D:\\ORCA_6.1.1\\otool_xtb.exe",
+  "xtb_sha256": null,
+  "xtb_version_status": "NOT_EXECUTED_NOT_VERIFIED_REQUIRE_6.7.1_OR_LATER",
+  "xtb_install_documentation": "https://www.faccts.de/docs/orca/6.1/manual/contents/modelchemistries/semiempirical.html",
+  "mpi_launcher": "C:\\Program Files\\Microsoft MPI\\Bin\\mpiexec.EXE",
+  "mpi_build_compatibility": "SITE_VALIDATION_REQUIRED",
+  "nprocs": 8,
+  "runtime_goat_smoke": "UNVALIDATED_NOT_EXECUTED",
+  "quantum_jobs_launched": 0
+}

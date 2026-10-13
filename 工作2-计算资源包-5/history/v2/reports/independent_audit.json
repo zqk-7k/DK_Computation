@@ -1,0 +1,196 @@
+{
+  "audit": "INDEPENDENT_ALL_PREPARED_INITIAL_CLUSTERS_STATIC_QA",
+  "generated_utc": "2026-10-13T06:49:21.016676+00:00",
+  "status": "STATIC_INPUT_CHECKS_PASS_WITH_LIMITATIONS",
+  "package_root": "E:\\For_codex\\isotope_work\\ORCA_64_18O_EXPLICIT_51REF_v2",
+  "original_source_root": "E:\\For_codex\\isotope_work\\ORCA_64_18O_NMR_WORKFLOW_v1",
+  "reference_commit": "933cb6159294813a79f443921920127032fb01d4",
+  "auditor_script_sha256": "f37587dfe3497dc8243347fa285fe70a4578bde772709fc29fea7b876f38991d",
+  "rdkit_version": "2026.03.3",
+  "scope": {
+    "products": 64,
+    "source_active_models_including_TMS": 67,
+    "fixed_composition_scenarios": 201,
+    "manifest_jobs": 938,
+    "jobs_fully_audited": 938,
+    "jobs_passing": 938,
+    "all_jobs_audited": true,
+    "QM_jobs_executed_by_auditor": 0
+  },
+  "inputs": {
+    "jobs_manifest_sha256": "c71e8e8065edefde515651b31d6203b95e57f5a942fbc55a38c15f25a494bdff",
+    "source_provenance_sha256": "fa7d01849e2e11e691a94169056f3717586a86d191e1b30306ac228f09dc88ef"
+  },
+  "test_counts": {
+    "12D_in_two_DMSO_only": 938,
+    "18O_count_and_original_indices": 938,
+    "all_isotopes_supported": 39793,
+    "analyte_atom_order_isotopes_charges": 938,
+    "analyte_bond_graph_order": 938,
+    "analyte_component_map": 938,
+    "analyte_is_first_intact_fragment": 938,
+    "bond_length_sanity": 38662,
+    "cluster_atom_count": 938,
+    "cluster_exact_mass_independent_crosscheck": 938,
+    "cluster_total_charge": 938,
+    "complete_initial_start_indices": 201,
+    "copied_source_model_hash": 67,
+    "environment_covalent_topology": 1943,
+    "environment_fragment_isotopic_formula": 1943,
+    "exact_isotope_mass_constants": 39793,
+    "expected_initial_job_count": 1,
+    "expected_products_and_models": 1,
+    "explicit_goat_alpb_input": 938,
+    "finite_xyz": 938,
+    "fragment_component_label_consistency": 1943,
+    "fragment_count": 938,
+    "input_charge_multiplicity_local_xyz": 938,
+    "interfragment_clearance": 508889,
+    "intrafragment_nonbonded_sanity": 365845,
+    "isotope_sidecar_exact_subset": 938,
+    "job_path_confined": 938,
+    "manifest_composition": 938,
+    "manifest_file_hash": 4690,
+    "map_atom_identity": 39793,
+    "map_bond_neighbours": 39793,
+    "map_source_and_environment_indices": 39793,
+    "no_exact_duplicate_cluster_coordinates": 1,
+    "no_qm_output_in_start_directory": 938,
+    "no_qm_success_claim": 938,
+    "no_runtime_success_claim": 938,
+    "no_sampling_convergence_claim": 938,
+    "product_registry_preserved": 1,
+    "provenance_composition": 938,
+    "provenance_source_hash": 938,
+    "provenance_species_consistency": 938,
+    "reference_snapshot_hash": 6,
+    "solute_and_map_atom_count": 938,
+    "solvent_excluded_from_analyte_nmr": 39793,
+    "source_products_hash": 1,
+    "source_species_hash": 1,
+    "species_registry_exact_source_subset": 1,
+    "stored_analyte_stereochemistry": 938,
+    "unique_job_directories": 1,
+    "unique_job_ids": 1,
+    "xyz_atom_count": 938,
+    "xyz_derived_analyte_stereochemistry": 938,
+    "xyz_mol_atom_order": 938,
+    "xyz_mol_coordinate_rounding": 938,
+    "xyz_plain_coordinate_columns": 938
+  },
+  "error_count": 0,
+  "errors": [],
+  "initial_geometry_methods": {
+    "INDEPENDENT_ETKDGv3_WITH_FIXED_ATOM_ORDER": 931,
+    "AUDITED_SEED_SMALL_PERTURBATION_NOT_INDEPENDENT_CONFORMER_DISCOVERY": 7
+  },
+  "isotope_inventory": {
+    "18O_atoms_across_jobs": 1022,
+    "D_atoms_across_jobs": 8844
+  },
+  "geometry": {
+    "minimum_interfragment_distance_A": 1.5361712444628532,
+    "minimum_vdw_clearance_margin_A": 0.00017124446285321504,
+    "max_xyz_mol_component_rounding_difference_A": 0.00004999970000002518,
+    "exact_duplicate_coordinate_groups": [],
+    "analyte_near_identical_pair_count": 592
+  },
+  "mass": {
+    "explicit_isotope_constants_u": {
+      "18O": 17.99915961286,
+      "2H": 2.01410177812
+    },
+    "primary_mass_sources_verified_2026_10_13": [
+      "https://physics.nist.gov/cgi-bin/Compositions/stand_alone.pl?ele=O",
+      "https://physics.nist.gov/cgi-bin/Compositions/stand_alone.pl?ele=H"
+    ],
+    "minimum_cluster_exact_mass_u": 76.04102442486,
+    "maximum_cluster_exact_mass_u": 594.2952028631607,
+    "maximum_RDKit_comparison_difference_u": 0.000004161419951742573,
+    "RDKit_isotope_table_u": {
+      "18O": 17.999161,
+      "2H": 2.014101778
+    },
+    "maximum_RDKit_isotope_table_adjusted_difference_u": 3.410605131648481e-13,
+    "interpretation": "Neutral sum of isotope masses; not m/z or an experimental mass spectrum."
+  },
+  "all_job_result_digest_sha256": "e79860c9850270f595131ab68cc4b9ee4435a895be2c2dce016a8456d5a7e213",
+  "warnings": [
+    {
+      "code": "NO_QM_OR_ACCURACY_VALIDATION",
+      "detail": "All tests concern input models, atom maps and simple geometry. They do not establish stable solvation structures, equilibrium populations, sampling convergence, or NMR accuracy."
+    },
+    {
+      "code": "ISOTOPES_SIDECAR_ONLY_FOR_GOAT",
+      "detail": "Standard XYZ and GOAT input do not apply the preserved 18O/D masses to ORCA. Exact masses are verified in maps only. Downstream frequency/QRRHO mass injection and ensemble acceptance are not implemented or validated."
+    },
+    {
+      "code": "START_UNIQUENESS_NOT_CONFORMER_INDEPENDENCE",
+      "detail": "Exact coordinate uniqueness is not independent basin discovery. Near-identical heavy-atom pair-distance starts, including rigid molecules and fallback perturbations, are counted but are not converged conformers.",
+      "near_identical_pairs_below_0.01_A_RMS": 592,
+      "examples": [
+        [
+          "F2_E01_rep_R__DMSO",
+          2,
+          1,
+          0.00000198
+        ],
+        [
+          "F2_E01_rep_R__DMSO",
+          3,
+          1,
+          0.00001569
+        ],
+        [
+          "F2_E01_rep_R__DMSO",
+          3,
+          2,
+          0.00001626
+        ],
+        [
+          "F2_E01_rep_R__DMSO",
+          5,
+          4,
+          5.9e-7
+        ],
+        [
+          "F2_E01_rep_R__DMSO",
+          6,
+          1,
+          0.00000153
+        ],
+        [
+          "F2_E01_rep_R__DMSO",
+          6,
+          2,
+          9.6e-7
+        ],
+        [
+          "F2_E01_rep_R__DMSO",
+          6,
+          3,
+          0.0000163
+        ],
+        [
+          "F2_E01_rep_R__DMSO",
+          7,
+          4,
+          0.00000238
+        ],
+        [
+          "F2_E01_rep_R__DMSO",
+          7,
+          5,
+          0.00000287
+        ],
+        [
+          "F2_E03_rep_R__DMSO",
+          3,
+          1,
+          0.00000272
+        ]
+      ]
+    }
+  ],
+  "scientific_acceptance": "NOT_EVALUATED_NO_QM_NO_SAMPLING_CONVERGENCE_NO_PREDICTED_SPECTRA"
+}

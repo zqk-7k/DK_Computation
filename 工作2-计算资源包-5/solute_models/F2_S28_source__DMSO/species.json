@@ -1,0 +1,17 @@
+{
+  "species_id": "F2_S28_source__DMSO",
+  "compound_id": "F2_S28",
+  "smiles": "N[C@@H](CCCCNC(=O)CCCC[C@H]1[C@H]2NC(=O)N[C@H]2CS1(=[18O])=[18O])C(=O)O",
+  "solvent": "DMSO",
+  "solvent_experimental_label": "DMSO-d6",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "source_explicit_structure",
+  "formula": "C16H28N4O6S",
+  "rotatable_bonds": 11,
+  "labelled_18O_count": 2,
+  "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+  "sampling_converged": false,
+  "default_run_enabled": true,
+  "has_Br": false
+}

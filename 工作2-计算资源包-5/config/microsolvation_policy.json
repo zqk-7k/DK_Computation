@@ -1,0 +1,48 @@
+{
+  "schema_version": "4.0",
+  "package_name": "工作2-计算资源包-（4）",
+  "active_scenario": "DMSO_02_W01_trace_water_sensitivity",
+  "active_registry": "registry/jobs.json",
+  "start_count_source": "registry/sampling_plan_v4.json",
+  "per_species_start_counts": "Use species[].n_starts; no common fixed first-wave count",
+  "planned_product_starts": 1012,
+  "planned_TMS_starts": 8,
+  "planned_total_starts": 1020,
+  "n_starts_meaning": "INDEPENDENT_GOAT_INITIAL_LAYOUTS_NOT_FINAL_CONFORMER_COUNT",
+  "advisory_candidate_bands_are_not_quotas_or_caps": true,
+  "minimum_success_is_not_convergence": true,
+  "automatic_adaptive_release_controller_available": false,
+  "explicit_DMSO_d6": 2,
+  "explicit_H2O": 1,
+  "explicit_D2O": 0,
+  "DMSO_H_isotope": 2,
+  "trace_water": "ordinary_H2_16O",
+  "analyte_exchangeable_H": "retained_as_H; no_unjustified_automatic_HD_exchange",
+  "temperature_K": 298.15,
+  "sampling_continuum": "ALPB(DMSO)",
+  "DFT_continuum": "CPCM(DMSO)",
+  "temperature_status": "PROVISIONAL_UNTIL_EXPERIMENT_LOCKED",
+  "experimental_solvent_and_water_content_confirmed": false,
+  "cross_composition_Boltzmann_pooling": false,
+  "cross_stereoisomer_Boltzmann_pooling": false,
+  "cross_protonation_state_Boltzmann_pooling": false,
+  "TMS": "separate_weighted_reference_with_same_composition_solvent_temperature_and_shielding_method",
+  "explicit_2_DMSO_d6_is_not": [
+    "measured_coordination_number",
+    "complete_solvation_shell",
+    "accuracy_guarantee"
+  ],
+  "one_water_is_not": "measured_water_concentration",
+  "inactive_optional_controls": [
+    "DMSO_00_W00_continuum",
+    "DMSO_02_W00_primary"
+  ],
+  "controls_are_prerequisites": false,
+  "optional_control_compounds": [
+    "F2_E01", "F2_E12", "F2_S01", "F2_S28",
+    "F3_N01", "F3_B03", "F4_D04", "F4_D07"
+  ],
+  "inactive_control_directories": "Retained for provenance; excluded from active registry/jobs.json; never submit by directory glob",
+  "sampling_converged": false,
+  "quantum_calculations_started": false
+}

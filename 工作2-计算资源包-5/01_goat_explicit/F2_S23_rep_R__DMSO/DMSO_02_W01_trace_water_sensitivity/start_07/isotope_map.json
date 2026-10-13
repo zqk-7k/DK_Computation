@@ -1,0 +1,210 @@
+[
+  {
+    "index_zero_based": 3,
+    "index_one_based": 4,
+    "element": "O",
+    "isotope": 18,
+    "isotope_mass_u": 17.99915961286,
+    "component": "analyte",
+    "environment_atom": false,
+    "source_atom_index_zero_based": 3,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      2
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 22,
+    "index_one_based": 23,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_01",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      18
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 23,
+    "index_one_based": 24,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_01",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      18
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 24,
+    "index_one_based": 25,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_01",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      18
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 25,
+    "index_one_based": 26,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_01",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      20
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 26,
+    "index_one_based": 27,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_01",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      20
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 27,
+    "index_one_based": 28,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_01",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      20
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 32,
+    "index_one_based": 33,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_02",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      28
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 33,
+    "index_one_based": 34,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_02",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      28
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 34,
+    "index_one_based": 35,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_02",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      28
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 35,
+    "index_one_based": 36,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_02",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      30
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 36,
+    "index_one_based": 37,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_02",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      30
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  },
+  {
+    "index_zero_based": 37,
+    "index_one_based": 38,
+    "element": "H",
+    "isotope": 2,
+    "isotope_mass_u": 2.01410177812,
+    "component": "DMSO_d6_02",
+    "environment_atom": true,
+    "source_atom_index_zero_based": null,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      30
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  }
+]

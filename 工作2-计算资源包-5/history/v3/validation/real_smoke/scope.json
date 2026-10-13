@@ -1,0 +1,13 @@
+{
+  "scope": "TWO_SIX_ATOM_WATER_DIMER_ENGINEERING_TESTS_ONLY",
+  "target_product_calculations": 0,
+  "GOAT_calculations": 0,
+  "scientific_accuracy_validation": false,
+  "not_validated": [
+    "DMSO cluster stability",
+    "sampling convergence",
+    "target thermochemistry",
+    "experimental NMR accuracy"
+  ],
+  "large_restart_files_omitted_from_delivery": true
+}

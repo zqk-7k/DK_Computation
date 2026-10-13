@@ -1,0 +1,17 @@
+{
+  "species_id": "F2_E22_face_2__DMSO",
+  "compound_id": "F2_E22",
+  "smiles": "C=C(C)[C@H]1CC(=O)[C@@]2(C)[18O][C@@H]2C1",
+  "solvent": "DMSO",
+  "solvent_experimental_label": "DMSO-d6",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "unassigned_new_epoxide_face_diastereomer",
+  "formula": "C10H14O2",
+  "rotatable_bonds": 1,
+  "labelled_18O_count": 1,
+  "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+  "sampling_converged": false,
+  "default_run_enabled": true,
+  "has_Br": false
+}

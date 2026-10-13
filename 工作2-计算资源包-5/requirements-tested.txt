@@ -1,0 +1,6 @@
+# Environment used for engineering tests on 2026-10-13 (Python 3.13).
+# ORCA, MPI and the compatible external xTB executable are separate dependencies.
+rdkit==2026.3.3
+numpy==2.5.0
+scipy==1.18.0
+matplotlib==3.11.0

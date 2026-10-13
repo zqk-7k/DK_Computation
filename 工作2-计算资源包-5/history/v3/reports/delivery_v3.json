@@ -1,0 +1,23 @@
+{
+  "package_name": "工作2-计算资源包-（3）",
+  "generated_utc": "2026-10-13T07:25:25.915137+00:00",
+  "protocol_hash": "68f2ccc1ee103477",
+  "reference_commit": "933cb6159294813a79f443921920127032fb01d4",
+  "original_v2_manifest_entries_unchanged": 6001,
+  "v3_immutable_entries_preserved": 5982,
+  "initial_jobs_audited": 938,
+  "initial_errors": 0,
+  "unit_tests_exit_code": 0,
+  "small_real_engineering_tests": 2,
+  "production_QM_jobs_launched": 0,
+  "target_product_spectra_calculated": false,
+  "production_scientific_validation": "NOT_COMPLETED",
+  "missing_local_GOAT_dependency": "otool_xtb and associated runtime; user must configure compatible licensed/available software",
+  "revDSD_active": false,
+  "independent_scenarios": [
+    "DMSO_00_W00_continuum",
+    "DMSO_02_W00_primary",
+    "DMSO_02_W01_trace_water_sensitivity"
+  ],
+  "scenario_prerequisites": {}
+}

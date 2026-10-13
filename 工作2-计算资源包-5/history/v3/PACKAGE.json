@@ -1,0 +1,11 @@
+{
+  "package_name": "工作2-计算资源包-（3）",
+  "sequence_number": 3,
+  "replaces_for_current_work": "ORCA_64_18O_EXPLICIT_51REF_v2",
+  "original_v1_v2_untouched": true,
+  "shielding_method": "PBE0/pcSseg-3 only",
+  "active_protocol": "config/protocol.json",
+  "original_reference": "reference_51/",
+  "reference_warning": "Historical reference may contain excluded methods. It is not the active execution configuration.",
+  "initial_cluster_data": "Same938 validated inputs as v2; only downstream code upgraded."
+}

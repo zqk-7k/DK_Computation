@@ -1,0 +1,19 @@
+[
+  {
+    "index_zero_based": 4,
+    "index_one_based": 5,
+    "element": "O",
+    "isotope": 18,
+    "isotope_mass_u": 17.99915961286,
+    "component": "analyte",
+    "environment_atom": false,
+    "source_atom_index_zero_based": 4,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      3,
+      5
+    ],
+    "include_in_analyte_nmr": false,
+    "exchangeable_H": false
+  }
+]

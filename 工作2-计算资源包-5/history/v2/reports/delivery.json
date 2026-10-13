@@ -1,0 +1,58 @@
+{
+  "package": "ORCA_64_18O_EXPLICIT_51REF_v2",
+  "scope": {
+    "status": "INITIAL_STRUCTURES_PREPARED_NO_QM",
+    "products": 64,
+    "solute_model_branches_excluding_reference": 66,
+    "reference_models": 1,
+    "fixed_composition_scenarios_including_TMS": 201,
+    "jobs": 938,
+    "wave1_jobs": 938,
+    "held_jobs": 0,
+    "sampling_converged": false,
+    "ORCA_GOAT_run": false,
+    "DFT_run": false,
+    "NMR_spectra_generated": false
+  },
+  "reference_files_verified_against_pinned_git": [
+    {
+      "path": "README.md",
+      "sha256": "c618d409289c384c7b989673e9164c2c860b30090d465b12b2afe5ef0e3a8312",
+      "pinned_git_blob_match": true
+    },
+    {
+      "path": "config/stage_methods.json",
+      "sha256": "9aa6f4d65b45493ef722e74ae558a3f449d6231d2da6286080398b7b77bfae40",
+      "pinned_git_blob_match": true
+    },
+    {
+      "path": "config/adaptive_goat_policy.json",
+      "sha256": "b857cd1f7008b7b0846c4dff9c88b64bd9525c10f199de623a4167913f34ce3b",
+      "pinned_git_blob_match": true
+    },
+    {
+      "path": "config/qrrho_and_conformer_policy.json",
+      "sha256": "3a1cd40b86ac41e1d038e30c72b0858f4577b02265d1cea62285d296872d2fab",
+      "pinned_git_blob_match": true
+    },
+    {
+      "path": "config/reference_validation_policy.json",
+      "sha256": "aa171b99e5e2611a3a327a2d6545e361fe4085234b87953f7681da0203df6b0e",
+      "pinned_git_blob_match": true
+    },
+    {
+      "path": "scripts/prepare_explicit_goat_jobs.py",
+      "sha256": "709beeb88d9bad8d031707d2e7b393092585dccf6985539be80caa686865b6d1",
+      "pinned_git_blob_match": true
+    }
+  ],
+  "original_v1_hashes_verified_unchanged": 2964,
+  "unit_test_exit_code": 0,
+  "independent_audit_report": "reports/independent_audit.json",
+  "independent_audit_jobs_passed": 938,
+  "independent_audit_error_count": 0,
+  "local_static_preflight_status": "PREFLIGHT_BLOCKED",
+  "GOAT_DFT_NMR_production_executed": false,
+  "fully_automated_downstream_pipeline": false,
+  "notice": "INITIAL_MICROSOLVATION_MODELS_NOT_EXPERIMENTAL_DATA_NOT_QM_OPTIMIZED"
+}

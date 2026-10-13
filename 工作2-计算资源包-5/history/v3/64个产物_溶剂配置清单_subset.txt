@@ -1,0 +1,7 @@
+64个产物显式溶剂配置清单（计算假设；未做ORCA优化）
+每个模型：DMSO-d6连续介质；0DMSO/0水、2DMSO/0水、2DMSO/1普通水三个独立分支。
+初始作业数：3、4、7；不是已收敛构象数。温度暂定298.15 K。
+
+F2_E01 | Styrene oxide | F2_E01_rep_R__DMSO | q=0 | 0/0;2/0;2/1
+F3_B06 | Adamantan-2-one-derived lactone | F3_B06_cage_rep__DMSO | q=0 | 0/0;2/0;2/1
+F4_D03 | [Sulfinyl-18O]omeprazole | F4_D03_rep_R__DMSO | q=0 | 0/0;2/0;2/1

@@ -1,0 +1,69 @@
+{
+  "schema_version": "4.0",
+  "package_name": "工作2-计算资源包-（4）",
+  "created_date": "2026-10-14",
+  "parent_package": "工作2-计算资源包-（3）",
+  "parent_preserved": true,
+  "reference_repository": "zqk-7k/DK_Computation",
+  "reference_folder": "51计算包",
+  "reference_commit": "933cb6159294813a79f443921920127032fb01d4",
+  "active_protocol": "config/protocol.json",
+  "active_GOAT_registry": "registry/jobs.json",
+  "sampling_plan": "registry/sampling_plan_v4.json",
+  "product_solvent_plan": "registry/product_solvent_sampling_v4.json",
+  "product_workbook": "工作2-计算资源包-（4）-64个化合物溶剂与GOAT计划.xlsx",
+  "counts": {
+    "products": 64,
+    "product_structure_models": 66,
+    "TMS_models": 1,
+    "active_scenarios_including_TMS": 67,
+    "product_GOAT_starts": 1012,
+    "TMS_GOAT_starts": 8,
+    "total_active_GOAT_starts": 1020
+  },
+  "active_scenario": "DMSO_02_W01_trace_water_sensitivity",
+  "solvent_model": {
+    "explicit_DMSO_d6": 2,
+    "explicit_ordinary_H2O": 1,
+    "sampling_continuum": "ALPB(DMSO)",
+    "DFT_continuum": "CPCM(DMSO)",
+    "temperature_K": 298.15,
+    "status": "PROVISIONAL_MODEL_NOT_MEASURED_SAMPLE_CONDITIONS"
+  },
+  "revDSD_active": false,
+  "HPC_configuration_performed": false,
+  "GOAT_or_DFT_launched_in_v4_build": false,
+  "sampling_convergence_established": false,
+  "experimental_accuracy_validated": false,
+  "complete_51_feature_parity_claimed": false,
+  "complete_exact_multiplet_engine_for_all_64_claimed": false,
+  "spectrum_defaults": {
+    "proton_Lorentzian_FWHM_Hz": 1.0,
+    "carbon_Lorentzian_FWHM_Hz": 2.0,
+    "adjustable": true,
+    "display_only_CLI_overrides": ["--linewidth-h", "--linewidth-c"],
+    "predicted_relaxation_linewidth": false
+  },
+  "figure4_J_method": "PBE_pcJ3",
+  "scientific_issue_policy": "ADVISORY_DIAGNOSIS_WITH_SOURCE_BOUND_NAMED_HUMAN_REVIEW",
+  "legacy_scripts_do_not_run": [
+    "scripts/initialize_v3.py",
+    "scripts/package_work2.py",
+    "scripts/micro64.py (legacy package-generation entrypoint)"
+  ],
+  "current_documents": [
+    "README_先读.txt",
+    "docs/v4变更与运行说明.txt",
+    "docs/51流程覆盖说明_v4.txt",
+    "docs/构象数量依据.txt",
+    "docs/异常处理与人工复核.txt",
+    "docs/多重峰裂分验证.txt"
+  ],
+  "legacy_documents_retained_not_current_authority": [
+    "history/v3/docs/与51计算包的对应关系.txt",
+    "history/v3/docs/基准与收敛审查.txt",
+    "history/",
+    "reference_51/"
+  ],
+  "status": "INITIAL_MODELS_AND_WORKFLOW_PREPARED_NO_PRODUCTION_QUANTUM_RESULTS"
+}

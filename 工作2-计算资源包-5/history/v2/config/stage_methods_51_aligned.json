@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "package_mode": "PRACTICAL_HIGH_ACCURACY",
+  "status": "production_oriented_unvalidated_protocol",
+  "orca_version": "6.1.1",
+  "orca_version_policy": {
+    "exact_version_required_within_a_method_branch": true,
+    "mixed_version_reference_forbidden": true,
+    "version_specific_input_preflight_required": true
+  },
+  "global_rules": {
+    "fixed_composition_branches_must_remain_separate": true,
+    "different_charge_or_multiplicity_must_remain_separate": true,
+    "raw_shieldings_from_different_methods_must_not_be_mixed": true,
+    "j_couplings_from_different_methods_must_not_be_averaged": true,
+    "experimental_fit_to_target_itself_forbidden": true,
+    "full_logs_and_input_hashes_required": true
+  },
+  "stages": {
+    "goat_sampling": {
+      "purpose": "fixed-composition conformational and microsolvation sampling",
+      "engine": "ORCA_GOAT_ENTROPY",
+      "low_level_method": "GFN2-xTB",
+      "implicit_solvent": "condition_specific_ALPB_or_supported_equivalent",
+      "production_outputs": false,
+      "adaptive_policy_file": "config/adaptive_goat_policy.json"
+    },
+    "broad_optfreq_prescreen": {
+      "method": "r2SCAN-3c",
+      "solvent_model": "condition_specific_CPCM",
+      "optimization": "TightOpt",
+      "scf": "TightSCF",
+      "grid": "DefGrid3",
+      "frequency": "analytic_or_version_supported",
+      "coverage": "all_unique_gate_approved_GOAT_conformers",
+      "role": "prescreen_and_initial_thermochemistry",
+      "not_final_geometry_when_PBE0_gate_is_required": true
+    },
+    "production_optfreq": {
+      "method": "PBE0",
+      "dispersion": "D4",
+      "orbital_basis": "def2-TZVPP",
+      "acceleration": "RIJCOSX",
+      "solvent_model": "condition_specific_CPCM",
+      "optimization": "VeryTightOpt",
+      "scf": "VeryTightSCF",
+      "grid": "DefGrid3",
+      "frequency": "analytic_or_version_supported",
+      "default_coverage": {
+        "cumulative_prescreen_population_fraction": 0.95,
+        "retain_every_required_motif": true,
+        "retain_all_near_degenerate_or_peak_order_sensitive_conformers": true
+      },
+      "full_coverage_modes": [
+        "small_rigid",
+        "ULTRA",
+        "coverage_gate_failure"
+      ]
+    },
+    "baseline_shielding": {
+      "method": "PBE0",
+      "orbital_basis": "pcSseg-3",
+      "gauge": "GIAO",
+      "density": "self_consistent",
+      "solvent_model": "condition_specific_CPCM",
+      "scf": "VeryTightSCF",
+      "grid": "DefGrid3",
+      "coverage": "all_population_and_motif_gate_approved_PBE0_conformers",
+      "role": "complete_baseline_branch"
+    },
+    "revdsd_validation": {
+      "method": "revDSD-PBEP86-D4/2021",
+      "orbital_basis": "pcSseg-3",
+      "gauge": "GIAO",
+      "density": "relaxed",
+      "solvent_model": "condition_specific_CPCM",
+      "coverage_basis": "PBE0_fixed_composition_populations",
+      "minimum_cumulative_population_fraction": 0.95,
+      "retain_every_required_motif": true,
+      "role": "independent_high_cost_validation_branch",
+      "mix_with_PBE0_raw_shieldings": false,
+      "default_frozen_core": true,
+      "no_frozen_core": {
+        "enabled_by_default": false,
+        "mode": "ULTRA_small_light_only",
+        "requires": [
+          "no_heavy_element_fail_closed_route",
+          "basis_and_auxiliary_basis_preflight_pass",
+          "memory_pilot_pass",
+          "same_method_reference_pass",
+          "explicit_approval_receipt"
+        ]
+      },
+      "if_population_coverage_below_threshold": "calculate_more_revDSD_conformers_and_renormalize_only_after_threshold_passes"
+    },
+    "reference": {
+      "rule": "same_method_same_basis_same_solvent_same_ORCA_version",
+      "default_reference": "TMS",
+      "aqueous_alternatives": [
+        "DSS",
+        "TSP"
+      ],
+      "alternative_reference_requires_independent_locked_protocol": true,
+      "reference_is_computed_per_electronic_structure_branch": true
+    },
+    "j_coupling_branches": {
+      "PBE_pcJ3": {
+        "method": "PBE",
+        "orbital_basis": "pcJ-3",
+        "status": "candidate_branch"
+      },
+      "PBE0_pcJ2": {
+        "method": "PBE0",
+        "orbital_basis": "pcJ-2",
+        "status": "candidate_branch"
+      },
+      "selection": "cross_compound_J_method_gate",
+      "average_branches": false,
+      "exchangeable_H": {
+        "retain_in_tables": true,
+        "include_in_coherent_fine_structure_by_default": false
+      }
+    },
+    "spin_simulation": {
+      "proton_model": "isotropic_spin_Hamiltonian_for_selected_nonexchangeable_spin_systems",
+      "carbon_model": "proton_decoupled_13C",
+      "first_output_layer": "CLEAN_CALCULATED",
+      "optional_second_output_layer": "SYNTHETIC_APPEARANCE"
+    }
+  },
+  "forbidden_claims": [
+    "highest_configuration_guarantees_experiment",
+    "one_benzamide_pilot_validates_all_chemical_classes",
+    "synthetic_noise_or_baseline_is_first_principles",
+    "revDSD_is_automatically_more_accurate_for_every_nucleus_and_condition"
+  ],
+  "name": "64_18O_ADAPTED_FROM_51_DESIGN",
+  "source_commit": "933cb6159294813a79f443921920127032fb01d4",
+  "implementation_status": "GOAT_STARTING_INPUTS_AND_SINGLE_JOB_RUNNER_ONLY",
+  "downstream_status": "NOT_COMMISSIONED_FOR_EXPLICIT_18O_CLUSTERS",
+  "original_51_code_configuration_drift": "See docs/流程差异与未完成事项.txt",
+  "minimum_required_adaptations": [
+    "18O_and_D_exact_mass",
+    "analyte_only_NMR",
+    "fixed_composition_separation",
+    "same_method_reference",
+    "real_GOAT_ensemble_selection",
+    "no_blind_v1_cluster_ingestion"
+  ]
+}

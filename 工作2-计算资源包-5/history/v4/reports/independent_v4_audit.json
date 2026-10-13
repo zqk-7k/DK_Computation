@@ -1,0 +1,133 @@
+{
+  "schema_version": "1.0",
+  "package_name": "工作2-计算资源包-（4）",
+  "status": "ENGINEERING_CHECKS_PASSED_SCIENTIFIC_RESULTS_NOT_VALIDATED",
+  "audit_scope": "Independent v4 requirement, routing, handoff, provenance and display review; not a claim that all 51-package functionality is identical.",
+  "timestamp_utc": "2026-10-13T13:49:31.373900+00:00",
+  "source_sha256": {
+    "workflow.py": "ef35f70143d77c3cda5b7f5a82d4161e977c724f155e81c8691be8b1c2c945a6",
+    "config/protocol.json": "775f0b66547315d41a8c91d8b4236e7427b19ea940148222e5ccf4d536d352e6",
+    "registry/products.json": "56cbe359ebcc4e00225639aee2b5c7588d855aaec9dbe45472c9d6c8127824e9",
+    "registry/species.json": "b10a175079ffc3acd87f93813416506f5f8410f5a07df3f457a260de73a21b97",
+    "registry/jobs.json": "b8e9b2e4218d953d0738fe99e50139ae4c01ffdeef449bd985e4f7a948322c3f",
+    "registry/sampling_plan_v4.json": "e32eb8a1b1189b6c5fd602ea5971db05dbba2231f907c2b3f0072cdb8806c770",
+    "scripts/plan_sampling_v4.py": "bb7a902bb513c64ea396f90acadba9a03bc8921d36a62dd707e52e66b5a2b591",
+    "tests/test_v4_integration.py": "2d90e3f7199b9daf75fcef157a13bacd15b9a73059969ef50b77ea2b163c55a6",
+    "tests/test_independent_workflow.py": "b5e5a59fe8e655aa8c40dbc56025b79e1e37059f36009eb41dcb8fce4b4f4f2f",
+    "clusterflow/__init__.py": "b1f37ca431e0a3ec69e172efe3d9fe2c6c63567acddca13d8200bb87f2f879d3",
+    "clusterflow/benchmark.py": "6f927f90071cb74f5e97823e27a2f6260cb060e1f578f4c965cfd8bb94c921a7",
+    "clusterflow/collect.py": "2a0e97e052f74321c75404ee97ab7cfcc19e232ee1835a6cafee1a7248ee7b87",
+    "clusterflow/common.py": "5024d8ac9b50020d1382469a659753d4dace6c68536f621b4ba3abbdca2f49bb",
+    "clusterflow/convergence.py": "abe0ec1a475fcc16d7cddd06b5e912eaf91743d9904de2c6d4c2c6f07120f159",
+    "clusterflow/gates.py": "4095d8c53b5ee7802f7d86ae1c956583c3fce3fa18e1b5f813aa082a50eed173",
+    "clusterflow/geometry.py": "10f0b32645aa2ab795f88a9ca5e15c45583e5b9cbfda7872e72eeb80072b1be0",
+    "clusterflow/inputs.py": "cee1175a94bb65bc69bf1e8a888154869c7bdcffde7aa7c45a9a8c4687a625cb",
+    "clusterflow/issue_review.py": "6ac400b44608a140db452904a9159c72561bc543affdce263eb176953fc699fb",
+    "clusterflow/multiplet.py": "d386d3b67ed4137249f1def2a7b5aed08b11315090a76853e5915866aae43237",
+    "clusterflow/orcaio.py": "6813db066b1d358fbe1d1fae43c13d1a1674dce9c2ea5f769a7c16b21e61ba49",
+    "clusterflow/pipeline.py": "2ac10f2173e2620da50c4927a137beac40b3cb3c2858907adfe1033b01df39c0",
+    "clusterflow/policy.py": "4444c4f2eebae9ccd874af1cc89b82de1bd3af8ce6efb5202970142bc9dfad8b",
+    "clusterflow/runner.py": "fd5b5cc79aa380fd47d68fd04259f4357350005056a50e56ed6206382fbef6ec",
+    "clusterflow/spectra.py": "0127ce822c3644496570377b1cb85bc8bf3c7c12986e315acb726f962debbb00"
+  },
+  "actual_registry_jobs": 1020,
+  "released_starts": 1020,
+  "scenario_ids": [
+    "DMSO_02_W01_trace_water_sensitivity"
+  ],
+  "planning_summary": {
+    "n_products": 64,
+    "n_product_species": 66,
+    "n_TMS_species": 1,
+    "product_starts": 1012,
+    "TMS_starts": 8,
+    "total_starts": 1020,
+    "by_figure": {
+      "2": {
+        "n_products": 30,
+        "n_starts": 480
+      },
+      "3": {
+        "n_products": 28,
+        "n_starts": 372
+      },
+      "4": {
+        "n_products": 6,
+        "n_starts": 160
+      }
+    },
+    "product_species_by_start_count": {
+      "8": 12,
+      "12": 23,
+      "16": 18,
+      "24": 8,
+      "32": 5
+    },
+    "n_optional_control_products": 8,
+    "n_enabled_control_starts": 0
+  },
+  "target_goat_output_files": 0,
+  "target_dft_output_files": 0,
+  "test_runs": [
+    {
+      "command": "py -3.13 -B -X utf8 -m unittest discover -s tests -p test_v4_integration.py -v",
+      "tests": 23,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 14.374,
+      "status": "PASS"
+    },
+    {
+      "command": "py -3.13 -B -X utf8 -m unittest discover -s tests -p test_independent_workflow.py -v",
+      "tests": 51,
+      "failures": 0,
+      "errors": 0,
+      "seconds": 0.468,
+      "status": "PASS"
+    }
+  ],
+  "test_data_notice": "Synthetic engineering fixtures in temporary directories only. No actual GOAT/DFT calculation, experimental dataset or scientific approval was created by this audit.",
+  "requirements_checked": [
+    "H defaults to 1 Hz Lorentzian FWHM; C defaults to 2 Hz. Display-only CLI linewidth overrides preserve the QM protocol hash and reject nonpositive/nonfinite values.",
+    "Main released registry contains exactly 1,020 independent GOAT starts for 66 product structural models plus TMS: 1,012 product starts and 8 TMS starts. Starts are not final optimized conformer counts.",
+    "All active starts use explicit 2 DMSO-d6 + 1 ordinary H2O. ALPB(DMSO) sampling and CPCM(DMSO) DFT coexist with explicit molecules; no continuum-only prerequisite.",
+    "All six actual Figure 4 structures traverse temporary synthetic completed-output handoffs to PBE/pcJ-3 J jobs only. J2 selection for these drugs is rejected. Figure 2/3 retain both benchmark candidates.",
+    "Negative modes require source-bound human review without an automatic frequency-magnitude acceptance threshold; approved exceptions remain labelled approximations, not certified minima.",
+    "Human-review hashes, limitations and scientific status survive Opt/Freq, ensemble and property handoffs. Changed reviews and historical-wave parent/G tampering are rejected.",
+    "Multiplet comparison uses the actual experimental field, requires source-bound experimental artifacts and returns recommendations rather than automatic approval.",
+    "No active revDSD stage, no automatic cluster submission, no automatic retry, and no completed-target-calculation claim."
+  ],
+  "issues_fixed_during_audit": [
+    {
+      "issue": "Nested spectrum settings could override mandatory experimental field in multiplet rendering.",
+      "resolution": "Display settings flattened before forcing the experimental field; regression passes."
+    },
+    {
+      "issue": "Historical convergence snapshots could reuse modified still-approved human reviews, stale property-parent reviews or changed stored G.",
+      "resolution": "Historical conformer review, actual G and shielding parent input/output/receipt/geometry/review bindings now checked; four tamper regressions pass."
+    },
+    {
+      "issue": "Editing protocol linewidths after QM would change protocol hash.",
+      "resolution": "Added display-only collect --linewidth-h/--linewidth-c overrides with prediction-bound display metadata; regression passes."
+    },
+    {
+      "issue": "Legacy mocked collector test used a nonexistent registry species after per-product routing was introduced.",
+      "resolution": "Only the fixture's compound lookup is mocked; runtime routing remains unchanged. All 51 legacy independent tests pass."
+    }
+  ],
+  "scientific_inputs_still_required": [
+    "Actual completed GOAT sampling, accepted DFT optimization/frequency, shielding and J results for targets and matched TMS; none produced by this audit.",
+    "Actual solvent, temperature, water content, sample protonation/tautomer and stereochemical identities. 2 DMSO + 1 water is a model choice, not a measured solvent shell or water concentration.",
+    "F4_D07 neutral DMSO model remains provisional; salt/protonation and alternative solvent need sample-owner confirmation.",
+    "F2_E11 and F2_E22 separate stereochemical branches must not be pooled without justified experimental composition.",
+    "Independent experimental J benchmarks and assigned experimental multiplet/lineshape data; no accuracy certification is supplied by program tests.",
+    "Sampling wave, solvent-motif and basin rediscovery review; the 8/12/16/24/32 start budgets do not establish convergence.",
+    "Internal exact proton spin blocks are limited to at most 10 H without F. Larger/F-containing strong-coupling cases need an appropriate reviewed external spin solver or explicit approximation review; an external transition handoff is available, not scientifically validated here."
+  ],
+  "limitations": [
+    "Full 51-package functional equivalence is not certified.",
+    "Geometry, parser and pipeline tests do not validate experimental molecular identities, chemical shifts or yields.",
+    "Reviewed negative modes remain approximate thermochemistry; no claim that an imaginary-mode structure is a true minimum.",
+    "This independent audit does not perform the separate full 1,020-geometry static audit, all package tests or archive verification; those are delivery-level checks recorded separately."
+  ]
+}

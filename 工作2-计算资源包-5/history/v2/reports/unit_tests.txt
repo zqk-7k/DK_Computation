@@ -1,0 +1,31 @@
+test_acknowledgement_required_even_dry_run (test_goat_job.GoatJobTests.test_acknowledgement_required_even_dry_run) ... ok
+test_dry_run_writes_nothing (test_goat_job.GoatJobTests.test_dry_run_writes_nothing) ... ok
+test_each_bound_input_tamper_blocked (test_goat_job.GoatJobTests.test_each_bound_input_tamper_blocked) ... ok
+test_escape_and_duplicate_id_blocked (test_goat_job.GoatJobTests.test_escape_and_duplicate_id_blocked) ... ok
+test_existing_output_receipt_and_lock_blocked (test_goat_job.GoatJobTests.test_existing_output_receipt_and_lock_blocked) ... ok
+test_held_and_nonprepared_blocked (test_goat_job.GoatJobTests.test_held_and_nonprepared_blocked) ... ok
+test_mislocated_xtb_blocked (test_goat_job.GoatJobTests.test_mislocated_xtb_blocked) ... ok
+test_missing_xtb_or_mpi_blocked (test_goat_job.GoatJobTests.test_missing_xtb_or_mpi_blocked) ... ok
+test_preflight_reads_marker_without_execution (test_goat_job.GoatJobTests.test_preflight_reads_marker_without_execution) ... ok
+test_scheduler_resource_mismatch_blocked (test_goat_job.GoatJobTests.test_scheduler_resource_mismatch_blocked) ... ok
+test_wrong_and_ambiguous_version_blocked (test_goat_job.GoatJobTests.test_wrong_and_ambiguous_version_blocked) ... ok
+test_xyz_fifth_column_rejected (test_goat_job.GoatJobTests.test_xyz_fifth_column_rejected) ... ok
+test_64_products (test_micro64.MicroTests.test_64_products) ... ok
+test_charge_rejected (test_micro64.MicroTests.test_charge_rejected) ... ok
+test_cluster18o_and_D (test_micro64.MicroTests.test_cluster18o_and_D) ... ok
+test_corrupt_mass_rejected (test_micro64.MicroTests.test_corrupt_mass_rejected) ... ok
+test_exact_plain_xyz (test_micro64.MicroTests.test_exact_plain_xyz) ... ok
+test_full_first_wave_counts (test_micro64.MicroTests.test_full_first_wave_counts) ... ok
+test_mass_block (test_micro64.MicroTests.test_mass_block) ... ok
+test_no_optional_model_silent_activation (test_micro64.MicroTests.test_no_optional_model_silent_activation) ... ok
+test_only_declared_initial_model (test_micro64.MicroTests.test_only_declared_initial_model) ... ok
+test_scenarios_not_pooled (test_micro64.MicroTests.test_scenarios_not_pooled) ... ok
+test_solvent_excluded (test_micro64.MicroTests.test_solvent_excluded) ... ok
+test_solvent_included_rejected (test_micro64.MicroTests.test_solvent_included_rejected) ... ok
+test_source_atom_order (test_micro64.MicroTests.test_source_atom_order) ... ok
+test_water_not_deuterated (test_micro64.MicroTests.test_water_not_deuterated) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 0.319s
+
+OK

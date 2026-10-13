@@ -1,0 +1,645 @@
+[
+  {
+    "index_zero_based": 0,
+    "index_one_based": 1,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      1,
+      25,
+      26
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 1,
+    "index_one_based": 2,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      0,
+      2,
+      27
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 2,
+    "index_one_based": 3,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      1,
+      3,
+      8,
+      28
+    ],
+    "exchangeable_H": false,
+    "CIP": "R"
+  },
+  {
+    "index_zero_based": 3,
+    "index_one_based": 4,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      2,
+      4,
+      29,
+      30
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 4,
+    "index_one_based": 5,
+    "element": "N",
+    "isotope": 0,
+    "formal_charge": 1,
+    "neighbours_zero_based": [
+      3,
+      5,
+      6,
+      10
+    ],
+    "exchangeable_H": false,
+    "CIP": "R"
+  },
+  {
+    "index_zero_based": 5,
+    "index_one_based": 6,
+    "element": "O",
+    "isotope": 18,
+    "formal_charge": -1,
+    "neighbours_zero_based": [
+      4
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 6,
+    "index_one_based": 7,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      4,
+      7,
+      31,
+      32
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 7,
+    "index_one_based": 8,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      6,
+      8,
+      33,
+      34
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 8,
+    "index_one_based": 9,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      7,
+      9,
+      2,
+      35
+    ],
+    "exchangeable_H": false,
+    "CIP": "S"
+  },
+  {
+    "index_zero_based": 9,
+    "index_one_based": 10,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      8,
+      10,
+      36,
+      37
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 10,
+    "index_one_based": 11,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      9,
+      11,
+      4,
+      38
+    ],
+    "exchangeable_H": false,
+    "CIP": "S"
+  },
+  {
+    "index_zero_based": 11,
+    "index_one_based": 12,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      10,
+      12,
+      13,
+      39
+    ],
+    "exchangeable_H": false,
+    "CIP": "R"
+  },
+  {
+    "index_zero_based": 12,
+    "index_one_based": 13,
+    "element": "O",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      11,
+      40
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 13,
+    "index_one_based": 14,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      11,
+      14,
+      24
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 14,
+    "index_one_based": 15,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      13,
+      15,
+      41
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 15,
+    "index_one_based": 16,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      14,
+      16,
+      42
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 16,
+    "index_one_based": 17,
+    "element": "N",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      15,
+      17
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 17,
+    "index_one_based": 18,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      16,
+      18,
+      24
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 18,
+    "index_one_based": 19,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      17,
+      19,
+      43
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 19,
+    "index_one_based": 20,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      18,
+      20,
+      44
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 20,
+    "index_one_based": 21,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      19,
+      21,
+      23
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 21,
+    "index_one_based": 22,
+    "element": "O",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      20,
+      22
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 22,
+    "index_one_based": 23,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      21,
+      45,
+      46,
+      47
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 23,
+    "index_one_based": 24,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      20,
+      24,
+      48
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 24,
+    "index_one_based": 25,
+    "element": "C",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      23,
+      13,
+      17
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 25,
+    "index_one_based": 26,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      0
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 26,
+    "index_one_based": 27,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      0
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 27,
+    "index_one_based": 28,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      1
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 28,
+    "index_one_based": 29,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      2
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 29,
+    "index_one_based": 30,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      3
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 30,
+    "index_one_based": 31,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      3
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 31,
+    "index_one_based": 32,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      6
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 32,
+    "index_one_based": 33,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      6
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 33,
+    "index_one_based": 34,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      7
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 34,
+    "index_one_based": 35,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      7
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 35,
+    "index_one_based": 36,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      8
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 36,
+    "index_one_based": 37,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      9
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 37,
+    "index_one_based": 38,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      9
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 38,
+    "index_one_based": 39,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      10
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 39,
+    "index_one_based": 40,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      11
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 40,
+    "index_one_based": 41,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      12
+    ],
+    "exchangeable_H": true,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 41,
+    "index_one_based": 42,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      14
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 42,
+    "index_one_based": 43,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      15
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 43,
+    "index_one_based": 44,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      18
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 44,
+    "index_one_based": 45,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      19
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 45,
+    "index_one_based": 46,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      22
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 46,
+    "index_one_based": 47,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      22
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 47,
+    "index_one_based": 48,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      22
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  },
+  {
+    "index_zero_based": 48,
+    "index_one_based": 49,
+    "element": "H",
+    "isotope": 0,
+    "formal_charge": 0,
+    "neighbours_zero_based": [
+      23
+    ],
+    "exchangeable_H": false,
+    "CIP": null
+  }
+]

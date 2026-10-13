@@ -1,0 +1,56 @@
+{
+  "job_id": "F2_E22_face_1__DMSO__DMSO_02_W01_trace_water_sensitivity__s05",
+  "source_model_sha256": "97297790de4997bd0b6d3dae6303f1cfdce4613c9169d636eec1df07e76b29f2",
+  "source_species": {
+    "species_id": "F2_E22_face_1__DMSO",
+    "compound_id": "F2_E22",
+    "smiles": "C=C(C)[C@H]1CC(=O)[C@]2(C)[18O][C@H]2C1",
+    "solvent": "DMSO",
+    "solvent_experimental_label": "DMSO-d6",
+    "charge": 0,
+    "multiplicity": 1,
+    "role": "unassigned_new_epoxide_face_diastereomer",
+    "formula": "C10H14O2",
+    "rotatable_bonds": 1,
+    "labelled_18O_count": 1,
+    "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+    "sampling_converged": false,
+    "default_run_enabled": true,
+    "has_Br": false
+  },
+  "analyte_start": {
+    "method": "INDEPENDENT_ETKDGv3_WITH_FIXED_ATOM_ORDER",
+    "seed": 1602860566,
+    "forcefield": "MMFF94s",
+    "forcefield_converged": true,
+    "rejected_attempts": [
+      "ETKDG_embedding_failed"
+    ],
+    "global_sampling_converged": false
+  },
+  "environment_seed": 1268961840,
+  "motifs": [
+    {
+      "component": "DMSO_d6_01",
+      "initial_placement": "surface_orientation_candidate_no_specific_Hbond_assignment"
+    },
+    {
+      "component": "DMSO_d6_02",
+      "initial_placement": "surface_orientation_candidate_no_specific_Hbond_assignment"
+    },
+    {
+      "component": "H2O_03",
+      "initial_placement": "water_H_to_analyte_acceptor_7_start"
+    }
+  ],
+  "environment_atoms_excluded_from_analyte_nmr": true,
+  "cluster_optimization": "NOT_RUN",
+  "orca_calculation": "NOT_RUN",
+  "stereo_geometry_issues": [],
+  "composition": {
+    "DMSO_d6": 2,
+    "H2O": 1
+  },
+  "reference_commit": "933cb6159294813a79f443921920127032fb01d4",
+  "assumption": "Two explicit DMSO is a prescribed sensitivity model, not a proven complete solvation shell."
+}

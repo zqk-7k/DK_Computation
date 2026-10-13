@@ -1,0 +1,17 @@
+{
+  "species_id": "F3_N29_source__DMSO",
+  "compound_id": "F3_N29",
+  "smiles": "[18O-][n+]1ccccc1-c1cccc(-c2cccc[n+]2[18O-])[n+]1[18O-]",
+  "solvent": "DMSO",
+  "solvent_experimental_label": "DMSO-d6",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "source_explicit_structure",
+  "formula": "C15H11N3O3",
+  "rotatable_bonds": 2,
+  "labelled_18O_count": 3,
+  "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+  "sampling_converged": false,
+  "default_run_enabled": true,
+  "has_Br": false
+}

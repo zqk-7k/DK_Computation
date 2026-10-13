@@ -1,0 +1,50 @@
+工作2-计算资源包-（3）：基准与收敛审查
+
+一、J基准不是把两种DFT结果互相比较后宣布准确
+两条支路为PBE/pcJ-3与PBE0/pcJ-2。需要独立实验J值作参照。
+未知实验J符号时只比较|J|，不能推断符号准确率。
+基准化合物至少两个；目标与基准不能自我拟合。适用域需包含相应元素/混合基组和耦合类型。
+没有实验基准仍可汇总探索性预测，但必须保持UNVALIDATED_EXPLORATORY_CANDIDATE标签。
+
+面板JSON字段（不是虚构实验模板）：
+data_origin: experimental
+protocol_hash: 当前活动协议指纹
+temperature_K / solvent / scenario_id: 与真实样品和计算一致
+chemical_domain / independence_statement: 适用范围及独立性说明
+review: reviewer、reviewed_at、decision=APPROVED_INDEPENDENT_EXPERIMENTAL_PANEL
+predeclared_selection: criterion=lowest_MAE_Hz、max_MAE_Hz、max_abs_error_Hz、
+                      min_sign_accuracy、min_compounds、min_pairs
+cases: 每个条目包括case_id、compound_id、species_id、scenario_id、temperature_K，
+       experimental_evidence[{path,sha256,source_type:acquired_experimental,source_description}]，
+       assignment_review{reviewer,reviewed_at,decision:APPROVED_ATOM_PAIR_ASSIGNMENT}，
+       measured_pairs[{atoms_zero_based:[i,j],J_Hz,sign_known,evidence_index,source_locator}]。
+程序从实际ORCA输出读取预测值，不接受在面板内粘贴预测值冒充运行结果。
+
+comparison.json只给比较指标，不是批准。
+方法选择审查文件需要：
+decision=APPROVED_FOR_STATED_SCOPE、reviewer、reviewed_at、selection_rationale、
+report_path、report_sha256、selected_j_method、scope（与报告完全一致）。
+消费该审查时重新核对实验来源、计算输出和比较指标。
+
+二、采样收敛不能只靠“正常结束”或达到几个起点
+convergence.py提供来源校验器，不提供自动科学签名。
+审查文件status=REVIEWED_CONVERGENCE，包含reviewer、reviewed_utc、reason，
+checks: basin_rediscovery、no_new_important_basin、motif_coverage、peak_order_stable均需真实审查，
+review_evidence:[{path,sha256}]指向已有的模式/盆地覆盖记录。
+waves至少两项，每项包含：
+  result:{path,sha256}（实际汇总生成且带冻结系综/导入快照的prediction.json）
+  released_goat_jobs:[...]（该快照真正纳入的已完成采样起点）。
+不得把同一份预测复制两次，也不得仅增加未进入系综的起点ID。
+最后一项必须与当前完整目标及参比系综相同。
+程序重算实际屏蔽/权重并比较最近两波的位移变化：
+非交换1H<=0.05 ppm、交换H<=0.2 ppm、13C<=0.5 ppm。
+这些是工程稳定性阈值，不是实验误差保证。
+
+当前包不自动建立后续采样波次、不自动改写已有系综，也未提供真实收敛证据。
+历史波次必须保留不可变的数据与来源；若需追加采样，应另建清晰的波次/版本，
+再迁入完整可追溯记录。不能修改原输入/收据来绕过验收。
+
+三、仍需人的判断
+真实样品溶剂/温度/盐型，立体异构体，水和氢交换状态，GOAT簇选择，低频/解离/质子转移，
+基准实验真实性与耦合归属，以及结果的化学解释。
+这些检查用于避免自动化把错误结果包装成准确谱图，而不是要求逐个手工编写计算输入。

@@ -1,0 +1,140 @@
+工作2-计算资源包-（4）：变更与运行说明
+更新：2026-10-14。本文与根README为本版操作依据；旧版说明不覆盖本文。
+
+一、交付边界
+本包准备64个产物的66个结构分支，以及独立TMS参照，总计67个模型、1020个主分支GOAT输入。
+图2/3/4分别480/372/160个起点；TMS另8个。所有输入均是初始结构，不是已完成量化优化的结构。
+主分支固定为产物＋2 DMSO-d6＋1普通H2O，外围同时保留ALPB(DMSO)/CPCM(DMSO)。
+全部模型温度298.15 K、实验溶剂DMSO-d6暂为假设；请根据实际样品核实。
+不自动启用旧纯连续介质、2 DMSO无水、D07盐型或甲醇分支。
+无revDSD活动分支，不替使用者配置HPC队列、并发、内存或时间上限。
+已有输入模板含资源字段，但不是本次针对一万核集群完成的资源配置。
+本次制包未运行GOAT/DFT，未完成采样收敛、核磁精度或实验多重峰验证。
+
+二、方法链与配置
+GOAT/GFN2-xTB/ALPB(DMSO)独立多起点
+  → 已完成结果的人工簇审查及去重
+  → r2SCAN-3c/CPCM(DMSO)预筛
+  → PBE0-D4/def2-TZVPP/CPCM(DMSO)优化与频率
+  → 固定组成内的qRRHO自由能权重
+  → PBE0/pcSseg-3屏蔽常数、相同条件的独立TMS加权参照
+  → J耦合与实验基准、H/C谱汇总、多重峰裂分模式核查。
+
+图4六个药物用PBE/pcJ-3；图2/3保留PBE/pcJ-3、PBE0/pcJ-2候选。
+图2/3在未传--j-method的探索性汇总中默认PBE0/pcJ-2；这不是宣称它经过实验优选。
+图4不能通过CLI偷偷切换到与用户指定路线矛盾的J方法。
+含Br的J计算用Br/def2-TZVPP补充，属于混合基组，基准适用范围需覆盖。
+TMS独立优化并加权，不使用产品的权重替代，不生成TMS的J谱。
+参考完整参数：config/protocol.json；输入/结果均有方法和源文件指纹。
+
+三、线宽随时可改，无需重算量化
+当前默认：1H线宽1.0 Hz，13C线宽2.0 Hz，定义为Lorentzian半高全宽FWHM。
+对应默认字段：spectrum.proton_linewidth_Hz和spectrum.carbon_linewidth_Hz。
+在collect时用--linewidth-h和--linewidth-c覆盖“显示设置”即可，不更改原量化协议和参数，不要求重算ORCA。
+例如：
+  py -3.13 -B -X utf8 workflow.py collect --species F4_D01_rep_R__DMSO --exploratory --linewidth-h 1.0 --linewidth-c 2.0
+线宽不改变屏蔽或J值，不是理论预测的弛豫参数，不应通过任意增宽掩盖不吻合。
+已有结果后不要为改显示而原地改config/protocol.json；全局协议更改会改变指纹并与旧作业不匹配。
+如果确需更改方法、组成或全局协议，应保留旧版本并明确重建，不修改旧哈希冒充同一协议。
+多重峰面板可独立记录spectrum_settings和真实field_MHz；400/100.61 MHz只是在未提供真实实验前的绘图默认值。
+
+四、命令入口与操作次序
+以下均在计算包根目录执行；尖括号内容必须换成实际文件或标识，不能原样当作结果。
+Windows使用已安装依赖的py -3.13；其他环境可使用相应python3。
+没有自动全量提交命令；manifest只写清单，绝不提交任务。
+
+1. 状态与依赖检查（不运行量化）
+  py -3.13 -B -X utf8 workflow.py status
+  py -3.13 -B -X utf8 workflow.py preflight --orca "D:\ORCA_6.1.1\orca.exe"
+  py -3.13 -B -X utf8 scripts/goat_portable.py preflight --orca "<ORCA可执行文件>" --xtb "<otool_xtb可执行文件>" --scratch-root "<ASCII且无空格的专用暂存目录>"
+中文交付目录不宜直接传给部分外部科学软件；portable运行器暂存到ASCII目录，保留原子映射和哈希。
+GOAT依赖外部xTB及运行库；preflight未通过前不应视为环境已准备好。
+
+2. 生成主分支GOAT清单（不提交）
+  py -3.13 -B -X utf8 workflow.py goat-manifest
+或仅列一个模型：
+  py -3.13 -B -X utf8 workflow.py goat-manifest --species F2_E01_rep_R__DMSO
+只使用registry/jobs.json活动任务；不能按01_goat_explicit目录通配提交旧对照。
+
+3. 先试一个GOAT任务
+任务ID示例：F2_E01_rep_R__DMSO__DMSO_02_W01_trace_water_sensitivity__s01
+  py -3.13 -B -X utf8 scripts/goat_portable.py run --job-id "<实际job_id>" --orca "<ORCA路径>" --xtb "<otool_xtb路径>" --scratch-root "<ASCII暂存目录>" --acknowledge-models --dry-run
+dry-run只检查计划；确认真实结构、环境和资源后，去掉--dry-run才运行这个任务。
+--acknowledge-models表示操作者了解这些是计算假设，不等于实验结构证明或科学批准。
+每个任务可能生成很多构型；达到8/12/16/24/32个起点不是收敛判定，不要求凑满参考独特构型区间。
+
+4. 已完成GOAT结果：审查后导入
+  py -3.13 -B -X utf8 workflow.py draft-review --job-id "<已完成job_id>" --out "reviews/<唯一审查文件名>.json"
+程序要求真实输出和收据，生成未批准模板；审核连接性、立体化学、溶剂解离/质子转移及选定帧后，由人填写。
+  py -3.13 -B -X utf8 workflow.py import-goat --job-id "<已完成job_id>" --review "reviews/<已填写的审查文件>.json"
+同一模型先完成本波次所需起点的导入，再准备DFT；下游建立后，导入/系综按不可变来源管理。
+追加新波次需另建清晰版本或波次并保留历史，当前没有自动追加采样/自动合并控制器。
+
+5. 准备并运行预筛
+  py -3.13 -B -X utf8 workflow.py prepare --species F2_E01_rep_R__DMSO
+  py -3.13 -B -X utf8 workflow.py manifest --stage prescreen --species F2_E01_rep_R__DMSO
+取得清单的job_dir后：
+  py -3.13 -B -X utf8 workflow.py run --job "<包内job_dir>" --orca "<ORCA路径>" --scratch-root "<ASCII暂存目录>" --acknowledge-models --dry-run
+确认后去掉--dry-run，才执行一个下游任务。也可按清单索引运行：
+  py -3.13 -B -X utf8 workflow.py run-task --manifest "manifests/<真实清单>.json" --index 0 --orca "<ORCA路径>" --scratch-root "<ASCII暂存目录>" --acknowledge-models --dry-run
+index从0开始；这是单任务执行，不是向调度器提交整张清单。
+
+6. 检查并推进优化/频率、屏蔽和J任务
+  py -3.13 -B -X utf8 workflow.py inspect --job "<包内job_dir>"
+  py -3.13 -B -X utf8 workflow.py advance --species F2_E01_rep_R__DMSO --from-stage prescreen
+  py -3.13 -B -X utf8 workflow.py manifest --stage optfreq --species F2_E01_rep_R__DMSO
+完成所有相关优化/频率并处理审查问题后：
+  py -3.13 -B -X utf8 workflow.py advance --species F2_E01_rep_R__DMSO --from-stage optfreq
+  py -3.13 -B -X utf8 workflow.py manifest --stage shielding --species F2_E01_rep_R__DMSO
+  py -3.13 -B -X utf8 workflow.py manifest --stage j_PBE_pcJ3 --species F2_E01_rep_R__DMSO
+图2/3另有j_PBE0_pcJ2候选；图4只准备指定的PBE_pcJ3分支。
+TMS_DMSO重复其独立GOAT→预筛→优化/频率→屏蔽流程，无需J任务。
+
+7. 不收敛、超时、虚频：给方案，不自动做科学决定
+  py -3.13 -B -X utf8 workflow.py diagnose --job "<包内job_dir>"
+  py -3.13 -B -X utf8 workflow.py draft-issue-review --job "<包内job_dir>" --out "<该job_dir>/scientific_review.json"
+diagnose只列诊断和建议；draft-issue-review只写未批准模板。详见docs/异常处理与人工复核.txt。
+虚频需逐模式检查动画/真实Hessian，区分溶质运动、软溶剂运动与反应坐标，再决定重优化或保留近似。
+正常完整任务若保留负频，具名审查状态须为ACCEPT_AS_REVIEWED_APPROXIMATION，附来源证据和局限性。
+数值阈值不能替代判断；但未完成/未收敛、缺能量或映射错误不能靠人工勾选变成完整数据。
+不自动重试、不删除问题构象；--retry是操作者明确要求重执行并保留旧尝试，不是自动修复算法。
+
+8. 汇总探索性计算谱
+该模型及匹配TMS的真实任务全部完成后，例如图4：
+  py -3.13 -B -X utf8 workflow.py collect --species F4_D01_rep_R__DMSO --exploratory
+图4自动遵循PBE_pcJ3；图2/3可明确选择：
+  py -3.13 -B -X utf8 workflow.py collect --species F2_E01_rep_R__DMSO --j-method PBE0_pcJ2 --exploratory
+--no-plots只保存数值；--linewidth-h和--linewidth-c只调整显示线宽。
+探索性结果明确未通过独立实验基准，不能改称已验证实验谱。
+屏蔽/J/权重来自真实ORCA，不允许缺失耦合默认为0，不自动加入人为噪声。
+
+9. 独立J基准、采样收敛与正式汇总
+准备有真实实验来源、原子归属和审核记录的独立面板后：
+  py -3.13 -B -X utf8 workflow.py benchmark --panel "validation/<实际J面板>.json" --targets F4_D01
+比较报告不是自动批准；方法/适用域须由人审查。真实两波采样及冻结系综的收敛证据不能由程序伪造。
+  py -3.13 -B -X utf8 workflow.py collect --species F4_D01_rep_R__DMSO --benchmark-gate "reviews/<实际J批准>.json" --convergence-gate "reviews/<实际收敛批准>.json"
+不加--exploratory的汇总需要这些真实证据。当前包不含真实基准或收敛批准。
+history/v3/docs/基准与收敛审查.txt保留旧面板和收敛字段说明，但v4图4方法路线、异常政策和当前代码优先。
+
+10. 多重峰裂分模式验证
+  py -3.13 -B -X utf8 workflow.py multiplet --panel "validation/<真实实验多重峰面板>.json"
+面板、真实场强、线宽、积分/峰位字段及外部跃迁接口详见docs/多重峰裂分验证.txt。
+比较峰数、组分位置/间距、相对组分积分及总积分，明确重叠、未分辨、二阶效应与排除区域。
+报告为待人工审核，不自动PASS，不拟造实验线形，不把自身模拟谱作为独立实验验证。
+内置不超过10个H的独立H-H块用精确哈密顿量；较大H块和含F体系有明确一阶近似。
+13C为质子去耦独立位点模型，保留一阶C-F裂分；不预测NOE/弛豫强度、13C卫星或四极核效应。
+需要完整大自旋/含F模型时，可接入来源绑定外部跃迁表；其求解器设置仍需人工审核。
+当前ORCA输出没有19F化学位移或F-F耦合，不能假设为0后宣称完整含F全自旋计算。
+
+五、结构与溶剂仍需核实
+F2_E11与F2_E22各有两个分支；分别计算，实验组成未确定前不混合。
+F4_D07暂为净中性N-氧化物/DMSO，HCl盐、其他质子化位点及CD3OD未自动启用。
+F2_S28、F3_N30及部分药物需核查两性离子/酸碱/互变异构，显式水不能自动解决样品状态不明确。
+18O与D质量被记录，但静态电子屏蔽不等于已包含真实实验的振动平均同位素位移。
+
+六、旧文件保护与重建禁忌
+history/和reference_51/仅供追溯，旧版真实小体系测试若存在也不是64个目标的科学验证。
+勿运行scripts/initialize_v3.py、scripts/package_work2.py或scripts/micro64.py旧制包入口。
+勿用历史SDF的938个输入或目录中的旧对照替代活动1020任务注册表。
+scripts/plan_sampling_v4.py可再生计划说明；scripts/prepare_v4.py会再生初始模型注册表，仅供明确重建使用。
+任何需要改变组成、结构、盐型、同位素、方法或原子顺序的动作均应留版本和新来源，不原地改旧收据。

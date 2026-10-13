@@ -1,0 +1,13 @@
+{
+  "status": "FORMULAS_AND_ALL_64_PRODUCT_ROWS_VERIFIED",
+  "products": 64,
+  "structural_models": 67,
+  "product_starts": 1012,
+  "TMS_starts": 8,
+  "total": 1020,
+  "recalculation_test": "PASS",
+  "formula_errors": 0,
+  "renderer": "@oai/artifact-tool",
+  "output": "E:\\For_codex\\isotope_work\\工作2-计算资源包-（4）\\工作2-计算资源包-（4）-64个化合物溶剂与GOAT计划.xlsx",
+  "not_actual_QM_results": true
+}

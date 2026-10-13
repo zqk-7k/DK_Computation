@@ -1,0 +1,2409 @@
+{
+  "schema_version": "4.0",
+  "plan_version": "2026-10-14-v4",
+  "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+  "package_name": "工作2-计算资源包-（4）",
+  "source_sha256": {
+    "registry/products.json": "56cbe359ebcc4e00225639aee2b5c7588d855aaec9dbe45472c9d6c8127824e9",
+    "registry/species.json": "b10a175079ffc3acd87f93813416506f5f8410f5a07df3f457a260de73a21b97"
+  },
+  "summary": {
+    "n_products": 64,
+    "n_product_species": 66,
+    "n_TMS_species": 1,
+    "product_starts": 1012,
+    "TMS_starts": 8,
+    "total_starts": 1020,
+    "by_figure": {
+      "2": {
+        "n_products": 30,
+        "n_starts": 480
+      },
+      "3": {
+        "n_products": 28,
+        "n_starts": 372
+      },
+      "4": {
+        "n_products": 6,
+        "n_starts": 160
+      }
+    },
+    "product_species_by_start_count": {
+      "8": 12,
+      "12": 23,
+      "16": 18,
+      "24": 8,
+      "32": 5
+    },
+    "n_optional_control_products": 8,
+    "n_enabled_control_starts": 0
+  },
+  "interpretation": "Initial independent GOAT start budgets only. Each start may produce many minima. Review rediscovery and final prediction convergence; do not impose the advisory minima band as a quota or cap.",
+  "water_note": "One ordinary explicit H2O per cluster is a sensitivity/model assumption, not a measured bulk water content. DMSO continuum remains active concurrently.",
+  "status": "PLANNED_NOT_QUANTUM_OPTIMIZED_NOT_CONVERGENCE_VALIDATED",
+  "products": [
+    {
+      "compound_id": "F2_E01",
+      "name": "Styrene oxide",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E01_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E01_rep_R__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "苯乙烯环氧化物较刚性；采样重点为环氧氧周围不同溶剂取向。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": true,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E03",
+      "name": "4-Chlorostyrene oxide",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E03_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E03_rep_R__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "对氯取代不增加主骨架自由度；保留环氧端与芳环面的溶剂起点。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E05",
+      "name": "4-Cyanostyrene oxide",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E05_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E05_rep_R__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "腈基和环氧氧提供不同水结合位置，较单一环氧化物增加起点。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E09",
+      "name": "1,2-Epoxyoctane",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E09_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E09_rep_R__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "正己基链有5个可旋转键；需要链构象与环氧端溶剂布置的交叉采样。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E11",
+      "name": "Norbornene oxide",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E11_endo__DMSO",
+        "F2_E11_exo__DMSO"
+      ],
+      "n_species": 2,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E11_endo__DMSO": 8,
+        "F2_E11_exo__DMSO": 8
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "桥环骨架较刚性；endo/exo分别各8个起点，不互相混合。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "separate_diastereomer_branches_do_not_pool_without_experimental_ratio"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E13",
+      "name": "Cyclooctene oxide",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E13_cis__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E13_cis__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "八元环有明显环构象自由度；不能因RDKit可旋转键为0而少采样。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E12",
+      "name": "Glycidol",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E12_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E12_rep_R__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "羟基和环氧氧存在竞争氢键及水桥；增加局部溶剂布局。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": true,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E14",
+      "name": "((2S,3R)-3-Propyloxiran-2-yl)methanol",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E14_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E14_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "丙基侧链、羟甲基和双氧受体形成多个构象/氢键组合。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E15",
+      "name": "((2S,3S)-3-Phenyloxiran-2-yl)methanol",
+      "figure": 2,
+      "reaction_class": "epoxidation",
+      "species_ids": [
+        "F2_E15_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E15_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "苯基取向、羟甲基与环氧氧可竞争溶剂结合。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E17",
+      "name": "Nerol-derived 2,3-epoxide (2k)",
+      "figure": 2,
+      "reaction_class": "epoxide",
+      "species_ids": [
+        "F2_E17_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E17_source__DMSO": 24
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 50,
+      "suggested_unique_max_per_species": 110,
+      "suggested_unique_min": 50,
+      "suggested_unique_max": 110,
+      "advisory_no_quota": true,
+      "tier": "high_flexibility_or_drug",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "柔性萜烯侧链与羟甲基并存；需要折叠/伸展和不同氢键构型。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E19",
+      "name": "(R)-1-(Oxiran-2-yl)cyclohexanol (2n; ring-18O)",
+      "figure": 2,
+      "reaction_class": "epoxide",
+      "species_ids": [
+        "F2_E19_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E19_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "环己烷椅式及羟基/环氧端取向均需覆盖。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E21",
+      "name": "Cyclic homoallylic-alcohol epoxide (4g)",
+      "figure": 2,
+      "reaction_class": "epoxide",
+      "species_ids": [
+        "F2_E21_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E21_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "稠合环构象加羟乙基侧链；重点比较溶剂桥与独立结合。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E22",
+      "name": "Carvone enone epoxide (carvone-1,2-oxide, 3)",
+      "figure": 2,
+      "reaction_class": "epoxide",
+      "species_ids": [
+        "F2_E22_face_1__DMSO",
+        "F2_E22_face_2__DMSO"
+      ],
+      "n_species": 2,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E22_face_1__DMSO": 12,
+        "F2_E22_face_2__DMSO": 12
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "环酮、环氧氧和环构象均需采样；两个面异构模型各12个独立起点。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "separate_diastereomer_branches_do_not_pool_without_experimental_ratio"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E23",
+      "name": "Chalcone alpha,beta-epoxide",
+      "figure": 2,
+      "reaction_class": "epoxide",
+      "species_ids": [
+        "F2_E23_trans_rep__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E23_trans_rep__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "两个苯基取向、羰基和环氧端组合较多。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E24",
+      "name": "Menadione-2,3-epoxide",
+      "figure": 2,
+      "reaction_class": "epoxide",
+      "species_ids": [
+        "F2_E24_cis_fused_rep__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E24_cis_fused_rep__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "稠环较刚性，但两个羰基与环氧氧提供三个主要受体区域。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E18",
+      "name": "Ester-functionalized farnesol-derived epoxide (2m)",
+      "figure": 2,
+      "reaction_class": "epoxide",
+      "species_ids": [
+        "F2_E18_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E18_source__DMSO": 32
+      },
+      "total_starts": 32,
+      "suggested_unique_min_per_species": 70,
+      "suggested_unique_max_per_species": 150,
+      "suggested_unique_min": 70,
+      "suggested_unique_max": 150,
+      "advisory_no_quota": true,
+      "tier": "very_flexible_or_many_motifs",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "9个可旋转键、长多烯链、酯和醇；本组最高柔性层级。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_E20",
+      "name": "Primary/tertiary-diol polyene-derived epoxide (2u)",
+      "figure": 2,
+      "reaction_class": "epoxide",
+      "species_ids": [
+        "F2_E20_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_E20_source__DMSO": 32
+      },
+      "total_starts": 32,
+      "suggested_unique_min_per_species": 70,
+      "suggested_unique_max_per_species": 150,
+      "suggested_unique_min": 70,
+      "suggested_unique_max": 150,
+      "advisory_no_quota": true,
+      "tier": "very_flexible_or_many_motifs",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "8个可旋转键及两个羟基；链折叠和内/外氢键竞争显著。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S01",
+      "name": "Methyl phenyl sulfoxide",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S01_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S01_rep_R__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "单芳基亚砜主骨架简单；重点覆盖S=O周围不同氢键取向。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": true,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S06",
+      "name": "Diphenyl sulfoxide",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S06_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S06_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "两个苯基绕硫旋转和S=O暴露面的组合。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S07",
+      "name": "Benzyl methyl sulfoxide",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S07_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S07_rep_R__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "苄基引入额外扭转；溶剂结合与苯环取向共同采样。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S19",
+      "name": "Methyl (4-nitrophenyl) sulfoxide",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S19_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S19_rep_R__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "硝基与亚砜氧构成不同溶剂结合区域。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S22",
+      "name": "Cyclopropyl phenyl sulfoxide",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S22_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S22_rep_R__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "环丙基/芳基相对取向及S=O配位面需要分别覆盖。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S23",
+      "name": "Phenyl vinyl sulfoxide",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S23_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S23_rep_R__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "乙烯基/芳基亚砜扭转与溶剂取向需要交叉采样。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S12",
+      "name": "Di-n-butyl sulfone",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S12_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S12_source__DMSO": 24
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 50,
+      "suggested_unique_max_per_species": 110,
+      "suggested_unique_min": 50,
+      "suggested_unique_max": 110,
+      "advisory_no_quota": true,
+      "tier": "high_flexibility_or_drug",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "两条丁基链共6个可旋转键，且砜有两个受体氧。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S24",
+      "name": "Allyl phenyl sulfone",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S24_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S24_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "烯丙基链、芳基扭转及两个砜氧结合位置并存。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S25",
+      "name": "2-(Phenylsulfonyl)ethan-1-ol",
+      "figure": 2,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F2_S25_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S25_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "羟乙基与砜氧可形成内氢键或水桥；需覆盖竞争模式。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S11",
+      "name": "Dibenzothiophene 5,5-dioxide",
+      "figure": 2,
+      "reaction_class": "sulfone synthesis",
+      "species_ids": [
+        "F2_S11_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S11_source__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "稠合芳香骨架刚性，主要变化为两个砜氧的溶剂位置。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S26",
+      "name": "Thianthrene 5-oxide",
+      "figure": 2,
+      "reaction_class": "sulfoxidation",
+      "species_ids": [
+        "F2_S26_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S26_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "噻蒽中心环有折叠自由度；不能仅依据0个可旋转键判为完全刚性。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S27",
+      "name": "Thioxanthen-9-one 10-oxide",
+      "figure": 2,
+      "reaction_class": "sulfoxidation",
+      "species_ids": [
+        "F2_S27_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S27_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "羰基与亚砜氧竞争结合，中心环折叠需要检查。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F2_S28",
+      "name": "d-Biocytin sulfone",
+      "figure": 2,
+      "reaction_class": "sulfone synthesis",
+      "species_ids": [
+        "F2_S28_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F2_S28_source__DMSO": 32
+      },
+      "total_starts": 32,
+      "suggested_unique_min_per_species": 70,
+      "suggested_unique_max_per_species": 150,
+      "suggested_unique_min": 70,
+      "suggested_unique_max": 150,
+      "advisory_no_quota": true,
+      "tier": "very_flexible_or_many_motifs",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "11个可旋转键、多个NH/OH及羧酸；采用高采样预算，但须检查两性离子/质子化状态。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "sample_state_protonation_or_tautomer_review_required"
+      ],
+      "optional_control_recommended": true,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N01",
+      "name": "Pyridine N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N01_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N01_source__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "刚性单环N-氧化物，主要采样N-氧端的局部水/溶剂排列。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": true,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N06",
+      "name": "Quinoline N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N06_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N06_source__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "刚性稠合双环、一个主要N-氧受体区域。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N14",
+      "name": "Pyrimidine mono-N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N14_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N14_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "N-氧与另一个环氮提供竞争受体区域。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N15",
+      "name": "2-Bromopyridine N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N15_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N15_source__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "溴代单环基本刚性；结构采样不由Br混合J基组设置替代。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N16",
+      "name": "2-(Hydroxymethyl)pyridine N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N16_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N16_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "羟甲基可向N-氧形成内氢键，也可被DMSO/水竞争打断。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N17",
+      "name": "Quinoxaline mono-N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N17_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N17_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "稠环虽刚性，但N-氧与另一环氮的溶剂模式不同。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N18",
+      "name": "Thiazole N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N18_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N18_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "N-氧与含硫杂环的不同溶剂接近方向需要覆盖。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N25",
+      "name": "4-Cyanopyridine N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N25_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N25_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "腈端和N-氧端的溶剂定位不同。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N26",
+      "name": "N-Methylpiperidine N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N26_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N26_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "哌啶环椅式及N-氧取向不能用0个可旋转键概括。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N28",
+      "name": "N,N-Dimethylcyclohexylamine N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N28_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N28_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "环己基椅式及环外胺氧取向需要联合采样。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N09",
+      "name": "[18O]2,2'-Bipyridine mono-N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N09_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N09_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "联吡啶环间扭转和两个不同受体位点。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N10",
+      "name": "[18O]1,10-Phenanthroline mono-N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N10_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N10_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "刚性大稠环但存在N-氧/未氧化N两个结合区域。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N19",
+      "name": "[18O]phenanthridine N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N19_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N19_source__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "刚性稠环、一个主要N-氧受体；重点为局部溶剂取向。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N29",
+      "name": "[18O3]2,2':6',2''-Terpyridine 1,1',1''-trioxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N29_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N29_source__DMSO": 24
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 50,
+      "suggested_unique_max_per_species": 110,
+      "suggested_unique_min": 50,
+      "suggested_unique_max": 110,
+      "advisory_no_quota": true,
+      "tier": "high_flexibility_or_drug",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "两个芳环间扭转加三个N-氧中心，溶剂排列组合较多。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N30",
+      "name": "[18O]1-Carboxyphenazine 5-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N30_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N30_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "羧酸、N-氧及环氮竞争氢键；酸/碱及互变异构状态需实验核实。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "sample_state_protonation_or_tautomer_review_required"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N32",
+      "name": "[N-oxide-18O]oxymatrine",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N32_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N32_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "多环生物碱虽无普通可旋转键，仍需考虑饱和环形变及羰基/N-氧的溶剂分配。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_N33",
+      "name": "[18O]quinine quinuclidine N-oxide",
+      "figure": 3,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F3_N33_outward_NO__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_N33_outward_NO__DMSO": 24
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 50,
+      "suggested_unique_max_per_species": 110,
+      "suggested_unique_min": 50,
+      "suggested_unique_max": 110,
+      "advisory_no_quota": true,
+      "tier": "high_flexibility_or_drug",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "柔性生物碱、醇、杂芳环与N-氧共存，具有多种竞争氢键/折叠。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B01",
+      "name": "gamma-Butyrolactone",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B01_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B01_source__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "小五元内酯；保留环起伏和两个氧周围溶剂取向。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B03",
+      "name": "epsilon-Caprolactone",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B03_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B03_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "七元内酯存在多种环构象；0个RDKit可旋转键不代表刚性。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": true,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B05",
+      "name": "5-tert-Butyloxepan-2-one",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B05_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B05_rep_R__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "取代七元内酯的环翻转、位阻和溶剂取向均需覆盖。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B06",
+      "name": "Adamantan-2-one-derived lactone",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B06_cage_rep__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B06_cage_rep__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "笼状内酯总体刚性，但扩环桥连骨架与两个氧的溶剂模式需检查。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B08",
+      "name": "4-Methoxyphenyl acetate",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B08_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B08_source__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "芳氧酯/甲氧基扭转及三个氧受体位置不同。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B14",
+      "name": "5-Phenyloxepan-2-one",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B14_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B14_rep_R__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "七元环和苯基相对取向增加构象数。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B15",
+      "name": "(4R,7S)-7-Isopropyl-4-methyloxepan-2-one (ring-18O)",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B15_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B15_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "多取代七元内酯的环形变及异丙基取向需采样。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B16",
+      "name": "1,4,8-Trioxaspiro[4.6]undecan-9-one (inserted ring-18O)",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B16_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B16_source__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "螺环、七元内酯及四个氧提供多种环/溶剂组合。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B18",
+      "name": "2-Oxabicyclo[3.2.1]octan-3-one (major regioisomer, ring-18O)",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B18_source_rel_rep__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B18_source_rel_rep__DMSO": 12
+      },
+      "total_starts": 12,
+      "suggested_unique_min_per_species": 20,
+      "suggested_unique_max_per_species": 50,
+      "suggested_unique_min": 20,
+      "suggested_unique_max": 50,
+      "advisory_no_quota": true,
+      "tier": "moderate_motif_or_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "桥环相对受限，但内酯结合位点和桥环形变需要复核。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B20",
+      "name": "Phthalide (ring-18O)",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B20_source__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B20_source__DMSO": 8
+      },
+      "total_starts": 8,
+      "suggested_unique_min_per_species": 12,
+      "suggested_unique_max_per_species": 30,
+      "suggested_unique_min": 12,
+      "suggested_unique_max": 30,
+      "advisory_no_quota": true,
+      "tier": "rigid_local_solvation",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "芳环稠合五元内酯较刚性，主要是局部溶剂排列。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F3_B21",
+      "name": "Br/OTBS-substituted Corey-type fused lactone (Example 70 major regioisomer, ring-18O)",
+      "figure": 3,
+      "reaction_class": "Baeyer-Villiger",
+      "species_ids": [
+        "F3_B21_source_rel_rep__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F3_B21_source_rel_rep__DMSO": 16
+      },
+      "total_starts": 16,
+      "suggested_unique_min_per_species": 30,
+      "suggested_unique_max_per_species": 70,
+      "suggested_unique_min": 30,
+      "suggested_unique_max": 70,
+      "advisory_no_quota": true,
+      "tier": "flexible_or_medium_ring",
+      "J_method": "BENCHMARK_SELECT_PBE_pcJ3_OR_PBE0_pcJ2",
+      "notes": "稠合环加OTBS的体积/扭转，需兼顾内酯端和硅醚端的溶剂位置。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F4_D01",
+      "name": "[Sulfinyl-18O]modafinil",
+      "figure": 4,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F4_D01_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F4_D01_rep_R__DMSO": 24
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 50,
+      "suggested_unique_max_per_species": 110,
+      "suggested_unique_min": 50,
+      "suggested_unique_max": 110,
+      "advisory_no_quota": true,
+      "tier": "high_flexibility_or_drug",
+      "J_method": "PBE_pcJ3",
+      "notes": "5个可旋转键、二苯甲基与酰胺/亚砜竞争氢键；药物高覆盖采样。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F4_D02",
+      "name": "[Sulfinyl-18O]albendazole sulfoxide",
+      "figure": 4,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F4_D02_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F4_D02_rep_R__DMSO": 24
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 50,
+      "suggested_unique_max_per_species": 110,
+      "suggested_unique_min": 50,
+      "suggested_unique_max": 110,
+      "advisory_no_quota": true,
+      "tier": "high_flexibility_or_drug",
+      "J_method": "PBE_pcJ3",
+      "notes": "丙基、氨基甲酸酯及两个NH；需覆盖侧链与多重氢键布局，并检查互变异构体。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "sample_state_protonation_or_tautomer_review_required"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F4_D03",
+      "name": "[Sulfinyl-18O]omeprazole",
+      "figure": 4,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F4_D03_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F4_D03_rep_R__DMSO": 32
+      },
+      "total_starts": 32,
+      "suggested_unique_min_per_species": 70,
+      "suggested_unique_max_per_species": 150,
+      "suggested_unique_min": 70,
+      "suggested_unique_max": 150,
+      "advisory_no_quota": true,
+      "tier": "very_flexible_or_many_motifs",
+      "J_method": "PBE_pcJ3",
+      "notes": "两个杂环、多个甲氧基、NH及亚砜；多受体与柔性连接链采用增强预算。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "sample_state_protonation_or_tautomer_review_required"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F4_D04",
+      "name": "[Sulfinyl-18O]lansoprazole",
+      "figure": 4,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F4_D04_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F4_D04_rep_R__DMSO": 32
+      },
+      "total_starts": 32,
+      "suggested_unique_min_per_species": 70,
+      "suggested_unique_max_per_species": 150,
+      "suggested_unique_min": 70,
+      "suggested_unique_max": 150,
+      "advisory_no_quota": true,
+      "tier": "very_flexible_or_many_motifs",
+      "J_method": "PBE_pcJ3",
+      "notes": "杂环、柔性含氟醚链及NH/亚砜竞争氢键；同时需充分的含氟耦合构象覆盖。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "sample_state_protonation_or_tautomer_review_required"
+      ],
+      "optional_control_recommended": true,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F4_D05",
+      "name": "[Sulfinyl-18O]sulindac",
+      "figure": 4,
+      "reaction_class": "sulfur oxidation",
+      "species_ids": [
+        "F4_D05_rep_R__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F4_D05_rep_R__DMSO": 24
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 50,
+      "suggested_unique_max_per_species": 110,
+      "suggested_unique_min": 50,
+      "suggested_unique_max": 110,
+      "advisory_no_quota": true,
+      "tier": "high_flexibility_or_drug",
+      "J_method": "PBE_pcJ3",
+      "notes": "羧酸、亚砜与芳基扭转组合；保留指定烯键几何，不混合不同几何异构体。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "sample_state_protonation_or_tautomer_review_required"
+      ],
+      "optional_control_recommended": false,
+      "optional_controls_enabled": false
+    },
+    {
+      "compound_id": "F4_D07",
+      "name": "[18O]imipramine N-oxide",
+      "figure": 4,
+      "reaction_class": "N-oxidation",
+      "species_ids": [
+        "F4_D07_neutral__DMSO"
+      ],
+      "n_species": 1,
+      "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+      "main_solvent": "DMSO-d6",
+      "explicit_DMSO_d6": 2,
+      "explicit_H2O": 1,
+      "explicit_D2O": 0,
+      "outer_sampling_model": "ALPB(DMSO)",
+      "outer_DFT_model": "CPCM(DMSO)",
+      "temperature_K": 298.15,
+      "n_starts_per_species": {
+        "F4_D07_neutral__DMSO": 24
+      },
+      "total_starts": 24,
+      "suggested_unique_min_per_species": 50,
+      "suggested_unique_max_per_species": 110,
+      "suggested_unique_min": 50,
+      "suggested_unique_max": 110,
+      "advisory_no_quota": true,
+      "tier": "high_flexibility_or_drug",
+      "J_method": "PBE_pcJ3",
+      "notes": "三环柔性侧链N-氧化物；主模型暂为净中性形式，真实盐型/质子化与溶剂必须核实。",
+      "review_flags": [
+        "experimental_solvent_temperature_and_water_content_not_confirmed",
+        "computational_structure_not_experimental_identity_or_stereo_assignment",
+        "sample_state_protonation_or_tautomer_review_required",
+        "neutral_DMSO_model_provisional_HCl_salt_and_CD3OD_branches_held"
+      ],
+      "optional_control_recommended": true,
+      "optional_controls_enabled": false
+    }
+  ],
+  "tms_reference": {
+    "species_id": "TMS_DMSO",
+    "compound_id": "TMS",
+    "name": "Tetramethylsilane (TMS reference)",
+    "smiles": "C[Si](C)(C)C",
+    "model_role": "same_protocol_reference",
+    "scenario_id": "DMSO_02_W01_trace_water_sensitivity",
+    "main_solvent": "DMSO-d6",
+    "explicit_DMSO_d6": 2,
+    "explicit_H2O": 1,
+    "explicit_D2O": 0,
+    "outer_sampling_model": "ALPB(DMSO)",
+    "outer_DFT_model": "CPCM(DMSO)",
+    "temperature_K": 298.15,
+    "temperature_status": "PROVISIONAL_UNTIL_EXPERIMENT_LOCKED",
+    "solvent_composition_status": "MODELLING_ASSUMPTION_NOT_MEASURED_WATER_CONCENTRATION",
+    "n_starts": 8,
+    "n_starts_per_species": 8,
+    "tier": "rigid_local_solvation",
+    "suggested_unique_min": 12,
+    "suggested_unique_max": 30,
+    "unique_count_meaning": "ADVISORY_PLANNING_BAND_FOR_DISTINCT_RELEVANT_MINIMA_NOT_REQUIRED_OUTPUT_OR_TRUNCATION",
+    "advisory_no_quota": true,
+    "n_starts_is_not_n_final_conformers": true,
+    "sampling_converged": false,
+    "count_decision": "STRUCTURE_INFORMED_INITIAL_BUDGET_REVIEW_AFTER_FIRST_WAVE",
+    "descriptors": {
+      "rotatable_bonds_strict": 0,
+      "hbond_donors": 0,
+      "hbond_acceptors": 0,
+      "heavy_atoms": 5,
+      "rings": 0,
+      "maximum_ring_size": 0,
+      "formal_charge": 0
+    },
+    "reason": "TMS无强氢键位点，但必须以相同溶剂簇组成独立采样并独立加权；不用产物权重代替。",
+    "notes": "TMS无强氢键位点，但必须以相同溶剂簇组成独立采样并独立加权；不用产物权重代替。",
+    "review_flags": [],
+    "J_method": "NOT_APPLICABLE_REFERENCE",
+    "J_method_status": "REFERENCE_OR_BENCHMARK_DEPENDENT",
+    "optional_control_recommended": false,
+    "optional_control_reason": null,
+    "optional_control_scenarios": [],
+    "optional_controls_enabled": false
+  }
+}

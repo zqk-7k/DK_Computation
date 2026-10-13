@@ -1,0 +1,17 @@
+{
+  "species_id": "F2_E13_cis__DMSO",
+  "compound_id": "F2_E13",
+  "smiles": "C1CCC[C@H]2[18O][C@H]2CC1",
+  "solvent": "DMSO",
+  "solvent_experimental_label": "DMSO-d6",
+  "charge": 0,
+  "multiplicity": 1,
+  "role": "cis_source_guided_modelling_target",
+  "formula": "C8H14O",
+  "rotatable_bonds": 0,
+  "labelled_18O_count": 1,
+  "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+  "sampling_converged": false,
+  "default_run_enabled": true,
+  "has_Br": false
+}

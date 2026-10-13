@@ -1,0 +1,78 @@
+[
+  {
+    "species": {
+      "species_id": "F4_D07_neutral__Methanol",
+      "compound_id": "F4_D07",
+      "smiles": "C[N+](C)([18O-])CCCN1c2ccccc2CCc2ccccc21",
+      "solvent": "Methanol",
+      "solvent_experimental_label": "CD3OD",
+      "charge": 0,
+      "multiplicity": 1,
+      "role": "drawn_net_neutral_N_oxide_reference",
+      "formula": "C19H24N2O",
+      "rotatable_bonds": 4,
+      "labelled_18O_count": 1,
+      "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+      "sampling_converged": false,
+      "default_run_enabled": false,
+      "has_Br": false
+    },
+    "reason": "Optional sample-state/solvent branch not silently activated"
+  },
+  {
+    "species": {
+      "species_id": "F4_D07_NOH_cation_sensitivity__DMSO",
+      "compound_id": "F4_D07",
+      "smiles": "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21",
+      "solvent": "DMSO",
+      "solvent_experimental_label": "DMSO-d6",
+      "charge": 1,
+      "multiplicity": 1,
+      "role": "optional_separated_cation_DMSO_sensitivity_state",
+      "formula": "C19H25N2O+",
+      "rotatable_bonds": 4,
+      "labelled_18O_count": 1,
+      "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+      "sampling_converged": false,
+      "default_run_enabled": false,
+      "has_Br": false
+    },
+    "reason": "Optional sample-state/solvent branch not silently activated"
+  },
+  {
+    "species": {
+      "species_id": "F4_D07_NOH_cation_sensitivity__Methanol",
+      "compound_id": "F4_D07",
+      "smiles": "C[N+](C)([18OH])CCCN1c2ccccc2CCc2ccccc21",
+      "solvent": "Methanol",
+      "solvent_experimental_label": "CD3OD",
+      "charge": 1,
+      "multiplicity": 1,
+      "role": "optional_separated_cation_DMSO_sensitivity_state",
+      "formula": "C19H25N2O+",
+      "rotatable_bonds": 4,
+      "labelled_18O_count": 1,
+      "model_status": "EXPLICIT_COMPUTATIONAL_MODEL_NOT_EXPERIMENTAL_ASSIGNMENT",
+      "sampling_converged": false,
+      "default_run_enabled": false,
+      "has_Br": false
+    },
+    "reason": "Optional sample-state/solvent branch not silently activated"
+  },
+  {
+    "species": {
+      "species_id": "TMS_Methanol",
+      "compound_id": "TMS",
+      "smiles": "C[Si](C)(C)C",
+      "solvent": "Methanol",
+      "charge": 0,
+      "multiplicity": 1,
+      "role": "same_protocol_reference",
+      "rotatable_bonds": 0,
+      "default_run_enabled": false,
+      "model_status": "REFERENCE",
+      "has_Br": false
+    },
+    "reason": "Optional sample-state/solvent branch not silently activated"
+  }
+]
