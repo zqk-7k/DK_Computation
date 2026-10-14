@@ -82,6 +82,17 @@ class AdmissionTests(unittest.TestCase):
         self.assertFalse((self.root/'operations/packed/quarantine').exists())
         self.assertTrue(list((self.root/'operations/packed').glob('admission_*.json')))
 
+    def test_parallel_branch_reserves_space_for_both_simultaneous_children(self):
+        site=readj(ROOT/'config/site_scnet.json')
+        site['packed'].update(site['packed_profiles']['branch_parallel'])
+        base=self.root/'operations/packed'
+        with patch.object(packed_worker,'ROOT',self.root), \
+             patch.object(packed_worker,'check_storage',side_effect=[{'free_bytes':400*1024**3},{'free_bytes':350*1024**3}]):
+            _,owner=packed_worker.claim(base,site,[SID,'second_branch'])
+            self.assertEqual(owner['growth_gib'],128)
+            # 128 GiB floor + 128 existing + 128 new > 350 GiB free.
+            self.assertIsNone(packed_worker.claim(base,site,[SID,'second_branch']))
+
     def test_site_profiles_fit_cpu_and_memory_for_prescreen(self):
         from clusterflow.runner import allocation
         for profile in ('balanced','large_memory','branch_parallel'):

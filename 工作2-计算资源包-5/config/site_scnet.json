@@ -33,7 +33,7 @@
     "local_admit_gib": 20,
     "shm_min_gib": 1,
     "unmeasured_task_growth_gib": 64,
-    "quota_status": "UNVERIFIED_REQUIRE_SEPARATE_USER_QUOTA_EVIDENCE"
+    "quota_status": "PATH_SCOPED_10TIB_CAPACITY_OBSERVED_20261014_RECHECK_AT_RUNTIME"
   },
   "recovery": {
     "maximum_infrastructure_attempts": 2,

@@ -1,0 +1,576 @@
+{
+  "at": "2026-10-14T12:02:11.522943+00:00",
+  "source_root": "/public/home/qikai/DK_Computation_51_run_20260821/51计算包",
+  "filter": "state/tasks, DMSO_02_W01, latest state per job; successful return+artifacts, not a fresh scientific result audit; unfinished and failed excluded",
+  "files_read": 539,
+  "errors": [],
+  "statuses": {
+    "goat|COMPLETED": 151,
+    "goat|RUNNING": 1,
+    "goat|RESUMED_ALREADY_COMPLETE": 100,
+    "goat|FAILED": 60,
+    "optfreq|COMPLETED": 86,
+    "optfreq|FAILED_RUNNER": 8,
+    "optfreq|INTERRUPTED": 6,
+    "optfreq|FAILED": 11,
+    "optfreq|RUNNING": 3,
+    "shielding|COMPLETED": 46,
+    "shielding|INTERRUPTED": 1,
+    "shielding|FAILED": 5,
+    "jcoupling|COMPLETED": 58,
+    "jcoupling|FAILED": 1,
+    "jcoupling|RUNNING": 1,
+    "jcoupling|INTERRUPTED": 1
+  },
+  "timings": {
+    "goat": {
+      "n": 251,
+      "median_hours": 39.439595833333335,
+      "mean_hours": 91.44432533311199,
+      "p90_hours": 226.3069513888889,
+      "max_hours": 335.99610388888885,
+      "MPI_counts": {
+        "16": 1,
+        "8": 250
+      },
+      "slowest": [
+        {
+          "job": "F3_031_DMSO_02_W01_trace_water_sensitivity_s07",
+          "hours": 335.99610388888885,
+          "nprocs": 8,
+          "attempt": 1
+        },
+        {
+          "job": "F3_030_DMSO_02_W01_trace_water_sensitivity_s06",
+          "hours": 263.9105011111111,
+          "nprocs": 8,
+          "attempt": 2
+        },
+        {
+          "job": "F3_026_DMSO_02_W01_trace_water_sensitivity_s04",
+          "hours": 263.09838194444444,
+          "nprocs": 8,
+          "attempt": 1
+        }
+      ]
+    },
+    "r2scan_optfreq": {
+      "n": 4,
+      "median_hours": 5.6779544444444445,
+      "mean_hours": 5.438760833333333,
+      "p90_hours": 6.129559166666667,
+      "max_hours": 6.303601388888889,
+      "MPI_counts": {
+        "8": 4
+      },
+      "slowest": [
+        {
+          "job": "F3_017_DMSO_02_W01_trace_water_sensitivity__r2scan_c002_sp20260906",
+          "hours": 6.303601388888889,
+          "nprocs": 8,
+          "attempt": 1
+        },
+        {
+          "job": "F3_017_DMSO_02_W01_trace_water_sensitivity__r2scan_c001_sp20260906",
+          "hours": 6.129559166666667,
+          "nprocs": 8,
+          "attempt": 1
+        },
+        {
+          "job": "F3_016_DMSO_02_W01_trace_water_sensitivity__r2scan_c002_sp20260906",
+          "hours": 5.226349722222222,
+          "nprocs": 8,
+          "attempt": 1
+        }
+      ]
+    },
+    "pbe0_optfreq": {
+      "n": 82,
+      "median_hours": 70.18052625,
+      "mean_hours": 84.19024717140921,
+      "p90_hours": 152.24379305555556,
+      "max_hours": 459.0817705555556,
+      "MPI_counts": {
+        "4": 61,
+        "2": 7,
+        "8": 10,
+        "12": 4
+      },
+      "slowest": [
+        {
+          "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c003_sp20260906__savedgeom_swart_mpi4_20260925",
+          "hours": 459.0817705555556,
+          "nprocs": 4,
+          "attempt": 1
+        },
+        {
+          "job": "F3_009_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906",
+          "hours": 380.5894969444444,
+          "nprocs": 2,
+          "attempt": 1
+        },
+        {
+          "job": "F3_006_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906",
+          "hours": 290.53333166666664,
+          "nprocs": 2,
+          "attempt": 1
+        }
+      ]
+    },
+    "shielding": {
+      "n": 46,
+      "median_hours": 2.191740277777778,
+      "mean_hours": 2.7333235990338163,
+      "p90_hours": 3.641966666666667,
+      "max_hours": 21.73388222222222,
+      "MPI_counts": {
+        "4": 43,
+        "12": 1,
+        "2": 2
+      },
+      "slowest": [
+        {
+          "job": "F3_023_DMSO_02_W01_trace_water_sensitivity_coverage20260920__shielding_c001_sp20260906",
+          "hours": 21.73388222222222,
+          "nprocs": 2,
+          "attempt": 1
+        },
+        {
+          "job": "F3_050_DMSO_02_W01_trace_water_sensitivity_coverage20260920__shielding_c001_sp20260906",
+          "hours": 7.937082222222222,
+          "nprocs": 2,
+          "attempt": 1
+        },
+        {
+          "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__shielding_c001_sp20260906__wet_finalgeom_mpi12_mem6000_20261005",
+          "hours": 4.4833613888888895,
+          "nprocs": 12,
+          "attempt": 1
+        }
+      ]
+    },
+    "jcoupling": {
+      "n": 58,
+      "median_hours": 5.626522916666666,
+      "mean_hours": 8.899552466475097,
+      "p90_hours": 15.252895277777778,
+      "max_hours": 57.285740555555556,
+      "MPI_counts": {
+        "12": 8,
+        "4": 46,
+        "2": 3,
+        "8": 1
+      },
+      "slowest": [
+        {
+          "job": "F3_023_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918",
+          "hours": 57.285740555555556,
+          "nprocs": 2,
+          "attempt": 1
+        },
+        {
+          "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918__wet_finalgeom_mpi8_mem6000_20261005",
+          "hours": 56.01979527777778,
+          "nprocs": 8,
+          "attempt": 1
+        },
+        {
+          "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918__wet_finalgeom_mpi12_mem6000_20261005",
+          "hours": 43.9533325,
+          "nprocs": 12,
+          "attempt": 1
+        }
+      ]
+    }
+  },
+  "timings_by_MPI": {
+    "goat": {
+      "16": {
+        "n": 1,
+        "median_hours": 34.863821944444446,
+        "mean_hours": 34.863821944444446,
+        "p90_hours": 34.863821944444446,
+        "max_hours": 34.863821944444446,
+        "MPI_counts": {
+          "16": 1
+        },
+        "slowest": [
+          {
+            "job": "F3_033_DMSO_02_W01_trace_water_sensitivity_s03__race16_20260904",
+            "hours": 34.863821944444446,
+            "nprocs": 16,
+            "attempt": 1
+          }
+        ]
+      },
+      "8": {
+        "n": 250,
+        "median_hours": 39.648670555555555,
+        "mean_hours": 91.67064734666667,
+        "p90_hours": 234.6150536111111,
+        "max_hours": 335.99610388888885,
+        "MPI_counts": {
+          "8": 250
+        },
+        "slowest": [
+          {
+            "job": "F3_031_DMSO_02_W01_trace_water_sensitivity_s07",
+            "hours": 335.99610388888885,
+            "nprocs": 8,
+            "attempt": 1
+          },
+          {
+            "job": "F3_030_DMSO_02_W01_trace_water_sensitivity_s06",
+            "hours": 263.9105011111111,
+            "nprocs": 8,
+            "attempt": 2
+          },
+          {
+            "job": "F3_026_DMSO_02_W01_trace_water_sensitivity_s04",
+            "hours": 263.09838194444444,
+            "nprocs": 8,
+            "attempt": 1
+          }
+        ]
+      }
+    },
+    "r2scan_optfreq": {
+      "8": {
+        "n": 4,
+        "median_hours": 5.6779544444444445,
+        "mean_hours": 5.438760833333333,
+        "p90_hours": 6.129559166666667,
+        "max_hours": 6.303601388888889,
+        "MPI_counts": {
+          "8": 4
+        },
+        "slowest": [
+          {
+            "job": "F3_017_DMSO_02_W01_trace_water_sensitivity__r2scan_c002_sp20260906",
+            "hours": 6.303601388888889,
+            "nprocs": 8,
+            "attempt": 1
+          },
+          {
+            "job": "F3_017_DMSO_02_W01_trace_water_sensitivity__r2scan_c001_sp20260906",
+            "hours": 6.129559166666667,
+            "nprocs": 8,
+            "attempt": 1
+          },
+          {
+            "job": "F3_016_DMSO_02_W01_trace_water_sensitivity__r2scan_c002_sp20260906",
+            "hours": 5.226349722222222,
+            "nprocs": 8,
+            "attempt": 1
+          }
+        ]
+      }
+    },
+    "pbe0_optfreq": {
+      "12": {
+        "n": 4,
+        "median_hours": 79.29458069444445,
+        "mean_hours": 95.70502284722222,
+        "p90_hours": 111.81432333333333,
+        "max_hours": 179.0743813888889,
+        "MPI_counts": {
+          "12": 4
+        },
+        "slowest": [
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906__trust010_mpi4_mem6000_20260927__mpi12_mem6000_trust005_oct1__wmm10_o6",
+            "hours": 179.0743813888889,
+            "nprocs": 12,
+            "attempt": 1
+          },
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906__trust010_mpi4_mem6000_20260927__mpi12_mem6000_trust005_oct1",
+            "hours": 111.81432333333333,
+            "nprocs": 12,
+            "attempt": 1
+          },
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906__trust010_mpi4_mem6000_20260927__mpi12_mem6000_trust005_oct1__wmm05_o6",
+            "hours": 46.77483805555555,
+            "nprocs": 12,
+            "attempt": 1
+          }
+        ]
+      },
+      "2": {
+        "n": 7,
+        "median_hours": 190.17646166666665,
+        "mean_hours": 214.77091984126983,
+        "p90_hours": 290.53333166666664,
+        "max_hours": 380.5894969444444,
+        "MPI_counts": {
+          "2": 7
+        },
+        "slowest": [
+          {
+            "job": "F3_009_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906",
+            "hours": 380.5894969444444,
+            "nprocs": 2,
+            "attempt": 1
+          },
+          {
+            "job": "F3_006_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906",
+            "hours": 290.53333166666664,
+            "nprocs": 2,
+            "attempt": 1
+          },
+          {
+            "job": "F3_023_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906",
+            "hours": 233.44028777777777,
+            "nprocs": 2,
+            "attempt": 1
+          }
+        ]
+      },
+      "4": {
+        "n": 61,
+        "median_hours": 72.3361275,
+        "mean_hours": 77.37922129781421,
+        "p90_hours": 103.88802055555556,
+        "max_hours": 459.0817705555556,
+        "MPI_counts": {
+          "4": 61
+        },
+        "slowest": [
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c003_sp20260906__savedgeom_swart_mpi4_20260925",
+            "hours": 459.0817705555556,
+            "nprocs": 4,
+            "attempt": 1
+          },
+          {
+            "job": "F3_042_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__pbe0_c001_sp20260906",
+            "hours": 169.68007277777778,
+            "nprocs": 4,
+            "attempt": 1
+          },
+          {
+            "job": "F3_042_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__pbe0_c002_sp20260906",
+            "hours": 164.33727499999998,
+            "nprocs": 4,
+            "attempt": 1
+          }
+        ]
+      },
+      "8": {
+        "n": 10,
+        "median_hours": 17.688735694444446,
+        "mean_hours": 29.72512386111111,
+        "p90_hours": 27.125451944444443,
+        "max_hours": 151.9580202777778,
+        "MPI_counts": {
+          "8": 10
+        },
+        "slowest": [
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__pbe0_c001_sp20260906__trust010_mpi4_mem6000_20260927__mpi8_mem6000_trust005_oct1",
+            "hours": 151.9580202777778,
+            "nprocs": 8,
+            "attempt": 1
+          },
+          {
+            "job": "F3_016_DMSO_02_W01_trace_water_sensitivity_refine20260913__pbe0_c002_sp20260906__hybridfix_20260915",
+            "hours": 27.125451944444443,
+            "nprocs": 8,
+            "attempt": 1
+          },
+          {
+            "job": "F3_049_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__pbe0_c001_sp20260906__mode_minus__adaptive_mpi8_20260921",
+            "hours": 26.84992527777778,
+            "nprocs": 8,
+            "attempt": 1
+          }
+        ]
+      }
+    },
+    "shielding": {
+      "12": {
+        "n": 1,
+        "median_hours": 4.4833613888888895,
+        "mean_hours": 4.4833613888888895,
+        "p90_hours": 4.4833613888888895,
+        "max_hours": 4.4833613888888895,
+        "MPI_counts": {
+          "12": 1
+        },
+        "slowest": [
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__shielding_c001_sp20260906__wet_finalgeom_mpi12_mem6000_20261005",
+            "hours": 4.4833613888888895,
+            "nprocs": 12,
+            "attempt": 1
+          }
+        ]
+      },
+      "2": {
+        "n": 2,
+        "median_hours": 14.835482222222222,
+        "mean_hours": 14.835482222222222,
+        "p90_hours": 7.937082222222222,
+        "max_hours": 21.73388222222222,
+        "MPI_counts": {
+          "2": 2
+        },
+        "slowest": [
+          {
+            "job": "F3_023_DMSO_02_W01_trace_water_sensitivity_coverage20260920__shielding_c001_sp20260906",
+            "hours": 21.73388222222222,
+            "nprocs": 2,
+            "attempt": 1
+          },
+          {
+            "job": "F3_050_DMSO_02_W01_trace_water_sensitivity_coverage20260920__shielding_c001_sp20260906",
+            "hours": 7.937082222222222,
+            "nprocs": 2,
+            "attempt": 1
+          }
+        ]
+      },
+      "4": {
+        "n": 43,
+        "median_hours": 2.177102777777778,
+        "mean_hours": 2.1297339470284236,
+        "p90_hours": 3.2156519444444442,
+        "max_hours": 4.1457225,
+        "MPI_counts": {
+          "4": 43
+        },
+        "slowest": [
+          {
+            "job": "F3_042_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__shielding_c001_sp20260906",
+            "hours": 4.1457225,
+            "nprocs": 4,
+            "attempt": 1
+          },
+          {
+            "job": "F3_033_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__shielding_c001_sp20260906",
+            "hours": 4.100297777777778,
+            "nprocs": 4,
+            "attempt": 1
+          },
+          {
+            "job": "F3_032_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__shielding_c001_sp20260906",
+            "hours": 3.641966666666667,
+            "nprocs": 4,
+            "attempt": 1
+          }
+        ]
+      }
+    },
+    "jcoupling": {
+      "12": {
+        "n": 8,
+        "median_hours": 7.995055277777778,
+        "mean_hours": 12.647907291666668,
+        "p90_hours": 10.410105277777777,
+        "max_hours": 43.9533325,
+        "MPI_counts": {
+          "12": 8
+        },
+        "slowest": [
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918__wet_finalgeom_mpi12_mem6000_20261005",
+            "hours": 43.9533325,
+            "nprocs": 12,
+            "attempt": 1
+          },
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918__jc8v2_b1_wet",
+            "hours": 10.410105277777777,
+            "nprocs": 12,
+            "attempt": 1
+          },
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918__jc8v2_b5_wet",
+            "hours": 8.149669444444445,
+            "nprocs": 12,
+            "attempt": 1
+          }
+        ]
+      },
+      "2": {
+        "n": 3,
+        "median_hours": 34.98019194444445,
+        "mean_hours": 37.401898888888894,
+        "p90_hours": 34.98019194444445,
+        "max_hours": 57.285740555555556,
+        "MPI_counts": {
+          "2": 3
+        },
+        "slowest": [
+          {
+            "job": "F3_023_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918",
+            "hours": 57.285740555555556,
+            "nprocs": 2,
+            "attempt": 1
+          },
+          {
+            "job": "F3_050_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918",
+            "hours": 34.98019194444445,
+            "nprocs": 2,
+            "attempt": 1
+          },
+          {
+            "job": "F3_047_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918",
+            "hours": 19.939764166666667,
+            "nprocs": 2,
+            "attempt": 1
+          }
+        ]
+      },
+      "4": {
+        "n": 46,
+        "median_hours": 4.502633333333334,
+        "mean_hours": 5.36446288647343,
+        "p90_hours": 10.197555277777777,
+        "max_hours": 15.603016111111112,
+        "MPI_counts": {
+          "4": 46
+        },
+        "slowest": [
+          {
+            "job": "F3_042_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__J_PBE0_pcJ2_c001_20260918",
+            "hours": 15.603016111111112,
+            "nprocs": 4,
+            "attempt": 1
+          },
+          {
+            "job": "F3_033_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__J_PBE0_pcJ2_c001_20260918",
+            "hours": 15.252895277777778,
+            "nprocs": 4,
+            "attempt": 1
+          },
+          {
+            "job": "F3_027_DMSO_02_W01_trace_water_sensitivity_explicit_delivery20260918__J_PBE0_pcJ2_c001_20260918",
+            "hours": 12.644985555555555,
+            "nprocs": 4,
+            "attempt": 1
+          }
+        ]
+      },
+      "8": {
+        "n": 1,
+        "median_hours": 56.01979527777778,
+        "mean_hours": 56.01979527777778,
+        "p90_hours": 56.01979527777778,
+        "max_hours": 56.01979527777778,
+        "MPI_counts": {
+          "8": 1
+        },
+        "slowest": [
+          {
+            "job": "F3_022_DMSO_02_W01_trace_water_sensitivity_coverage20260920__J_PBE0_pcJ2_c001_20260918__wet_finalgeom_mpi8_mem6000_20261005",
+            "hours": 56.01979527777778,
+            "nprocs": 8,
+            "attempt": 1
+          }
+        ]
+      }
+    }
+  }
+}

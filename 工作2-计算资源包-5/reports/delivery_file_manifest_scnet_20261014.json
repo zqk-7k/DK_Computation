@@ -44680,8 +44680,8 @@
     },
     {
       "path": "README_先读.txt",
-      "bytes": 5798,
-      "sha256": "fce46c5baf4c9e39af63fc8e03f3aee3a7651dbf3091784211bb3a4faa8d0dd5"
+      "bytes": 5906,
+      "sha256": "8afa7fda282cef2a3d0fca91ec9e9af6c45a34fd06301174fdec777f7a7482c7"
     },
     {
       "path": "clusterflow/__init__.py",
@@ -44810,8 +44810,8 @@
     },
     {
       "path": "config/site_scnet.json",
-      "bytes": 3195,
-      "sha256": "b2b4bf52ce8e8348131ef973d9ccea9f19542d85193e814bd50f814d97019788"
+      "bytes": 3211,
+      "sha256": "5afe45004c967d2c136cdb5afe0d0394e3760c3e3f067f5f1c7a6c3173dfa1a9"
     },
     {
       "path": "docs/51流程覆盖说明_v5.txt",
@@ -44839,14 +44839,19 @@
       "sha256": "9975800eb3089f19afff7cf8acb14dddff9fc2c331d661ac52089e25b12a0fa4"
     },
     {
+      "path": "docs/开算准备与工期复核_20261014.txt",
+      "bytes": 6353,
+      "sha256": "22a2ac630b51d0066510e0cc8495df79ccdbc8a54d536763bbfda6b6929701b2"
+    },
+    {
       "path": "docs/异常处理与人工复核.txt",
       "bytes": 3312,
       "sha256": "f8fc7e045dd14e4e8ed7786f5d92e8a185972556d40ca5f42f31774524e709e9"
     },
     {
       "path": "docs/生产推进与长墙时修订_20261014.txt",
-      "bytes": 8618,
-      "sha256": "0597c7355df547dda20793faab2c0cb3e5b79d23107f912491c156d85c30ea58"
+      "bytes": 9135,
+      "sha256": "c99f5ae49ae22935e277b1d0fbab43501c9edaed27bc8813f11f1d1d116b29e0"
     },
     {
       "path": "docs/稳定构象计数与溶剂假设_v5.txt",
@@ -45309,6 +45314,11 @@
       "sha256": "b1fc24071532248bdf24a81553a13c8a329a08013b1b027d5582ae1831e59324"
     },
     {
+      "path": "reports/historical_wet_timings_20261014.json",
+      "bytes": 17774,
+      "sha256": "2a2a155e0780ecc9ef30ae1c2e93898facfcd2a64443b02f52065f6918764a48"
+    },
+    {
       "path": "reports/independent_v5_audit.json",
       "bytes": 6051,
       "sha256": "7ee37214bc5a47dd929594be2664dad8e8c787942bc56c366887a59558eb19a3"
@@ -45332,6 +45342,16 @@
       "path": "reports/production_revision_tests_20261014.log",
       "bytes": 100,
       "sha256": "3bc86d695cde2d72a504fcc9f6fa7019567c69f25db37f0b020737110a2025b5"
+    },
+    {
+      "path": "reports/readiness_review_20261014.json",
+      "bytes": 6114,
+      "sha256": "103d80f9893ce9f1c65328c12180365572e1901dccf9137a509c7fd012ed610e"
+    },
+    {
+      "path": "reports/readiness_review_tests_20261014.log",
+      "bytes": 100,
+      "sha256": "43bb9498a8b2d75a9b5e1163f4f73e4562fdf2775673904d52e483a1b1c5b5a9"
     },
     {
       "path": "reports/scnet_revision_tests_20261014.json",
@@ -45420,8 +45440,8 @@
     },
     {
       "path": "scripts/packed_worker.py",
-      "bytes": 13354,
-      "sha256": "d8a2b12aa3cee2b2c50f32ce4c7eebbd818c2d93e7b7e835827bea7a41719f59"
+      "bytes": 13545,
+      "sha256": "99efa5d38f73a0e3175205ea343445896c2e1b3865a1ba0196a543aa78c43de3"
     },
     {
       "path": "scripts/plan_sampling_v4.py",
@@ -47205,8 +47225,8 @@
     },
     {
       "path": "tests/test_production_revision.py",
-      "bytes": 18541,
-      "sha256": "087cabf9cb5313d09a735621f62a2b654102138dcc92f6a4d1151768d545c9d0"
+      "bytes": 19258,
+      "sha256": "9b7966484689ffc2630f55bf213d3c962d8341b4ad7055b3ffcf0bba7f43a410"
     },
     {
       "path": "tests/test_runner_portable.py",

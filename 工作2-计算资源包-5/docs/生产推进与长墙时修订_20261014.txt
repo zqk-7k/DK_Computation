@@ -47,6 +47,8 @@ balanced（默认）：每节点4worker，各8分配CPU/28500MB。GOAT与预筛�
 large_memory：2worker，各16CPU/57000MB，适合实测需要更多内存的阶段。
 branch_parallel：2worker，各16CPU/57000MB，每个分支最多两个独立DFT任务并行；
 子任务使用独立进程、独立CPU亲和及各半内存预算。同一构象的上下游依赖不并行跨越。
+2026-10-14再次复查修正：branch_parallel每个分支按两个并行子计算预留128GiB增长预算，
+不能只按一个64GiB预算领取；balanced仍为每分支64GiB。空间与CPU/内存分别核算。
 预筛8×2500MB、GOAT8×2000MB均须通过每槽内存余量检查；MaxCore仍不是进程RSS硬限制。
 更换profile需要相应pilot；不在运行中修改已冻结的科学输入。默认未设置单分支并行GOAT。
 
@@ -75,8 +77,11 @@ DFT另存持久化执行所有权，避免控制进程崩溃后ORCA孤儿子进�
 五、空间和恢复
 空间、inode或用户配额不足属于WAITING_STORAGE；不因这些等待把计算节点判坏。
 明确的本地只读挂载才进入节点隔离。共享盘可写/空闲检查不等于个人额度核实。
-本轮quota -s未返回有效额度；用户提及的专用配额工具权限限制仍需平台侧解决，
-不能把共享文件系统df空闲量冒充个人可用空间。正式扩容前应取得有效额度信息。
+后续复查已澄清路径差别：/public返回整个共享盘；/public/home/qikai及其
+orca_shared_scratch目录的df和Python statvfs均返回10TiB总额、约4TiB可用。
+因此实际scratch路径可以观察账号范围容量，不能再笼统认定所有df均只给整盘容量。
+quota -s仍无有效输出，专用配额工具权限问题未解决；上述数据是时点快照，运行时仍须
+在实际scratch路径复查。其他项目同时写盘，不能把当前剩余容量当成工作2独享额度。
 
 修复完成后的受控恢复（默认计划；加--execute才改变状态）：
   python scripts/operations.py resume --species 实际物种ID --reason '具体修复及证据'

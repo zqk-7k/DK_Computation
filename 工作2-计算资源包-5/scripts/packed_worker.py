@@ -62,7 +62,9 @@ def claim(base,site,species):
                 path.rename(archive/(path.stem+'_'+uuid.uuid4().hex+'.json'))
             else:active.append(record)
         snapshot=check_storage(site['shared_scratch'],site['disk']['admit_free_gib'])
-        budget=site['disk']['unmeasured_task_growth_gib']
+        # A branch can own two simultaneous DFT scratch directories. Reserve
+        # growth per possible child, not just once per branch claim.
+        budget=site['disk']['unmeasured_task_growth_gib']*site['packed'].get('branch_parallel_jobs',1)
         if snapshot['free_bytes']/1024**3 < site['disk']['admit_free_gib']+sum(r['growth_gib'] for r in active)+budget:
             return None
         cursor_path=base/'cursor.json'
