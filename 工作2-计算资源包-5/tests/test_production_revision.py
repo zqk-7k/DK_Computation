@@ -93,6 +93,21 @@ class AdmissionTests(unittest.TestCase):
             # 128 GiB floor + 128 existing + 128 new > 350 GiB free.
             self.assertIsNone(packed_worker.claim(base,site,[SID,'second_branch']))
 
+    def test_failed_quantum_receipt_blocks_next_goat_start(self):
+        site=readj(ROOT/'config/site_scnet.json')
+        writej(self.root/'registry/batch_plan_v5.json',{'species':[{'species_id':SID,'compound_id':'F2_E01'}]})
+        with patch.object(packed_worker,'ROOT',self.root),patch.object(packed_worker,'site_config',return_value=site), \
+             patch.object(packed_worker,'check_storage',return_value={'free_bytes':10000*1024**3}), \
+             patch.object(packed_worker,'reconcile_species'),patch.object(packed_worker,'coverage',return_value={}), \
+             patch('os.sched_getaffinity',return_value=set(range(32))),patch('os.sched_setaffinity'),patch('time.sleep'), \
+             patch.dict(os.environ,{'SLURM_JOB_ID':'123456789'},clear=False), \
+             patch.object(autoflow,'step',return_value={'status':'EXECUTED_ONE_GOAT_JOB','quantum_jobs_launched':1,
+                         'execution':{'status':'FAILED','returncode':0}}) as step:
+            packed_worker.worker(0,4,time.time()+720*3600,2)
+        self.assertEqual(step.call_count,1)
+        record=readj(self.root/'operations/packed/blocked'/(SID+'.json'))
+        self.assertEqual(record['result']['status'],'RECOVERY_REQUIRED_QUANTUM_FAILED')
+
     def test_site_profiles_fit_cpu_and_memory_for_prescreen(self):
         from clusterflow.runner import allocation
         for profile in ('balanced','large_memory','branch_parallel'):

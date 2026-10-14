@@ -149,6 +149,10 @@ def worker(slot,slots,deadline,max_steps,species=None):
             reconcile_species(record['species_id'],site)
             result=step(ROOT,record['species_id'],execute=True,orca=site['orca_wrapper'],
                         xtb=site['xtb'],scratch_root=site['shared_scratch'])
+            execution=result.get('execution')
+            if isinstance(execution,dict) and str(execution.get('status','')).upper()=='FAILED':
+                result={**result,'status':'RECOVERY_REQUIRED_QUANTUM_FAILED',
+                        'reason':'Terminal failed receipt; inspect before launching another start of this branch'}
         except DeferredWork as exc:
             result=exc.report
         except StorageAdmissionError as exc:

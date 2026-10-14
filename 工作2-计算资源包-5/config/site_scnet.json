@@ -5,7 +5,7 @@
   "container": "/public/home/qikai/apprepo/orca/6.1.0-glibc229/app/orca-openmpi418.sif",
   "xtb": "/public/home/qikai/apprepo/xtb/v6.7.0-intelmpi2021/app/bin/xtb",
   "python": "/public/home/qikai/.conda/envs/orca-nmr-py310/bin/python",
-  "shared_scratch": "/public/home/qikai/orca_shared_scratch/work2_64_v5",
+  "shared_scratch": "/public/home/qikai/orca_shared_scratch/work2_64_v5_mpi_local_v1",
   "local_runtime_root": "/var/tmp",
   "environment": {
     "OMPI_MCA_pml": "ob1",
@@ -13,7 +13,16 @@
     "APPTAINERENV_OMPI_MCA_pml": "ob1",
     "APPTAINERENV_OMPI_MCA_btl": "self,vader,tcp",
     "SINGULARITYENV_OMPI_MCA_pml": "ob1",
-    "SINGULARITYENV_OMPI_MCA_btl": "self,vader,tcp"
+    "SINGULARITYENV_OMPI_MCA_btl": "self,vader,tcp",
+    "OMPI_MCA_plm": "isolated",
+    "OMPI_MCA_ras": "^slurm",
+    "OMPI_MCA_hwloc_base_binding_policy": "none",
+    "APPTAINERENV_OMPI_MCA_plm": "isolated",
+    "APPTAINERENV_OMPI_MCA_ras": "^slurm",
+    "APPTAINERENV_OMPI_MCA_hwloc_base_binding_policy": "none",
+    "SINGULARITYENV_OMPI_MCA_plm": "isolated",
+    "SINGULARITYENV_OMPI_MCA_ras": "^slurm",
+    "SINGULARITYENV_OMPI_MCA_hwloc_base_binding_policy": "none"
   },
   "node": {
     "historical_cores": 32,

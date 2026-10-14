@@ -44815,8 +44815,8 @@
     },
     {
       "path": "config/site_scnet.json",
-      "bytes": 3211,
-      "sha256": "5afe45004c967d2c136cdb5afe0d0394e3760c3e3f067f5f1c7a6c3173dfa1a9"
+      "bytes": 3644,
+      "sha256": "0e4ea418bd686dbadef699ffaf98c04780479f41644317beab0dce1f0f239402"
     },
     {
       "path": "docs/51流程覆盖说明_v5.txt",
@@ -44860,8 +44860,8 @@
     },
     {
       "path": "docs/真实小试启动与12节点计划_20261014.txt",
-      "bytes": 3499,
-      "sha256": "864f9f81d329c6666fc6e501df51568c6afa6b969097297df4cc8bc3517b9c27"
+      "bytes": 4625,
+      "sha256": "05aa107c71bcafed0caa8154e6d0b93006cbe33e00ce64a8fcd00e74ab9e9e0d"
     },
     {
       "path": "docs/稳定构象计数与溶剂假设_v5.txt",
@@ -45339,6 +45339,11 @@
       "sha256": "91c64286e38292bd939fdea3879148fe9b7b2068c0edf72fb6c8f4a58da6f6a3"
     },
     {
+      "path": "reports/mpi_launcher_repair_tests_20261014.log",
+      "bytes": 265,
+      "sha256": "8d54e6e569517f1220ce2c891d40dc90c3b6f57794922868a419b43cc8543362"
+    },
+    {
       "path": "reports/pilot_launch_tests_20261014.log",
       "bytes": 100,
       "sha256": "e450460d1d2073222b94b50b87f4566a5262b8741b6fb691f8c7ad85a8108ddc"
@@ -45414,6 +45419,11 @@
       "sha256": "20b29da7f40546ce6be429977497ccc7fb91c46e98ed442d7e338d0decaaf10a"
     },
     {
+      "path": "scripts/check_packed_mpi.py",
+      "bytes": 1582,
+      "sha256": "162e880041ae92213b0725d9c11cf06ad6fedfc1f53ed064cb0180c3360faa3f"
+    },
+    {
       "path": "scripts/goat_job.py",
       "bytes": 20645,
       "sha256": "2714a56bac9ed8d83a023af6a08f49d7d751133a6ee36d8aadc4c541f9625ac7"
@@ -45455,8 +45465,8 @@
     },
     {
       "path": "scripts/packed_worker.py",
-      "bytes": 14410,
-      "sha256": "0d79a3120a21f946f484e42efbce34ad9593238eae4f4d2f4a97b3224685a220"
+      "bytes": 14746,
+      "sha256": "20abc20e1570d7d25ac98c7a65998c0e004c7e5232c9df10e730bf4582cbac29"
     },
     {
       "path": "scripts/plan_sampling_v4.py",
@@ -45480,13 +45490,13 @@
     },
     {
       "path": "scripts/scnet_packed.sbatch",
-      "bytes": 1086,
-      "sha256": "5566f3c6c99cfe6b74e1f32911b686658a6ca393f2a040643673f0037777689a"
+      "bytes": 1272,
+      "sha256": "c06bcad55410170591fab0906a2a6c13cf13fb6f2d9a0bf8056a3ac113e8bcad"
     },
     {
       "path": "scripts/scnet_pilot.sbatch",
-      "bytes": 1010,
-      "sha256": "e333c1fde838e5297952ac320f854533ab78b958d4fdc532255b82c958bfe8c6"
+      "bytes": 1132,
+      "sha256": "792e7f67206a428341e2d2f215369642a13492f6971c1cc0f3296b03e42ed836"
     },
     {
       "path": "scripts/site_check.py",
@@ -47244,14 +47254,19 @@
       "sha256": "410346d1ca78f4c87c16fd0e697cd643dcee6ba1e060629c48610bd3483bef9a"
     },
     {
+      "path": "tests/test_packed_mpi.py",
+      "bytes": 1468,
+      "sha256": "b168f15aa401ad2cfd772e959d70b1724b03a88c228f37dce00bfb6026a1b085"
+    },
+    {
       "path": "tests/test_pilot_scope.py",
       "bytes": 944,
       "sha256": "97e2056c1e1a7aa0fd2a2b430acf043f18f9b8c941280859a230308966f48f69"
     },
     {
       "path": "tests/test_production_revision.py",
-      "bytes": 19258,
-      "sha256": "9b7966484689ffc2630f55bf213d3c962d8341b4ad7055b3ffcf0bba7f43a410"
+      "bytes": 20499,
+      "sha256": "5720c9aac5ca204081f07d36bf53d33f4a65217d211317250fe22a1566cea9aa"
     },
     {
       "path": "tests/test_runner_portable.py",

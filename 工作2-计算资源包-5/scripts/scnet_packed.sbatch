@@ -9,6 +9,8 @@ set -euo pipefail
 cd "${WORK2_PACKAGE_ROOT:?Set an independent production copy of 工作2-计算资源包-5}"
 source scripts/scnet_environment.sh
 test -r "${WORK2_RUNTIME_EVIDENCE:?Run scripts/site_check.py first}"
+srun --nodes="${SLURM_NNODES:?}" --ntasks="$SLURM_NNODES" --ntasks-per-node=1 \
+  "${WORK2_PYTHON:-/public/home/qikai/.conda/envs/orca-nmr-py310/bin/python}" scripts/check_packed_mpi.py
 # Advance notice drains new claims on all nodes. Current ORCA calls continue.
 trap 'mkdir -p operations/packed; touch "operations/packed/DRAIN_${SLURM_JOB_ID}"' USR1
 srun --nodes="${SLURM_NNODES:?}" --ntasks="${SLURM_NNODES}" --ntasks-per-node=1 \

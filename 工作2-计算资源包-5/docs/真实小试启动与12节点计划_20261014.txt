@@ -43,3 +43,15 @@ scnet_environment.sh现先在本作业内module purge，然后确认oneAPI确实
 LOADEDMODULES中，加载ORCA环境后使用ldd确认xTB动态库齐全才允许后续启动。
 新增3项shell回归：继承HPC-X、返回码为0的模块失败、缺MKL均有明确测试。
 旧失败作业日志及submission日志保留；只有确认该父任务终态且没有QM所有权后才重提。
+
+随后真实小试124439836暴露容器OpenMPI选择Slurm启动器、但容器内没有可用srun的问题。
+4个产物首起点和TMS前4起点均有明确失败回执，未产生正常终止及有效ensemble；
+Slurm父任务COMPLETED不代表量化成功。已使用DRAIN停止领取，等待当前调用完成后退出。
+修复采用OpenMPI的isolated进程启动及ras排除slurm，量化MPI限制在各worker当前节点，
+关闭MPI额外绑核以保留worker已设置的CPU亲和范围。宿主及两种容器环境前缀都显式设置。
+依据OpenMPI 4.1.8组件源代码：
+https://github.com/open-mpi/ompi/blob/v4.1.8/orte/mca/plm/isolated/plm_isolated.c
+启动器新增每节点8个hostname进程检查，须全部回报本节点才能进入量化。
+worker遇到嵌套execution.status=FAILED立即持久阻止该分支，不能因外层EXECUTED状态继续下一起点。
+此次只归档8个已确认同一基础设施故障的原始输出/回执/意向记录，保留输入和旧scratch不变，
+新尝试使用独立work2_64_v5_mpi_local_v1 scratch；不覆盖科学结果，不重算任何成功任务。
