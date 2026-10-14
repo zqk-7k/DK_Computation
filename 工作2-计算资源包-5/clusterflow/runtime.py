@@ -22,7 +22,13 @@ SITE = Path(__file__).resolve().parents[1] / 'config/site_scnet.json'
 
 
 def site_config():
-    return readj(Path(os.environ.get('WORK2_SITE_CONFIG', str(SITE))))
+    site = readj(Path(os.environ.get('WORK2_SITE_CONFIG', str(SITE))))
+    profile = os.environ.get('WORK2_PACKED_PROFILE')
+    if profile:
+        if profile not in site.get('packed_profiles', {}):
+            raise ValueError('Unknown packed resource profile: ' + profile)
+        site['packed'] = {**site['packed'], **site['packed_profiles'][profile]}
+    return site
 
 
 def wrapper_preflight(executable, xtb=None):
@@ -97,19 +103,34 @@ def lock_state(path):
     return 'REMOTE_OWNER_CHECK_REQUIRED'
 
 
+class StorageAdmissionError(ValueError):
+    """A capacity wait is distinct from a broken node or corrupted result."""
+    def __init__(self, category, path):
+        self.category, self.path = category, str(path)
+        super().__init__(category + ': ' + str(path))
+
+
 def check_storage(path, minimum_gib, minimum_inodes=10000, write_probe=True):
     path = Path(path).resolve(strict=True)
     stat = os.statvfs(path)
     free = min(shutil.disk_usage(path).free, stat.f_bavail * stat.f_frsize)
     if free < minimum_gib * 1024**3:
-        raise ValueError('DISK_ADMISSION_BLOCKED: ' + str(path))
+        raise StorageAdmissionError('DISK_ADMISSION_BLOCKED', path)
     if stat.f_files and stat.f_favail < minimum_inodes:
-        raise ValueError('INODE_ADMISSION_BLOCKED: ' + str(path))
+        raise StorageAdmissionError('INODE_ADMISSION_BLOCKED', path)
     if stat.f_flag & getattr(os, 'ST_RDONLY', 1):
-        raise ValueError('READ_ONLY_NODE_OR_MOUNT: ' + str(path))
+        raise StorageAdmissionError('READ_ONLY_NODE_OR_MOUNT', path)
     if write_probe:
-        with tempfile.TemporaryFile(dir=path) as stream:
-            stream.write(b'work2-write-probe'); stream.flush(); os.fsync(stream.fileno())
+        try:
+            with tempfile.TemporaryFile(dir=path) as stream:
+                stream.write(b'work2-write-probe'); stream.flush(); os.fsync(stream.fileno())
+        except OSError as exc:
+            import errno
+            category = {errno.ENOSPC: 'DISK_ADMISSION_BLOCKED', errno.EDQUOT: 'QUOTA_ADMISSION_BLOCKED',
+                        errno.EROFS: 'READ_ONLY_NODE_OR_MOUNT'}.get(exc.errno)
+            if category:
+                raise StorageAdmissionError(category, path) from exc
+            raise
     return {'path': str(path), 'free_bytes': free, 'free_inodes': stat.f_favail}
 
 

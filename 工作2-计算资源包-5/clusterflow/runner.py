@@ -246,9 +246,13 @@ def run_one(root,relative,orca,*,acknowledge=False,dry_run=False,timeout=None,re
         if not (d/'receipt.json').exists() and previous_outputs:
             raise ValueError('Unreceipted existing output requires a separate import audit')
         from .cache import try_reuse, publish
+        from .cache import key as cache_key, runtime_identity
+        from .scheduling import single_execution, admit_quantum
+        locks.enter_context(single_execution(root, cache_key(d, check['orca_sha256'], runtime_identity()), d))
         if not previous_outputs and not retry:
             reused=try_reuse(root,d,check['orca_sha256'])
             if reused is not None:return reused
+        admit_quantum(root, m['stage'], m['species_id'])
         actual=d
         if stage_dir is not None:
             # Partial scratch work is never silently resumed or overwritten.

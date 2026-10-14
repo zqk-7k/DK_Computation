@@ -1,5 +1,6 @@
 工作2-计算资源包-5：SCNET ORCA 6.1.0修订
 日期：2026-10-14
+同日第二次修订优先见：生产推进与长墙时修订_20261014.txt。
 
 一、范围和事实
 目录名保持“工作2-计算资源包-5”。仍为64产物、66结构分支、1个TMS模型；原有1020 GOAT
@@ -17,7 +18,8 @@
    锁失效仅在调度器确认旧作业终态后可归档；未知状态保留并报告，不按年龄删除。
 5. 同水分子等价氢换号去重修复；不任意交换分析物非等价氢。回归用真实初始簇、无QM。
 6. Opt/Freq、shielding及J默认4个实际MPI、3500MB/rank；预筛和预制GOAT仍8 MPI。
-   两个57000MB/16分配CPU槽位共用一个32CPU/114000MB父节点。每槽独立内存预算，
+   默认四个28500MB/8分配CPU槽位共用一个32CPU/114000MB父节点；另有large_memory和
+   branch_parallel配置。每槽独立内存预算，
    不把分配的16CPU写成实际16 MPI，也不保证4 MPI适合所有模型；推广须依据实测RSS/耗时。
 7. 科学scratch默认/public/home/qikai/orca_shared_scratch/work2_64_v5；每次wrapper调用有
    独立/var/tmp runtime，隔离同一Slurm父任务的sandbox命名/清理冲突。不修改旧wrapper。
@@ -53,12 +55,12 @@
 5. 小规模真实pilot：至少简单刚性、强氢键、含Br/F、复杂药物及TMS的代表模型。
    验证GOAT实际xTB调用、优化/频率、完整核清单shielding/J、原子对索引、输出解析、TMS和CSV。
    包内tests/run_real_input_smoke.py只是一部分检查，不是64产物全面验证。
-6. 当前站点确认允许72h时的提交计划示例（没有--execute，不提交）：
-   python scripts/submit_packed.py --nodes 4 --hours 72 --verified-max-hours 72 --waves 3
-   加--execute才提交。若实际限制不是72h，必须更改参数；verified-max-hours是操作者提供的
-   当前站点信息，不是程序替客服认证。每个worker再查实际EndTime，结束前30分钟停止新领取。
-7. 默认三个有限afterany父任务接续，每个可以多个节点、每节点两个worker，不堆200个单任务。
-   同一结构分支当前串行推进，多个分支并行；不是任意单个分子内部的无限并行。
+6. 默认30天正式父任务的提交计划（没有--execute，不提交）：
+   python scripts/submit_packed.py --nodes 4 --profile balanced --waves 3
+   加--execute先进行实时sbatch --test-only，成功才提交；不自动缩短墙时。
+   每次QM还检查预计耗时与实际EndTime，预留1小时回传；结束前1小时停止新领取。
+7. 默认三个有限afterany父任务接续，每个可以多个节点、默认每节点四个worker，不堆200个单任务。
+   可选branch_parallel对同分支独立DFT任务做有界并行，按子任务拆分CPU与内存。
    后继父任务读取同一持久状态/回执/任务领取记录。旧父任务的DRAIN标记不阻塞新父任务。
    遇到未知失败/科学问题留下持久blocked记录，避免占着节点反复空轮询。
 8. 定期在登录节点执行轻量覆盖审计：

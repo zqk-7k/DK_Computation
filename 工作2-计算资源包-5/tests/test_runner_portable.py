@@ -34,7 +34,7 @@ class RunnerPortableTests(unittest.TestCase):
         writej(self.root/'config/protocol.json',self.cfg)
         for name in runner.IMMUTABLE_FILES:
             (self.job/name).write_text('SYNTHETIC UNIT TEST ONLY\n',encoding='utf-8')
-        self.metadata={'id':'synthetic-c001','stage':'prescreen','nprocs':1,'maxcore_mb':1,
+        self.metadata={'id':'synthetic-c001','species_id':'SYNTHETIC_TRANSPORT','stage':'prescreen','nprocs':1,'maxcore_mb':1,
                        'protocol_hash':hash_protocol(self.cfg),'input_sha256':sha(self.job/'job.inp'),
                        'atom_map_sha256':sha(self.job/'atom_map.json'),'required_outputs':['job.xyz'],
                        'notice':'SYNTHETIC TEST FIXTURE, NOT SCIENTIFIC EVIDENCE'}

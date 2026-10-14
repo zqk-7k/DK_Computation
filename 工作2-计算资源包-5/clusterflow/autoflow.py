@@ -16,6 +16,7 @@ from pathlib import Path
 import re
 import shutil
 import uuid
+import time
 
 from .common import config, hash_protocol, inside, readj, sha, writej
 from . import pipeline
@@ -256,18 +257,82 @@ def _release(state, plans, *, first=False):
 
 def _execute_goat(root, row, orca, xtb, scratch_root):
     from scripts.goat_portable import run_one
-    return run_one(root, row['job_id'], Path(orca), Path(xtb), Path(scratch_root), acknowledge_models=True)
+    from .scheduling import single_execution, admit_quantum, record_timing, DeferredWork
+    digest='goat_'+hashlib.sha256(row['job_id'].encode()).hexdigest()
+    with single_execution(root,digest):
+        status=_job_status(root,row,goat=True)
+        if status['status']=='COMPLETE':return {'status':'REUSED_SHARED_GOAT','quantum_jobs_launched':0}
+        if status['status']!='PENDING':raise DeferredWork('WAITING_SHARED_GOAT',job_status=status)
+        admit_quantum(root,'goat',row['species_id'])
+        started=time.monotonic()
+        result=run_one(root, row['job_id'], Path(orca), Path(xtb), Path(scratch_root), acknowledge_models=True)
+        record_timing(root,'goat',row['species_id'],time.monotonic()-started)
+        return result
 
 
 def _execute_dft(workspace, row, orca, scratch_root):
     from .runner import run_one
-    return run_one(workspace, row['job_dir'], orca, acknowledge=True, scratch_root=scratch_root)
+    from .scheduling import record_timing
+    result=run_one(workspace, row['job_dir'], orca, acknowledge=True, scratch_root=scratch_root)
+    if result.get('elapsed_seconds') and not result.get('reuse') and not result.get('skipped'):
+        meta=readj(Path(workspace)/row['job_dir']/'job.json')
+        record_timing(workspace,meta['stage'],meta['species_id'],result['elapsed_seconds'])
+    return result
+
+
+def _parallel_dft(workspace,row,orca,scratch_root,cpus,memory):
+    if hasattr(os,'sched_setaffinity'):os.sched_setaffinity(0,cpus)
+    os.environ['SLURM_CPUS_PER_TASK']=str(len(cpus))
+    os.environ['WORK2_SLOT_MEMORY_MB']=str(memory)
+    from .scheduling import DeferredWork
+    try:return _execute_dft(workspace,row,orca,scratch_root)
+    except DeferredWork as exc:return exc.report
+
+
+def _run_pending(workspace,rows,orca,scratch_root):
+    """Bounded independent conformer parallelism in separate processes."""
+    maximum=int(os.environ.get('WORK2_BRANCH_PARALLEL_JOBS','1'))
+    if maximum<1:raise ValueError('Positive branch parallelism required')
+    chosen=rows[:maximum]
+    if len(chosen)==1:
+        executed=_execute_dft(workspace,chosen[0],orca,scratch_root)
+        return {'status':'REUSED_ONE_DFT_RESULT' if executed.get('reuse') else 'EXECUTED_ONE_DFT_JOB',
+                'execution':executed,'quantum_jobs_launched':executed.get('quantum_jobs_launched',1)}
+    from concurrent.futures import ProcessPoolExecutor
+    available=sorted(os.sched_getaffinity(0))
+    memory=int(os.environ['WORK2_SLOT_MEMORY_MB'])//len(chosen)
+    width=len(available)//len(chosen)
+    for row in chosen:
+        meta=readj(Path(workspace)/row['job_dir']/'job.json')
+        if meta['nprocs']>width or meta['nprocs']*meta['maxcore_mb']>.75*memory:
+            raise ValueError('Branch parallelism exceeds its isolated CPU/memory budget')
+    with ProcessPoolExecutor(max_workers=len(chosen)) as pool:
+        futures=[pool.submit(_parallel_dft,workspace,row,orca,scratch_root,
+                            available[i*width:(i+1)*width],memory) for i,row in enumerate(chosen)]
+        results=[future.result() for future in futures]
+    launched=sum(r.get('quantum_jobs_launched',1) for r in results)
+    if launched:status='EXECUTED_DFT_BATCH'
+    elif any(r.get('status')=='WAITING_WALLTIME' for r in results):status='WAITING_WALLTIME'
+    elif any(r.get('status','').startswith('WAITING_SHARED_RESULT') for r in results):
+        status=next(r['status'] for r in results if r.get('status','').startswith('WAITING_SHARED_RESULT'))
+    else:status='REUSED_DFT_BATCH'
+    return {'status':status,'executions':results,'quantum_jobs_launched':launched}
 
 
 def _stage_step(workspace, plans, *, execute, orca, scratch_root):
     """Advance all accepted members, never silently discard a failed conformer."""
     from .inputs import STAGES
     ph = hash_protocol(config(workspace))
+    settings=readj(Path(workspace)/'config/automation.json')
+    if settings.get('incremental_downstream') and execute:
+        pending=[]
+        for sid in plans:
+            pipeline.prepare_prescreen(workspace,sid,SCENARIO)
+            pipeline.prepare_healthy_downstream(workspace,sid,SCENARIO)
+            for stage in ('optfreq','shielding','j_PBE_pcJ3','j_PBE0_pcJ2','prescreen'):
+                for row in pipeline.manifest(workspace,stage,sid,SCENARIO):
+                    if _job_status(workspace,row,goat=False)['status']=='PENDING':pending.append(row)
+        if pending and execute:return _run_pending(workspace,pending,orca,scratch_root)
     for sid in plans:
         pipeline._validated_imports(workspace, sid, SCENARIO)
         pipeline.prepare_prescreen(workspace, sid, SCENARIO)
@@ -276,9 +341,7 @@ def _stage_step(workspace, plans, *, execute, orca, scratch_root):
             statuses = [_job_status(workspace, row, goat=False) for row in rows]
             pending = [r for r, s in zip(rows, statuses) if s['status'] == 'PENDING']
             if pending and execute:
-                executed = _execute_dft(workspace, pending[0], orca, scratch_root)
-                return {'status': 'REUSED_ONE_DFT_RESULT' if executed.get('reuse') else 'EXECUTED_ONE_DFT_JOB',
-                        'execution': executed, 'quantum_jobs_launched': executed.get('quantum_jobs_launched', 1)}
+                return _run_pending(workspace,pending,orca,scratch_root)
             if any(not s['terminal'] for s in statuses):
                 return {'status': 'WAITING_DFT_BATCH', 'stage': stage, 'species_id': sid,
                         'jobs': rows, 'job_statuses': statuses}
@@ -294,12 +357,14 @@ def _stage_step(workspace, plans, *, execute, orca, scratch_root):
     if any(not report['all_prepared_optfreq_pass'] or report['issues'] for report in stable_reports.values()):
         return {'status': 'AWAITING_SCIENTIFIC_REVIEW', 'stable_reports': stable_reports,
                 'notice': 'Unverified or human-reviewed approximate minima cannot enter this automatic stable-minimum workflow.'}
-    short = [sid for sid in plans if stable_reports[sid]['eligible_count'] < plans[sid]['stable_conformer_target']]
+    from .review_control import target_for
+    effective_targets={sid:target_for(workspace,sid,SCENARIO,plans[sid]['stable_conformer_target'])[0] for sid in plans}
+    short = [sid for sid in plans if stable_reports[sid]['eligible_count'] < effective_targets[sid]]
     if short:
         return {'status': 'DFT_STABLE_MINIMA_SHORTAGE', 'short_species': short,
                 'stable_reports': stable_reports,
                 'minimum_for_first_NMR': {sid: p['stable_conformer_target'] for sid, p in plans.items()},
-                'notice': 'Only distinct checked low-energy final DFT minima count; no NMR property jobs prepared.'}
+                'notice': 'Only distinct checked low-energy final DFT minima count; independent properties may exist, but final ensemble is not approved.'}
     for sid in plans:
         result = pipeline.advance(workspace, sid, SCENARIO, 'optfreq')
         if result['status'] != 'advanced':
@@ -309,9 +374,7 @@ def _stage_step(workspace, plans, *, execute, orca, scratch_root):
         statuses = [_job_status(workspace, row, goat=False) for row in rows]
         pending = [r for r, s in zip(rows, statuses) if s['status'] == 'PENDING']
         if pending and execute:
-            executed = _execute_dft(workspace, pending[0], orca, scratch_root)
-            return {'status': 'REUSED_ONE_DFT_RESULT' if executed.get('reuse') else 'EXECUTED_ONE_DFT_JOB',
-                    'execution': executed, 'quantum_jobs_launched': executed.get('quantum_jobs_launched', 1)}
+            return _run_pending(workspace,pending,orca,scratch_root)
         if any(not s['terminal'] for s in statuses):
             return {'status': 'WAITING_PROPERTY_BATCH', 'species_id': sid, 'jobs': rows, 'job_statuses': statuses}
         if any(s['status'] != 'COMPLETE' for s in statuses):
@@ -411,7 +474,7 @@ def step(root, species_id, *, execute=False, orca=None, xtb=None, scratch_root=N
                 pending = [indexed[j] for by_id in checks.values() for j, s in by_id.items() if s['status'] == 'PENDING']
                 if execute and pending:
                     result = _execute_goat(root, pending[0], orca, xtb, scratch_root)
-                    return finish('EXECUTED_ONE_GOAT_JOB', execution=result, quantum_jobs_launched=1)
+                    return finish('EXECUTED_ONE_GOAT_JOB', execution=result, quantum_jobs_launched=result.get('quantum_jobs_launched',1))
                 return finish('WAITING_WHOLE_GOAT_BATCH', job_statuses=checks)
             from .autoselect import screen_batch, import_selection
             reports = {}
@@ -478,7 +541,7 @@ def step(root, species_id, *, execute=False, orca=None, xtb=None, scratch_root=N
             if changes:
                 return finish('DFT_STABLE_MINIMA_SHORTAGE_AUTO_REPLENISH', changes=changes, stable_reports=stage['stable_reports'])
             state['phase'] = 'REVIEW'
-            state['review_reason'] = 'Final stable-minimum target unmet after available reserve/GOAT pool exhaustion; no NMR property jobs launched.'
+            state['review_reason'] = 'Final stable-minimum target unmet after available reserve/GOAT pool exhaustion; independent property work may exist, but final ensemble remains unapproved.'
             return finish('AWAITING_SCIENTIFIC_REVIEW', reason=state['review_reason'], stable_reports=stage['stable_reports'])
         if stage['status'] != 'WAVE_DFT_COMPLETE':
             return finish(stage.pop('status'), workspace=str(workspace), **stage)

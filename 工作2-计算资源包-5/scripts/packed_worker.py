@@ -21,7 +21,8 @@ import uuid
 ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from clusterflow.common import readj,writej
-from clusterflow.runtime import site_config,owner_record,check_storage,wrapper_preflight,process_start
+from clusterflow.runtime import site_config,owner_record,check_storage,wrapper_preflight,process_start,StorageAdmissionError
+from clusterflow.scheduling import DeferredWork
 from clusterflow.operations import scheduler_terminal,retire_terminal_lock,coverage,recover_stageout,retry_dft_infrastructure,diagnosis
 
 
@@ -48,12 +49,15 @@ def end_time():
 def claim(base,site,species):
     with queue_lock(base):
         claims=base/'claims';claims.mkdir(exist_ok=True)
-        active=[]
+        active=[]; terminal_by_job={}
         for path in claims.glob('*.json'):
             record=readj(path)
             local_live=(record.get('hostname')==socket.gethostname() and record.get('process_start')
                         and process_start(record.get('pid'))==record['process_start'])
-            if scheduler_terminal(record) and not local_live:
+            job=(record.get('slurm_job_id'),record.get('slurm_array_task_id'))
+            if not local_live and job not in terminal_by_job:
+                terminal_by_job[job]=scheduler_terminal(record)
+            if not local_live and terminal_by_job.get(job,False):
                 archive=base/'claim_history';archive.mkdir(exist_ok=True)
                 path.rename(archive/(path.stem+'_'+uuid.uuid4().hex+'.json'))
             else:active.append(record)
@@ -92,6 +96,8 @@ def worker(slot,slots,deadline,max_steps):
     os.environ['SLURM_NTASKS']='1'  # One serial driver per isolated worker, never mpirun the driver.
     os.environ['SLURM_CPUS_PER_TASK']=str(site['packed']['slot_allocated_cpus'])
     os.environ['WORK2_SLOT_MEMORY_MB']=str(site['packed']['slot_memory_mb'])
+    os.environ['WORK2_DEADLINE_EPOCH']=str(deadline)
+    os.environ['WORK2_BRANCH_PARALLEL_JOBS']=str(site['packed'].get('branch_parallel_jobs',1))
     if hasattr(os,'sched_getaffinity'):
         available=sorted(os.sched_getaffinity(0))
         size=len(available)//slots
@@ -99,40 +105,63 @@ def worker(slot,slots,deadline,max_steps):
         os.sched_setaffinity(0,available[slot*size:(slot+1)*size])
     from clusterflow.autoflow import step
     species=[r['species_id'] for r in readj(ROOT/'registry/batch_plan_v5.json')['species'] if r['compound_id']!='TMS']
-    idle=0
+    idle=0; wall_wait=set()
     for _ in range(max_steps):
         if os.environ.get('WORK2_DRAIN_REQUESTED')=='1' or time.time()>deadline-site['slurm']['drain_before_end_seconds']:break
         if (base/'STOP_NEW_CLAIMS').exists() or (base/('DRAIN_'+os.environ['SLURM_JOB_ID'])).exists():break
         if (base/'quarantine'/(socket.gethostname()+'.json')).exists():break
-        check_storage(site['local_runtime_root'],site['disk']['local_admit_gib'])
-        check_storage('/dev/shm',site['disk']['shm_min_gib'],minimum_inodes=100)
-        selected=claim(base,site,species)
+        try:
+            check_storage(site['local_runtime_root'],site['disk']['local_admit_gib'])
+            check_storage('/dev/shm',site['disk']['shm_min_gib'],minimum_inodes=100)
+            admissible=[sid for sid in species if sid not in wall_wait]
+            if not admissible:break
+            selected=claim(base,site,admissible)
+        except StorageAdmissionError as exc:
+            writej(base/f'admission_{socket.gethostname()}_{slot}.json',
+                   {'status':'WAITING_STORAGE','category':exc.category,'path':exc.path,'time':time.time()})
+            if exc.category=='READ_ONLY_NODE_OR_MOUNT' and not Path(exc.path).is_relative_to(Path(site['shared_scratch'])):
+                writej(base/'quarantine'/(socket.gethostname()+'.json'),
+                       {'reason':exc.category,'path':exc.path,'time':time.time()})
+                break
+            selected=None
         if selected is None:
             idle+=1
             writej(base/f'idle_{socket.gethostname()}_{slot}.json',{'time':time.time(),'reason':'NO_ADMISSIBLE_WORK_OR_SPACE','coverage':coverage(ROOT)})
             if idle>=10:break  # Finite idle parent; successor/monitor reads durable coverage.
             time.sleep(30);continue
         idle=0;path,record=selected
+        result=None
         try:
             reconcile_species(record['species_id'],site)
             result=step(ROOT,record['species_id'],execute=True,orca=site['orca_wrapper'],
                         xtb=site['xtb'],scratch_root=site['shared_scratch'])
+        except DeferredWork as exc:
+            result=exc.report
+        except StorageAdmissionError as exc:
+            result={'status':'WAITING_STORAGE','category':exc.category,'path':exc.path,'quantum_jobs_launched':0}
         except Exception as exc:
             result={'status':'RECOVERY_REQUIRED','reason':type(exc).__name__+': '+str(exc)}
         finally:
+            # Publish the outcome and block atomically with releasing ownership;
+            # another worker must not pick the branch between these actions.
             with queue_lock(base):
+                if result is not None:
+                    writej(base/'latest'/(record['species_id']+'.json'),
+                           {**record,'returned_epoch':time.time(),'result':result})
+                    if any(word in result.get('status','') for word in ('REVIEW','RECOVERY_REQUIRED','ERROR','BLOCKED')):
+                        repair=ROOT/'automation'/record['species_id']/'recovery_status.json'
+                        findings=readj(repair).get('findings',[]) if repair.is_file() else []
+                        different=any(v.get('category')=='NODE_READ_ONLY' for v in findings)
+                        writej(base/'blocked'/(record['species_id']+'.json'), {
+                            **record,'result':result,'retry_on_different_node':different})
                 if path.is_file() and readj(path).get('token')==record['token']:
                     archive=base/'claim_history';archive.mkdir(exist_ok=True)
                     path.rename(archive/(path.stem+'_'+record['token']+'.json'))
-        writej(base/'latest'/(record['species_id']+'.json'),
-               {**record,'returned_epoch':time.time(),'result':result})
-        if any(word in result.get('status','') for word in ('REVIEW','RECOVERY_REQUIRED','ERROR','BLOCKED')):
-            repair=ROOT/'automation'/record['species_id']/'recovery_status.json'
-            findings=readj(repair).get('findings',[]) if repair.is_file() else []
-            different=any(v.get('category')=='NODE_READ_ONLY' for v in findings)
-            writej(base/'blocked'/(record['species_id']+'.json'), {
-                **record,'result':result,'retry_on_different_node':different,
-                'notice':'Durable repair request; not silently dropped or endlessly polled. After targeted repair archive this block with operations unblock.'})
+        if result.get('status')=='WAITING_WALLTIME':
+            # Try other stages/branches before releasing this worker. Waiting
+            # dependencies never become a permanent scientific block.
+            wall_wait.add(record['species_id'])
+            if len(wall_wait)>=len(species):break
         if not result.get('quantum_jobs_launched'):time.sleep(5)
 
 
@@ -193,8 +222,12 @@ def main():
         writej(ROOT/'operations/packed/workers'/(socket.gethostname()+'_'+os.environ['SLURM_JOB_ID']+'.json'),
                {'updated_epoch':time.time(),'workers':states,'live_slots':sum(r['alive'] for r in states)})
         if any(child.exitcode not in (None,0) for child in children):
-            writej(ROOT/'operations/packed/quarantine'/(socket.gethostname()+'.json'),
-                   {'reason':'Worker health/runtime failure; inspect before new admissions','workers':states,'time':time.time()})
+            writej(ROOT/'operations/packed/worker_failures'/(socket.gethostname()+'_'+os.environ['SLURM_JOB_ID']+'.json'),
+                   {'reason':'Worker failure; not evidence of a bad node','workers':states,'time':time.time()})
+            # Finish healthy in-flight QM, but stop new claims across this
+            # parent so dead-owner claims need not remain stuck for 30 days.
+            marker=ROOT/'operations/packed'/('DRAIN_'+os.environ['SLURM_JOB_ID'])
+            marker.touch()
         for child in children:child.join(timeout=1)
         time.sleep(5)
     coverage(ROOT,write=True)

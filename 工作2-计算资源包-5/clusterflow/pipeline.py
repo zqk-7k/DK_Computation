@@ -446,10 +446,10 @@ def deduplicate(accepted, p, atom_map):
     unique, duplicates = [], []
     policy = p.get('geometry', {})
     geometry_only = bool(p.get('conformer_policy', {}).get('final_stable_target_plan'))
-    for entry in sorted(accepted, key=lambda a: a['parsed']['gibbs_free_energy_Eh']):
+    for entry in sorted(accepted, key=lambda a: a['parsed'].get('selection_energy_Eh', a['parsed'].get('gibbs_free_energy_Eh'))):
         match = None
         for old in unique:
-            delta = abs(entry['parsed']['gibbs_free_energy_Eh'] - old['parsed']['gibbs_free_energy_Eh']) * 627.5094740631
+            delta = abs(entry['parsed'].get('selection_energy_Eh', entry['parsed'].get('gibbs_free_energy_Eh')) - old['parsed'].get('selection_energy_Eh', old['parsed'].get('gibbs_free_energy_Eh'))) * 627.5094740631
             if (geometry_only or delta <= policy.get('dedup_energy_kcal', .10)) and cluster_rms(entry['mol'], old['mol'], atom_map) <= policy.get('dedup_rms_A', .10):
                 match = old['job']['conformer_id']
                 break
@@ -464,6 +464,45 @@ def deduplicate(accepted, p, atom_map):
         else:
             unique.append(entry)
     return unique, duplicates
+
+
+def prepare_healthy_downstream(root, species_id, scenario_id):
+    """Compute independent healthy members while final ensemble gates stay shut.
+
+    No weights, ensemble, sampling approval or final spectrum are produced here.
+    A failed member remains present and blocks final collection until resolved.
+    """
+    root=Path(root).resolve()
+    species,p=_selection(root,species_id,scenario_id)
+    index=_validated_imports(root,species_id,scenario_id)
+    amap=readj(inside(root,index['atom_map']))
+    base=root/'jobs'/hash_protocol(p)/species_id/scenario_id
+    created=[]
+    for stage in ('prescreen','optfreq'):
+        accepted=[]
+        for path in sorted((base/stage).glob('*/job.json')):
+            directory=path.parent
+            if any((directory/name).exists() for name in ('.orca-run.lock','.clusterflow-run.lock','.stageout-recovery.lock')):continue
+            check=inspect_job(directory,p)
+            if not check['accepted']:continue
+            _validate_stage_source(root,directory,check['job'],index)
+            if stage=='optfreq' and (any(v<0 for v in check['parsed'].get('frequencies_cm1',[]))
+                                    or check.get('scientific_status')=='HUMAN_REVIEWED_APPROXIMATION'):continue
+            accepted.append(check)
+        unique,_=deduplicate(accepted,p,amap)
+        for check in unique:
+            cid=check['job']['conformer_id'];parent=base/stage/cid
+            source={'stage':stage,'job_dir':_relative(root,parent),
+                    'input_sha256':sha(parent/'job.inp'),'output_sha256':sha(parent/'job.out'),
+                    'receipt_sha256':sha(parent/'receipt.json'),'geometry_sha256':sha(parent/'job.xyz'),
+                    'scientific_review':_review_snapshot(check)}
+            stages=['optfreq'] if stage=='prescreen' else ['shielding']
+            if stage=='optfreq' and species['compound_id']!='TMS' and selected_j_pairs(check['mol'],amap):
+                from .policy import j_methods_for
+                stages+=['j_'+method for method in j_methods_for(p,species['compound_id'])]
+            for child in stages:
+                created.append(_relative(root,write_job(root,species,scenario_id,child,cid,check['mol'],amap,source)))
+    return {'status':'INDEPENDENT_JOBS_PREPARED_FINAL_ENSEMBLE_NOT_APPROVED','jobs':created}
 
 
 def final_stable_candidates(root, species_id, scenario_id):
@@ -491,6 +530,9 @@ def final_stable_candidates(root, species_id, scenario_id):
         previous = readj(expected_gate)
         if previous.get('status') == 'advanced':
             expected_ids = set(previous['retained_ids'])
+    allowed_extras={row['removed'] for row in previous.get('duplicates',[])} if expected_ids and settings.get('incremental_downstream') else set()
+    superseded=[path.parent.name for path in paths if path.parent.name in allowed_extras]
+    paths=[path for path in paths if path.parent.name not in allowed_extras]
     if {path.parent.name for path in paths} != expected_ids or not expected_ids:
         issues.append({'conformer_id': None, 'errors': ['optfreq_jobs_do_not_match_completed_prescreen_gate']})
     for path in paths:
@@ -534,6 +576,7 @@ def final_stable_candidates(root, species_id, scenario_id):
             'species_id': species_id, 'scenario_id': scenario_id, 'eligible_count': len(eligible),
             'eligible_ids': [row['conformer_id'] for row in eligible], 'all_unique_ids': [row['conformer_id'] for row in rows],
             'unique_stable_count': len(rows), 'conformers': rows, 'duplicates': duplicates, 'issues': issues,
+            'superseded_prescreen_representatives_retained_on_disk': superseded,
             'energy_discrepancy_advisories': [row for row in duplicates if row.get('energy_review_recommended')],
             'human_reviewed_approximations': [row['conformer_id'] for row in issues if 'human_reviewed_approximation_not_verified_stable_minimum' in row['errors']],
             'maximum_relative_G_kcal_mol': maximum, 'all_prepared_optfreq_pass': bool(paths) and not issues,
@@ -550,6 +593,7 @@ def advance(root, species_id, scenario_id, from_stage):
     index = _validated_imports(root, species_id, scenario_id)
     amap = readj(inside(root, index['atom_map']))
     base = root / 'jobs' / ph / species_id / scenario_id
+    target_exception=None
     if from_stage == 'optfreq' and (root / 'config/automation.json').is_file() and (root / 'registry/batch_plan_v5.json').is_file():
         automation = readj(root / 'config/automation.json')
         if automation.get('automatic_handoff', {}).get('enabled') is True:
@@ -559,6 +603,8 @@ def advance(root, species_id, scenario_id, from_stage):
                 raise ValueError('One exact final stable-minimum target is required by the v5 plan')
             stable_audit = final_stable_candidates(root, species_id, scenario_id)
             target = targets[0]['stable_conformer_target']
+            from .review_control import target_for
+            target,target_exception=target_for(root,species_id,scenario_id,target)
             if stable_audit['issues'] or stable_audit['eligible_count'] < target:
                 return {'status': 'BLOCKED_FINAL_STABLE_TARGET', 'species_id': species_id, 'scenario_id': scenario_id,
                         'from_stage': from_stage, 'stable_conformer_target': target,
@@ -579,6 +625,9 @@ def advance(root, species_id, scenario_id, from_stage):
             if previous.get('evaluated_scientific_reviews',{}).get(cid)!=_review_snapshot(upstream_check):
                 raise ValueError('Upstream prescreen scientific review changed')
     paths = sorted((base / from_stage).glob('*/job.json'))
+    if from_stage=='optfreq' and (root/'config/automation.json').is_file() and readj(root/'config/automation.json').get('incremental_downstream'):
+        allowed_extras={row['removed'] for row in previous.get('duplicates',[])}
+        paths=[path for path in paths if path.parent.name not in allowed_extras]
     if not expected or {path.parent.name for path in paths} != expected:
         raise ValueError('Prepared stage conformers differ from declared upstream selection')
     checks = [inspect_job(path.parent, p) for path in paths]
@@ -639,6 +688,7 @@ def advance(root, species_id, scenario_id, from_stage):
                     'import_index_snapshot': index,
                     'reference_ensemble': f'ensembles/{ph}/TMS_DMSO/{scenario_id}/ensemble.json',
                     'sampling_convergence_established': False,
+                    'stable_target_exception': target_exception,
                     'sampling_review_claims': [s['sampling_review_claim'] for s in index['sources']],
                     'sampling_review_claim': all(s['sampling_review_claim'] for s in index['sources']),
                     'selection_review_type': 'AUTOMATIC_MACHINE_SCREEN_NOT_HUMAN_APPROVAL' if index.get('automatic_selection') else 'HUMAN_SCIENTIFIC_REVIEW',
@@ -663,6 +713,12 @@ def manifest(root, stage, species_id=None, scenario_id=None):
             continue
         if scenario_id is not None and row['scenario_id'] != scenario_id:
             continue
+        gate_name='prescreen_gate.json' if stage=='optfreq' else ('optfreq_gate.json' if stage not in ('prescreen','optfreq') else None)
+        if gate_name:
+            gate=path.parent.parent.parent/gate_name
+            if gate.is_file():
+                record=readj(gate)
+                if record.get('status')=='advanced' and row['conformer_id'] not in record['retained_ids']:continue
         rows.append({'job_dir': _relative(root, path.parent), **row})
     return rows
 
@@ -674,6 +730,11 @@ def validate_ensemble_sources(root, species_id, scenario_id):
     index = _validated_imports(root, species_id, scenario_id)
     ensemble_path = root / 'ensembles' / ph / species_id / scenario_id / 'ensemble.json'
     ensemble = readj(ensemble_path)
+    if ensemble.get('stable_target_exception'):
+        from .review_control import target_for
+        exception=ensemble['stable_target_exception']
+        _,current=target_for(root,species_id,scenario_id,exception['original_target'])
+        if current!=exception:raise ValueError('Ensemble shortfall decision changed or disappeared')
     if any(ensemble.get(k) != v for k, v in {'species_id': species_id, 'scenario_id': scenario_id, 'protocol_hash': ph,
                                             'temperature_K': p['temperature_K']}.items()):
         raise ValueError('Ensemble identity/protocol/temperature mismatch')

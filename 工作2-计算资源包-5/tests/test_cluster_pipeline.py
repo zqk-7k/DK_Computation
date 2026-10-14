@@ -27,6 +27,9 @@ class ClusterPipelineTests(unittest.TestCase):
         self.root = Path(self.tmp.name) / '中文测试包'
         self.root.mkdir()
         self.cfg = readj(ROOT / 'config/protocol.json')
+        # Retain legacy Opt/Freq pre-screen coverage; the new energy-only
+        # production pre-screen is exercised separately in test_production_revision.
+        self.cfg['prescreen']['frequency_required'] = True
         writej(self.root / 'config/protocol.json', self.cfg)
         species = next(s for s in readj(ROOT / 'registry/species.json') if s['species_id'] == SPECIES)
         writej(self.root / 'registry/species.json', [species])
@@ -76,7 +79,7 @@ class ClusterPipelineTests(unittest.TestCase):
         directory = Path(directory)
         mol = Chem.MolFromMolBlock((directory / 'input_structure.mol').read_text(encoding='utf-8'), removeHs=False)
         (directory / 'job.xyz').write_text((directory / 'input.xyz').read_text(encoding='utf-8'), encoding='utf-8')
-        lines = ['SYNTHETIC UNIT TEST ONLY', 'Program Version 6.1.0', 'THE OPTIMIZATION HAS CONVERGED', 'VIBRATIONAL FREQUENCIES']
+        lines = ['SYNTHETIC UNIT TEST ONLY', 'Program Version 6.1.0', 'THE OPTIMIZATION HAS CONVERGED', 'FINAL SINGLE POINT ENERGY -124.000000', 'VIBRATIONAL FREQUENCIES']
         for i in range(3 * mol.GetNumAtoms()):
             value = -20 if negative and i == 6 else (0 if i < 6 else 100)
             lines.append(f'{i}: {value:.2f} cm**-1')

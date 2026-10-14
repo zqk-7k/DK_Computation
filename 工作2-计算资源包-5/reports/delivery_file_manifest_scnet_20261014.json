@@ -44680,8 +44680,8 @@
     },
     {
       "path": "README_先读.txt",
-      "bytes": 5326,
-      "sha256": "391bcc2814ded9e9ad81f20c68e23ef4afb8fc5aa75725cc06e79c3529a642a6"
+      "bytes": 5798,
+      "sha256": "fce46c5baf4c9e39af63fc8e03f3aee3a7651dbf3091784211bb3a4faa8d0dd5"
     },
     {
       "path": "clusterflow/__init__.py",
@@ -44690,8 +44690,8 @@
     },
     {
       "path": "clusterflow/autoflow.py",
-      "bytes": 31389,
-      "sha256": "65975d30cc9afb83ccaffafe945128b95e2b5d93c127cdc02b2c9b5b37fbff7a"
+      "bytes": 35063,
+      "sha256": "2b1960def212724fb6402ad884d341cbe1746a562676c2f500dc522673c0d64b"
     },
     {
       "path": "clusterflow/autoselect.py",
@@ -44725,8 +44725,8 @@
     },
     {
       "path": "clusterflow/gates.py",
-      "bytes": 9227,
-      "sha256": "af804dc2742d8bdea0311abd01983ed9966944c8a117c116b5ee07312e4c96b2"
+      "bytes": 9915,
+      "sha256": "8cfa3956a43680ff168bd0ea2944fa71756db1f40b3c12ccb31230351b76ee54"
     },
     {
       "path": "clusterflow/geometry.py",
@@ -44735,8 +44735,8 @@
     },
     {
       "path": "clusterflow/inputs.py",
-      "bytes": 5432,
-      "sha256": "cee1175a94bb65bc69bf1e8a888154869c7bdcffde7aa7c45a9a8c4687a625cb"
+      "bytes": 5508,
+      "sha256": "76b39f9e4da17a50b90b55acb99b74aa0ea78a57745264dea07d182b413c7ac5"
     },
     {
       "path": "clusterflow/issue_review.py",
@@ -44750,8 +44750,8 @@
     },
     {
       "path": "clusterflow/operations.py",
-      "bytes": 15043,
-      "sha256": "e53231cd3593f03a7298cd742b84f2fa6987ff88710dd588e1af9f401266b4fe"
+      "bytes": 15679,
+      "sha256": "829aee373b9924f496df6a7ac0b1ba366562173ac88d73c1daadab1a1dd79906"
     },
     {
       "path": "clusterflow/orcaio.py",
@@ -44760,23 +44760,33 @@
     },
     {
       "path": "clusterflow/pipeline.py",
-      "bytes": 47469,
-      "sha256": "5e6497b46d8bccf3e0595c327ab9717bb1ea4f6c7572f4bb9238741a3028dbb4"
+      "bytes": 51585,
+      "sha256": "c53d317d8dd8b66fc76671f36a3e32dacf7a8e764ad0ea88101745e0217e6abb"
     },
     {
       "path": "clusterflow/policy.py",
-      "bytes": 1148,
-      "sha256": "4444c4f2eebae9ccd874af1cc89b82de1bd3af8ce6efb5202970142bc9dfad8b"
+      "bytes": 1525,
+      "sha256": "f7f0d3b859ddddcfec3cc284b64807b0cc248972b3d7a6dddcb980f0343e1d50"
+    },
+    {
+      "path": "clusterflow/review_control.py",
+      "bytes": 7410,
+      "sha256": "71cab1d973113202c2bd01076dc2810adf0342eb228d1d2db6e1ff2a3f1bb52e"
     },
     {
       "path": "clusterflow/runner.py",
-      "bytes": 18478,
-      "sha256": "f4ff58c9edeca2fe34719d93b6c2b8e40f92cfebb3dda6ebd199a977168e1af0"
+      "bytes": 18772,
+      "sha256": "99da53e369a7c33c18a5294a4bdb9bee17ea0599363e5ba36fcbae6f64514b44"
     },
     {
       "path": "clusterflow/runtime.py",
-      "bytes": 9377,
-      "sha256": "b1dd7b5d41b0484166cae63a42d4ecbc41f04c3997c7190414ac1998cea4c920"
+      "bytes": 10329,
+      "sha256": "bae8db4fd44c0bf4dd667090323b607eb743edd1d43d8f225f54e5938a94a593"
+    },
+    {
+      "path": "clusterflow/scheduling.py",
+      "bytes": 6722,
+      "sha256": "099c6b307dcb00e02a925dd40fad7aea3d54ada4975fb6608c3f318ceb2249bb"
     },
     {
       "path": "clusterflow/spectra.py",
@@ -44785,8 +44795,8 @@
     },
     {
       "path": "config/automation.json",
-      "bytes": 1160,
-      "sha256": "f3a8b60af97837de0bf98146910e298da9703468274dd0482d2f6bd37a92d3f7"
+      "bytes": 1167,
+      "sha256": "76d4f05c1c5278a0184bcf980577bbebfa2250df4a9e2ea2703f8984a3a07c7a"
     },
     {
       "path": "config/microsolvation_policy.json",
@@ -44795,13 +44805,13 @@
     },
     {
       "path": "config/protocol.json",
-      "bytes": 4616,
-      "sha256": "f3a9b87b33334addeb1009bb6ec4245e61afee3879382b7ea992f465231ba1d1"
+      "bytes": 4879,
+      "sha256": "8db8c38bc75950391e624ef283018ccccc90a2a1a63e58fa2796ba721e41cd8b"
     },
     {
       "path": "config/site_scnet.json",
-      "bytes": 1627,
-      "sha256": "3409f36805ba1d93139f1a318ee63d23545a0dedce129236231984bd0dd5b8e0"
+      "bytes": 3195,
+      "sha256": "b2b4bf52ce8e8348131ef973d9ccea9f19542d85193e814bd50f814d97019788"
     },
     {
       "path": "docs/51流程覆盖说明_v5.txt",
@@ -44810,8 +44820,8 @@
     },
     {
       "path": "docs/SCNET修订与运行说明_20261014.txt",
-      "bytes": 8344,
-      "sha256": "c8e168674895ec47c063684479a9179e486a0414e663c51b2ef7f88e49a0cef2"
+      "bytes": 8412,
+      "sha256": "857f9af664e3c9a18f366b0504d990ac56cf22aa28de9f0d1729d7b5effbd16a"
     },
     {
       "path": "docs/交付检查结果.txt",
@@ -44820,8 +44830,8 @@
     },
     {
       "path": "docs/历史故障经验与处理矩阵_20261014.txt",
-      "bytes": 7871,
-      "sha256": "21e0e444ce7338f7c32de48cbbdf964aa34a6dd34e897da2420d365747ea6976"
+      "bytes": 8164,
+      "sha256": "78758717ba8dde202d6b717a4c215e2281bf42f3ebe0a710d12e65a8036780e5"
     },
     {
       "path": "docs/多重峰裂分验证.txt",
@@ -44830,18 +44840,23 @@
     },
     {
       "path": "docs/异常处理与人工复核.txt",
-      "bytes": 3154,
-      "sha256": "9ed883b5ca9e90412d3fb3eba65a291477cea3ec3a1e9f949e96b3d3c1645185"
+      "bytes": 3312,
+      "sha256": "f8fc7e045dd14e4e8ed7786f5d92e8a185972556d40ca5f42f31774524e709e9"
+    },
+    {
+      "path": "docs/生产推进与长墙时修订_20261014.txt",
+      "bytes": 8618,
+      "sha256": "0597c7355df547dda20793faab2c0cb3e5b79d23107f912491c156d85c30ea58"
     },
     {
       "path": "docs/稳定构象计数与溶剂假设_v5.txt",
-      "bytes": 2651,
-      "sha256": "1dba95a2798f41be5ca3ea197d9a4a888e3a1cf0d88331a7bd255cb750f95c3c"
+      "bytes": 2809,
+      "sha256": "675d41c7ef0fdc6e8daef7f4c86a04f9ad2f9221d44b7017c467157673fe4ce4"
     },
     {
       "path": "docs/自动分批流程接口.txt",
-      "bytes": 4613,
-      "sha256": "765457e0bbbc9b6e360c5002ac0ca491af45d4a5faee14856bcac30ece36d1ba"
+      "bytes": 4780,
+      "sha256": "24c0ff94c1866a0919a11130bb2cd50852fb0ae0660a6504649f07b8f68d123d"
     },
     {
       "path": "history/v2/README_先读.txt",
@@ -45309,6 +45324,16 @@
       "sha256": "1b3d79b991673969ad1dd10b8ebdc1acd3f9d92c03d2b8088165e1e31e28a731"
     },
     {
+      "path": "reports/production_revision_tests_20261014.json",
+      "bytes": 9385,
+      "sha256": "34d2ee3a095398bbc4388b060c9685e4ab50336eca6c15ef6c0f8d6959b71817"
+    },
+    {
+      "path": "reports/production_revision_tests_20261014.log",
+      "bytes": 100,
+      "sha256": "3bc86d695cde2d72a504fcc9f6fa7019567c69f25db37f0b020737110a2025b5"
+    },
+    {
       "path": "reports/scnet_revision_tests_20261014.json",
       "bytes": 1832,
       "sha256": "0cd6185cc92e3446e57a03cb3cd2b60dbf3881e4d0d53a63df07ebf1fd3ecdd3"
@@ -45385,8 +45410,8 @@
     },
     {
       "path": "scripts/operations.py",
-      "bytes": 2447,
-      "sha256": "92d75c19c59a98b2ef432497e90d26dd229b3433f8e1ade9dd562050ded89cd7"
+      "bytes": 4032,
+      "sha256": "796d54ebaed2d78eead681e09aed37556aded0d081a11b038c054a2379e02fd7"
     },
     {
       "path": "scripts/package_work2.py",
@@ -45395,8 +45420,8 @@
     },
     {
       "path": "scripts/packed_worker.py",
-      "bytes": 11244,
-      "sha256": "27cba6b2a3666b5bab2e224299776ef92d42c05d2b56146da818a738e7213803"
+      "bytes": 13354,
+      "sha256": "d8a2b12aa3cee2b2c50f32ce4c7eebbd818c2d93e7b7e835827bea7a41719f59"
     },
     {
       "path": "scripts/plan_sampling_v4.py",
@@ -45420,8 +45445,8 @@
     },
     {
       "path": "scripts/scnet_packed.sbatch",
-      "bytes": 1067,
-      "sha256": "cdbff10f77a99849adb01350c62f9ac14a1ba684cb85abe072c7cf4e07a4f1dc"
+      "bytes": 1086,
+      "sha256": "5566f3c6c99cfe6b74e1f32911b686658a6ca393f2a040643673f0037777689a"
     },
     {
       "path": "scripts/site_check.py",
@@ -45430,8 +45455,8 @@
     },
     {
       "path": "scripts/submit_packed.py",
-      "bytes": 3644,
-      "sha256": "36319bb5f8d095d5566408fb962f4d8517b4a75be0d1f4eed172c7cbc2a68fe0"
+      "bytes": 6292,
+      "sha256": "232ea26713040354ff65f4e0ae39017634d0c2b01177f4c445852d159e2296ea"
     },
     {
       "path": "scripts/validate_delivery_v4.py",
@@ -47145,8 +47170,8 @@
     },
     {
       "path": "tests/test_cluster_pipeline.py",
-      "bytes": 11488,
-      "sha256": "9cb5125d3ff41c643e9e510c76b1d948056a15f744edc88264d26b5a70f124aa"
+      "bytes": 11747,
+      "sha256": "e286429458c51a0aa9b52e438e0a72211af51492139932985ec67572d879ea89"
     },
     {
       "path": "tests/test_goat_job.py",
@@ -47179,9 +47204,14 @@
       "sha256": "410346d1ca78f4c87c16fd0e697cd643dcee6ba1e060629c48610bd3483bef9a"
     },
     {
+      "path": "tests/test_production_revision.py",
+      "bytes": 18541,
+      "sha256": "087cabf9cb5313d09a735621f62a2b654102138dcc92f6a4d1151768d545c9d0"
+    },
+    {
       "path": "tests/test_runner_portable.py",
-      "bytes": 20574,
-      "sha256": "e019a6e811bae1198742094ec2dc8cfa6175deb03352dacd8e398aba9579ed7c"
+      "bytes": 20609,
+      "sha256": "f3edd0feaca1005cbb51682142c846733b3d477a0830051f3e3c0eb009239d2e"
     },
     {
       "path": "tests/test_sampling_v4.py",
@@ -47200,8 +47230,8 @@
     },
     {
       "path": "tests/test_v4_integration.py",
-      "bytes": 21081,
-      "sha256": "3302de0bbc46c0a42f36d45f16d4424eecb16fe942b2733c088b7e88bda0b630"
+      "bytes": 21178,
+      "sha256": "bdc72e10c47b25dab4fd7ec9930a5f71ba7104531cfb6a85dbc6dc85919b6cee"
     },
     {
       "path": "tests/test_v5_integration.py",
@@ -47210,8 +47240,8 @@
     },
     {
       "path": "workflow.py",
-      "bytes": 12793,
-      "sha256": "0a33c2593168a5f30c24cd3b6a961beda7e88f5c690e5bc8eb7a09cbbc6fafa3"
+      "bytes": 12953,
+      "sha256": "e7f983179aa96010e496dee00cbb8119170df7bc21c743929f84c00cb2c4e371"
     },
     {
       "path": "~$工作2-计算资源包-（4）-64个化合物溶剂与GOAT计划.xlsx",

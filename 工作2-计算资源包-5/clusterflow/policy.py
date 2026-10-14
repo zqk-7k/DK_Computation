@@ -10,7 +10,13 @@ def j_methods_for(settings,compound_id):
     route=settings.get('j_routing',{})
     if compound_id in route.get('figure4_compounds',[]):
         return [route.get('figure4_method','PBE_pcJ3')]
-    return route.get('other_candidates',settings.get('j_methods',['PBE_pcJ3','PBE0_pcJ2']))
+    candidates = route.get('other_candidates',settings.get('j_methods',['PBE_pcJ3','PBE0_pcJ2']))
+    if route.get('execution_mode') != 'SELECTED_ROUTE' or compound_id in route.get('benchmark_compounds', []):
+        return candidates
+    selected = route.get('production_methods', {}).get(compound_id, route['other_exploratory_default'])
+    if selected not in candidates:
+        raise ValueError('Selected J route is not a declared candidate')
+    return [selected]
 
 def resolve_j_method(root,species_id,requested=None):
     settings=config(root)

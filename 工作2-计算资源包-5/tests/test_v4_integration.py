@@ -75,11 +75,11 @@ class V4IndependentConfiguration(unittest.TestCase):
                 collect.collect_species(ROOT, row['species_id'], SCENARIO,
                                         'PBE0_pcJ2', exploratory=True, write=False)
 
-    def test_non_drug_still_has_two_benchmark_candidates(self):
+    def test_non_drug_only_benchmark_panel_has_two_routes(self):
         for row in self.species:
             if row['compound_id'] not in DRUGS | {'TMS'}:
-                self.assertEqual(set(policy.j_methods_for(self.settings, row['compound_id'])),
-                                 {'PBE_pcJ3', 'PBE0_pcJ2'})
+                expected=({'PBE_pcJ3', 'PBE0_pcJ2'} if row['compound_id'] in self.settings['j_routing']['benchmark_compounds'] else {'PBE0_pcJ2'})
+                self.assertEqual(set(policy.j_methods_for(self.settings, row['compound_id'])),expected)
 
     def test_model_independent_no_continuum_prerequisite(self):
         self.assertEqual(self.settings['scenario_prerequisites'], {})

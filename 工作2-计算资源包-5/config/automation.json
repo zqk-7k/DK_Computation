@@ -4,7 +4,7 @@
     "enabled": true,
     "explicit_execute_required": true,
     "complete_entire_GOAT_batch_before_selection": true,
-    "stable_target_scope": "FINAL_DFT_UNIQUE_MINIMA_BEFORE_NMR",
+    "stable_target_scope": "FINAL_DFT_UNIQUE_MINIMA_BEFORE_FINAL_ENSEMBLE",
     "minimum_targets_by_complexity": {
       "R": 3,
       "M": 5,
@@ -29,6 +29,7 @@
   },
   "scientific_convergence_may_be_auto_approved": false,
   "finite_pool_exhaustion": "REPORT_SHORTFALL_NEVER_PAD_OR_SILENTLY_LOWER_TARGET",
-  "failed_DFT": "PAUSE_FOR_DIAGNOSIS_DO_NOT_SILENTLY_EXCLUDE_LOW_ENERGY_CANDIDATE",
-  "notice": "Software planning; no actual GOAT, DFT, or spectra were calculated during package creation."
+  "failed_DFT": "CONTINUE_INDEPENDENT_HEALTHY_CANDIDATES_BLOCK_FINAL_ENSEMBLE",
+  "notice": "Software planning; no actual GOAT, DFT, or spectra were calculated during package creation.",
+  "incremental_downstream": true
 }

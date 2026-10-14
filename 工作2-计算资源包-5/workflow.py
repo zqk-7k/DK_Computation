@@ -77,6 +77,7 @@ def main():
         r=readj(ROOT/'registry/batch_plan_v5.json')
     elif a.command in ['auto-step','auto-run']:
         from clusterflow.autoflow import step
+        from clusterflow.scheduling import DeferredWork
         import time
         if a.execute and not a.acknowledge_models:
             raise ValueError('Use --acknowledge-models before executing unvalidated solvent/structure models')
@@ -93,13 +94,15 @@ def main():
             sid=active.pop(0)
             try:
                 result=step(ROOT,sid,execute=a.execute,orca=a.orca,xtb=a.xtb,scratch_root=a.scratch_root)
+            except DeferredWork as exc:
+                result=exc.report
             except (ValueError,RuntimeError,FileNotFoundError) as exc:
                 result={'status':'AUTOMATION_ERROR_REVIEW_REQUIRED','species_id':sid,'reason':str(exc),'quantum_jobs_launched':0}
             results[sid]=result
             executed+=result.get('quantum_jobs_launched',0)
             print(json.dumps(result,ensure_ascii=False,default=str),flush=True)
             status=result['status']
-            stop=any(word in status for word in ('REVIEW','BLOCKED','ERROR'))
+            stop=any(word in status for word in ('REVIEW','BLOCKED','ERROR')) or status=='WAITING_WALLTIME'
             if not stop and a.command=='auto-run' and a.execute:
                 active.append(sid)
                 if not result.get('quantum_jobs_launched'):

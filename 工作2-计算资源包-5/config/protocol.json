@@ -47,7 +47,9 @@
   "prescreen": {
     "keywords": "r2SCAN-3c TightOpt TightSCF DefGrid3",
     "nprocs": 8,
-    "maxcore_mb": 2500
+    "maxcore_mb": 2500,
+    "frequency_required": false,
+    "selection_energy": "ELECTRONIC_ENERGY_ONLY_NOT_FINAL_BOLTZMANN_WEIGHT"
   },
   "optfreq": {
     "keywords": "PBE0 D4 def2-TZVPP def2/J RIJCOSX VeryTightOpt VeryTightSCF DefGrid3",
@@ -84,7 +86,14 @@
       "PBE_pcJ3",
       "PBE0_pcJ2"
     ],
-    "other_exploratory_default": "PBE0_pcJ2"
+    "other_exploratory_default": "PBE0_pcJ2",
+    "execution_mode": "SELECTED_ROUTE",
+    "benchmark_compounds": [
+      "F2_E01",
+      "F2_E12",
+      "F3_N15"
+    ],
+    "production_methods": {}
   },
   "j_PBE_pcJ3": {
     "keywords": "PBE pcJ-3 AutoAux RIJCOSX VeryTightSCF DefGrid3",

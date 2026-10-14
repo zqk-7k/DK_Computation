@@ -94,35 +94,44 @@ def inspect_job(job_dir, config, require_geometry=True, review_path=None):
     if stage in ('prescreen', 'optfreq'):
         if not parsed.get('optimization_converged'):
             errors.append('optimization_not_converged')
-        frequencies = parsed.get('frequencies_cm1', [])
-        if not frequencies:
-            errors.append('frequencies_missing')
-        if template is None or len(frequencies) != 3 * template.GetNumAtoms():
-            errors.append('frequency_count_not_3N')
-        if user_review_policy(config):
-            # Frequency magnitude is advisory, never an arbitrary approval cutoff.
+        if stage == 'prescreen' and not config['prescreen'].get('frequency_required', True):
+            energy = parsed.get('final_energy_Eh')
+            if energy is None or not math.isfinite(energy):
+                errors.append('prescreen_electronic_energy_missing_or_nonfinite')
+            parsed['selection_energy_Eh'] = energy
+            warnings.append('prescreen_geometry_candidate_only_not_a_verified_minimum')
             if negative_modes(parsed):
-                scientific_review = validate_scientific_review(directory, config, parsed, review_path)
-                warnings.append('negative_frequencies_observed_requires_documented_mode_review')
-                if not scientific_review['accepted']:
-                    needs_review = True
-                    errors.append('imaginary_frequencies_require_mode_review')
-                    errors.extend(scientific_review['errors'])
-                else:
-                    warnings.append('human_reviewed_approximation_not_a_certified_physical_minimum')
-        elif any(f < -float(config['imaginary_frequency_tolerance_cm1']) for f in frequencies):
-            errors.append('imaginary_frequencies_require_mode_review')
-        g = parsed.get('gibbs_free_energy_Eh')
-        if g is None or not math.isfinite(g):
-            errors.append('G_missing_or_nonfinite')
-        temperature = parsed.get('temperature_K')
-        if temperature is None or abs(temperature - config['temperature_K']) > .05:
-            errors.append('temperature_mismatch')
-        if not parsed.get('qrrho_enabled'):
-            errors.append('qrrho_not_confirmed')
-        q = parsed.get('qrrho_reference_frequency_cm1')
-        if q is None or abs(q - config['qrrho_reference_frequency_cm1']) > .01:
-            errors.append('qrrho_reference_mismatch')
+                warnings.append('prescreen_negative_modes_retained_for_final_reoptimization')
+        else:
+            frequencies = parsed.get('frequencies_cm1', [])
+            if not frequencies:
+                errors.append('frequencies_missing')
+            if template is None or len(frequencies) != 3 * template.GetNumAtoms():
+                errors.append('frequency_count_not_3N')
+            if user_review_policy(config):
+                # Frequency magnitude is advisory, never an arbitrary approval cutoff.
+                if negative_modes(parsed):
+                    scientific_review = validate_scientific_review(directory, config, parsed, review_path)
+                    warnings.append('negative_frequencies_observed_requires_documented_mode_review')
+                    if not scientific_review['accepted']:
+                        needs_review = True
+                        errors.append('imaginary_frequencies_require_mode_review')
+                        errors.extend(scientific_review['errors'])
+                    else:
+                        warnings.append('human_reviewed_approximation_not_a_certified_physical_minimum')
+            elif any(f < -float(config['imaginary_frequency_tolerance_cm1']) for f in frequencies):
+                errors.append('imaginary_frequencies_require_mode_review')
+            g = parsed.get('gibbs_free_energy_Eh')
+            if g is None or not math.isfinite(g):
+                errors.append('G_missing_or_nonfinite')
+            temperature = parsed.get('temperature_K')
+            if temperature is None or abs(temperature - config['temperature_K']) > .05:
+                errors.append('temperature_mismatch')
+            if not parsed.get('qrrho_enabled'):
+                errors.append('qrrho_not_confirmed')
+            q = parsed.get('qrrho_reference_frequency_cm1')
+            if q is None or abs(q - config['qrrho_reference_frequency_cm1']) > .01:
+                errors.append('qrrho_reference_mismatch')
     elif stage == 'shielding':
         rows = parsed.get('shielding', [])
         actual = [r['atom_index_zero_based'] for r in rows]

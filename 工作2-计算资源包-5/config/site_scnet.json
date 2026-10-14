@@ -1,5 +1,5 @@
 {
-  "schema_version": "5.1",
+  "schema_version": "5.2",
   "orca_version": "6.1.0",
   "orca_wrapper": "/public/home/qikai/orca_nmr_runtime/orca-6.1.0-wrapper-local-sandbox",
   "container": "/public/home/qikai/apprepo/orca/6.1.0-glibc229/app/orca-openmpi418.sif",
@@ -15,11 +15,104 @@
     "SINGULARITYENV_OMPI_MCA_pml": "ob1",
     "SINGULARITYENV_OMPI_MCA_btl": "self,vader,tcp"
   },
-  "node": {"historical_cores": 32, "historical_memory_mb": 126500, "requested_memory_mb": 114000},
-  "packed": {"slots_per_node": 2, "slot_allocated_cpus": 16, "slot_memory_mb": 57000, "maxcore_fraction": 0.70},
-  "disk": {"admit_free_gib": 128, "stop_new_claims_gib": 64, "local_admit_gib": 20, "shm_min_gib": 1, "unmeasured_task_growth_gib": 64},
-  "recovery": {"maximum_infrastructure_attempts": 2, "automatic_scientific_approval": false, "never_cancel_healthy_branches": true},
-  "slurm": {"account": "acndczol6t", "partition": "kshcnormal", "qos": "user_qikai", "walltime_policy": "MUST_SUPPLY_CURRENT_SITE_VERIFIED_LIMIT", "drain_before_end_seconds": 1800},
+  "node": {
+    "historical_cores": 32,
+    "historical_memory_mb": 126500,
+    "requested_memory_mb": 114000
+  },
+  "packed": {
+    "slots_per_node": 4,
+    "slot_allocated_cpus": 8,
+    "slot_memory_mb": 28500,
+    "maxcore_fraction": 0.7,
+    "branch_parallel_jobs": 1
+  },
+  "disk": {
+    "admit_free_gib": 128,
+    "stop_new_claims_gib": 64,
+    "local_admit_gib": 20,
+    "shm_min_gib": 1,
+    "unmeasured_task_growth_gib": 64,
+    "quota_status": "UNVERIFIED_REQUIRE_SEPARATE_USER_QUOTA_EVIDENCE"
+  },
+  "recovery": {
+    "maximum_infrastructure_attempts": 2,
+    "automatic_scientific_approval": false,
+    "never_cancel_healthy_branches": true
+  },
+  "slurm": {
+    "account": "acndczol6t",
+    "partition": "kshcnormal",
+    "qos": "user_qikai",
+    "walltime_policy": "MUST_SUPPLY_CURRENT_SITE_VERIFIED_LIMIT",
+    "drain_before_end_seconds": 3600,
+    "default_hours": 720
+  },
   "status": "HISTORICAL_SITE_DEFAULTS_REQUIRE_CURRENT_COMPUTE_NODE_PILOT",
-  "notice": "No current allocation, quota, walltime, or wrapper hash is assumed verified; no credentials in this file."
+  "notice": "No current allocation, quota, walltime, or wrapper hash is assumed verified; no credentials in this file.",
+  "packed_profiles": {
+    "balanced": {
+      "slots_per_node": 4,
+      "slot_allocated_cpus": 8,
+      "slot_memory_mb": 28500,
+      "maxcore_fraction": 0.7,
+      "branch_parallel_jobs": 1
+    },
+    "large_memory": {
+      "slots_per_node": 2,
+      "slot_allocated_cpus": 16,
+      "slot_memory_mb": 57000,
+      "branch_parallel_jobs": 1
+    },
+    "branch_parallel": {
+      "slots_per_node": 2,
+      "slot_allocated_cpus": 16,
+      "slot_memory_mb": 57000,
+      "branch_parallel_jobs": 2
+    }
+  },
+  "walltime": {
+    "stageout_margin_seconds": 3600,
+    "observed_safety_factor": 1.5,
+    "fallback_hours": 240,
+    "unmeasured_hours": {
+      "goat": {
+        "R": 12,
+        "M": 24,
+        "H": 48,
+        "X": 96
+      },
+      "prescreen": {
+        "R": 4,
+        "M": 8,
+        "H": 16,
+        "X": 24
+      },
+      "optfreq": {
+        "R": 24,
+        "M": 48,
+        "H": 120,
+        "X": 240
+      },
+      "shielding": {
+        "R": 12,
+        "M": 24,
+        "H": 48,
+        "X": 96
+      },
+      "j_PBE_pcJ3": {
+        "R": 12,
+        "M": 24,
+        "H": 72,
+        "X": 168
+      },
+      "j_PBE0_pcJ2": {
+        "R": 12,
+        "M": 24,
+        "H": 72,
+        "X": 168
+      }
+    },
+    "notice": "Admission budgets pending real pilot calibration; no automatic per-QM kill timer."
+  }
 }

@@ -57,7 +57,8 @@ def render_input(mol, stage, config, solvent, charge, multiplicity=1, atom_map=N
     if any(word in keywords.lower() for word in ('revdsd', 'new_job', 'xyzfile')) or '\n' in keywords:
         raise ValueError('Unsafe or prohibited method keywords')
     lines = [f'! {keywords} CPCM({solvent}) MASS2016']
-    if stage in ('prescreen', 'optfreq'):
+    needs_frequency = stage == 'optfreq' or (stage == 'prescreen' and settings.get('frequency_required', True))
+    if needs_frequency:
         lines[0] += ' Freq'
     if stage == 'shielding':
         lines[0] += ' NMR'
@@ -65,7 +66,7 @@ def render_input(mol, stage, config, solvent, charge, multiplicity=1, atom_map=N
     if ranks < 1 or memory < 1:
         raise ValueError('Invalid resource settings')
     lines += [f'%maxcore {memory}', f'%pal nprocs {ranks} end']
-    if stage in ('prescreen', 'optfreq'):
+    if needs_frequency:
         lines += ['%freq', '  QuasiRRHO true',
                   f"  QRRHORefFreq {float(config['qrrho_reference_frequency_cm1'])}",
                   f"  CutOffFreq {float(config['qrrho_cutoff_frequency_cm1'])}",

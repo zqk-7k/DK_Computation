@@ -21,16 +21,36 @@ def main():
     a.add_argument('--execute',action='store_true')
     a=s.add_parser('unblock');a.add_argument('--species',required=True)
     a.add_argument('--reason',required=True);a.add_argument('--execute',action='store_true')
+    a=s.add_parser('resume');a.add_argument('--species',required=True);a.add_argument('--reason',required=True)
+    a.add_argument('--expand',action='store_true');a.add_argument('--execute',action='store_true')
+    for command in ('draft-shortfall','accept-shortfall'):
+        a=s.add_parser(command);a.add_argument('--workspace',required=True,type=Path);a.add_argument('--species',required=True)
+        a.add_argument('--scenario',default='DMSO_02_W01_trace_water_sensitivity')
+        if command=='draft-shortfall':a.add_argument('--out',required=True,type=Path)
+        else:a.add_argument('--review',required=True,type=Path);a.add_argument('--execute',action='store_true')
     a=p.parse_args()
     if a.command=='coverage':r=coverage(ROOT,write=a.write)
     elif a.command=='cleanup-plan':r=cleanup_plan(ROOT,write=a.write)
     elif a.command=='diagnose':r=diagnosis(a.job)
     elif a.command=='recover-stageout':r=recover_stageout(ROOT,a.intent,execute=a.execute)
+    elif a.command=='resume':
+        from clusterflow.review_control import resume_branch
+        r=resume_branch(ROOT,a.species,a.reason,a.execute,a.expand)
+    elif a.command in ('draft-shortfall','accept-shortfall'):
+        from clusterflow.review_control import draft_shortfall,install_shortfall
+        if a.command=='draft-shortfall':
+            from clusterflow.common import writej
+            if a.out.exists():raise ValueError('Review draft exists; choose a new path')
+            r=draft_shortfall(a.workspace,a.species,a.scenario);writej(a.out,r)
+        else:r=install_shortfall(a.workspace,a.species,a.scenario,a.review,a.execute)
     elif a.command=='unblock':
         from clusterflow.common import readj,writej
         ids={v['species_id'] for v in readj(ROOT/'registry/batch_plan_v5.json')['species']}
         if a.species not in ids:raise ValueError('Unknown registered species')
         path=ROOT/'operations/packed/blocked'/(a.species+'.json')
+        state=ROOT/'automation'/a.species/'state.json'
+        if state.is_file() and readj(state).get('phase')=='REVIEW':
+            raise ValueError('Branch phase is REVIEW; use operations resume --reason after repair, or --expand after sampling review')
         r={'status':'UNBLOCK_PLAN_NOT_SCIENTIFIC_APPROVAL','species':a.species,'reason':a.reason}
         if a.execute and path.exists():
             archive=ROOT/'operations/packed/block_history';archive.mkdir(exist_ok=True)

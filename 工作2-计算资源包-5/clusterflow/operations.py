@@ -95,10 +95,19 @@ def coverage(root, write=False):
         elif str(latest.get('status','')).startswith('EXECUTED_'):
             status = 'READY_FOR_NEXT_CONTROLLER_STEP'  # Previous execution has returned, not RUNNING.
         else: status = latest.get('status', 'CONTROLLER_RECONCILIATION_REQUIRED')
+        packed_path=root/'operations/packed/latest'/(sid+'.json')
+        packed=readj(packed_path) if packed_path.is_file() else {}
+        pending=packed.get('result',{})
+        if not (base/'.autoflow.lock').exists() and pending.get('status','').startswith('WAITING_'):
+            from datetime import datetime
+            updated=state.get('updated_utc')
+            state_epoch=datetime.fromisoformat(updated.replace('Z','+00:00')).timestamp() if updated else 0
+            if packed.get('returned_epoch',0)>=state_epoch:status=pending['status']
         products.setdefault(model['compound_id'], []).append({
             'species_id': sid, 'status': status, 'phase': state.get('phase'),
             'completed_exploratory_waves': sum('prediction' in w for w in state.get('waves', [])),
             'last_controller_update': state.get('updated_utc'),
+            'latest_admission':pending if status.startswith('WAITING_') else None,
             'needs_followup': status not in ('RUNNING',),
             'final_delivery_approved': False})
     report = {'timestamp_epoch': time.time(), 'products': products,
