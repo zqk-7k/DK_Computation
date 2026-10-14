@@ -33,3 +33,13 @@ shielding、两种J方法、原子索引、TMS及CSV后，才可扩为12节点�
 设置WORK2_RUNTIME_EVIDENCE指向该证据，执行正式submit_packed（不带--pilot）。
 不要与小试父任务同时新开生产链。未知状态保留并排查，不能自动删锁或重复提交。
 长期审计需检查squeue/sacct、operations/packed、coverage及实际输出；本脚本不承诺无限续接。
+
+实际启动故障与修复（同日追加）：
+作业124433794获配a10r2n15/16后10秒退出，在site_check的xTB版本检查失败，未启动QM。
+原因：sbatch继承默认mpi/hpcx/2.11.0/gcc-7.3.1，与oneAPI模块冲突，
+导致libmkl_intel_lp64.so.1缺失。站点module函数输出Tcl错误时仍可能返回0，
+因此仅检查shell返回码不足。
+scnet_environment.sh现先在本作业内module purge，然后确认oneAPI确实出现在
+LOADEDMODULES中，加载ORCA环境后使用ldd确认xTB动态库齐全才允许后续启动。
+新增3项shell回归：继承HPC-X、返回码为0的模块失败、缺MKL均有明确测试。
+旧失败作业日志及submission日志保留；只有确认该父任务终态且没有QM所有权后才重提。

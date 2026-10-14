@@ -44860,8 +44860,8 @@
     },
     {
       "path": "docs/真实小试启动与12节点计划_20261014.txt",
-      "bytes": 2735,
-      "sha256": "3f5c74f3f6a4e3c860a928a95ddaabef1c60982b5736fcfd50f4e90c73bf1920"
+      "bytes": 3499,
+      "sha256": "864f9f81d329c6666fc6e501df51568c6afa6b969097297df4cc8bc3517b9c27"
     },
     {
       "path": "docs/稳定构象计数与溶剂假设_v5.txt",
@@ -45475,8 +45475,8 @@
     },
     {
       "path": "scripts/scnet_environment.sh",
-      "bytes": 856,
-      "sha256": "d95bf6839c694ddcb49e09deb8ffa6293ab32febf0f4ab5669dd8e3a71208ca0"
+      "bytes": 1523,
+      "sha256": "679f13c7dd455ab7af8a7e5a12c4c2079424b9c144d304aeaacda0b9472801e5"
     },
     {
       "path": "scripts/scnet_packed.sbatch",
@@ -47262,6 +47262,11 @@
       "path": "tests/test_sampling_v4.py",
       "bytes": 7336,
       "sha256": "e914a731e77c5d6a392aedd2729aa31d4d588ab9069dcf70a2e73a9a394153ab"
+    },
+    {
+      "path": "tests/test_scnet_environment.py",
+      "bytes": 1740,
+      "sha256": "0b723ab76678ce3d8f73b2ee44d1d1dc52f31b069143a939b4c1050a6e9dac13"
     },
     {
       "path": "tests/test_scnet_revision.py",
