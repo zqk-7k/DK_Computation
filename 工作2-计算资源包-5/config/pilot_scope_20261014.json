@@ -1,0 +1,11 @@
+{
+  "status": "BOUNDED_REAL_INPUT_PILOT_NOT_FULL_PRODUCTION_ACCEPTANCE",
+  "species_ids": [
+    "F3_N01_source__DMSO",
+    "F2_E12_rep_R__DMSO",
+    "F3_N15_source__DMSO",
+    "F4_D04_rep_R__DMSO",
+    "TMS_DMSO"
+  ],
+  "notice": "Rigid, hydrogen-bonding, Br, complex fluorinated drug, and TMS. Original scientific targets remain unchanged. Production requires audited GOAT, opt/freq, shielding, both J routes, atom mapping, reference and CSV evidence."
+}

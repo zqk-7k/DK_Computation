@@ -93,8 +93,21 @@ def claim(base,site,species):
         return None
 
 
-def worker(slot,slots,deadline,max_steps):
+def selected_species(root,scope=None):
+    rows=readj(root/'registry/batch_plan_v5.json')['species']
+    if scope is None:return [r['species_id'] for r in rows if r['compound_id']!='TMS']
+    selected=readj(scope)['species_ids']
+    known={r['species_id'] for r in rows}
+    if (not isinstance(selected,list) or not selected or
+        any(not isinstance(s,str) or s not in known for s in selected) or
+        len(set(selected))!=len(selected)):
+        raise ValueError('Pilot scope must contain unique registered species IDs')
+    return selected
+
+
+def worker(slot,slots,deadline,max_steps,species=None):
     site=site_config();base=ROOT/'operations/packed'
+    if species is None:species=selected_species(ROOT)
     os.environ['SLURM_NTASKS']='1'  # One serial driver per isolated worker, never mpirun the driver.
     os.environ['SLURM_CPUS_PER_TASK']=str(site['packed']['slot_allocated_cpus'])
     os.environ['WORK2_SLOT_MEMORY_MB']=str(site['packed']['slot_memory_mb'])
@@ -106,7 +119,6 @@ def worker(slot,slots,deadline,max_steps):
         if size<site['packed']['slot_allocated_cpus']:raise ValueError('Insufficient isolated CPU allocation')
         os.sched_setaffinity(0,available[slot*size:(slot+1)*size])
     from clusterflow.autoflow import step
-    species=[r['species_id'] for r in readj(ROOT/'registry/batch_plan_v5.json')['species'] if r['compound_id']!='TMS']
     idle=0; wall_wait=set()
     for _ in range(max_steps):
         if os.environ.get('WORK2_DRAIN_REQUESTED')=='1' or time.time()>deadline-site['slurm']['drain_before_end_seconds']:break
@@ -207,7 +219,9 @@ def main():
     p=argparse.ArgumentParser(description=__doc__)
     p.add_argument('--execute',action='store_true',required=True)
     p.add_argument('--max-steps',type=int,default=10000)
+    p.add_argument('--scope',type=Path,help='Explicit bounded pilot species JSON; omitted for production')
     a=p.parse_args()
+    species=selected_species(ROOT,a.scope)
     if not os.environ.get('SLURM_JOB_ID'):raise ValueError('Compute allocation required')
     site=site_config();check=wrapper_preflight(site['orca_wrapper'],site['xtb'])
     if not check or not check['passed']:raise ValueError('Current runtime evidence required: '+str(check))
@@ -217,7 +231,9 @@ def main():
     deadline=end_time()
     if (ROOT/'operations/packed/quarantine'/(socket.gethostname()+'.json')).exists():
         raise ValueError('Node quarantined; no new quantum work until explicit health revalidation')
-    children=[multiprocessing.Process(target=worker,args=(slot,slots,deadline,a.max_steps)) for slot in range(slots)]
+    writej(ROOT/'operations/packed/scopes'/(socket.gethostname()+'_'+os.environ['SLURM_JOB_ID']+'.json'),
+           {'species_ids':species,'scope_file':str(a.scope) if a.scope else None,'time':time.time()})
+    children=[multiprocessing.Process(target=worker,args=(slot,slots,deadline,a.max_steps,species)) for slot in range(slots)]
     for child in children:child.start()
     while any(child.is_alive() for child in children):
         states=[{'pid':child.pid,'alive':child.is_alive(),'exitcode':child.exitcode} for child in children]

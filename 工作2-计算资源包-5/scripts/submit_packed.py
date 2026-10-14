@@ -31,7 +31,7 @@ def verify_previous_submissions(root):
             raise ValueError('Previous parent chain active or not confirmed terminal: '+str(path))
 
 
-def submit_chain(base,report,waves,env):
+def submit_chain(base,report,waves,env,launcher=None):
     # Separate submission mutex: long scheduler calls must not block workers'
     # queue mutex, and concurrent launchers must not create duplicate chains.
     with queue_lock(ROOT/'operations/submission_lock'):
@@ -39,7 +39,7 @@ def submit_chain(base,report,waves,env):
         journal=ROOT/'operations'/('submission_'+str(time.time_ns())+'.json')
         submitted=[];writej(journal,{**report,'status':'SUBMISSION_INTENT','jobs':submitted})
         for _ in range(waves):
-            command=base+(['--dependency=afterany:'+submitted[-1]] if submitted else [])+[str(ROOT/'scripts/scnet_packed.sbatch')]
+            command=base+(['--dependency=afterany:'+submitted[-1]] if submitted else [])+[str(launcher or ROOT/'scripts/scnet_packed.sbatch')]
             try:
                 result=subprocess.run(command,env=env,capture_output=True,text=True,timeout=60,check=True)
                 job=result.stdout.strip().split(';')[0]
@@ -64,7 +64,11 @@ def main():
     p.add_argument('--profile',choices=['balanced','large_memory','branch_parallel'],default='balanced')
     p.add_argument('--waves',type=int,default=3)
     p.add_argument('--execute',action='store_true')
+    p.add_argument('--pilot',action='store_true',help='Bounded real-input pilot; bootstrap runtime evidence on compute node')
     a=p.parse_args()
+    if a.pilot and (a.nodes>2 or a.waves!=1):
+        raise ValueError('Pilot requires at most two nodes and --waves 1; audit before continuation or expansion')
+    launcher=ROOT/'scripts'/('scnet_pilot.sbatch' if a.pilot else 'scnet_packed.sbatch')
     os.environ['WORK2_PACKED_PROFILE']=a.profile
     site=site_config();slurm=site['slurm']
     a.hours=a.hours if a.hours is not None else slurm.get('default_hours',720)
@@ -83,13 +87,14 @@ def main():
             'allocated_cpus_per_parent':a.nodes*32,'walltime_hours':a.hours,
             'profile':a.profile,'slots_per_node':site['packed']['slots_per_node'],
             'notice':'afterany is finite continuation, not guaranteed checkpoint resume; shared persistent state and audits survive early parent exit.',
-            'example':shlex.join(base+[str(ROOT/'scripts/scnet_packed.sbatch')])}
+            'pilot':a.pilot,
+            'example':shlex.join(base+[str(launcher)])}
     if not a.execute:
         print(json.dumps(report,ensure_ascii=False,indent=2));return
-    if not os.environ.get('WORK2_RUNTIME_EVIDENCE'):raise ValueError('Runtime evidence environment variable required')
+    if not a.pilot and not os.environ.get('WORK2_RUNTIME_EVIDENCE'):raise ValueError('Runtime evidence environment variable required')
     # Scheduler checks the actual account/partition/QOS combination without
     # submitting a job. Refuse rather than silently reduce a long request.
-    validation=subprocess.run(base+['--test-only',str(ROOT/'scripts/scnet_packed.sbatch')],
+    validation=subprocess.run(base+['--test-only',str(launcher)],
                               capture_output=True,text=True,timeout=60,check=True)
     report['scheduler_test_only']={'stdout':validation.stdout,'stderr':validation.stderr,'returncode':validation.returncode}
     queue=subprocess.run(['squeue','-h','-u',getpass.getuser(),'-o','%i'],capture_output=True,text=True,timeout=30,check=True)
@@ -97,7 +102,7 @@ def main():
         raise ValueError('Leave headroom below historical 200-job QOS; no submission')
     env=os.environ.copy();env['WORK2_PACKAGE_ROOT']=str(ROOT)
     env['WORK2_PYTHON']=site['python']
-    print(json.dumps(submit_chain(base,report,a.waves,env),ensure_ascii=False))
+    print(json.dumps(submit_chain(base,report,a.waves,env,launcher),ensure_ascii=False))
 
 
 if __name__=='__main__':main()
