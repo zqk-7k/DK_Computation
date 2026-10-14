@@ -1,0 +1,17 @@
+{
+  "revision": "SCNET_ORCA610_RUNTIME_RECOVERY_20261014",
+  "base_commit": "8ee548952c798a71fecf90b2cf7cff41619e80fb",
+  "status": "ENGINEERING_REGRESSION_PASS_NOT_QM_VALIDATION",
+  "tests": {"total": 327, "failures": 0, "errors": 0, "skips": 0, "revision_test_file_invocations": 29, "includes_reused_portable_fixture_cases": true},
+  "command": "python3 -m unittest discover -s tests -q",
+  "environment": {"python": "3.14.4", "numpy": "2.5.3", "scipy": "1.18.1", "rdkit": "2026.03.3", "OMP_NUM_THREADS": "1", "OPENBLAS_NUM_THREADS": "1"},
+  "additional_checks": ["bash -n environment and sbatch scripts", "compileall clusterflow and scripts", "git diff --check", "submission dry-run, no sbatch call", "64 products / 66 branches / 1020 starts / 469 initial / 551 held retained"],
+  "regression_topics": ["held authorization survives staging without fake initial_release", "live/dead/unknown/remote lock ownership", "water equivalent-H permutation", "slot rather than parent memory", "wrapper/container/xTB/profile evidence binding", "partial stage-out recovery without QM rerun", "exact-input reuse and source tampering rejection", "cross-worker exclusive claims", "shared growth reservations", "durable review blocks", "orphan RUNNING receipt is not live chemistry"],
+  "quantum_jobs_launched": 0,
+  "slurm_jobs_submitted": 0,
+  "server_files_deleted": 0,
+  "scnet_live_wrapper_probe": "SSH_PUBLIC_KEY_AUTHENTICATION_REJECTED_NO_REMOTE_CHANGE",
+  "scnet_python310_and_real_qm_pilot": "NOT_RUN_REQUIRED_BEFORE_PRODUCTION",
+  "github_push": "TRACK_SEPARATELY_IN_GIT_REMOTE_NOT_CERTIFIED_BY_THIS_REPORT",
+  "limitations": ["Mock and synthetic parser fixtures are not scientific results", "Site quota and current walltime require live confirmation", "Large strong-coupling/H-F final engine remains a separate validated work item"]
+}

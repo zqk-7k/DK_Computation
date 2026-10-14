@@ -1,5 +1,12 @@
 {
- "schema_version":"5.0","package_name":"工作2-计算资源包-（5）","created_date":"2026-10-14",
+ "schema_version":"5.1","package_name":"工作2-计算资源包-5","created_date":"2026-10-14",
+ "revision":"SCNET_ORCA610_RUNTIME_RECOVERY_20261014",
+ "orca_version":"6.1.0","orca_version_change_authority":"USER_EXPLICIT_REQUEST_20261014",
+ "active_site_profile":"config/site_scnet.json","site_profile_status":"HISTORICAL_DEFAULTS_NOT_LIVE_VALIDATED",
+ "revision_notes":"docs/SCNET修订与运行说明_20261014.txt",
+ "failure_lessons":"docs/历史故障经验与处理矩阵_20261014.txt",
+ "active_revision_inventory":"reports/delivery_file_manifest_scnet_20261014.json",
+ "active_revision_tests":"reports/scnet_revision_tests_20261014.json",
  "parent_package":"工作2-计算资源包-（4）","parent_preserved":true,
  "reference_repository":"zqk-7k/DK_Computation","reference_folder":"51计算包",
  "reference_commit":"933cb6159294813a79f443921920127032fb01d4",

@@ -87,6 +87,8 @@ def main():
         results={}; executed=0
         limit=a.max_steps if a.command=='auto-run' and a.execute else len(active)
         for index in range(limit):
+            import os
+            if os.environ.get('WORK2_DRAIN_REQUESTED') == '1': break
             if not active:break
             sid=active.pop(0)
             try:

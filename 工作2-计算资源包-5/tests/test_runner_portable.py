@@ -29,8 +29,8 @@ class RunnerPortableTests(unittest.TestCase):
         self.job.mkdir(parents=True)
         self.scratch=self.base/'scratch'
         self.exe=self.base/'orca.exe'
-        self.exe.write_bytes(b'SYNTHETIC TEST ONLY Program Version 6.1.1')
-        self.cfg={'orca_version':'6.1.1','synthetic_test_fixture':True}
+        self.exe.write_bytes(b'SYNTHETIC TEST ONLY Program Version 6.1.0')
+        self.cfg={'orca_version':'6.1.0','synthetic_test_fixture':True}
         writej(self.root/'config/protocol.json',self.cfg)
         for name in runner.IMMUTABLE_FILES:
             (self.job/name).write_text('SYNTHETIC UNIT TEST ONLY\n',encoding='utf-8')
@@ -157,7 +157,7 @@ class RunnerPortableTests(unittest.TestCase):
                     with self.assertRaises(ValueError):self.call(scratch_root=self.base/target)
                 self.no_receipt()
                 writej(self.root/'config/protocol.json',self.cfg)
-                self.exe.write_bytes(b'SYNTHETIC TEST ONLY Program Version 6.1.1')
+                self.exe.write_bytes(b'SYNTHETIC TEST ONLY Program Version 6.1.0')
 
     def test_missing_on_disk_receipt_not_invented(self):
         with patch.object(runner,'run_job',return_value={'status':'completed'}):

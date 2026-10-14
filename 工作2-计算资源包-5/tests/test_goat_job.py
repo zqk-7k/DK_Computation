@@ -21,7 +21,7 @@ class GoatJobTests(unittest.TestCase):
         (self.root / "registry").mkdir()
         self.orca = self.root / ("orca.exe" if os.name == "nt" else "orca")
         self.xtb = self.root / ("otool_xtb.exe" if os.name == "nt" else "otool_xtb")
-        self.orca.write_bytes(b"FAKE TEST FIXTURE; NEVER EXECUTE; Program Version 6.1.1 - RELEASE")
+        self.orca.write_bytes(b"FAKE TEST FIXTURE; NEVER EXECUTE; Program Version 6.1.0 - RELEASE")
         self.xtb.write_bytes(b"FAKE TEST FIXTURE; NEVER EXECUTE")
         self.orca.chmod(0o700)
         self.xtb.chmod(0o700)
@@ -64,7 +64,7 @@ class GoatJobTests(unittest.TestCase):
         self.assertEqual(before, after)
 
     def test_wrong_and_ambiguous_version_blocked(self):
-        for content in (b"Program Version 6.1.0", b"Program Version 6.1.1 Program Version 6.1.0", b"no version"):
+        for content in (b"Program Version 6.1.1", b"Program Version 6.1.0 Program Version 6.1.1", b"no version"):
             self.orca.write_bytes(content)
             self.assertFalse(g.preflight(self.orca, self.xtb)["passed"])
 

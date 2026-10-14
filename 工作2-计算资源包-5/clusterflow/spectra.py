@@ -322,6 +322,9 @@ def make_spectrum(atom_rows, j_pairs, nucleus, settings) -> dict:
         raise ValueError("Lorentzian trace has zero area")
     y *= len(observed) / sampled_area
     return {"sticks": sticks, "x_ppm": x.tolist(), "y": y.tolist(),
+            "multiplet_readiness": ("APPROXIMATION_REVIEW_REQUIRED" if any('first-order' in m for m in methods) and symbol == 'H'
+                                    else "DECLARED_MODEL_REQUIRES_THRESHOLD_AND_EXPERIMENTAL_REVIEW"),
+            "full_strong_coupling_for_all_64_verified": False,
             "warnings": warnings, "method": "; ".join(sorted(methods)),
             "nucleus": "1H" if symbol == "H" else "13C", "n_observed_nuclei": len(observed),
             "data_status": "CALCULATED_MODEL_NOT_EXPERIMENTAL",

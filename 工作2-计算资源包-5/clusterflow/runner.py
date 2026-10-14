@@ -10,7 +10,7 @@ import json
 import threading
 import uuid
 from contextlib import ExitStack, contextmanager
-from .common import config,hash_protocol,inside,readj,sha
+from .common import config,hash_protocol,inside,readj,sha,writej
 from .orcaio import run_job, _input_hashes
 
 IMMUTABLE_FILES = ('job.inp', 'job.json', 'input.xyz', 'input_structure.mol', 'atom_map.json')
@@ -51,7 +51,8 @@ def _lock(directory, name):
     path = directory / name
     token = uuid.uuid4().hex
     with path.open('x', encoding='utf-8') as stream:
-        json.dump({'token': token, 'pid': os.getpid()}, stream)
+        from .runtime import owner_record
+        json.dump(owner_record(token), stream)
     try:
         yield
     finally:
@@ -155,6 +156,12 @@ def binary_versions(path):
 
 def static_preflight(root,orca):
     p=config(root); exe=Path(orca).resolve(); issues=[]
+    from .runtime import wrapper_preflight
+    wrapper = wrapper_preflight(exe)
+    if wrapper is not None:
+        return {'passed': wrapper['passed'], 'issues': wrapper['reasons'], 'orca': str(exe),
+                'orca_sha256': sha(exe) if exe.is_file() else None,
+                'runtime_validation': wrapper['runtime_validation'], 'quantum_jobs_launched': 0}
     versions=binary_versions(exe) if exe.is_file() else []
     if not exe.is_file():issues.append('ORCA executable not found')
     if versions!=[p['orca_version']]:issues.append('Exact binary version marker not confirmed')
@@ -172,7 +179,7 @@ def allocation(nprocs,maxcore):
         raise ValueError('Request one driver task, not multiple ORCA drivers')
     cores=int(os.environ.get('SLURM_CPUS_PER_TASK',nprocs))
     if cores<nprocs:raise ValueError('Insufficient allocated CPUs')
-    mb=os.environ.get('SLURM_MEM_PER_NODE')
+    mb=os.environ.get('WORK2_SLOT_MEMORY_MB') or os.environ.get('SLURM_MEM_PER_NODE')
     if not mb and os.environ.get('SLURM_MEM_PER_CPU'):mb=int(os.environ['SLURM_MEM_PER_CPU'])*cores
     if mb and nprocs*maxcore>0.75*int(mb):raise ValueError('Insufficient allocated memory headroom')
 
@@ -238,10 +245,18 @@ def run_one(root,relative,orca,*,acknowledge=False,dry_run=False,timeout=None,re
             return {**previous,'skipped':True,'resume_reason':'matching_inputs_and_outputs'}
         if not (d/'receipt.json').exists() and previous_outputs:
             raise ValueError('Unreceipted existing output requires a separate import audit')
+        from .cache import try_reuse, publish
+        if not previous_outputs and not retry:
+            reused=try_reuse(root,d,check['orca_sha256'])
+            if reused is not None:return reused
         actual=d
         if stage_dir is not None:
             # Partial scratch work is never silently resumed or overwritten.
             stage_dir.mkdir(parents=True,exist_ok=False)
+            from .runtime import owner_record
+            writej(d/'stage_intents'/(uuid.uuid4().hex+'.json'), {
+                **owner_record('stage-intent'), 'kind':'DFT', 'original':str(d),
+                'stage':str(stage_dir), 'inputs':original_inputs, 'job_identity':m['id']})
             for name,expected in original_inputs.items():
                 _copy_new(_safe_file(d,name),_safe_file(stage_dir,name,existing=False),expected)
             if _inputs(stage_dir)!=original_inputs:
@@ -256,7 +271,14 @@ def run_one(root,relative,orca,*,acknowledge=False,dry_run=False,timeout=None,re
         try:
             os.environ['PATH']=str(Path(check['orca']).parent)+os.pathsep+(oldpath or '')
             os.environ['OMP_NUM_THREADS']='1'
-            returned=run_job(actual,Path(check['orca']),timeout_seconds=timeout,resume=not retry)
+            from .runtime import execution_environment, termination_handoff
+            with execution_environment(check['orca'], actual), termination_handoff():
+                try:
+                    returned=run_job(actual,Path(check['orca']),timeout_seconds=timeout,resume=not retry)
+                except KeyboardInterrupt:
+                    if not (actual/'receipt.json').is_file(): raise
+                    returned=readj(actual/'receipt.json')
+                    if returned.get('status') != 'failed': raise
         finally:
             if oldpath is None:os.environ.pop('PATH',None)
             else:os.environ['PATH']=oldpath
@@ -269,7 +291,9 @@ def run_one(root,relative,orca,*,acknowledge=False,dry_run=False,timeout=None,re
         receipt=_terminal_receipt(actual,m,original_inputs,check['orca_sha256'])
         if returned!=receipt:
             raise ValueError('Returned receipt differs from the on-disk terminal receipt')
-        if actual==d:return receipt
+        if actual==d:
+            if receipt['status']=='completed':publish(root,d)
+            return receipt
         receipt_hash=sha(actual/'receipt.json')
         copies={}
         for path in sorted(actual.rglob('*')):
@@ -315,4 +339,5 @@ def run_one(root,relative,orca,*,acknowledge=False,dry_run=False,timeout=None,re
                 if sha(_safe_file(actual,name))!=expected or sha(_safe_file(d,name))!=expected:
                     raise ValueError('Copied output hash mismatch during receipt commit: '+name)
         _commit_receipt(actual/'receipt.json',d/'receipt.json',receipt_hash,final_check)
+        if receipt['status']=='completed':publish(root,d)
         return receipt

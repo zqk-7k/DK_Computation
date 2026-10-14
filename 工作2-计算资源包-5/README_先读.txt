@@ -1,6 +1,13 @@
 工作2-计算资源包-（5）
 用途：64个18O标记产物的计算NMR工作流。不是实验谱图，也未完成实际量子化学计算。
 
+2026-10-14 SCNET修订（仍为资源包5，不新增化合物、不启用revDSD）
+经用户明确要求，现行ORCA改为6.1.0，使用既有orca-6.1.0-wrapper-local-sandbox。
+先读docs/SCNET修订与运行说明_20261014.txt、docs/历史故障经验与处理矩阵_20261014.txt。
+修复后续GOAT放行凭据丢失、死锁假运行、溶剂等价氢去重；新增站点预检、每调用私有sandbox、
+共享scratch、packed父作业有限续接、64产物覆盖审计、终态结果补回传、精确匹配DFT/TMS复用。
+这些是实现及回归测试，不是已部署/已运行64产物；必须在SCNET完成真实小规模试跑。
+
 本版最重要的定义
 3 / 5 / 10 / 15 是最终DFT优化、频率检查、结构复核及去重后，可用于NMR的独立稳定构象目标下限。
 它们不是GOAT起点数，不是GOAT原始结构数，也不是预筛DFT的输入数。
@@ -29,15 +36,20 @@ DFT失败/超时/虚频：保留证据并暂停相关推进，见docs/异常处�
 python workflow.py auto-plan
 python workflow.py auto-step --species F2_E01_rep_R__DMSO
 前两条不启动QM。auto-step可准备状态与后续输入，因此不要在原始交付副本中做生产计算。
-实际自动运行示例（路径改成服务器上已配置的ORCA、otool_xtb及专用ASCII临时目录）：
-python workflow.py auto-run --all --execute --acknowledge-models --orca /opt/orca/orca --xtb /opt/orca/otool_xtb --scratch-root /scratch/work2_v5
-此便携入口按步执行，不负责为一万核配置队列或并发；可按结构分别启动，外部调度使用明确的已释放任务清单，不扫描整个目录提交。
+SCNET入口（以下仅生成提交计划，不提交）：
+python scripts/submit_packed.py --nodes 4 --hours 72 --verified-max-hours 72 --waves 3
+72小时仅是示例；必须先查当前分区/QOS真实限制，不能把历史7天/30天申请当作许可。
+真实提交需要显式--execute、WORK2_RUNTIME_EVIDENCE及独立生产副本；详见SCNET运行说明。
+原workflow.py auto-run仍是便携顺序入口，不因--all变成并行；SCNET新增入口按结构分支并行packed，
+每个分支内部暂按依赖顺序执行，不宣称已实现同一分支所有候选的无上限并发。
 每次调用最多启动一个任务；失败不会自动覆盖重跑。默认最多10000步，可用--max-steps调整；轮询间隔--poll-seconds不超过60秒。
 原有prepare/advance/collect及手工审查入口保留；v5直接advance同样执行最终稳定构象门槛。
 
 结果与人工判断
 非交换性1H变化0.05 ppm、13C变化0.5 ppm仅作扩展波次的观察参考，不是强制准确度标准。
 J耦合/裂分模式、主要溶剂布局、重复发现及样品状态仍须审阅；软件不会伪造“人工批准”或自动签发科学收敛结论。
-同一结构各波次使用不可变独立工作目录，累计重算，避免源文件改变后复用失效结果；这增加计算成本，含匹配TMS重算。
+同一结构各波次使用不可变独立工作目录。完全匹配且真实输出通过验收的DFT结果可跨波次复用，
+包括TMS；复用记录明确标注不是新ORCA执行，持续绑定原始执行回执。改变输入/物种/方法/版本/
+运行证据或质量设置即不命中；禁止删除仍被复用结果依赖的原始执行文件。
 图4六个药物J方法仍为PBE/pcJ-3，其他按原有两方法基准；不含revDSD。线宽默认H 1 Hz/C 2 Hz，可只改显示不重跑QM。
 更多边界、来源与操作说明见docs；history/v4保留前版交付记录，仅供历史参考。registry/batch_plan_v5.json是当前数量计划。

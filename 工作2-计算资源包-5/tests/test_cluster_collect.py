@@ -46,7 +46,7 @@ def reference_atoms():
 
 
 def shield_text(rows, offset=0, reference=False):
-    lines = ["Program Version 6.1.1", "CHEMICAL SHIELDING SUMMARY (ppm)", "Nucleus Element Isotropic Anisotropy"]
+    lines = ["Program Version 6.1.0", "CHEMICAL SHIELDING SUMMARY (ppm)", "Nucleus Element Isotropic Anisotropy"]
     for row in rows:
         if not row["include_in_analyte_nmr"]:
             continue
@@ -68,7 +68,7 @@ class ClusterCollectionIntegration(unittest.TestCase):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
         self.root = Path(temp.name)
-        self.settings = {"temperature_K": 298.15, "orca_version": "6.1.1"}
+        self.settings = {"temperature_K": 298.15, "orca_version": "6.1.0"}
         self.ph = hash_protocol(self.settings)
         save(self.root / "config/protocol.json", self.settings)
         self.scenario = "DMSO_02_W00_primary"
@@ -107,7 +107,7 @@ class ClusterCollectionIntegration(unittest.TestCase):
                 save(folder / "atom_map.json", atoms)
                 (folder / "job.inp").write_text("SYNTHETIC UNIT TEST; NOT RUN", encoding="utf-8")
                 (folder / "job.out").write_text(shield_text(atoms, offset, reference) if stage == "shielding" else
-                    "Program Version 6.1.1\n****ORCA TERMINATED NORMALLY****\n", encoding="utf-8")
+                    "Program Version 6.1.0\n****ORCA TERMINATED NORMALLY****\n", encoding="utf-8")
                 if stage != "shielding":
                     (folder / "job.property.txt").write_text(j_property(pairs, offset), encoding="utf-8")
                     row["j_jobs"][stage[2:]] = folder.relative_to(self.root).as_posix()
@@ -193,7 +193,7 @@ class ExperimentalBenchmarkUnitTests(unittest.TestCase):
         temp = tempfile.TemporaryDirectory()
         self.addCleanup(temp.cleanup)
         self.root = Path(temp.name)
-        self.settings = {"temperature_K": 298.15, "orca_version": "6.1.1"}
+        self.settings = {"temperature_K": 298.15, "orca_version": "6.1.0"}
         self.ph = hash_protocol(self.settings)
         save(self.root / "config/protocol.json", self.settings)
         self.policy = {"criterion": "lowest_MAE_Hz", "max_MAE_Hz": 2.0, "max_abs_error_Hz": 3.0,

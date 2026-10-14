@@ -13,13 +13,17 @@
 Python API：clusterflow.autoflow.step(root, species_id, execute=False, orca=None, xtb=None, scratch_root=None)
 默认 execute=False：只更新运行状态、释放清单和准备下一步输入，不启动量子化学计算。
 只有明确 execute=True 且给出 ORCA、xTB、专用 ASCII scratch 路径时，单次 step 才最多启动一个真实任务。CLI 可重复调用实现连续自动推进；本控制器不配置或提交集群队列，不设置整机并行和集群时间预算。
-产品模型会同时处理相同溶剂组成及温度的 TMS 模型。已运行的源 GOAT 结果在根包共享，不重复启动；各独立工作区中的 TMS DFT 暂不跨产品复用。
+产品模型会同时处理相同溶剂组成及温度的 TMS 模型。源 GOAT 在根包共享；2026-10-14修订新增
+完全相同输入/物种/场景/协议/运行证据的DFT复用，TMS不再无条件跨产品重算。复用回执明确标注DERIVED。
 
 4. 工作目录与安全
 automation/<species_id>/state.json：有限起点池、已释放起点、候选批次、绑定的协议/计划哈希。
 automation/<species_id>/released_goat_manifest.json：当前已释放的 GOAT 清单。
-automation/<species_id>/wave_XXX/workspace：该波次的独立累积工作区。为保护不可变来源，各扩充波次会重新计算累积选中构象，而非不安全地混接旧 DFT 缓存；这增加算力成本。
+automation/<species_id>/wave_XXX/workspace：独立累积工作区。新增构象必须计算；旧构象仅在精确
+输入匹配且原始结果仍可完整校验时复用。不是用近似RMSD或相似名称复用量化结果。
 每次继续运行会复核已冻结源文件和历史预测结果。禁止路径越界、符号链接或 junction 跳出，使用独占锁及原子状态更新。正在写出的任务不会被当成完成结果。程序不自动删除旧数据，不自动重试失败作业。
+补充：SCNET packed层可对明确的只读节点DFT故障在不同健康节点做最多两次恢复；不覆盖原输出。
+OOM、虚频、SCF/优化未收敛、未知MPI/堆错误仍要求针对性修复，不属于原样盲重试范围。
 
 5. 科学问题仍需要检查
 非收敛、无有效回执、虚频、质子转移或结构异常：停止自动跨越该问题，使用 diagnose / scientific_review 接口检查。人工接受的负频近似不计入本版稳定构象配额，也不自动进入这一严格稳定构象分支。

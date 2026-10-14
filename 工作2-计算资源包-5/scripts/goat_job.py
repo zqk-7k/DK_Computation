@@ -20,7 +20,8 @@ import sys
 import uuid
 
 ROOT = Path(__file__).resolve().parents[1]
-REQUIRED_VERSION = "6.1.1"
+if str(ROOT) not in sys.path: sys.path.insert(0, str(ROOT))
+REQUIRED_VERSION = "6.1.0"
 INPUT_HASH_FIELDS = {
     "goat.inp": "input_sha256",
     "start.xyz": "xyz_sha256",
@@ -75,12 +76,19 @@ def executable_file(path: Path) -> bool:
 
 def preflight(orca: Path, xtb: Path, nprocs: int = 8) -> dict:
     orca, xtb = Path(orca).resolve(), Path(xtb).resolve()
+    from clusterflow.runtime import wrapper_preflight
+    wrapper = wrapper_preflight(orca, xtb)
+    if wrapper is not None:
+        return {**wrapper, 'orca_executable': str(orca), 'xtb_executable': str(xtb),
+                'orca_sha256': digest(orca) if orca.is_file() else None,
+                'xtb_sha256': digest(xtb) if xtb.is_file() else None,
+                'quantum_jobs_launched': 0, 'nprocs': nprocs}
     reasons: list[str] = []
     versions = embedded_versions(orca) if orca.is_file() else []
     if not executable_file(orca):
         reasons.append("ORCA executable missing or not executable")
     if versions != [REQUIRED_VERSION]:
-        reasons.append("Exact unique embedded ORCA Program Version 6.1.1 not verified")
+        reasons.append("Exact unique embedded ORCA Program Version 6.1.0 not verified")
     if not executable_file(xtb):
         reasons.append("External xTB executable missing or not executable")
     installed_xtb = orca.parent / ("otool_xtb.exe" if os.name == "nt" else "otool_xtb")
@@ -170,6 +178,20 @@ def controller_released(root: Path, job_id: str, species_id: str) -> bool:
     return False
 
 
+def staged_release_valid(root, row):
+    proof_path = root / 'staged_authorization.json'
+    if not proof_path.is_file(): return False
+    proof = read_json(proof_path)
+    original = Path(proof.get('original_root', '')).resolve()
+    if original == root.resolve() or proof.get('job_id') != row.get('job_id'): return False
+    manifest = original / 'registry/jobs.json'
+    if not manifest.is_file() or digest(manifest) != proof.get('manifest_sha256'): return False
+    originals = [r for r in read_json(manifest) if r.get('job_id') == row.get('job_id')]
+    if len(originals) != 1: return False
+    expected = dict(originals[0]); expected['job_directory'] = row['job_directory']
+    return (expected == row and controller_released(original, row['job_id'], row.get('species_id')))
+
+
 def validate_job(root: Path, job_id: str, allow_own_lock: bool = False) -> dict:
     root = Path(root).resolve()
     manifest_path = root / "registry" / "jobs.json"
@@ -180,7 +202,9 @@ def validate_job(root: Path, job_id: str, allow_own_lock: bool = False) -> dict:
     if len(matches) != 1:
         raise ValueError("Job ID missing or duplicated")
     row = matches[0]
-    if row.get("initial_release") is not True and not controller_released(root,job_id,row.get('species_id')):
+    if (row.get("initial_release") is not True
+            and not controller_released(root,job_id,row.get('species_id'))
+            and not staged_release_valid(root, row)):
         raise ValueError("Held job: initial_release must be true; no implicit wave release")
     if row.get("status") != "PREPARED_NOT_RUN":
         raise ValueError("Job is not PREPARED_NOT_RUN")
@@ -240,7 +264,7 @@ def check_allocation(nprocs: int, maxcore_mb: int) -> None:
         raise ValueError("SLURM CPUs smaller than input nprocs")
     if int(os.environ.get("SLURM_NTASKS", "1")) != 1:
         raise ValueError("Use one serial ORCA driver task, never multiple drivers")
-    memory = os.environ.get("SLURM_MEM_PER_NODE")
+    memory = os.environ.get("WORK2_SLOT_MEMORY_MB") or os.environ.get("SLURM_MEM_PER_NODE")
     if not memory and os.environ.get("SLURM_MEM_PER_CPU"):
         memory = str(int(os.environ["SLURM_MEM_PER_CPU"]) * int(cpus or nprocs))
     if memory and nprocs * maxcore_mb > 0.75 * int(memory):
@@ -288,9 +312,10 @@ def run_one(root: Path, job_id: str, orca: Path, xtb: Path,
     lock = directory / ".goat-run.lock"
     token = uuid.uuid4().hex
     with lock.open("x", encoding="utf-8") as stream:
-        json.dump({"token": token, "pid": os.getpid(), "started_utc": utc()}, stream)
+        from clusterflow.runtime import owner_record
+        json.dump(owner_record(token), stream)
     receipt_path = directory / "receipt.json"
-    receipt = {**plan, "status": "RUNNING", "started_utc": utc(), "quantum_jobs_launched": 0}
+    receipt = {**owner_record(token), **plan, "status": "RUNNING", "started_utc": utc(), "quantum_jobs_launched": 0}
     try:
         # Recheck after obtaining exclusive ownership, before making any output.
         fresh = validate_job(root, job_id, allow_own_lock=True)
@@ -307,7 +332,11 @@ def run_one(root: Path, job_id: str, orca: Path, xtb: Path,
         process = None
         returncode = None
         try:
-            with (directory / "goat.out").open("xb") as stdout, (directory / "goat.stderr").open("xb") as stderr:
+            from clusterflow.runtime import execution_environment, termination_handoff
+            with execution_environment(orca, directory), termination_handoff(), (directory / "goat.out").open("xb") as stdout, (directory / "goat.stderr").open("xb") as stderr:
+                env.update(os.environ)
+                env['PATH'] = str(Path(checks['orca_executable']).parent) + os.pathsep + env.get('PATH','')
+                env['OMP_NUM_THREADS'] = '1'
                 process = subprocess.Popen(command, cwd=directory, env=env, stdout=stdout, stderr=stderr,
                                            shell=False, start_new_session=(os.name == "posix"))
                 receipt["quantum_jobs_launched"] = 1

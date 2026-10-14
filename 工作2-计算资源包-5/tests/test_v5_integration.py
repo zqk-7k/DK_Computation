@@ -113,7 +113,7 @@ class IndependentAutomaticSelection(unittest.TestCase):
             geometry.xyz_text(m, f'{e:.12f} Eh SYNTHETIC UNIT TEST ONLY')
             for m, e in zip(molecules, energies)), encoding='utf-8')
         (directory / 'goat.out').write_text(
-            'SYNTHETIC UNIT TEST ONLY\nProgram Version 6.1.1\nORCA TERMINATED NORMALLY\n', encoding='utf-8')
+            'SYNTHETIC UNIT TEST ONLY\nProgram Version 6.1.0\nORCA TERMINATED NORMALLY\n', encoding='utf-8')
         writej(directory / 'receipt.json', {
             'job_id': row['job_id'], 'status': 'COMPLETED_NORMAL_AWAITING_SCIENTIFIC_REVIEW',
             'input_sha256': {name: sha(directory / name) for name in
@@ -448,7 +448,7 @@ class IndependentTwoWaveEndToEnd(unittest.TestCase):
         directory = workspace / row['job_dir']
         meta = readj(directory / 'job.json')
         amap = readj(directory / 'atom_map.json')
-        output = ['SYNTHETIC END-TO-END UNIT TEST ONLY', 'Program Version 6.1.1']
+        output = ['SYNTHETIC END-TO-END UNIT TEST ONLY', 'Program Version 6.1.0']
         outputs = ['job.out']
         if meta['stage'] == 'shielding':
             output.append('CHEMICAL SHIELDING SUMMARY (ppm)')

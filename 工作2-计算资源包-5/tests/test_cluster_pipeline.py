@@ -51,7 +51,7 @@ class ClusterPipelineTests(unittest.TestCase):
         for i, xyz in enumerate(conformer.GetPositions()):
             conformer.SetAtomPosition(i, xyz + [.2, -.1, .3])
         (self.goat / 'goat.finalensemble.xyz').write_text(g.xyz_text(moved, 'SYNTHETIC UNIT TEST ONLY'), encoding='utf-8')
-        (self.goat / 'goat.out').write_text('SYNTHETIC UNIT TEST ONLY\nProgram Version 6.1.1\nORCA TERMINATED NORMALLY\n', encoding='utf-8')
+        (self.goat / 'goat.out').write_text('SYNTHETIC UNIT TEST ONLY\nProgram Version 6.1.0\nORCA TERMINATED NORMALLY\n', encoding='utf-8')
         receipt = {'job_id': self.row['job_id'], 'status': 'COMPLETED_NORMAL_AWAITING_SCIENTIFIC_REVIEW',
                    'input_sha256': {name: sha(self.goat / name) for name in ('goat.inp', 'start.xyz', 'atom_map.json', 'cluster.mol', 'provenance.json')},
                    'output_sha256': {name: sha(self.goat / name) for name in ('goat.out', 'goat.finalensemble.xyz')}}
@@ -76,7 +76,7 @@ class ClusterPipelineTests(unittest.TestCase):
         directory = Path(directory)
         mol = Chem.MolFromMolBlock((directory / 'input_structure.mol').read_text(encoding='utf-8'), removeHs=False)
         (directory / 'job.xyz').write_text((directory / 'input.xyz').read_text(encoding='utf-8'), encoding='utf-8')
-        lines = ['SYNTHETIC UNIT TEST ONLY', 'Program Version 6.1.1', 'THE OPTIMIZATION HAS CONVERGED', 'VIBRATIONAL FREQUENCIES']
+        lines = ['SYNTHETIC UNIT TEST ONLY', 'Program Version 6.1.0', 'THE OPTIMIZATION HAS CONVERGED', 'VIBRATIONAL FREQUENCIES']
         for i in range(3 * mol.GetNumAtoms()):
             value = -20 if negative and i == 6 else (0 if i < 6 else 100)
             lines.append(f'{i}: {value:.2f} cm**-1')

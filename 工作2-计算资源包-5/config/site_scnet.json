@@ -1,0 +1,25 @@
+{
+  "schema_version": "5.1",
+  "orca_version": "6.1.0",
+  "orca_wrapper": "/public/home/qikai/orca_nmr_runtime/orca-6.1.0-wrapper-local-sandbox",
+  "container": "/public/home/qikai/apprepo/orca/6.1.0-glibc229/app/orca-openmpi418.sif",
+  "xtb": "/public/home/qikai/apprepo/xtb/v6.7.0-intelmpi2021/app/bin/xtb",
+  "python": "/public/home/qikai/.conda/envs/orca-nmr-py310/bin/python",
+  "shared_scratch": "/public/home/qikai/orca_shared_scratch/work2_64_v5",
+  "local_runtime_root": "/var/tmp",
+  "environment": {
+    "OMPI_MCA_pml": "ob1",
+    "OMPI_MCA_btl": "self,vader,tcp",
+    "APPTAINERENV_OMPI_MCA_pml": "ob1",
+    "APPTAINERENV_OMPI_MCA_btl": "self,vader,tcp",
+    "SINGULARITYENV_OMPI_MCA_pml": "ob1",
+    "SINGULARITYENV_OMPI_MCA_btl": "self,vader,tcp"
+  },
+  "node": {"historical_cores": 32, "historical_memory_mb": 126500, "requested_memory_mb": 114000},
+  "packed": {"slots_per_node": 2, "slot_allocated_cpus": 16, "slot_memory_mb": 57000, "maxcore_fraction": 0.70},
+  "disk": {"admit_free_gib": 128, "stop_new_claims_gib": 64, "local_admit_gib": 20, "shm_min_gib": 1, "unmeasured_task_growth_gib": 64},
+  "recovery": {"maximum_infrastructure_attempts": 2, "automatic_scientific_approval": false, "never_cancel_healthy_branches": true},
+  "slurm": {"account": "acndczol6t", "partition": "kshcnormal", "qos": "user_qikai", "walltime_policy": "MUST_SUPPLY_CURRENT_SITE_VERIFIED_LIMIT", "drain_before_end_seconds": 1800},
+  "status": "HISTORICAL_SITE_DEFAULTS_REQUIRE_CURRENT_COMPUTE_NODE_PILOT",
+  "notice": "No current allocation, quota, walltime, or wrapper hash is assumed verified; no credentials in this file."
+}

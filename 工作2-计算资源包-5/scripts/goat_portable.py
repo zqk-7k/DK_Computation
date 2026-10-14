@@ -114,19 +114,27 @@ def run_one(root: Path, job_id: str, orca: Path, xtb: Path, scratch_root: Path,
     lock = original / '.goat-run.lock'
     token = uuid.uuid4().hex
     with lock.open('x', encoding='utf-8') as stream:
-        json.dump({'token': token, 'pid': os.getpid(), 'started_utc': runner.utc(), 'portable_stage_root': str(stage_root)}, stream)
+        from clusterflow.runtime import owner_record
+        json.dump({**owner_record(token), 'portable_stage_root': str(stage_root)}, stream)
     try:
         fresh = runner.validate_job(root, job_id, allow_own_lock=True)
         if fresh['manifest_sha256'] != job['manifest_sha256'] or _hashes(original) != original_hashes:
             raise ValueError('Original inputs/manifest changed before staging')
         stage_root.mkdir(parents=True, exist_ok=False)
         stage_job.mkdir()
+        from clusterflow.common import writej
+        writej(original/'stage_intents'/(uuid.uuid4().hex+'.json'), {
+            **owner_record('stage-intent'), 'kind':'GOAT', 'original':str(original),
+            'stage':str(stage_job), 'inputs':original_hashes, 'job_identity':job_id})
         for name in IMMUTABLE_FILES:
             _new_copy(original / name, stage_job / name)
         mini_row = dict(job['row'])
         mini_row['job_directory'] = 'job'
         (stage_root / 'registry').mkdir()
         runner.atomic_json(stage_root / 'registry' / 'jobs.json', [mini_row])
+        runner.atomic_json(stage_root / 'staged_authorization.json', {
+            'original_root': str(root), 'job_id': job_id,
+            'manifest_sha256': job['manifest_sha256']})
         mini_manifest_sha = runner.digest(stage_root / 'registry' / 'jobs.json')
         failure = None
         try:
@@ -134,6 +142,8 @@ def run_one(root: Path, job_id: str, orca: Path, xtb: Path, scratch_root: Path,
         except Exception as exc:
             # Preserve valid terminal failure receipts/logs too, never invent one.
             failure = exc
+        if failure is not None and not (stage_job / 'receipt.json').is_file():
+            raise ValueError('Staged runner failed before receipt: ' + str(failure)) from failure
         receipt = _receipt(stage_job, job_id, original_hashes)
         if receipt.get('manifest_sha256') != mini_manifest_sha:
             raise ValueError('Staged receipt is not bound to its actual mini-registry')

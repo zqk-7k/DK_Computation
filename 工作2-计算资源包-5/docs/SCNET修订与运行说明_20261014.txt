@@ -1,0 +1,87 @@
+工作2-计算资源包-5：SCNET ORCA 6.1.0修订
+日期：2026-10-14
+
+一、范围和事实
+目录名保持“工作2-计算资源包-5”。仍为64产物、66结构分支、1个TMS模型；原有1020 GOAT
+起点、469首批/551保留和3/5/10/15最终稳定构象目标不变，不启用revDSD。
+用户明确要求继续用既有ORCA 6.1.0 wrapper；不是静默降版本。原6.1.1测试/输出不能当作
+6.1.0实跑证据。本次没有启动任何量化、HPC提交，也未更改旧51项目任务或删除服务器文件。
+旧报告和Excel是原始交付记录，不是本修订运行状态；当前协议/注册表及本说明为准。
+
+二、实现变更
+1. ORCA协议及活跃测试切换6.1.0；wrapper通过独立站点适配，不再要求脚本包含二进制版本串。
+2. 显式版本检查记录wrapper、容器、xTB和站点配置SHA256。读取该记录不自动启动任何软件。
+   wrapper --version通过只证明版本/容器校验，不证明GOAT、J或全部基组已实跑通过。
+3. 临时目录的GOAT授权持续绑定原始清单和当前控制器放行记录；不伪装initial_release=true。
+4. 锁记录节点、Slurm作业、PID及进程启动标识；远端父任务活着不自动证明子计算活着。
+   锁失效仅在调度器确认旧作业终态后可归档；未知状态保留并报告，不按年龄删除。
+5. 同水分子等价氢换号去重修复；不任意交换分析物非等价氢。回归用真实初始簇、无QM。
+6. Opt/Freq、shielding及J默认4个实际MPI、3500MB/rank；预筛和预制GOAT仍8 MPI。
+   两个57000MB/16分配CPU槽位共用一个32CPU/114000MB父节点。每槽独立内存预算，
+   不把分配的16CPU写成实际16 MPI，也不保证4 MPI适合所有模型；推广须依据实测RSS/耗时。
+7. 科学scratch默认/public/home/qikai/orca_shared_scratch/work2_64_v5；每次wrapper调用有
+   独立/var/tmp runtime，隔离同一Slurm父任务的sandbox命名/清理冲突。不修改旧wrapper。
+   对拥有的runtime目录发送心跳，不遍历触碰所有矩阵文件，不清理别人的sandbox。
+8. 检查空闲字节/inode/可写性、/dev/shm和本地runtime；packed用跨节点原子领取及增长预算。
+   默认共享盘准入128GiB、低空间停止补仓64GiB、未测任务增长64GiB/槽；不是旧1000GiB底线。
+   这些是可校准初始预算，不是峰值实测。磁盘停止补仓不等于杀掉已运行任务。
+9. SIGTERM/HUP尝试停止自己启动的进程组并写失败回执，保留检查点。SIGKILL无法保证执行
+   清理代码，因此启动前写stage_intent供新父任务查明scratch。绝不承诺任意GOAT迭代无损续算。
+10. 对已完成量化但回传中断，验证终态回执与输入/输出哈希后补回传，回执最后发布；冲突不覆盖。
+11. 只读节点DFT故障可在不同健康节点有上限重试，旧输出归档。OOM、虚频、未知MPI等单列修复，
+    不无限原样重跑。恢复链和节点依赖留痕，不把原失败记录换成假成功。
+12. 完全一致输入/物种/场景/方法/协议/运行证据的DFT/TMS可以复用。复用回执明确
+    VERIFIED_REUSE_NOT_NEW_ORCA_EXECUTION，绑定原始执行；源文件变化后验收失败。
+    不同几何、溶剂、质子化、同位素或模型不能仅重命名复用。未命中即正常计算。
+13. 64产物覆盖审计区分未启动、就绪、运行、所有权未知、待恢复、科学复核和探索波次。
+    前一轮EXECUTED不是本轮RUNNING；父作业COMPLETED不是化学验收通过。
+14. 生成仅针对成功且完整回传scratch的清理候选；不自动删除。所有原始结果、cache来源和
+    失败/未知/运行中的restart数据保留。科学源文件仍被后续依赖时不得删除。
+15. 氢谱一阶近似增加机器可读的APPROXIMATION_REVIEW_REQUIRED状态；不称为全强耦合最终谱。
+
+三、SCNET部署顺序（本次只提供代码，不代表已执行）
+1. 从GitHub建立独立短路径生产副本，保留原始资源包。不要覆盖旧51任务源码、state、输入或wrapper。
+2. 在登录节点查询当前分区、QOS、账号任务数/CPU/内存限制和共享盘用户配额。历史32核/
+   126500MB/约202GB本地盘仅供配置参考，不能推断当前额度或申请权限。
+3. 对照config/site_scnet.json核对wrapper、容器、xTB、Python路径。必要修改在新运行副本完成，
+   不改已绑定的运行中协议。环境脚本加载oneAPI和既有ORCA env.sh，避免xTB缺MKL库。
+4. 在当前计算节点allocation中：
+   source scripts/scnet_environment.sh
+   python scripts/site_check.py --execute-version-check --record /独立运行目录/runtime_evidence.json
+   export WORK2_RUNTIME_EVIDENCE=/独立运行目录/runtime_evidence.json
+   此命令只做版本/环境检查，不提交量化；必须用新的证据文件名，不覆盖原记录。
+5. 小规模真实pilot：至少简单刚性、强氢键、含Br/F、复杂药物及TMS的代表模型。
+   验证GOAT实际xTB调用、优化/频率、完整核清单shielding/J、原子对索引、输出解析、TMS和CSV。
+   包内tests/run_real_input_smoke.py只是一部分检查，不是64产物全面验证。
+6. 当前站点确认允许72h时的提交计划示例（没有--execute，不提交）：
+   python scripts/submit_packed.py --nodes 4 --hours 72 --verified-max-hours 72 --waves 3
+   加--execute才提交。若实际限制不是72h，必须更改参数；verified-max-hours是操作者提供的
+   当前站点信息，不是程序替客服认证。每个worker再查实际EndTime，结束前30分钟停止新领取。
+7. 默认三个有限afterany父任务接续，每个可以多个节点、每节点两个worker，不堆200个单任务。
+   同一结构分支当前串行推进，多个分支并行；不是任意单个分子内部的无限并行。
+   后继父任务读取同一持久状态/回执/任务领取记录。旧父任务的DRAIN标记不阻塞新父任务。
+   遇到未知失败/科学问题留下持久blocked记录，避免占着节点反复空轮询。
+8. 定期在登录节点执行轻量覆盖审计：
+   python scripts/operations.py coverage --write
+   核对operations/coverage.json、operations/packed/blocked/、各模型recovery_status.json。
+   有限续接链全部结束而仍有待算任务时，需要新的明确提交；本版不是无限自动申请资源服务。
+9. 故障诊断/补回传默认只列计划：
+   python scripts/operations.py diagnose --job 具体任务目录
+   python scripts/operations.py recover-stageout --intent 具体stage_intents记录
+   只有加--execute才实施补回传。没有终态回执只能保留部分结果用于针对性restart，不伪造完成。
+   修复已完成后，可用operations.py unblock --species 注册ID --reason 处理依据 --execute
+   归档packed阻塞标记；它不会批准科学收敛或取消既有频率/结构关口。
+10. 只读空间审计：python scripts/operations.py cleanup-plan --write
+    生成operations/cleanup_plan.json；实际删除需要再次核验和单独授权。本次未删除任何文件。
+
+四、必须明确的剩余边界
+- 新packed、共享文件锁、sandbox隔离、xTB路由及6.1.0各性质模块须在SCNET真实pilot验收。
+- df空闲不等于用户配额；ParaStor用户配额需要站点工具另查。本版不能假装已测到配额。
+- 强耦合大块/H-F仍不是全64模型通用精确求解器。新就绪标志防止误交付，不代替数值改进。
+  后续应移植并重新验证022局部簇扩展/邻域收敛方案，不把旧分子的通过结论套到新分子。
+- J原子对分块及自动虚频位移是具体体系的科学修复，当前不盲目批量执行；要绑定几何、方法、
+  原子对覆盖和振动模式审查。模块失败名称不是根因证据。
+- 完全匹配缓存可降低重算，但仍保留必要原始数据副本；它不是自动清空共享盘。
+- 不静默下调稳定构象目标或SCF/几何阈值。刚性体系达不到目标需基于重复发现/覆盖/谱图稳定性
+  作明确决策；更多构象和更大基组都不保证与实验完全一致。
+- 统计/测试通过不等于ORCA已运行、所有64种已出最终图谱或实验模型准确性已经验证。

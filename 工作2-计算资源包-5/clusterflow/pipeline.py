@@ -71,7 +71,7 @@ def _goat_source(root, job_id):
     if any(row.get(k) != species.get(k) for k in ('compound_id', 'charge', 'multiplicity')):
         raise ValueError('GOAT registry chemical-state identity mismatch')
     directory = inside(root, row['job_directory'])
-    if any((directory / name).exists() for name in ('.goat-run.lock', '.goat-portable.lock', '.run.lock')):
+    if any((directory / name).exists() for name in ('.goat-run.lock', '.goat-portable.lock', '.run.lock', '.stageout-recovery.lock')):
         raise ValueError('GOAT source has an active runner lock; completed batch required')
     receipt_paths = [directory / name for name in ('run_receipt.json', 'receipt.json') if (directory / name).is_file()]
     if len(receipt_paths) != 1:
@@ -386,9 +386,9 @@ def _validate_stage_source(root, directory, metadata, index):
 def cluster_rms(mol_a, mol_b, atom_map):
     """All-atom metric; only graph-identical whole solvent components permute.
 
-    Analyte indices (including diastereotopic H) never permute. Internal solvent
-    graph automorphisms are deliberately not inferred; ambiguous duplicate
-    rotamers still require selection review rather than manufactured weights.
+    Analyte indices (including diastereotopic H) never permute. Solvent internal
+    graph automorphisms preserve elements, isotopes and stereochemistry. A
+    bounded alternating alignment avoids a factorial full-cluster map product.
     """
     groups = defaultdict(list)
     for row in atom_map:
@@ -406,6 +406,19 @@ def cluster_rms(mol_a, mol_b, atom_map):
     if count > 1000:
         raise ValueError('Too many component permutations; reviewed duplicate audit required')
     best = float('inf')
+    fragment_indices = []
+    fragments = Chem.GetMolFrags(mol_a, asMols=True, sanitizeFrags=True,
+                                fragsMolAtomMapping=fragment_indices)
+    internal = {}
+    for fragment, indices in zip(fragments, fragment_indices):
+        component = atom_map[indices[0]]['component']
+        if component == 'analyte': continue
+        matches = fragment.GetSubstructMatches(fragment, uniquify=False, useChirality=True, maxMatches=1025)
+        if len(matches) > 1024:
+            raise ValueError('Solvent symmetry enumeration requires review; no silent truncation')
+        internal[component] = [(list(indices), [indices[k] for k in match]) for match in matches]
+    xyz_a = np.asarray(mol_a.GetConformer().GetPositions())
+    xyz_b = np.asarray(mol_b.GetConformer().GetPositions())
     for permutations in itertools.product(*options):
         mapping = {i: i for i in range(mol_a.GetNumAtoms())}
         for original, permuted in zip(equivalent.values(), permutations):
@@ -413,6 +426,19 @@ def cluster_rms(mol_a, mol_b, atom_map):
                 mapping.update(zip(groups[left], groups[right]))
         rms, _ = rdMolAlign.GetAlignmentTransform(mol_a, mol_b, atomMap=sorted(mapping.items()), reflect=False)
         best = min(best, rms)
+        anchors = [(i, j) for i, j in mapping.items()
+                   if atom_map[i]['component'] == 'analyte' or atom_map[i]['element'] != 'H']
+        if len(anchors) < 3: anchors = sorted(mapping.items())
+        _, transform = rdMolAlign.GetAlignmentTransform(mol_a, mol_b, atomMap=anchors, reflect=False)
+        base = dict(mapping)
+        for _ in range(5):
+            transformed = xyz_a @ np.asarray(transform)[:3, :3].T + np.asarray(transform)[:3, 3]
+            for component, choices in internal.items():
+                left, right = min(choices, key=lambda pair:
+                    float(np.square(transformed[pair[0]] - xyz_b[[base[j] for j in pair[1]]]).sum()))
+                mapping.update(zip(left, [base[j] for j in right]))
+            rms, transform = rdMolAlign.GetAlignmentTransform(mol_a, mol_b, atomMap=sorted(mapping.items()), reflect=False)
+            best = min(best, rms)
     return best
 
 

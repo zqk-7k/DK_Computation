@@ -337,7 +337,7 @@ class IndependentFrequencyGate(unittest.TestCase):
             meta = {"stage": "optfreq", "protocol_hash": common.hash_protocol(settings),
                     "input_sha256": common.sha(path / "job.inp"), "atom_map_sha256": common.sha(path / "atom_map.json")}
             (path / "job.json").write_text(json.dumps(meta), encoding="utf-8")
-            (path / "job.out").write_text("Program Version 6.1.1\nSYNTHETIC TEST OUTPUT\n", encoding="utf-8")
+            (path / "job.out").write_text("Program Version 6.1.0\nSYNTHETIC TEST OUTPUT\n", encoding="utf-8")
             (path / "receipt.json").write_text(json.dumps({"status": "completed", "synthetic_test_fixture": True}), encoding="utf-8")
             parsed = {"normal_termination": True, "optimization_converged": True, "frequencies_cm1": [0.0, 0.0, 100.0],
                       "gibbs_free_energy_Eh": -100.0, "temperature_K": settings["temperature_K"],

@@ -1,4 +1,7 @@
 工作2-计算资源包-（5）：交付检查
+注意：下文是原始v5交付检查记录。2026-10-14 SCNET修订的当前结果见
+reports/scnet_revision_tests_20261014.json和delivery_file_manifest_scnet_20261014.json；
+原298项日志不能代替修改后代码验证，旧manifest不用于认证当前修订。
 日期：2026-10-14（Australia/Adelaide）
 
 已完成：

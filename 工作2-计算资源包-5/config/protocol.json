@@ -3,7 +3,7 @@
   "package_name": "工作2-计算资源包-（5）",
   "reference_commit": "933cb6159294813a79f443921920127032fb01d4",
   "mode": "51_DESIGN_EXPLICIT_CLUSTER_PBE0_ONLY_SHIELDING",
-  "orca_version": "6.1.1",
+  "orca_version": "6.1.0",
   "temperature_K": 298.15,
   "temperature_status": "USER_CONFIRMED_COMPUTATIONAL_298.15_K_NOT_EXPERIMENTAL_MEASUREMENT",
   "solvent": "DMSO",
@@ -51,12 +51,12 @@
   },
   "optfreq": {
     "keywords": "PBE0 D4 def2-TZVPP def2/J RIJCOSX VeryTightOpt VeryTightSCF DefGrid3",
-    "nprocs": 8,
+    "nprocs": 4,
     "maxcore_mb": 3500
   },
   "shielding": {
     "keywords": "PBE0 pcSseg-3 AutoAux RIJCOSX VeryTightSCF DefGrid3",
-    "nprocs": 8,
+    "nprocs": 4,
     "maxcore_mb": 3500,
     "reference": "TMS",
     "nuclei": [
@@ -88,14 +88,14 @@
   },
   "j_PBE_pcJ3": {
     "keywords": "PBE pcJ-3 AutoAux RIJCOSX VeryTightSCF DefGrid3",
-    "nprocs": 8,
+    "nprocs": 4,
     "maxcore_mb": 3500,
     "bromine_basis": "def2-TZVPP",
     "distance_cutoff_A": 1000.0
   },
   "j_PBE0_pcJ2": {
     "keywords": "PBE0 pcJ-2 AutoAux RIJCOSX VeryTightSCF DefGrid3",
-    "nprocs": 8,
+    "nprocs": 4,
     "maxcore_mb": 3500,
     "bromine_basis": "def2-TZVPP",
     "distance_cutoff_A": 1000.0
@@ -127,6 +127,7 @@
     "noise": false
   },
   "execution": {
+    "verified_exact_input_reuse": true,
     "automatic_cluster_submission": false,
     "quantum_jobs_started_during_package_build": false,
     "explicit_run_command_required": true,

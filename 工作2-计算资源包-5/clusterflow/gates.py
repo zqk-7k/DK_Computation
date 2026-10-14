@@ -50,6 +50,12 @@ def inspect_job(job_dir, config, require_geometry=True, review_path=None):
         receipt = readj(receipt_path)
         if receipt.get('status') != 'completed':
             errors.append('receipt_not_completed')
+        if receipt.get('reuse'):
+            try:
+                from .cache import validate_reuse
+                validate_reuse(directory,receipt,config)
+            except (ValueError,OSError,KeyError) as exc:
+                errors.append('reuse_evidence_invalid:' + str(exc))
         required = ['job.out']
         for name in ('job.xyz', 'job.property.txt'):
             if (directory / name).exists():

@@ -62,7 +62,8 @@ class AutoflowTests(unittest.TestCase):
         self.assertEqual(len(result['released_goat_ids'][SID]), 7)
 
     def test_whole_batch_running_prevents_early_selection(self):
-        (self.root / self.jobs[0]['job_directory'] / '.goat-run.lock').write_text('{}')
+        from clusterflow.runtime import owner_record
+        writej(self.root / self.jobs[0]['job_directory'] / '.goat-run.lock', owner_record('test-live'))
         with patch('clusterflow.autoselect.screen_batch', side_effect=AssertionError('Must wait whole batch')):
             result = a.step(self.root, SID)
         self.assertEqual(result['status'], 'WAITING_WHOLE_GOAT_BATCH')
@@ -198,7 +199,7 @@ class AutoflowTests(unittest.TestCase):
                 model = Chem.MolFromMolBlock((original.parent / f'start_{index:02d}' / 'cluster.mol').read_text(encoding='utf-8'), removeHs=False)
                 texts.append(geometry.xyz_text(model, f'SYNTHETIC UNIT TEST Energy = {-100 + index * .0001:.8f} Eh'))
             (folder / 'goat.finalensemble.xyz').write_text(''.join(texts), encoding='utf-8')
-            (folder / 'goat.out').write_text('SYNTHETIC UNIT TEST ONLY\nProgram Version 6.1.1\nORCA TERMINATED NORMALLY\n')
+            (folder / 'goat.out').write_text('SYNTHETIC UNIT TEST ONLY\nProgram Version 6.1.0\nORCA TERMINATED NORMALLY\n')
             writej(folder / 'receipt.json', {'status': 'completed', 'job_id': row['job_id'],
                    'input_sha256': {n: sha(folder / n) for n in ('goat.inp', 'start.xyz', 'cluster.mol', 'atom_map.json', 'provenance.json')},
                    'output_sha256': {n: sha(folder / n) for n in ('goat.out', 'goat.finalensemble.xyz')}})

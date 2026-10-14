@@ -20,7 +20,7 @@ import uuid
 from .common import config, hash_protocol, inside, readj, sha, writej
 from . import pipeline
 
-LOCKS = ('.goat-run.lock', '.orca-run.lock', '.clusterflow-run.lock')
+LOCKS = ('.goat-run.lock', '.orca-run.lock', '.clusterflow-run.lock', '.stageout-recovery.lock')
 SCENARIO = 'DMSO_02_W01_trace_water_sensitivity'
 
 
@@ -43,7 +43,8 @@ def _lock(directory):
     path = directory / '.autoflow.lock'
     token = uuid.uuid4().hex
     with path.open('x', encoding='utf-8') as stream:
-        json.dump({'token': token, 'pid': os.getpid()}, stream)
+        from .runtime import owner_record
+        json.dump(owner_record(token), stream)
     try:
         yield
     finally:
@@ -79,8 +80,13 @@ def _plan(root, species_id):
 
 def _job_status(root, row, *, goat):
     directory = _safe(root, row['job_directory'] if goat else row['job_dir'])
-    if any((directory / name).exists() for name in LOCKS):
-        return {'status': 'RUNNING', 'terminal': False, 'directory': str(directory)}
+    locks = [directory / name for name in LOCKS if (directory / name).exists()]
+    if locks:
+        from .runtime import lock_state
+        states = [lock_state(path) for path in locks]
+        status = 'RUNNING' if 'RUNNING' in states else ('INTERRUPTED_REVIEW' if all(s == 'INTERRUPTED_REVIEW' for s in states) else 'OWNER_CHECK_REQUIRED')
+        return {'status': status, 'terminal': status == 'INTERRUPTED_REVIEW',
+                'directory': str(directory), 'lock_evidence': dict(zip(map(str, locks), states))}
     receipts = [directory / n for n in (('receipt.json', 'run_receipt.json') if goat else ('receipt.json',))
                 if (directory / n).is_file()]
     outputs = list(directory.glob('goat.out' if goat else 'job.out'))
@@ -94,7 +100,8 @@ def _job_status(root, row, *, goat):
         receipt = readj(receipts[0])
         value = str(receipt.get('status', '')).upper()
         if value in ('RUNNING', 'STARTED'):
-            return {'status': 'RUNNING', 'terminal': False}
+            return {'status': 'INCOMPLETE_REVIEW', 'terminal': True,
+                    'reason': 'Nonterminal receipt without an ownership lock; reconcile scheduler/scratch instead of claiming RUNNING'}
         if value not in ('COMPLETED', 'COMPLETED_NORMAL_AWAITING_SCIENTIFIC_REVIEW', 'FAILED', 'TIMEOUT', 'TIMED_OUT'):
             return {'status': 'INVALID_REVIEW', 'terminal': True, 'reason': 'Unknown terminal status'}
         if value in ('FAILED', 'TIMEOUT', 'TIMED_OUT'):
@@ -269,7 +276,9 @@ def _stage_step(workspace, plans, *, execute, orca, scratch_root):
             statuses = [_job_status(workspace, row, goat=False) for row in rows]
             pending = [r for r, s in zip(rows, statuses) if s['status'] == 'PENDING']
             if pending and execute:
-                return {'status': 'EXECUTED_ONE_DFT_JOB', 'execution': _execute_dft(workspace, pending[0], orca, scratch_root), 'quantum_jobs_launched': 1}
+                executed = _execute_dft(workspace, pending[0], orca, scratch_root)
+                return {'status': 'REUSED_ONE_DFT_RESULT' if executed.get('reuse') else 'EXECUTED_ONE_DFT_JOB',
+                        'execution': executed, 'quantum_jobs_launched': executed.get('quantum_jobs_launched', 1)}
             if any(not s['terminal'] for s in statuses):
                 return {'status': 'WAITING_DFT_BATCH', 'stage': stage, 'species_id': sid,
                         'jobs': rows, 'job_statuses': statuses}
@@ -300,7 +309,9 @@ def _stage_step(workspace, plans, *, execute, orca, scratch_root):
         statuses = [_job_status(workspace, row, goat=False) for row in rows]
         pending = [r for r, s in zip(rows, statuses) if s['status'] == 'PENDING']
         if pending and execute:
-            return {'status': 'EXECUTED_ONE_DFT_JOB', 'execution': _execute_dft(workspace, pending[0], orca, scratch_root), 'quantum_jobs_launched': 1}
+            executed = _execute_dft(workspace, pending[0], orca, scratch_root)
+            return {'status': 'REUSED_ONE_DFT_RESULT' if executed.get('reuse') else 'EXECUTED_ONE_DFT_JOB',
+                    'execution': executed, 'quantum_jobs_launched': executed.get('quantum_jobs_launched', 1)}
         if any(not s['terminal'] for s in statuses):
             return {'status': 'WAITING_PROPERTY_BATCH', 'species_id': sid, 'jobs': rows, 'job_statuses': statuses}
         if any(s['status'] != 'COMPLETE' for s in statuses):

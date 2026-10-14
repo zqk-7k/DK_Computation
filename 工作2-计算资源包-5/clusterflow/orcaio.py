@@ -287,7 +287,8 @@ def run_job(job_dir: Path, orca_executable: Path, timeout_seconds: float | None 
         raise ValueError("timeout_seconds must be positive")
     lock = directory / ".orca-run.lock"
     token = uuid.uuid4().hex
-    lock_payload = {"token": token, "pid": os.getpid(), "started_utc": _utc()}
+    from .runtime import owner_record
+    lock_payload = owner_record(token)
     # Never remove an existing/stale lock automatically: ownership is unknown.
     with lock.open("x", encoding="utf-8") as handle:
         json.dump(lock_payload, handle)
@@ -319,10 +320,12 @@ def run_job(job_dir: Path, orca_executable: Path, timeout_seconds: float | None 
                 return {**previous, "skipped": True, "resume_reason": "prior_failure_requires_resume_false"}
         attempt = datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S") + "_" + token[:10]
         _archive_existing(directory, set(inputs), attempt)
-        receipt = {"schema_version": "1.0", "id": metadata["id"], "stage": metadata.get("stage"),
+        receipt = {**owner_record(token), "schema_version": "1.0", "id": metadata["id"], "stage": metadata.get("stage"),
                    "attempt": attempt, "started_utc": _utc(), "status": "running", "skipped": False,
                    "input_sha256": inputs, "orca_executable": str(executable),
                    "orca_executable_sha256": executable_hash, "command": [str(executable), "job.inp"]}
+        from .cache import runtime_identity
+        receipt['runtime_evidence_sha256'] = runtime_identity()
         _atomic_json(receipt_path, receipt)
         started = time.monotonic()
         returncode, failure, timed_out = None, None, False
