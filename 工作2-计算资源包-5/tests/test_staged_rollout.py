@@ -37,6 +37,22 @@ class StagedRolloutTests(unittest.TestCase):
         for species,nodes in [(['a'],1),(['b'],11)]:
             with self.assertRaises(ValueError):submit_cohort.validate_expansion(active,species,nodes,12)
 
+    def test_live_queue_covers_accounting_delay(self):
+        with patch.object(submit_cohort.subprocess,'run',return_value=subprocess.CompletedProcess([],0,'123|RUNNING\n','')) as run:
+            self.assertEqual(submit_cohort.scheduler_state('123'),'RUNNING')
+        self.assertEqual(run.call_count,1)
+        self.assertEqual(run.call_args.args[0][0],'squeue')
+
+    def test_missing_queue_requires_accounting_evidence_of_terminal(self):
+        replies=[subprocess.CompletedProcess([],1,'','Invalid job id'),
+                 subprocess.CompletedProcess([],0,'123|COMPLETED|\n','')]
+        with patch.object(submit_cohort.subprocess,'run',side_effect=replies):
+            self.assertEqual(submit_cohort.scheduler_state('123'),'COMPLETED')
+
+    def test_absent_from_both_scheduler_sources_stays_unknown(self):
+        with patch.object(submit_cohort.subprocess,'run',return_value=subprocess.CompletedProcess([],0,'','')):
+            with self.assertRaises(ValueError):submit_cohort.scheduler_state('123')
+
     def test_unknown_submission_journal_blocks_expansion(self):
         writej(self.root/'operations/submission_uncertain.json',{'status':'SUBMISSION_INTENT','jobs':[]})
         with self.assertRaises(ValueError):submit_cohort.active_inventory(self.root)

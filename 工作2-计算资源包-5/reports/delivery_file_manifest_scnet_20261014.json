@@ -45414,6 +45414,11 @@
       "sha256": "5e92f60616f44338d7d36f7c8ea71f0945884676c061729721063adfec14b56f"
     },
     {
+      "path": "reports/staged_rollout_accounting_tests_20261015.log",
+      "bytes": 98,
+      "sha256": "b816f6c2b81118f021e49307041f11bf968e7d8b8f314a7f23aeea1d42a9d86a"
+    },
+    {
       "path": "reports/staged_rollout_tests_20261015.log",
       "bytes": 265,
       "sha256": "112b7b2cfff8ea5f0827f4939734b0105f39564d8ee7901e955f77a703ade23c"
@@ -45555,8 +45560,8 @@
     },
     {
       "path": "scripts/submit_cohort.py",
-      "bytes": 8797,
-      "sha256": "4eb4795ee6f3c2ad65c59719f285fb64d2733f596a50d70b19c51b82cce568d5"
+      "bytes": 9428,
+      "sha256": "f80d33cfbe6aab9b8089f36d88f2f87dae3df4bf65fa9730762d3e3caaba588b"
     },
     {
       "path": "scripts/submit_packed.py",
@@ -47350,8 +47355,8 @@
     },
     {
       "path": "tests/test_staged_rollout.py",
-      "bytes": 11486,
-      "sha256": "bd2efd966039d121fe23581ec88096a502be3da2163ca286c5b51d929c100f83"
+      "bytes": 12500,
+      "sha256": "6cbcd42f9338595a437728668bd4a0f3e3cd0cb01d5501fbdcf1cff5e34ebafb"
     },
     {
       "path": "tests/test_v4_integration.py",

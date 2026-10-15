@@ -26,6 +26,15 @@ ACTIVE = {'PENDING', 'RUNNING', 'CONFIGURING', 'COMPLETING', 'SUSPENDED', 'RESIZ
 
 def scheduler_state(job):
     if not re.fullmatch(r'\d+', str(job)): raise ValueError('Invalid parent ID')
+    # Newly accepted jobs can appear in squeue before accounting catches up.
+    # Absence from either source alone is never treated as a terminal parent.
+    queue = subprocess.run(['squeue', '-h', '-j', str(job), '-o', '%i|%T'],
+                           capture_output=True, text=True, timeout=30, check=False)
+    live = [row[1].strip() for row in (line.split('|') for line in queue.stdout.splitlines())
+            if len(row)>1 and row[0].strip()==str(job)]
+    if queue.returncode==0 and live:
+        if len(live)==1 and live[0] in ACTIVE: return live[0]
+        raise ValueError('Ambiguous live parent state: '+str(job))
     result = subprocess.run(['sacct', '-n', '-P', '-j', str(job), '--format=JobIDRaw,State'],
                             capture_output=True, text=True, timeout=30, check=True)
     values = [row[1].split()[0].split('+')[0] for row in
