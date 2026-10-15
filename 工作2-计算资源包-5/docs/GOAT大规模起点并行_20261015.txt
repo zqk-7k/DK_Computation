@@ -47,3 +47,11 @@ RUNNING、进程心跳、正常退出、有效ensemble和科学验收是不同�
 并用recover_goat_bulk_startup.py在原分配的空闲节点补启：必须无worker记录、
 无存活pool进程，持有节点互斥锁，不取消原step、不重试任何GOAT。
 已启动的51个节点保持运行；异常起点按分支隔离，健康兄弟起点继续。
+
+补启步骤需显式--mem=114000M，并绑定scontrol证实的MinMemoryNode；
+第一次补启因缺失内存环境在QM之前退出，相关记录留存后才再次补启。
+附加srun可能晚于原srun结束，因此每组设置parent_guard：只暂停原Python
+监督进程（心跳写入者），其4个独立worker子进程及ORCA保持运行；补启节点
+全部退出且没有活动领取后自动恢复监督进程，避免batch提前退出杀死附加步骤。
+守护记录在operations/goat_bulk_20261015/parent_guards；监控以实际QM心跳
+计算运行核数，不能将被暂停监督进程的旧节点心跳误判为停止计算。

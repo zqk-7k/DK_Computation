@@ -44850,8 +44850,8 @@
     },
     {
       "path": "docs/GOAT大规模起点并行_20261015.txt",
-      "bytes": 3855,
-      "sha256": "b3b3013ce21e5243699af2336b91962d77a29fa0e6cf40adc1f659e23a60a8f5"
+      "bytes": 4508,
+      "sha256": "04a89f08e1adbf3a8aedcf493c5a23e13edd7546d4d03ae5a08f69736d430493"
     },
     {
       "path": "docs/SCNET修订与运行说明_20261014.txt",
@@ -45369,6 +45369,11 @@
       "sha256": "dd255456d1a79075a7ac3ea32717846c17a96fc2df5e6115846ae06dc259a5ad"
     },
     {
+      "path": "reports/goat_bulk_parent_guard_tests_20261015.log",
+      "bytes": 2035,
+      "sha256": "54107f60c1e22b4b382cff3bcf2da941feeead0f865422a8ae489e2c65b5137f"
+    },
+    {
       "path": "reports/goat_bulk_tests_20261015.log",
       "bytes": 7325,
       "sha256": "74b17434a8b6f57576e2a180c36888ddf95f25acf54446582cb2b228008e69a6"
@@ -45489,9 +45494,14 @@
       "sha256": "162e880041ae92213b0725d9c11cf06ad6fedfc1f53ed064cb0180c3360faa3f"
     },
     {
+      "path": "scripts/goat_bulk_parent_guard.py",
+      "bytes": 3975,
+      "sha256": "8388424cdac810e019cfab92e13f951255e6d76a61badacdc1c3e5e34ff8b071"
+    },
+    {
       "path": "scripts/goat_bulk_status.py",
-      "bytes": 3303,
-      "sha256": "7a075183f51947b006a2558fb3a249428be108fcc3868087570cb9d27dd5c7cf"
+      "bytes": 3664,
+      "sha256": "90857567d3d16523fbc98ff6177727322340d7b21764c7b0de5599d03b668ab3"
     },
     {
       "path": "scripts/goat_bulk_worker.py",
@@ -45555,8 +45565,8 @@
     },
     {
       "path": "scripts/recover_goat_bulk_startup.py",
-      "bytes": 5261,
-      "sha256": "f5aab8f010f22643a63264316afade1c25eef8a3cc5840fd76f906836d241721"
+      "bytes": 7351,
+      "sha256": "6a721b3f5ea95870545bc692c9a8abdbf78dfc648f5b1de37c2478e9413489b8"
     },
     {
       "path": "scripts/revision_manifest.py",
@@ -47330,8 +47340,8 @@
     },
     {
       "path": "tests/test_goat_bulk.py",
-      "bytes": 7857,
-      "sha256": "b2fa2adaf6964a16b94ba21baf7fb37bbd829c945871f58c2f626daf82b4fa1c"
+      "bytes": 8523,
+      "sha256": "57d05f27a2498f07b0b9f12019a475c5ae177f1c12367041c441fc044469efc8"
     },
     {
       "path": "tests/test_goat_job.py",

@@ -37,6 +37,7 @@ def audit(root):
     nodes = [readj(p) for p in (base/'nodes').glob('*.json')]
     healthy = [r for r in nodes if r.get('status') == 'RUNNING' and time.time()-r['updated_epoch'] < 90]
     rejected = [r for r in nodes if r.get('status') == 'NODE_REJECTED_BEFORE_QM']
+    guards = [readj(p) for p in (base/'parent_guards').glob('*.json')]
     command = subprocess.run(['squeue', '-h', '-r', '-u', 'qikai', '-o', '%i|%j|%T|%C|%D|%R'],
                              capture_output=True, text=True, timeout=30, check=True)
     slurm = [line for line in command.stdout.splitlines() if '|work2-64-' in line]
@@ -46,7 +47,10 @@ def audit(root):
               'active_claims': len(queue['active']), 'fresh_runtime_heartbeats': len(live),
               'fresh_runtime_configured_cpus': len(live)*8, 'claims_awaiting_start_or_review': len(stale),
               'active_species': len({r['species_id'] for r in live}),
+              'nodes_with_fresh_quantum_heartbeats': len({r['hostname'] for r in live}),
               'healthy_worker_nodes': len(healthy), 'live_worker_slots': sum(r['live_slots'] for r in healthy),
+              'parent_guards': [{'job_id': r.get('slurm_job_id'), 'status': r['status'],
+                                 'age_seconds': round(time.time()-r.get('updated_epoch', 0))} for r in guards],
               'rejected_nodes': rejected, 'results': dict(results), 'failures': errors[:20],
               'shared_free_gib': round(shutil.disk_usage(site_config()['shared_scratch']).free/1024**3, 2),
               'old_branch_controllers_draining': (root/'operations/packed/STOP_NEW_CLAIMS').exists(),

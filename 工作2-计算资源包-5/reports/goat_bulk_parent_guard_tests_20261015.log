@@ -1,0 +1,21 @@
+test_concurrent_claims_unique (tests.test_goat_bulk.BulkTests.test_concurrent_claims_unique) ... ok
+test_deadline_queried_once_for_shared_parent (tests.test_goat_bulk.BulkTests.test_deadline_queried_once_for_shared_parent) ... ok
+test_deadline_rejects_wrong_allocation (tests.test_goat_bulk.BulkTests.test_deadline_rejects_wrong_allocation) ... ok
+test_finish_failure_blocks_unstarted_siblings (tests.test_goat_bulk.BulkTests.test_finish_failure_blocks_unstarted_siblings) ... ok
+test_frozen_inputs_verified (tests.test_goat_bulk.BulkTests.test_frozen_inputs_verified) ... ok
+test_held_start_cannot_be_injected (tests.test_goat_bulk.BulkTests.test_held_start_cannot_be_injected) ... ok
+test_initial_starts_only (tests.test_goat_bulk.BulkTests.test_initial_starts_only) ... ok
+test_low_space_cannot_advance_queue (tests.test_goat_bulk.BulkTests.test_low_space_cannot_advance_queue) ... ok
+test_occupied_and_blocked_are_excluded (tests.test_goat_bulk.BulkTests.test_occupied_and_blocked_are_excluded) ... ok
+test_parent_guard_selects_supervisor_not_quantum_worker (tests.test_goat_bulk.BulkTests.test_parent_guard_selects_supervisor_not_quantum_worker) ... ok
+test_pause_does_not_claim (tests.test_goat_bulk.BulkTests.test_pause_does_not_claim) ... ok
+test_recovery_selects_only_missing_nodes_without_submitting (tests.test_goat_bulk.BulkTests.test_recovery_selects_only_missing_nodes_without_submitting) ... ok
+test_source_lock_created_after_snapshot_skipped (tests.test_goat_bulk.BulkTests.test_source_lock_created_after_snapshot_skipped) ... ok
+test_storage_growth_reserves_legacy_and_active (tests.test_goat_bulk.BulkTests.test_storage_growth_reserves_legacy_and_active) ... ok
+test_success_is_not_scientific_acceptance (tests.test_goat_bulk.BulkTests.test_success_is_not_scientific_acceptance) ... ok
+test_unknown_stageout_attempt_never_restarted (tests.test_goat_bulk.BulkTests.test_unknown_stageout_attempt_never_restarted) ... ok
+
+----------------------------------------------------------------------
+Ran 16 tests in 0.148s
+
+OK

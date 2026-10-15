@@ -9,6 +9,7 @@ import json
 import os
 from pathlib import Path
 import shlex
+import re
 import subprocess
 import sys
 import time
@@ -71,18 +72,47 @@ def recover(root, execute=False):
             env.update({'WORK2_PACKAGE_ROOT': str(root), 'WORK2_RUNTIME_EVIDENCE': str(root/'operations/runtime_124440267.json'),
                         'WORK2_PACKED_PROFILE': 'balanced', 'WORK2_STAGED_RELEASE': '1',
                         'SLURM_ARRAY_JOB_ID': array, 'SLURM_ARRAY_TASK_ID': str(task)})
+            memory = fields.get('MinMemoryNode', '')
+            if not re.fullmatch(r'\d+M', memory) or int(memory[:-1]) < 114000:
+                raise ValueError('Cannot verify allocated memory for supplemental step')
+            env['SLURM_MEM_PER_NODE'] = memory[:-1]
             script = 'cd '+shlex.quote(str(root))+'\nsource scripts/scnet_environment.sh\nexec '+shlex.join([
                 site['python'], 'scripts/goat_bulk_worker.py', '--scope', str(scope),
                 '--scope-sha256', sha(scope), '--recover-startup'])
             command = ['srun', '--jobid='+job, '--overlap', '--kill-on-bad-exit=0',
                        '--nodes='+str(len(candidates)), '--ntasks='+str(len(candidates)),
-                       '--ntasks-per-node=1', '--cpus-per-task=32', '--nodelist='+','.join(sorted(candidates)),
+                       '--ntasks-per-node=1', '--cpus-per-task=32', '--mem=114000M', '--nodelist='+','.join(sorted(candidates)),
                        'bash', '-lc', script]
             writej(journal, {**record, 'status': 'STARTUP_RECOVERY_INTENT'})
+            # The original batch shell knows only its original srun. Protect it
+            # before creating supplemental steps that could outlive that srun.
+            originals = [readj(p) for p in (base/'nodes').glob(job+'_*.json')]
+            originals = [n for n in originals if n.get('status') == 'RUNNING'
+                         and n['hostname'] not in candidates and time.time()-n['updated_epoch'] < 60]
+            if not originals:
+                raise ValueError('No proven original supervisor available for lifetime guard')
+            guard_host = originals[0]['hostname']
+            guard_command = ['srun', '--jobid='+job, '--overlap', '--nodes=1', '--ntasks=1',
+                             '--cpus-per-task=1', '--nodelist='+guard_host,
+                             site['python'], str(root/'scripts/goat_bulk_parent_guard.py')]
+            with (base/'startup_recovery'/(job+'_guard.log')).open('ab') as output:
+                guard_process = subprocess.Popen(guard_command, env=env, stdin=subprocess.DEVNULL,
+                                                 stdout=output, stderr=output, start_new_session=True)
+            guard_path = base/'parent_guards'/(job+'.json')
+            expires = time.monotonic()+90
+            while time.monotonic() < expires:
+                if guard_path.exists() and readj(guard_path).get('status') == 'PROTECTING_RECOVERY_STEPS':
+                    break
+                if guard_process.poll() is not None:
+                    raise ValueError('Parent guard exited before protection')
+                time.sleep(1)
+            else:
+                raise ValueError('Parent guard did not confirm protection; no new QM launched')
             with (base/'startup_recovery'/(job+'.log')).open('ab') as output:
                 process = subprocess.Popen(command, env=env, stdin=subprocess.DEVNULL,
                                            stdout=output, stderr=output, start_new_session=True)
             record.update({'status': 'STARTUP_RECOVERY_SRUN_STARTED', 'pid': process.pid,
+                           'guard_srun_pid': guard_process.pid, 'guard_hostname': guard_host,
                            'quantum_retries': 0, 'new_slurm_allocations': 0})
             writej(journal, record)
             reports.append(record)

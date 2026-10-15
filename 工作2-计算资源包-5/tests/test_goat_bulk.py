@@ -10,6 +10,7 @@ from clusterflow.runtime import StorageAdmissionError
 from scripts.goat_bulk_worker import claim, finish, verify_scope, allocation_deadline
 from scripts.submit_goat_bulk import build_scope, IDENTITIES
 from scripts.recover_goat_bulk_startup import recover
+from scripts.goat_bulk_parent_guard import supervisor
 
 
 def concurrent_claim(root, base, policy, indexed, results):
@@ -146,6 +147,16 @@ class BulkTests(unittest.TestCase):
             report = recover(self.root)
             self.assertEqual(report[0]['nodes'], ['missing'])
             spawn.assert_not_called()
+
+    def test_parent_guard_selects_supervisor_not_quantum_worker(self):
+        proc = self.root/'proc'
+        (proc/'20').mkdir(parents=True); (proc/'10').mkdir()
+        (proc/'20/stat').write_text('20 (python) S 10 0 0')
+        (proc/'10/cmdline').write_bytes(b'python\0scripts/goat_bulk_worker.py\0--scope\0x\0')
+        self.assertEqual(supervisor({'workers': [{'pid': 20, 'alive': True}]}, proc), 10)
+        (proc/'10/cmdline').write_bytes(b'orca\0goat.inp\0')
+        with self.assertRaisesRegex(ValueError, 'Refusing to pause'):
+            supervisor({'workers': [{'pid': 20, 'alive': True}]}, proc)
 
 
 if __name__ == '__main__':
