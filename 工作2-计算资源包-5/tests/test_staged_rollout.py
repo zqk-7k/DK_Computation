@@ -89,6 +89,17 @@ class StagedRolloutTests(unittest.TestCase):
             report=stage_release.audit(self.root)
         self.assertFalse(report['validated_goat']);self.assertEqual(report['allowed_stages'],['goat'])
 
+    def test_empty_poll_does_not_load_scientific_libraries(self):
+        import builtins
+        real_import=builtins.__import__
+        def guarded(name,*args,**kwargs):
+            if name in ('pipeline','gates','numpy','rdkit'):raise AssertionError('Unnecessary scientific import: '+name)
+            return real_import(name,*args,**kwargs)
+        writej(self.root/'registry/jobs.json',[])
+        writej(self.root/'config/pilot_scope_20261014.json',{'species_ids':[]})
+        with patch('builtins.__import__',side_effect=guarded):
+            self.assertFalse(stage_release.audit(self.root)['validated_goat'])
+
     def test_complete_goat_still_requires_source_validation(self):
         writej(self.root/'registry/jobs.json',[{'job_id':'a','job_directory':'goat/a'}])
         writej(self.root/'goat/a/receipt.json',{'status':'COMPLETED','returncode':0})

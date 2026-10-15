@@ -7,14 +7,15 @@ from .common import readj, writej, sha, config
 
 def audit(root):
     root = Path(root)
-    from .pipeline import _goat_source
-    from .gates import inspect_job
     evidence = {}; errors = []
     for row in readj(root/'registry/jobs.json'):
         receipt = root/row['job_directory']/'receipt.json'
         if not receipt.is_file(): continue
         if str(readj(receipt).get('status', '')).upper() not in {'COMPLETED', 'COMPLETED_NORMAL_AWAITING_SCIENTIFIC_REVIEW'}: continue
         try:
+            # Polls with no finished chemistry need only the standard library.
+            # Loading NumPy/RDKit from shared storage can be slow on login nodes.
+            from .pipeline import _goat_source
             _goat_source(root, row['job_id'])
             evidence['goat'] = {'receipt': str(receipt.relative_to(root)), 'sha256': sha(receipt), 'job_id': row['job_id']}
             break
@@ -31,6 +32,7 @@ def audit(root):
                 data = readj(receipt)
                 if str(data.get('status', '')).upper() != 'COMPLETED' or data.get('reuse'): continue
                 try:
+                    from .gates import inspect_job
                     checked = inspect_job(meta_path.parent, config(workspace))
                     if checked['accepted']:
                         evidence[stage] = {'receipt': str(receipt.relative_to(root)), 'sha256': sha(receipt),

@@ -44800,8 +44800,8 @@
     },
     {
       "path": "clusterflow/stage_release.py",
-      "bytes": 3266,
-      "sha256": "e7f778cbeb866f3cce403fde1a630fc9661a5cdf8b11a79baa252c37ce4bc066"
+      "bytes": 3451,
+      "sha256": "f928863985c41e5aee057c1f2682de4939c41a89ca112109a96c33f5ec87db37"
     },
     {
       "path": "config/automation.json",
@@ -45416,7 +45416,7 @@
     {
       "path": "reports/staged_rollout_accounting_tests_20261015.log",
       "bytes": 98,
-      "sha256": "b816f6c2b81118f021e49307041f11bf968e7d8b8f314a7f23aeea1d42a9d86a"
+      "sha256": "27b22e8161723c06e8e7b544a1a7a598e439c861a417f26bd8f5292d6c474b31"
     },
     {
       "path": "reports/staged_rollout_tests_20261015.log",
@@ -47355,8 +47355,8 @@
     },
     {
       "path": "tests/test_staged_rollout.py",
-      "bytes": 12500,
-      "sha256": "6cbcd42f9338595a437728668bd4a0f3e3cd0cb01d5501fbdcf1cff5e34ebafb"
+      "bytes": 13118,
+      "sha256": "aa04fbfee7aff0d2869adcc8c2a17d4d254a6f528a737f0d4f8742d05331b9f1"
     },
     {
       "path": "tests/test_v4_integration.py",
