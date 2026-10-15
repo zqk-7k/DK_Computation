@@ -41,3 +41,9 @@ RUNNING、进程心跳、正常退出、有效ensemble和科学验收是不同�
 
 验证：tests/test_goat_bulk.py覆盖多进程唯一领取、未释放起点、已存在任务、
 同分支失败隔离、低空间、输入身份变化和停止新领取；相关原runner测试一并运行。
+
+实机扩容记录：80个节点MPI探测全部通过；首轮29个节点在查询Slurm EndTime时
+因80并发RPC触发20秒超时，尚未启动QM。改为每个父分配缓存一次真实EndTime，
+并用recover_goat_bulk_startup.py在原分配的空闲节点补启：必须无worker记录、
+无存活pool进程，持有节点互斥锁，不取消原step、不重试任何GOAT。
+已启动的51个节点保持运行；异常起点按分支隔离，健康兄弟起点继续。

@@ -1,12 +1,15 @@
 import multiprocessing
+import os
 from pathlib import Path
 import tempfile
 import unittest
+from unittest.mock import patch, Mock
 
 from clusterflow.common import readj, writej, sha
 from clusterflow.runtime import StorageAdmissionError
-from scripts.goat_bulk_worker import claim, finish, verify_scope
+from scripts.goat_bulk_worker import claim, finish, verify_scope, allocation_deadline
 from scripts.submit_goat_bulk import build_scope, IDENTITIES
+from scripts.recover_goat_bulk_startup import recover
 
 
 def concurrent_claim(root, base, policy, indexed, results):
@@ -116,6 +119,33 @@ class BulkTests(unittest.TestCase):
         path = self.root/'scope.json'; writej(path, self.policy)
         with self.assertRaisesRegex(ValueError, 'unreleased start'):
             verify_scope(self.root, path, sha(path))
+
+    def test_deadline_queried_once_for_shared_parent(self):
+        result = Mock(stdout='JobId=123 JobState=RUNNING EndTime=2099-01-01T00:00:00 ArrayJobId=120 ArrayTaskId=3')
+        with patch.dict(os.environ, {'SLURM_JOB_ID': '123'}), patch('scripts.goat_bulk_worker.subprocess.run', return_value=result) as run:
+            first = allocation_deadline(self.base)
+            self.assertEqual(first, allocation_deadline(self.base))
+            self.assertEqual(run.call_count, 1)
+            self.assertEqual(readj(self.base/'allocations/123/deadline.json')['array_job_id'], '120')
+
+    def test_deadline_rejects_wrong_allocation(self):
+        result = Mock(stdout='JobId=999 JobState=RUNNING EndTime=2099-01-01T00:00:00')
+        with patch.dict(os.environ, {'SLURM_JOB_ID': '123'}), patch('scripts.goat_bulk_worker.subprocess.run', return_value=result):
+            with self.assertRaisesRegex(ValueError, 'requested running parent'):
+                allocation_deadline(self.base)
+
+    def test_recovery_selects_only_missing_nodes_without_submitting(self):
+        scope = self.base/'scope.json'; writej(scope, self.policy)
+        writej(self.base/'submission.json', {'job_id': '120', 'array_tasks': 1, 'scope_sha256': sha(scope)})
+        (self.base/'slurm-120_0.err').write_text('end_time TimeoutExpired')
+        for host in ('good', 'missing'):
+            writej(self.root/('operations/mpi_probes/123_'+host+'.json'), {'hostname': host, 'status': 'PASS'})
+        writej(self.base/'nodes/123_good.json', {'status': 'RUNNING'})
+        responses = [Mock(stdout='120_0|RUNNING\n'), Mock(stdout='JobId=123 ArrayJobId=120 ArrayTaskId=0 JobState=RUNNING')]
+        with patch('scripts.recover_goat_bulk_startup.subprocess.run', side_effect=responses), patch('scripts.recover_goat_bulk_startup.subprocess.Popen') as spawn:
+            report = recover(self.root)
+            self.assertEqual(report[0]['nodes'], ['missing'])
+            spawn.assert_not_called()
 
 
 if __name__ == '__main__':

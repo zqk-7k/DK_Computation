@@ -44850,8 +44850,8 @@
     },
     {
       "path": "docs/GOAT大规模起点并行_20261015.txt",
-      "bytes": 3375,
-      "sha256": "338fd423919abdf2cb28275f2d804ab952666deb870c196acff0882e47bd1571"
+      "bytes": 3855,
+      "sha256": "b3b3013ce21e5243699af2336b91962d77a29fa0e6cf40adc1f659e23a60a8f5"
     },
     {
       "path": "docs/SCNET修订与运行说明_20261014.txt",
@@ -45359,6 +45359,11 @@
       "sha256": "b1fc24071532248bdf24a81553a13c8a329a08013b1b027d5582ae1831e59324"
     },
     {
+      "path": "reports/goat_bulk_deadline_tests_20261015.log",
+      "bytes": 1883,
+      "sha256": "1cc91d86fc181d0005cecc92c00119a1ea9ba9813ba16e0182d7c32f3b737e99"
+    },
+    {
       "path": "reports/goat_bulk_full_tests_20261015.log",
       "bytes": 658,
       "sha256": "dd255456d1a79075a7ac3ea32717846c17a96fc2df5e6115846ae06dc259a5ad"
@@ -45490,8 +45495,8 @@
     },
     {
       "path": "scripts/goat_bulk_worker.py",
-      "bytes": 9543,
-      "sha256": "2b9848b860c10128fe7839c6368f9085c043bea61cbf98f6042834ddc751d505"
+      "bytes": 12532,
+      "sha256": "0f680ca8fddd689c70f315f920a14bb6d6c9b6aaf40e6112d1979dbbd601a6c6"
     },
     {
       "path": "scripts/goat_job.py",
@@ -45547,6 +45552,11 @@
       "path": "scripts/prepare_v4.py",
       "bytes": 6107,
       "sha256": "b43573f23017407f75396ac7ded9e74db1881b2fcd99819bdbffe55130db948a"
+    },
+    {
+      "path": "scripts/recover_goat_bulk_startup.py",
+      "bytes": 5261,
+      "sha256": "f5aab8f010f22643a63264316afade1c25eef8a3cc5840fd76f906836d241721"
     },
     {
       "path": "scripts/revision_manifest.py",
@@ -47320,8 +47330,8 @@
     },
     {
       "path": "tests/test_goat_bulk.py",
-      "bytes": 5763,
-      "sha256": "5722a8a7519f8c40ff49b35acfe9675a6c0c50be7934ee3aa81eb53eb551bf41"
+      "bytes": 7857,
+      "sha256": "b2fa2adaf6964a16b94ba21baf7fb37bbd829c945871f58c2f626daf82b4fa1c"
     },
     {
       "path": "tests/test_goat_job.py",
