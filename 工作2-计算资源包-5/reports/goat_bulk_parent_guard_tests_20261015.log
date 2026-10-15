@@ -16,6 +16,6 @@ test_success_is_not_scientific_acceptance (tests.test_goat_bulk.BulkTests.test_s
 test_unknown_stageout_attempt_never_restarted (tests.test_goat_bulk.BulkTests.test_unknown_stageout_attempt_never_restarted) ... ok
 
 ----------------------------------------------------------------------
-Ran 16 tests in 0.148s
+Ran 16 tests in 0.253s
 
 OK

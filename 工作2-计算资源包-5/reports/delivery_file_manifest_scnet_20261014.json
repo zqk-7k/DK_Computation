@@ -44850,8 +44850,8 @@
     },
     {
       "path": "docs/GOAT大规模起点并行_20261015.txt",
-      "bytes": 4508,
-      "sha256": "04a89f08e1adbf3a8aedcf493c5a23e13edd7546d4d03ae5a08f69736d430493"
+      "bytes": 4893,
+      "sha256": "05f3a7b24a90fc98941f98104b59a01ce9649eed9fbf6de69716868a07e4bda0"
     },
     {
       "path": "docs/SCNET修订与运行说明_20261014.txt",
@@ -45371,7 +45371,7 @@
     {
       "path": "reports/goat_bulk_parent_guard_tests_20261015.log",
       "bytes": 2035,
-      "sha256": "54107f60c1e22b4b382cff3bcf2da941feeead0f865422a8ae489e2c65b5137f"
+      "sha256": "d13227b42a658aab2795c3fe0d749d6731e45c570430bc943cc9eaa2bc400a5a"
     },
     {
       "path": "reports/goat_bulk_tests_20261015.log",
@@ -45495,8 +45495,8 @@
     },
     {
       "path": "scripts/goat_bulk_parent_guard.py",
-      "bytes": 3975,
-      "sha256": "8388424cdac810e019cfab92e13f951255e6d76a61badacdc1c3e5e34ff8b071"
+      "bytes": 6169,
+      "sha256": "f01c3f2ff7906642e486f836e6186c1a98d08c5b5d6d56d0a38ef71750513d9f"
     },
     {
       "path": "scripts/goat_bulk_status.py",

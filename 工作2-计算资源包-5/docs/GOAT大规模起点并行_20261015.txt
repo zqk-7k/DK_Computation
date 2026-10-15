@@ -55,3 +55,8 @@ RUNNING、进程心跳、正常退出、有效ensemble和科学验收是不同�
 全部退出且没有活动领取后自动恢复监督进程，避免batch提前退出杀死附加步骤。
 守护记录在operations/goat_bulk_20261015/parent_guards；监控以实际QM心跳
 计算运行核数，不能将被暂停监督进程的旧节点心跳误判为停止计算。
+
+ParaStor并发替换JSON时实测一次短暂ENOENT。parent_guard现对瞬时读取异常
+重试，只有全部补启node EXITED且无活动claim时恢复父监督进程；未知异常保持
+监督进程暂停并留故障记录。--replace-guard只替换经PID/starttime/cmdline核实
+的本项目守护进程，接管已暂停的同一监督进程，不向worker或ORCA发信号。
