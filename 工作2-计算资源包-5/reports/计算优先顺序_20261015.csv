@@ -1,0 +1,68 @@
+initial_rank,compound_id,species_id,name,complexity,stable_target,initial_candidates,cohort,serial_work_hours_estimate_not_deadline
+1,F2_E12,F2_E12_rep_R__DMSO,Glycidol,M,5,10,existing_pilot,825.25
+2,F2_E01,F2_E01_rep_R__DMSO,Styrene oxide,R,3,6,remaining,721.27
+3,F3_N15,F3_N15_source__DMSO,2-Bromopyridine N-oxide,R,3,6,existing_pilot,671.45
+4,F3_N01,F3_N01_source__DMSO,Pyridine N-oxide,R,3,6,existing_pilot,636.11
+5,F3_B01,F3_B01_source__DMSO,gamma-Butyrolactone,R,3,6,remaining,600.77
+6,TMS,TMS_DMSO,Tetramethylsilane (TMS reference),R,3,6,existing_pilot,527.87
+7,F2_S28,F2_S28_source__DMSO,d-Biocytin sulfone,X,15,30,complex_first,5182.92
+8,F3_N33,F3_N33_outward_NO__DMSO,[18O]quinine quinuclidine N-oxide,X,15,30,complex_first,4727.68
+9,F4_D04,F4_D04_rep_R__DMSO,[Sulfinyl-18O]lansoprazole,X,15,30,existing_pilot,4542.44
+10,F4_D05,F4_D05_rep_R__DMSO,[Sulfinyl-18O]sulindac,X,15,30,complex_first,4516.38
+11,F4_D03,F4_D03_rep_R__DMSO,[Sulfinyl-18O]omeprazole,X,15,30,complex_first,4416.26
+12,F2_E18,F2_E18_source__DMSO,Ester-functionalized farnesol-derived epoxide (2m),X,15,30,complex_first,4318.23
+13,F2_E20,F2_E20_source__DMSO,Primary/tertiary-diol polyene-derived epoxide (2u),X,15,30,complex_first,4160.84
+14,F3_N29,F3_N29_source__DMSO,"[18O3]2,2':6',2''-Terpyridine 1,1',1''-trioxide",X,15,30,complex_first,4156.04
+15,F4_D07,F4_D07_neutral__DMSO,[18O]imipramine N-oxide,X,15,30,complex_first,4140.01
+16,F4_D01,F4_D01_rep_R__DMSO,[Sulfinyl-18O]modafinil,X,15,30,remaining,3785.37
+17,F4_D02,F4_D02_rep_R__DMSO,[Sulfinyl-18O]albendazole sulfoxide,X,15,30,remaining,3763.65
+18,F2_E17,F2_E17_source__DMSO,"Nerol-derived 2,3-epoxide (2k)",X,15,30,remaining,3020.46
+19,F2_S12,F2_S12_source__DMSO,Di-n-butyl sulfone,X,15,30,remaining,2921.0
+20,F3_N32,F3_N32_source__DMSO,[N-oxide-18O]oxymatrine,H,10,20,remaining,2689.24
+21,F3_B21,F3_B21_source_rel_rep__DMSO,"Br/OTBS-substituted Corey-type fused lactone (Example 70 major regioisomer, ring-18O)",H,10,20,remaining,2641.59
+22,F3_N30,F3_N30_source__DMSO,[18O]1-Carboxyphenazine 5-oxide,H,10,20,remaining,2620.6
+23,F2_E23,F2_E23_trans_rep__DMSO,"Chalcone alpha,beta-epoxide",H,10,20,remaining,2570.78
+24,F3_B14,F3_B14_rep_R__DMSO,5-Phenyloxepan-2-one,H,10,20,remaining,2259.13
+25,F2_E21,F2_E21_source__DMSO,Cyclic homoallylic-alcohol epoxide (4g),H,10,20,remaining,2186.15
+26,F2_S24,F2_S24_source__DMSO,Allyl phenyl sulfone,H,10,20,remaining,2111.71
+27,F2_S25,F2_S25_source__DMSO,2-(Phenylsulfonyl)ethan-1-ol,H,10,20,remaining,2111.71
+28,F3_B15,F3_B15_source__DMSO,"(4R,7S)-7-Isopropyl-4-methyloxepan-2-one (ring-18O)",H,10,20,remaining,2078.4
+29,F3_B05,F3_B05_rep_R__DMSO,5-tert-Butyloxepan-2-one,H,10,20,remaining,2061.75
+30,F3_B16,F3_B16_source__DMSO,"1,4,8-Trioxaspiro[4.6]undecan-9-one (inserted ring-18O)",H,10,20,remaining,2061.75
+31,F2_E15,F2_E15_source__DMSO,"((2S,3S)-3-Phenyloxiran-2-yl)methanol",H,10,20,remaining,2003.97
+32,F2_E19,F2_E19_source__DMSO,(R)-1-(Oxiran-2-yl)cyclohexanol (2n; ring-18O),H,10,20,remaining,1897.67
+33,F2_E09,F2_E09_rep_R__DMSO,"1,2-Epoxyoctane",H,10,20,remaining,1865.23
+34,F3_N16,F3_N16_source__DMSO,2-(Hydroxymethyl)pyridine N-oxide,H,10,20,remaining,1807.31
+35,F2_E13,F2_E13_cis__DMSO,Cyclooctene oxide,H,10,20,remaining,1792.83
+36,F2_E14,F2_E14_source__DMSO,"((2S,3R)-3-Propyloxiran-2-yl)methanol",H,10,20,remaining,1744.46
+37,F3_B03,F3_B03_source__DMSO,epsilon-Caprolactone,H,10,20,remaining,1703.18
+38,F2_S27,F2_S27_source__DMSO,Thioxanthen-9-one 10-oxide,M,5,10,remaining,1373.07
+39,F2_S26,F2_S26_source__DMSO,Thianthrene 5-oxide,M,5,10,remaining,1322.21
+40,F3_N10,F3_N10_source__DMSO,"[18O]1,10-Phenanthroline mono-N-oxide",M,5,10,remaining,1322.21
+41,F2_S06,F2_S06_source__DMSO,Diphenyl sulfoxide,M,5,10,remaining,1307.56
+42,F2_E24,F2_E24_cis_fused_rep__DMSO,"Menadione-2,3-epoxide",M,5,10,remaining,1271.36
+43,F3_N09,F3_N09_source__DMSO,"[18O]2,2'-Bipyridine mono-N-oxide",M,5,10,remaining,1237.88
+44,F2_S19,F2_S19_rep_R__DMSO,Methyl (4-nitrophenyl) sulfoxide,M,5,10,remaining,1202.96
+45,F3_B08,F3_B08_source__DMSO,4-Methoxyphenyl acetate,M,5,10,remaining,1202.96
+46,F2_E22,F2_E22_face_1__DMSO,"Carvone enone epoxide (carvone-1,2-oxide, 3)",M,5,10,remaining,1186.3
+47,F2_E22,F2_E22_face_2__DMSO,"Carvone enone epoxide (carvone-1,2-oxide, 3)",M,5,10,remaining,1186.3
+48,F3_B06,F3_B06_cage_rep__DMSO,Adamantan-2-one-derived lactone,M,5,10,remaining,1169.65
+49,F2_S22,F2_S22_rep_R__DMSO,Cyclopropyl phenyl sulfoxide,M,5,10,remaining,1150.65
+50,F2_E05,F2_E05_rep_R__DMSO,4-Cyanostyrene oxide,M,5,10,remaining,1134.72
+51,F3_N17,F3_N17_source__DMSO,Quinoxaline mono-N-oxide,M,5,10,remaining,1118.8
+52,F2_S07,F2_S07_rep_R__DMSO,Benzyl methyl sulfoxide,M,5,10,remaining,1098.35
+53,F2_S23,F2_S23_rep_R__DMSO,Phenyl vinyl sulfoxide,M,5,10,remaining,1098.35
+54,F3_N28,F3_N28_source__DMSO,"N,N-Dimethylcyclohexylamine N-oxide",M,5,10,remaining,1083.15
+55,F3_B18,F3_B18_source_rel_rep__DMSO,"2-Oxabicyclo[3.2.1]octan-3-one (major regioisomer, ring-18O)",M,5,10,remaining,1017.09
+56,F3_N25,F3_N25_source__DMSO,4-Cyanopyridine N-oxide,M,5,10,remaining,1017.09
+57,F3_N26,F3_N26_source__DMSO,N-Methylpiperidine N-oxide,M,5,10,remaining,966.23
+58,F2_S11,F2_S11_source__DMSO,"Dibenzothiophene 5,5-dioxide",R,3,6,remaining,918.83
+59,F3_N19,F3_N19_source__DMSO,[18O]phenanthridine N-oxide,R,3,6,remaining,918.83
+60,F3_N14,F3_N14_source__DMSO,Pyrimidine mono-N-oxide,M,5,10,remaining,915.38
+61,F3_N18,F3_N18_source__DMSO,Thiazole N-oxide,M,5,10,remaining,864.52
+62,F3_N06,F3_N06_source__DMSO,Quinoline N-oxide,R,3,6,remaining,777.47
+63,F2_E03,F2_E03_rep_R__DMSO,4-Chlorostyrene oxide,R,3,6,remaining,757.34
+64,F3_B20,F3_B20_source__DMSO,Phthalide (ring-18O),R,3,6,remaining,742.13
+65,F2_S01,F2_S01_rep_R__DMSO,Methyl phenyl sulfoxide,R,3,6,remaining,721.27
+66,F2_E11,F2_E11_endo__DMSO,Norbornene oxide,R,3,6,remaining,671.45
+67,F2_E11,F2_E11_exo__DMSO,Norbornene oxide,R,3,6,remaining,671.45

@@ -1,5 +1,5 @@
 {
-  "revision": "SCNET_ORCA610_20261014",
+  "revision": "SCNET_ORCA610_STAGED_ROLLOUT_20261015",
   "status": "SOURCE_INVENTORY_NOT_QUANTUM_RESULT",
   "self_excluded": "reports/delivery_file_manifest_scnet_20261014.json",
   "files": [
@@ -44690,8 +44690,8 @@
     },
     {
       "path": "clusterflow/autoflow.py",
-      "bytes": 35063,
-      "sha256": "2b1960def212724fb6402ad884d341cbe1746a562676c2f500dc522673c0d64b"
+      "bytes": 35552,
+      "sha256": "e2c390e90a35506e4266ba92187b53c9f730ec08e2cd3891ef978b2d22a27bc8"
     },
     {
       "path": "clusterflow/autoselect.py",
@@ -44769,6 +44769,11 @@
       "sha256": "f7f0d3b859ddddcfec3cc284b64807b0cc248972b3d7a6dddcb980f0343e1d50"
     },
     {
+      "path": "clusterflow/priority.py",
+      "bytes": 5545,
+      "sha256": "27b0cf0a0bacb0811425188b91573fea76c854373693ca6f3663507ca6acc035"
+    },
+    {
       "path": "clusterflow/review_control.py",
       "bytes": 7410,
       "sha256": "71cab1d973113202c2bd01076dc2810adf0342eb228d1d2db6e1ff2a3f1bb52e"
@@ -44785,8 +44790,8 @@
     },
     {
       "path": "clusterflow/scheduling.py",
-      "bytes": 6722,
-      "sha256": "099c6b307dcb00e02a925dd40fad7aea3d54ada4975fb6608c3f318ceb2249bb"
+      "bytes": 6844,
+      "sha256": "74df61cb889ae724ba24597db3a58c91b92871f9022bbc62d0736e36bc92e6b9"
     },
     {
       "path": "clusterflow/spectra.py",
@@ -44794,9 +44799,19 @@
       "sha256": "23d67d8548ee025ba8a4f8ce565b0c845f85a34e5c922daeaa66d6f2195e3d47"
     },
     {
+      "path": "clusterflow/stage_release.py",
+      "bytes": 3266,
+      "sha256": "e7f778cbeb866f3cce403fde1a630fc9661a5cdf8b11a79baa252c37ce4bc066"
+    },
+    {
       "path": "config/automation.json",
       "bytes": 1167,
       "sha256": "76d4f05c1c5278a0184bcf980577bbebfa2250df4a9e2ea2703f8984a3a07c7a"
+    },
+    {
+      "path": "config/complex_first_scope_20261015.json",
+      "bytes": 347,
+      "sha256": "7f40616d0bd4ef67b7b40753e34c6cd57c7fbb1344fe615ecc635601a7ac59e6"
     },
     {
       "path": "config/microsolvation_policy.json",
@@ -44812,6 +44827,16 @@
       "path": "config/protocol.json",
       "bytes": 4879,
       "sha256": "8db8c38bc75950391e624ef283018ccccc90a2a1a63e58fa2796ba721e41cd8b"
+    },
+    {
+      "path": "config/remaining_scope_20261015.json",
+      "bytes": 1619,
+      "sha256": "44fa7933b917b0a3dc27d71dc9edea37a3b2a9bd7bb7ef2af4e10f37b45bbec4"
+    },
+    {
+      "path": "config/rollout_20261015.json",
+      "bytes": 713,
+      "sha256": "0ac8c2c4a37eb46be399de0a94c6944ff2db02dd4aabb5ca3c2ede1023d12788"
     },
     {
       "path": "config/site_scnet.json",
@@ -44837,6 +44862,11 @@
       "path": "docs/历史故障经验与处理矩阵_20261014.txt",
       "bytes": 8164,
       "sha256": "78758717ba8dde202d6b717a4c215e2281bf42f3ebe0a710d12e65a8036780e5"
+    },
+    {
+      "path": "docs/复杂优先分阶段扩容_20261015.txt",
+      "bytes": 3536,
+      "sha256": "59ebcb0e01bbdfec301e32819dcd403d53ba9d827ad221b2076f2a9a3034fd46"
     },
     {
       "path": "docs/多重峰裂分验证.txt",
@@ -45384,6 +45414,11 @@
       "sha256": "5e92f60616f44338d7d36f7c8ea71f0945884676c061729721063adfec14b56f"
     },
     {
+      "path": "reports/staged_rollout_tests_20261015.log",
+      "bytes": 265,
+      "sha256": "112b7b2cfff8ea5f0827f4939734b0105f39564d8ee7901e955f77a703ade23c"
+    },
+    {
       "path": "reports/v5_table_branches.png",
       "bytes": 126551,
       "sha256": "9e19f2de826b2745b50720fc72739b5f2ed64b01e81bbc3afb424516ee76d445"
@@ -45407,6 +45442,11 @@
       "path": "reports/v5_table_tms.png",
       "bytes": 160835,
       "sha256": "999fc8b1a84b3a8e21af417e72063cc092d07f6952115b6f2f3e352ea782c919"
+    },
+    {
+      "path": "reports/计算优先顺序_20261015.csv",
+      "bytes": 5938,
+      "sha256": "c900c3c822edf9a57feb98810cf70fca8d75362076d6f03cf7b97565f27943fe"
     },
     {
       "path": "requirements-tested.txt",
@@ -45465,8 +45505,8 @@
     },
     {
       "path": "scripts/packed_worker.py",
-      "bytes": 14746,
-      "sha256": "20abc20e1570d7d25ac98c7a65998c0e004c7e5232c9df10e730bf4582cbac29"
+      "bytes": 15840,
+      "sha256": "719aa8059a71e814cdb21728ca99a37ada0449b97f999f0f5dc041f2694fb7ff"
     },
     {
       "path": "scripts/plan_sampling_v4.py",
@@ -45482,6 +45522,16 @@
       "path": "scripts/revision_manifest.py",
       "bytes": 1433,
       "sha256": "e98a5cdc1f99742ffdfe1bcc92aa5bb90bd8233d47c790570947989fcd478755"
+    },
+    {
+      "path": "scripts/rollout_tick.py",
+      "bytes": 1557,
+      "sha256": "e0833d02cd0e9c257cf24ea8e635a7e9b08d054e697493e3b70835275604888b"
+    },
+    {
+      "path": "scripts/scnet_cohort.sbatch",
+      "bytes": 1049,
+      "sha256": "9ae8a481fc911a344790891af31c824f77b9ca46ecb364e25724a2d4cb04e1e2"
     },
     {
       "path": "scripts/scnet_environment.sh",
@@ -45502,6 +45552,11 @@
       "path": "scripts/site_check.py",
       "bytes": 2338,
       "sha256": "17e1988e37ec282aedc249efb108cf7b8266b3d284224152a9fc30d1630d73cd"
+    },
+    {
+      "path": "scripts/submit_cohort.py",
+      "bytes": 8797,
+      "sha256": "4eb4795ee6f3c2ad65c59719f285fb64d2733f596a50d70b19c51b82cce568d5"
     },
     {
       "path": "scripts/submit_packed.py",
@@ -47292,6 +47347,11 @@
       "path": "tests/test_spectra_numeric.py",
       "bytes": 6636,
       "sha256": "062d5c5f457992b0a17ecd2fd649787d57d1d55736be70e134ec2e8ed9e12f02"
+    },
+    {
+      "path": "tests/test_staged_rollout.py",
+      "bytes": 11486,
+      "sha256": "bd2efd966039d121fe23581ec88096a502be3da2163ca286c5b51d929c100f83"
     },
     {
       "path": "tests/test_v4_integration.py",

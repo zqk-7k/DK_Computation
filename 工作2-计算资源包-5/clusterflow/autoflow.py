@@ -291,6 +291,17 @@ def _parallel_dft(workspace,row,orca,scratch_root,cpus,memory):
 
 def _run_pending(workspace,rows,orca,scratch_root):
     """Bounded independent conformer parallelism in separate processes."""
+    if os.environ.get('WORK2_STAGED_RELEASE') == '1':
+        from .stage_release import check
+        from .scheduling import DeferredWork
+        eligible=[]; waiting=None
+        for row in rows:
+            meta=readj(Path(workspace)/row['job_dir']/'job.json')
+            try: check(workspace,meta['stage'])
+            except DeferredWork as exc: waiting=exc
+            else: eligible.append(row)
+        if not eligible and waiting is not None: raise waiting
+        rows=eligible
     maximum=int(os.environ.get('WORK2_BRANCH_PARALLEL_JOBS','1'))
     if maximum<1:raise ValueError('Positive branch parallelism required')
     chosen=rows[:maximum]

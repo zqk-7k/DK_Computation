@@ -45,6 +45,9 @@ def duration_budget(root, stage, species_id):
 
 
 def admit_quantum(root, stage, species_id):
+    if os.environ.get('WORK2_STAGED_RELEASE') == '1':
+        from .stage_release import check
+        check(root, stage)
     value = os.environ.get('WORK2_DEADLINE_EPOCH')
     if value is None:
         if os.environ.get('SLURM_JOB_ID'):

@@ -69,9 +69,14 @@ def claim(base,site,species):
             return None
         cursor_path=base/'cursor.json'
         cursor=readj(cursor_path).get('index',0) if cursor_path.is_file() else 0
+        ordered = species
+        if os.environ.get('WORK2_PRIORITY_POLICY') == 'remaining_work':
+            from clusterflow.priority import ranked_species
+            ordered = ranked_species(ROOT, species)
+            cursor = 0
         busy={r['species_id'] for r in active}
-        for offset in range(len(species)):
-            index=(cursor+offset)%len(species);sid=species[index]
+        for offset in range(len(ordered)):
+            index=(cursor+offset)%len(ordered);sid=ordered[index]
             if sid in busy:continue
             blocked=base/'blocked'/(sid+'.json')
             if blocked.is_file():
@@ -119,7 +124,7 @@ def worker(slot,slots,deadline,max_steps,species=None):
         if size<site['packed']['slot_allocated_cpus']:raise ValueError('Insufficient isolated CPU allocation')
         os.sched_setaffinity(0,available[slot*size:(slot+1)*size])
     from clusterflow.autoflow import step
-    idle=0; wall_wait=set()
+    idle=0; wall_wait=set(); deferred_until={}
     for _ in range(max_steps):
         if os.environ.get('WORK2_DRAIN_REQUESTED')=='1' or time.time()>deadline-site['slurm']['drain_before_end_seconds']:break
         if (base/'STOP_NEW_CLAIMS').exists() or (base/('DRAIN_'+os.environ['SLURM_JOB_ID'])).exists():break
@@ -127,9 +132,10 @@ def worker(slot,slots,deadline,max_steps,species=None):
         try:
             check_storage(site['local_runtime_root'],site['disk']['local_admit_gib'])
             check_storage('/dev/shm',site['disk']['shm_min_gib'],minimum_inodes=100)
-            admissible=[sid for sid in species if sid not in wall_wait]
-            if not admissible:break
-            selected=claim(base,site,admissible)
+            remaining=[sid for sid in species if sid not in wall_wait]
+            if not remaining:break
+            admissible=[sid for sid in remaining if deferred_until.get(sid,0)<=time.time()]
+            selected=claim(base,site,admissible) if admissible else None
         except StorageAdmissionError as exc:
             writej(base/f'admission_{socket.gethostname()}_{slot}.json',
                    {'status':'WAITING_STORAGE','category':exc.category,'path':exc.path,'time':time.time()})
@@ -141,7 +147,11 @@ def worker(slot,slots,deadline,max_steps,species=None):
         if selected is None:
             idle+=1
             writej(base/f'idle_{socket.gethostname()}_{slot}.json',{'time':time.time(),'reason':'NO_ADMISSIBLE_WORK_OR_SPACE','coverage':coverage(ROOT)})
-            if idle>=10:break  # Finite idle parent; successor/monitor reads durable coverage.
+            if idle>=10:
+                # New staged cohorts must not disappear while waiting for TMS
+                # or a stage to validate. Capacity errors still release nodes.
+                pending_dependency = any(value>time.time()-300 for value in deferred_until.values())
+                if os.environ.get('WORK2_STAGED_RELEASE')!='1' or not pending_dependency:break
             time.sleep(30);continue
         idle=0;path,record=selected
         result=None
@@ -180,6 +190,8 @@ def worker(slot,slots,deadline,max_steps,species=None):
             # dependencies never become a permanent scientific block.
             wall_wait.add(record['species_id'])
             if len(wall_wait)>=len(species):break
+        elif result.get('status','').startswith('WAITING_') and not result.get('quantum_jobs_launched'):
+            deferred_until[record['species_id']]=time.time()+120
         if not result.get('quantum_jobs_launched'):time.sleep(5)
 
 
@@ -252,6 +264,9 @@ def main():
             marker.touch()
         for child in children:child.join(timeout=1)
         time.sleep(5)
+    writej(ROOT/'operations/packed/workers'/(socket.gethostname()+'_'+os.environ['SLURM_JOB_ID']+'.json'),
+           {'updated_epoch':time.time(),'workers':[{'pid':c.pid,'alive':False,'exitcode':c.exitcode} for c in children],
+            'live_slots':0,'status':'EXITED'})
     coverage(ROOT,write=True)
     # A zero Slurm parent code alone is never reported as completed chemistry.
     if any(child.exitcode for child in children):raise SystemExit(2)

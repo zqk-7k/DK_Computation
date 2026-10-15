@@ -1,0 +1,21 @@
+{
+  "project_max_nodes": 12,
+  "canonical_runtime_evidence": "operations/runtime_124440267.json",
+  "existing_pilot_job": "124440267",
+  "cohorts": [
+    {
+      "name": "complex_first",
+      "scope": "config/complex_first_scope_20261015.json",
+      "nodes": 2,
+      "require_valid_goat": false
+    },
+    {
+      "name": "remaining",
+      "scope": "config/remaining_scope_20261015.json",
+      "nodes": 8,
+      "require_valid_goat": true
+    }
+  ],
+  "notice": "2 existing + 2 complex + 8 remaining = 12 allocated nodes. Existing unhealthy node reduces healthy concurrency to 44 until separately resolved. No automatic retry of failed parent or scientific failure.",
+  "created_epoch": 1792036448.9219599
+}

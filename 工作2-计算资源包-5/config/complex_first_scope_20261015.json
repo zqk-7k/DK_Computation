@@ -1,0 +1,13 @@
+{
+  "species_ids": [
+    "F2_S28_source__DMSO",
+    "F3_N33_outward_NO__DMSO",
+    "F4_D05_rep_R__DMSO",
+    "F4_D03_rep_R__DMSO",
+    "F2_E18_source__DMSO",
+    "F2_E20_source__DMSO",
+    "F3_N29_source__DMSO",
+    "F4_D07_neutral__DMSO"
+  ],
+  "notice": "Eight long-workload products, disjoint from original pilot; staged downstream release."
+}
