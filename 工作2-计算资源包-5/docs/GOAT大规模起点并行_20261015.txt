@@ -1,0 +1,43 @@
+GOAT大规模起点并行（2026-10-15）
+
+用户明确要求先大规模GOAT、至少2500 CPU核心。本入口替代旧的12节点分阶段扩容入口，
+仅运行已释放的首批GOAT独立起点，ORCA 6.1.0 wrapper、输入、结构、溶剂、随机起点、
+构象目标、频率/核磁验收标准均保持原样。
+
+资源：一个Slurm数组，10个独立分配，每个8节点，每节点32核/114000MB。
+总80节点、2560核，320个8核GOAT槽位，父任务720小时。不存在额外的短QM超时。
+已在运行的12个GOAT继续完成，既不取消也不重复；旧分支控制器在完成当前任务后退出。
+原4节点分配可能暂时并存；实际运行核数必须以队列、worker和runtime心跳复核。
+
+优先级：共享TMS参考补充起点优先，随后按预计剩余计算量降序。
+同一复杂化合物可以同时运行多个首批独立起点，最多7个（包括旧父任务中的起点）。
+不是在同一目录重复运行。仅包含batch_plan的initial_goat_starts前缀，未释放起点不执行。
+兰索拉唑等已阻断分支不进入新池。来源已存在锁、receipt或stage_intents的起点不重跑。
+
+提交前必须保留operations/ROLLOUT_PAUSED及operations/packed/STOP_NEW_CLAIMS，
+用于停止旧调度领取新任务，不会终止已运行ORCA。新池单独使用
+operations/goat_bulk_20261015/PAUSE_NEW_CLAIMS，可停止新领取但不杀在算任务。
+新池不调用DFT/核磁控制器，不自动恢复旧分支控制器，不自动验收或重试失败计算。
+
+入口：scripts/submit_goat_bulk.py [--execute]
+调度：scripts/scnet_goat_bulk.sbatch + scripts/goat_bulk_worker.py
+审计：scripts/goat_bulk_status.py；原10分钟rollout_tick检测新池后改为审计新池。
+submission.json是提交日志，已有日志不得重新提交；不确定sbatch结果必须查队列。
+queue.json的持久化active记录与任务目录独占锁共同防止重复。
+每个任务仍使用原single_execution锁和goat_portable回传，receipt最后提交。
+未知所有权不自动回收；SIGKILL遗留领取需要结合Slurm、进程和scratch显式核对。
+
+存储准入按GOAT单独计：2026-10-15实测12个运行scratch约0.87–2.46GiB/个，
+主要为GOAT子进程输出。每个任务预留8GiB（包含scratch、回传副本及增长余量），
+加128GiB固定余量。320个新槽+12个旧槽需2784GiB可用空间。
+每次领取在共享互斥锁下重查磁盘余量；DFT的64GiB保守预留规则未修改。
+8GiB是当前GOAT运行样本支持的调度估计，不是最终峰值保证；持续审计空间，
+若增长超预期则停止补仓并扩容/处理已完成可归档数据，不删除活动矩阵或异主共享内存。
+
+每节点执行真实8进程MPI启动检查，检查本地盘、/dev/shm、节点隔离名单；坏节点不启动QM。
+失败只阻止该分支未启动的起点，不取消同分支已健康运行的独立起点。
+RUNNING、进程心跳、正常退出、有效ensemble和科学验收是不同状态。
+最终是否达到2500核运行，必须在实际提交后报告，不能用--test-only或申请核数代替。
+
+验证：tests/test_goat_bulk.py覆盖多进程唯一领取、未释放起点、已存在任务、
+同分支失败隔离、低空间、输入身份变化和停止新领取；相关原runner测试一并运行。

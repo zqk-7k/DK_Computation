@@ -15,6 +15,12 @@ from scripts.submit_cohort import submit
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('--execute',action='store_true');a=p.parse_args()
+    if (ROOT/'operations/goat_bulk_20261015/scope.json').exists():
+        from scripts.goat_bulk_status import audit as bulk_audit
+        report=bulk_audit(ROOT)
+        writej(ROOT/'operations/rollout_latest.json',report)
+        print(json.dumps(report,ensure_ascii=False,indent=2))
+        return
     policy=readj(ROOT/'config/rollout_20261015.json')
     report={'updated_epoch':time.time(),'stage_release':audit(ROOT),'submissions':[]}
     ranked_species(ROOT,[r['species_id'] for r in readj(ROOT/'registry/batch_plan_v5.json')['species']],write=True)

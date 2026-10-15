@@ -1,5 +1,5 @@
 {
-  "revision": "SCNET_ORCA610_STAGED_ROLLOUT_20261015",
+  "revision": "SCNET_ORCA610_GOAT_BULK_2560CPU_20261015",
   "status": "SOURCE_INVENTORY_NOT_QUANTUM_RESULT",
   "self_excluded": "reports/delivery_file_manifest_scnet_20261014.json",
   "files": [
@@ -44849,6 +44849,11 @@
       "sha256": "4f9be6dc7225c7f90cd9cc042048ae4b46f2a5c9c3492890480bb5ca48dc4c09"
     },
     {
+      "path": "docs/GOAT大规模起点并行_20261015.txt",
+      "bytes": 3375,
+      "sha256": "338fd423919abdf2cb28275f2d804ab952666deb870c196acff0882e47bd1571"
+    },
+    {
       "path": "docs/SCNET修订与运行说明_20261014.txt",
       "bytes": 8412,
       "sha256": "857f9af664e3c9a18f366b0504d990ac56cf22aa28de9f0d1729d7b5effbd16a"
@@ -45354,6 +45359,16 @@
       "sha256": "b1fc24071532248bdf24a81553a13c8a329a08013b1b027d5582ae1831e59324"
     },
     {
+      "path": "reports/goat_bulk_full_tests_20261015.log",
+      "bytes": 658,
+      "sha256": "dd255456d1a79075a7ac3ea32717846c17a96fc2df5e6115846ae06dc259a5ad"
+    },
+    {
+      "path": "reports/goat_bulk_tests_20261015.log",
+      "bytes": 7325,
+      "sha256": "74b17434a8b6f57576e2a180c36888ddf95f25acf54446582cb2b228008e69a6"
+    },
+    {
       "path": "reports/historical_wet_timings_20261014.json",
       "bytes": 17774,
       "sha256": "2a2a155e0780ecc9ef30ae1c2e93898facfcd2a64443b02f52065f6918764a48"
@@ -45469,6 +45484,16 @@
       "sha256": "162e880041ae92213b0725d9c11cf06ad6fedfc1f53ed064cb0180c3360faa3f"
     },
     {
+      "path": "scripts/goat_bulk_status.py",
+      "bytes": 3303,
+      "sha256": "7a075183f51947b006a2558fb3a249428be108fcc3868087570cb9d27dd5c7cf"
+    },
+    {
+      "path": "scripts/goat_bulk_worker.py",
+      "bytes": 9543,
+      "sha256": "2b9848b860c10128fe7839c6368f9085c043bea61cbf98f6042834ddc751d505"
+    },
+    {
       "path": "scripts/goat_job.py",
       "bytes": 20645,
       "sha256": "2714a56bac9ed8d83a023af6a08f49d7d751133a6ee36d8aadc4c541f9625ac7"
@@ -45530,8 +45555,8 @@
     },
     {
       "path": "scripts/rollout_tick.py",
-      "bytes": 1557,
-      "sha256": "e0833d02cd0e9c257cf24ea8e635a7e9b08d054e697493e3b70835275604888b"
+      "bytes": 1859,
+      "sha256": "7f28694ec05898c1334b7f4eaf1cb770e6bc9059a9a6a2748d3f9a43d286eb28"
     },
     {
       "path": "scripts/scnet_cohort.sbatch",
@@ -45542,6 +45567,11 @@
       "path": "scripts/scnet_environment.sh",
       "bytes": 1523,
       "sha256": "679f13c7dd455ab7af8a7e5a12c4c2079424b9c144d304aeaacda0b9472801e5"
+    },
+    {
+      "path": "scripts/scnet_goat_bulk.sbatch",
+      "bytes": 753,
+      "sha256": "c7cd92d68ee3d88698044ecd4733989a42b24f8fb53aeec035bbfff906177687"
     },
     {
       "path": "scripts/scnet_packed.sbatch",
@@ -45562,6 +45592,11 @@
       "path": "scripts/submit_cohort.py",
       "bytes": 9428,
       "sha256": "f80d33cfbe6aab9b8089f36d88f2f87dae3df4bf65fa9730762d3e3caaba588b"
+    },
+    {
+      "path": "scripts/submit_goat_bulk.py",
+      "bytes": 7634,
+      "sha256": "27a1120558418ab70362b7ad80fb862c4603f7f07967d598983cc01bb457bfd4"
     },
     {
       "path": "scripts/submit_packed.py",
@@ -47282,6 +47317,11 @@
       "path": "tests/test_cluster_pipeline.py",
       "bytes": 11747,
       "sha256": "e286429458c51a0aa9b52e438e0a72211af51492139932985ec67572d879ea89"
+    },
+    {
+      "path": "tests/test_goat_bulk.py",
+      "bytes": 5763,
+      "sha256": "5722a8a7519f8c40ff49b35acfe9675a6c0c50be7934ee3aa81eb53eb551bf41"
     },
     {
       "path": "tests/test_goat_job.py",

@@ -1,0 +1,60 @@
+test_concurrent_claims_unique (tests.test_goat_bulk.BulkTests.test_concurrent_claims_unique) ... ok
+test_finish_failure_blocks_unstarted_siblings (tests.test_goat_bulk.BulkTests.test_finish_failure_blocks_unstarted_siblings) ... ok
+test_frozen_inputs_verified (tests.test_goat_bulk.BulkTests.test_frozen_inputs_verified) ... ok
+test_held_start_cannot_be_injected (tests.test_goat_bulk.BulkTests.test_held_start_cannot_be_injected) ... ok
+test_initial_starts_only (tests.test_goat_bulk.BulkTests.test_initial_starts_only) ... ok
+test_low_space_cannot_advance_queue (tests.test_goat_bulk.BulkTests.test_low_space_cannot_advance_queue) ... ok
+test_occupied_and_blocked_are_excluded (tests.test_goat_bulk.BulkTests.test_occupied_and_blocked_are_excluded) ... ok
+test_pause_does_not_claim (tests.test_goat_bulk.BulkTests.test_pause_does_not_claim) ... ok
+test_source_lock_created_after_snapshot_skipped (tests.test_goat_bulk.BulkTests.test_source_lock_created_after_snapshot_skipped) ... ok
+test_storage_growth_reserves_legacy_and_active (tests.test_goat_bulk.BulkTests.test_storage_growth_reserves_legacy_and_active) ... ok
+test_success_is_not_scientific_acceptance (tests.test_goat_bulk.BulkTests.test_success_is_not_scientific_acceptance) ... ok
+test_unknown_stageout_attempt_never_restarted (tests.test_goat_bulk.BulkTests.test_unknown_stageout_attempt_never_restarted) ... ok
+test_absent_from_both_scheduler_sources_stays_unknown (tests.test_staged_rollout.StagedRolloutTests.test_absent_from_both_scheduler_sources_stays_unknown) ... ok
+test_changed_active_scope_blocks_expansion (tests.test_staged_rollout.StagedRolloutTests.test_changed_active_scope_blocks_expansion) ... ok
+test_complete_goat_still_requires_source_validation (tests.test_staged_rollout.StagedRolloutTests.test_complete_goat_still_requires_source_validation) ... ok
+test_empty_poll_does_not_load_scientific_libraries (tests.test_staged_rollout.StagedRolloutTests.test_empty_poll_does_not_load_scientific_libraries) ... ok
+test_failed_fast_attempt_never_shortens_priority_estimate (tests.test_staged_rollout.StagedRolloutTests.test_failed_fast_attempt_never_shortens_priority_estimate) ... ok
+test_live_queue_covers_accounting_delay (tests.test_staged_rollout.StagedRolloutTests.test_live_queue_covers_accounting_delay) ... ok
+test_missing_queue_requires_accounting_evidence_of_terminal (tests.test_staged_rollout.StagedRolloutTests.test_missing_queue_requires_accounting_evidence_of_terminal) ... ok
+test_no_bulk_submission_without_real_goat (tests.test_staged_rollout.StagedRolloutTests.test_no_bulk_submission_without_real_goat) ... ok
+test_no_goat_acceptance_from_zero_exit_failed_receipt (tests.test_staged_rollout.StagedRolloutTests.test_no_goat_acceptance_from_zero_exit_failed_receipt) ... ok
+test_overlap_and_overbudget_refused_even_if_idle (tests.test_staged_rollout.StagedRolloutTests.test_overlap_and_overbudget_refused_even_if_idle) ... ok
+test_priority_claim_retains_exclusion_of_active_and_blocked_branches (tests.test_staged_rollout.StagedRolloutTests.test_priority_claim_retains_exclusion_of_active_and_blocked_branches) ... ok
+test_release_requires_unchanged_receipt_not_only_allowlist (tests.test_staged_rollout.StagedRolloutTests.test_release_requires_unchanged_receipt_not_only_allowlist) ... ok
+test_same_cohort_reuses_submission_not_quantum_work (tests.test_staged_rollout.StagedRolloutTests.test_same_cohort_reuses_submission_not_quantum_work) ... ok
+test_scopes_partition_all_models_and_fit_node_budget (tests.test_staged_rollout.StagedRolloutTests.test_scopes_partition_all_models_and_fit_node_budget) ... ok
+test_stage_gate_is_opt_in_and_does_not_block_goat (tests.test_staged_rollout.StagedRolloutTests.test_stage_gate_is_opt_in_and_does_not_block_goat) ... ok
+test_successful_optfreq_reduces_remaining_dft_work (tests.test_staged_rollout.StagedRolloutTests.test_successful_optfreq_reduces_remaining_dft_work) ... ok
+test_test_only_failure_never_submits_or_records_intent (tests.test_staged_rollout.StagedRolloutTests.test_test_only_failure_never_submits_or_records_intent) ... ok
+test_unknown_submission_journal_blocks_expansion (tests.test_staged_rollout.StagedRolloutTests.test_unknown_submission_journal_blocks_expansion) ... ok
+test_unvalidated_stage_does_not_hide_ready_work (tests.test_staged_rollout.StagedRolloutTests.test_unvalidated_stage_does_not_hide_ready_work) ... ok
+test_changed_original_inputs_prevent_stageout (tests.test_goat_portable.GoatPortableTests.test_changed_original_inputs_prevent_stageout) ... ok
+test_dry_run_creates_nothing_and_never_calls_runner (tests.test_goat_portable.GoatPortableTests.test_dry_run_creates_nothing_and_never_calls_runner) ... ok
+test_existing_original_output_never_overwritten (tests.test_goat_portable.GoatPortableTests.test_existing_original_output_never_overwritten) ... ok
+test_invalid_scratch_names_rejected_without_creation (tests.test_goat_portable.GoatPortableTests.test_invalid_scratch_names_rejected_without_creation) ... ok
+test_missing_receipt_is_not_invented_and_no_retry (tests.test_goat_portable.GoatPortableTests.test_missing_receipt_is_not_invented_and_no_retry) ... ok
+test_mocked_stageout_retains_six_inputs_and_receipt_unchanged (tests.test_goat_portable.GoatPortableTests.test_mocked_stageout_retains_six_inputs_and_receipt_unchanged) ... ok
+test_acknowledgement_required_even_dry_run (tests.test_goat_job.GoatJobTests.test_acknowledgement_required_even_dry_run) ... ok
+test_dry_run_writes_nothing (tests.test_goat_job.GoatJobTests.test_dry_run_writes_nothing) ... ok
+test_each_bound_input_tamper_blocked (tests.test_goat_job.GoatJobTests.test_each_bound_input_tamper_blocked) ... ok
+test_escape_and_duplicate_id_blocked (tests.test_goat_job.GoatJobTests.test_escape_and_duplicate_id_blocked) ... ok
+test_existing_output_receipt_and_lock_blocked (tests.test_goat_job.GoatJobTests.test_existing_output_receipt_and_lock_blocked) ... ok
+test_held_and_nonprepared_blocked (tests.test_goat_job.GoatJobTests.test_held_and_nonprepared_blocked) ... ok
+test_mislocated_xtb_blocked (tests.test_goat_job.GoatJobTests.test_mislocated_xtb_blocked) ... ok
+test_missing_xtb_or_mpi_blocked (tests.test_goat_job.GoatJobTests.test_missing_xtb_or_mpi_blocked) ... ok
+test_preflight_reads_marker_without_execution (tests.test_goat_job.GoatJobTests.test_preflight_reads_marker_without_execution) ... ok
+test_scheduler_resource_mismatch_blocked (tests.test_goat_job.GoatJobTests.test_scheduler_resource_mismatch_blocked) ... ok
+test_wrong_and_ambiguous_version_blocked (tests.test_goat_job.GoatJobTests.test_wrong_and_ambiguous_version_blocked) ... ok
+test_xyz_fifth_column_rejected (tests.test_goat_job.GoatJobTests.test_xyz_fifth_column_rejected) ... ok
+test_eight_local_ranks_pass (tests.test_packed_mpi.PackedMPIProbeTests.test_eight_local_ranks_pass) ... /tmp/tmp7287fgw1/operations/mpi_probes/123_node-a.json
+ok
+test_empty_output_with_zero_exit_is_rejected (tests.test_packed_mpi.PackedMPIProbeTests.test_empty_output_with_zero_exit_is_rejected) ... /tmp/tmps8lfa0sw/operations/mpi_probes/123_node-a.json
+ok
+test_other_node_is_rejected (tests.test_packed_mpi.PackedMPIProbeTests.test_other_node_is_rejected) ... /tmp/tmp5xcbgy_4/operations/mpi_probes/123_node-a.json
+ok
+
+----------------------------------------------------------------------
+Ran 52 tests in 0.310s
+
+OK
