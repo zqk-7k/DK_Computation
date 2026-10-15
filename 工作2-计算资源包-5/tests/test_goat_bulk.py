@@ -11,6 +11,7 @@ from scripts.goat_bulk_worker import claim, finish, verify_scope, allocation_dea
 from scripts.submit_goat_bulk import build_scope, IDENTITIES
 from scripts.recover_goat_bulk_startup import recover
 from scripts.goat_bulk_parent_guard import supervisor
+from scripts.goat_bulk_status import readj as observed_json
 
 
 def concurrent_claim(root, base, policy, indexed, results):
@@ -157,6 +158,15 @@ class BulkTests(unittest.TestCase):
         (proc/'10/cmdline').write_bytes(b'orca\0goat.inp\0')
         with self.assertRaisesRegex(ValueError, 'Refusing to pause'):
             supervisor({'workers': [{'pid': 20, 'alive': True}]}, proc)
+
+    def test_observer_retries_transient_shared_file(self):
+        with patch('scripts.goat_bulk_status._readj', side_effect=[FileNotFoundError(), {'status': 'RUNNING'}]), patch('scripts.goat_bulk_status.time.sleep'):
+            self.assertEqual(observed_json('record'), {'status': 'RUNNING'})
+
+    def test_observer_does_not_invent_missing_record(self):
+        with patch('scripts.goat_bulk_status._readj', side_effect=FileNotFoundError()), patch('scripts.goat_bulk_status.time.sleep'):
+            with self.assertRaises(FileNotFoundError):
+                observed_json('record')
 
 
 if __name__ == '__main__':

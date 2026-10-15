@@ -9,8 +9,20 @@ from collections import Counter
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
-from clusterflow.common import readj, writej
+from clusterflow.common import readj as _readj, writej
 from clusterflow.runtime import site_config
+
+
+def readj(path):
+    # ParaStor can briefly lose an old file handle during a remote atomic
+    # replacement. Retry observation only; never infer completion from absence.
+    for attempt in range(10):
+        try:
+            return _readj(path)
+        except (FileNotFoundError, json.JSONDecodeError):
+            if attempt == 9:
+                raise
+            time.sleep(.2)
 
 
 def audit(root):

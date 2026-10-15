@@ -45369,6 +45369,11 @@
       "sha256": "dd255456d1a79075a7ac3ea32717846c17a96fc2df5e6115846ae06dc259a5ad"
     },
     {
+      "path": "reports/goat_bulk_observer_tests_20261015.log",
+      "bytes": 2293,
+      "sha256": "eebde061c9ed4bbfcfed4d347bfa3304eff436d649c853c46eda925f4832c908"
+    },
+    {
       "path": "reports/goat_bulk_parent_guard_tests_20261015.log",
       "bytes": 2035,
       "sha256": "d13227b42a658aab2795c3fe0d749d6731e45c570430bc943cc9eaa2bc400a5a"
@@ -45500,8 +45505,8 @@
     },
     {
       "path": "scripts/goat_bulk_status.py",
-      "bytes": 3664,
-      "sha256": "90857567d3d16523fbc98ff6177727322340d7b21764c7b0de5599d03b668ab3"
+      "bytes": 4058,
+      "sha256": "d0c8d04b17cae5eebb092a51421e7501722f9cba5d4da853cbeb4100f1a1829f"
     },
     {
       "path": "scripts/goat_bulk_worker.py",
@@ -47340,8 +47345,8 @@
     },
     {
       "path": "tests/test_goat_bulk.py",
-      "bytes": 8523,
-      "sha256": "57d05f27a2498f07b0b9f12019a475c5ae177f1c12367041c441fc044469efc8"
+      "bytes": 9169,
+      "sha256": "ab4432d41346ff000fb6ddba6e735a4b2edd826127a16cce12e0f5ffcc36c381"
     },
     {
       "path": "tests/test_goat_job.py",
