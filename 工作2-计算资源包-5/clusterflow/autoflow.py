@@ -81,6 +81,17 @@ def _plan(root, species_id):
 
 def _job_status(root, row, *, goat):
     directory = _safe(root, row['job_directory'] if goat else row['job_dir'])
+    if goat and (directory/'delegated_goat.json').is_file():
+        from .goat_delegation import resolve
+        try:
+            cohort, delegation = resolve(root, row)
+            delegated = next(r for r in readj(cohort/'registry/jobs.json')
+                             if r['job_id'] == row['job_id'])
+            result = _job_status(cohort, delegated, goat=True)
+            return dict(result, delegation_sha256=sha(directory/'delegated_goat.json'),
+                        canonical_directory=str(directory))
+        except (ValueError, OSError, KeyError, TypeError) as exc:
+            return {'status': 'INVALID_REVIEW', 'terminal': True, 'reason': str(exc)}
     locks = [directory / name for name in LOCKS if (directory / name).exists()]
     if locks:
         from .runtime import lock_state
@@ -106,6 +117,12 @@ def _job_status(root, row, *, goat):
         if value not in ('COMPLETED', 'COMPLETED_NORMAL_AWAITING_SCIENTIFIC_REVIEW', 'FAILED', 'TIMEOUT', 'TIMED_OUT'):
             return {'status': 'INVALID_REVIEW', 'terminal': True, 'reason': 'Unknown terminal status'}
         if value in ('FAILED', 'TIMEOUT', 'TIMED_OUT'):
+            if goat and value == 'FAILED' and (directory/'goat_cleanup_review.json').is_file():
+                source = pipeline._goat_source(root, row['job_id'])
+                return {'status': 'COMPLETE', 'terminal': True,
+                        'receipt_sha256': sha(receipts[0]), 'original_receipt_status': 'FAILED',
+                        'cleanup_review_sha256': source['bindings']['cleanup_review_sha256'],
+                        'notice': 'Technical output recovery only; scientific gates remain required.'}
             return {'status': 'FAILED_REVIEW', 'terminal': True,
                     'receipt_sha256': sha(receipts[0]), 'reason': 'Inspect failure; never silently retry'}
         if goat:
@@ -139,13 +156,15 @@ def _workspace(root, wave, reports, indexed):
     workspace = _safe(root, wave['workspace'])
     workspace.mkdir(parents=True, exist_ok=True)
     bindings = {}
+    source_paths = {}
+    auxiliary_bindings = {}
     for name in ('config/protocol.json', 'config/automation.json', 'registry/species.json', 'registry/batch_plan_v5.json'):
         bindings[name] = _copy_bound(_safe(root, name), _safe(workspace, name))
     copied_jobs = []
     for job_id in sorted({j for report in reports.values() for j in report['job_ids']}):
         row = indexed[job_id]
         source = pipeline._goat_source(root, job_id)
-        directory = _safe(root, row['job_directory'])
+        directory = source['directory']
         if any((directory / n).exists() for n in LOCKS):
             raise ValueError('GOAT source became active while snapshotting')
         receipt = source['receipt']
@@ -153,10 +172,19 @@ def _workspace(root, wave, reports, indexed):
         files |= {'goat.inp', 'start.xyz', 'cluster.mol', 'atom_map.json', 'provenance.json', source['receipt_path'].name}
         if (directory / 'isotope_map.json').is_file():
             files.add('isotope_map.json')
+        if (directory / 'goat_cleanup_review.json').is_file():
+            files.add('goat_cleanup_review.json')
+        canonical_delegation = _safe(root, row['job_directory'])/'delegated_goat.json'
+        if canonical_delegation.is_file():
+            for path in (canonical_delegation, Path(root)/'registry/jobs.json'):
+                auxiliary_bindings[path.relative_to(root).as_posix()] = sha(path)
         for name in sorted(files):
             relative = (Path(row['job_directory']) / name).as_posix()
-            bindings[relative] = _copy_bound(_safe(root, relative), _safe(workspace, relative))
-        copied_jobs.append(row)
+            origin = (directory/name).relative_to(root).as_posix()
+            bindings[relative] = _copy_bound(_safe(root, origin), _safe(workspace, relative))
+            if origin != relative:
+                source_paths[relative] = origin
+        copied_jobs.append(source['row'])
     target = workspace / 'registry/jobs.json'
     if target.exists() and readj(target) != copied_jobs:
         raise ValueError('Frozen wave GOAT registry changed')
@@ -165,6 +193,10 @@ def _workspace(root, wave, reports, indexed):
     snapshot = {'original_files_sha256': bindings, 'workspace_jobs_sha256': sha(target),
                 'source_goat_ids': [j['job_id'] for j in copied_jobs],
                 'notice': 'Cumulative independent workspace; no cached DFT reused across changed selections'}
+    if source_paths:
+        snapshot['source_paths'] = source_paths
+    if auxiliary_bindings:
+        snapshot['auxiliary_source_sha256'] = auxiliary_bindings
     snapshot_path = workspace.parent / 'snapshot.json'
     if snapshot_path.exists() and readj(snapshot_path) != snapshot:
         raise ValueError('Frozen wave source snapshot changed')
@@ -177,13 +209,20 @@ def _verify_workspace(root, wave):
     workspace = _safe(root, wave['workspace'])
     snapshot = readj(workspace.parent / 'snapshot.json')
     for relative, digest in snapshot['original_files_sha256'].items():
-        source = _safe(root, relative)
+        source = _safe(root, snapshot.get('source_paths', {}).get(relative, relative))
         if sha(source) != digest or sha(_safe(workspace, relative)) != digest:
             raise ValueError('Frozen wave source binding changed: ' + relative)
+    for relative, digest in snapshot.get('auxiliary_source_sha256', {}).items():
+        if sha(_safe(root, relative)) != digest:
+            raise ValueError('Frozen wave delegation binding changed: ' + relative)
     if sha(workspace / 'registry/jobs.json') != snapshot['workspace_jobs_sha256']:
         raise ValueError('Frozen wave registry changed')
     for row in readj(workspace / 'registry/jobs.json'):
-        if any((_safe(root, row['job_directory']) / name).exists() for name in LOCKS):
+        source_relative = snapshot.get('source_paths', {}).get(
+            (Path(row['job_directory'])/'goat.inp').as_posix(),
+            (Path(row['job_directory'])/'goat.inp').as_posix())
+        source_directory = _safe(root, source_relative).parent
+        if any((source_directory / name).exists() for name in LOCKS):
             raise ValueError('Original frozen GOAT source is being modified/rerun')
     return workspace
 

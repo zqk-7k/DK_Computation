@@ -67,6 +67,14 @@ def _goat_source(root, job_id):
     if len(matches) != 1:
         raise ValueError('GOAT job ID missing or duplicated')
     row = matches[0]
+    original_directory = inside(root, row['job_directory'])
+    if (original_directory/'delegated_goat.json').exists():
+        from .goat_delegation import resolve
+        cohort, delegation = resolve(root, row)
+        source = _goat_source(cohort, job_id)
+        source['bindings']['delegation_sha256'] = sha(original_directory/'delegated_goat.json')
+        source['bindings']['canonical_manifest_sha256'] = delegation['canonical_manifest_sha256']
+        return source
     species, _ = _selection(root, row['species_id'], row['scenario_id'])
     if any(row.get(k) != species.get(k) for k in ('compound_id', 'charge', 'multiplicity')):
         raise ValueError('GOAT registry chemical-state identity mismatch')
@@ -78,8 +86,12 @@ def _goat_source(root, job_id):
         raise ValueError('Exactly one completed GOAT run receipt required')
     receipt_path = receipt_paths[0]
     receipt = readj(receipt_path)
+    cleanup_review_sha256 = None
     if receipt.get('status') not in ('completed', 'COMPLETED_NORMAL_AWAITING_SCIENTIFIC_REVIEW'):
-        raise ValueError('GOAT receipt is not completed')
+        if not (directory/'goat_cleanup_review.json').is_file():
+            raise ValueError('GOAT receipt is not completed')
+        from .goat_cleanup_review import validate as validate_cleanup_review
+        cleanup_review_sha256 = validate_cleanup_review(directory, receipt_path)
     if receipt.get('job_id', receipt.get('id')) != job_id:
         raise ValueError('GOAT receipt job identity mismatch')
     required_inputs = ['goat.inp', 'start.xyz', 'atom_map.json', 'cluster.mol', 'provenance.json']
@@ -124,6 +136,8 @@ def _goat_source(root, job_id):
                 'source_receipt_sha256': sha(receipt_path), 'goat_output_sha256': sha(output_path),
                 'ensemble_sha256': sha(ensemble), 'atom_map_sha256': sha(directory / 'atom_map.json'),
                 'cluster_mol_sha256': sha(directory / 'cluster.mol')}
+    if cleanup_review_sha256 is not None:
+        bindings['cleanup_review_sha256'] = cleanup_review_sha256
     return {'row': row, 'directory': directory, 'receipt_path': receipt_path, 'receipt': receipt,
             'frames': frames, 'template': template, 'atom_map': amap, 'bindings': bindings}
 

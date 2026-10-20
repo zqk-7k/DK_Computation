@@ -77,8 +77,14 @@ def verify_scope(root, scope, expected):
         if job not in allowed or indexed[job].get('initial_release') is not True:
             raise ValueError('Scope contains an unreleased start')
         inside(root, indexed[job]['job_directory'])
-    if policy['cpus_per_job'] != 8 or policy['slots_per_node'] != 4:
-        raise ValueError('Only verified 4 x 8 CPU layout is supported')
+    if (policy['cpus_per_job'], policy['slots_per_node']) not in ((8, 4), (16, 2)):
+        raise ValueError('Only full-node 4 x 8 or 2 x 16 CPU layouts are supported')
+    if policy['cpus_per_job'] == 16:
+        import re
+        for job in ids:
+            inp = (inside(root, indexed[job]['job_directory'])/'goat.inp').read_text()
+            if re.findall(r'(?i)\bnprocs\s+(\d+)', inp) != ['16']:
+                raise ValueError('Sixteen-CPU scope requires a bound 16-process input')
     if policy['growth_gib_per_job'] < 8 or policy['free_floor_gib'] < 128:
         raise ValueError('GOAT storage reservation below reviewed floor')
     return policy, indexed
@@ -142,9 +148,11 @@ def worker(slot, root, base, policy, indexed, deadline):
     available = sorted(os.sched_getaffinity(0))
     if len(available) < 32:
         raise ValueError('Full 32 CPU node allocation required')
-    os.sched_setaffinity(0, available[slot*8:(slot+1)*8])
-    os.environ.update({'SLURM_NTASKS': '1', 'SLURM_CPUS_PER_TASK': '8',
-                       'WORK2_SLOT_MEMORY_MB': '28500', 'WORK2_DEADLINE_EPOCH': str(deadline)})
+    cpus = policy['cpus_per_job']
+    os.sched_setaffinity(0, available[slot*cpus:(slot+1)*cpus])
+    os.environ.update({'SLURM_NTASKS': '1', 'SLURM_CPUS_PER_TASK': str(cpus),
+                       'WORK2_SLOT_MEMORY_MB': str(114000//policy['slots_per_node']),
+                       'WORK2_DEADLINE_EPOCH': str(deadline)})
     from scripts.goat_portable import run_one
     while time.time() < deadline - 3600:
         if (base/'PAUSE_NEW_CLAIMS').exists() or (base/('DRAIN_'+os.environ['SLURM_JOB_ID'])).exists():
@@ -216,14 +224,14 @@ def main():
         check_storage(site['local_runtime_root'], site['disk']['local_admit_gib'])
         check_storage('/dev/shm', site['disk']['shm_min_gib'], minimum_inodes=100)
         from scripts.check_packed_mpi import main as mpi_probe
-        mpi_probe()
+        mpi_probe(nprocs=policy['cpus_per_job'])
     except Exception as exc:
         writej(node_record, {'status': 'NODE_REJECTED_BEFORE_QM', 'reason': str(exc),
                             'hostname': socket.gethostname(), 'updated_epoch': time.time()})
         return
     deadline = allocation_deadline(base)
     children = [multiprocessing.Process(target=worker, args=(i, ROOT, base, policy, indexed, deadline))
-                for i in range(4)]
+                for i in range(policy['slots_per_node'])]
     for child in children:
         child.start()
     while True:

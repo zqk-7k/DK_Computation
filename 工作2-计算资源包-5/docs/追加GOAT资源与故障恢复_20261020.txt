@@ -1,0 +1,51 @@
+2026-10-20 GOAT资源扩容与有证据的恢复
+
+本轮仍是GOAT阶段。运行中、正常结束、有效ensemble、DFT稳定极小值、最终NMR谱图是不同状态。
+不能把节点申请、MPI小试、技术恢复或输入准备称为科学计算已完成。
+
+一、资源独立队列
+1. 支持原4×8 CPU/节点及新2×16 CPU/节点。新任务仅将%pal nprocs 8改成16，
+   NWorkers=8保持不变；每个GOAT worker可使用2个进程。每节点仍申请114000MB。
+2. 新队列使用operations下独立workspace、registry、scope和提交记录；原始输入不覆盖。
+   真实16进程MPI探针和两条生产GOAT小试成功启动后，才允许提交大批次。
+3. 主扩容64节点/2048 CPU，采用64个单节点array元素，避免8节点成组等待。
+   有界恢复5节点/160 CPU，采用5个单节点array元素。原排队申请只在全部PENDING、
+   尚无任何任务领取和执行证据时才允许替换；先hold复查，再cancel，保留原提交记录。
+4. 申请--time=720:00:00且--time-min=720:00:00。必须核验StartTime、实际EndTime。
+   现场发现过TimeLimit显示30天而EndTime只有约28小时的情况，不能只读TimeLimit。
+   请求30天不等于已排到节点；当前状态必须查调度器和运行心跳。
+5. 任何SUBMISSION_INTENT或SUBMISSION_UNCERTAIN都应先对账，禁止盲目重复sbatch。
+
+二、避免重复与接续
+1. 原目录保留RESOURCE_COHORT_DELEGATION预约锁和delegated_goat.json。
+   原始六项输入、原始manifest、子队列manifest及资源覆盖均以SHA256绑定。
+2. 资源覆盖仅准许nprocs 8→16，不允许修改几何、方法、随机起点、模型或化学身份。
+3. 原队列与子队列使用同一个按job_id生成的执行flock；未知所有权不得强行回收。
+4. 下游状态、源数据读取和独立wave快照均识别子队列，并验证原始预约绑定。
+   快照保留真实源路径与技术复核文件，不能拿原目录旧失败输出替代重算结果。
+
+三、故障分流
+1. NODE_FAIL：只对sacct确认的特定失败allocation及对应RUNNING遗留启动进行一次重算。
+   所有旧scratch和原始记录保留。这是从原始seed重新运行，不是精确GOAT检查点续算。
+2. 回传失败：原任务已经有终态receipt、执行flock释放且输入和所有输出hash一致时，
+   恢复现有结果，冲突的partial副本保留到recovery_history；receipt最后原样提交。
+   RUNNING receipt不能在恢复时改成成功，FAILED receipt也仍然是FAILED。
+3. wrapper清理失败：仅在ORCA6.1.0正常结束、唯一receipt错误为非零退出码1、
+   stderr只有已识别的sandbox只读清理错误和构建INFO、全部证据绑定有效时，
+   允许建立单独goat_cleanup_review.json。原始FAILED receipt不改写。
+   之后仍须通过ensemble、元素顺序、图结构、固定组成、几何及后续科学验收。
+4. 损坏/缺失ensemble和已退出的孤儿worker：一次有界补算。RUNNING遗留须在实际节点
+   核查原PID及相关stage/private-runtime进程确实不存在，且心跳和输入没有变化。
+5. GOAT正常结束但没有可用构象：保留失败seed。用已准备好的独立seed继续验证，
+   不把初始结构当结果，不假造ensemble，不无限重试同一起点。
+6. 已终态失败的父任务guard记录归档；仍保护真实运行任务的父guard不能随意恢复或杀死。
+
+四、审计与验收
+scripts/project_status_20261020.py将主目录、扩容队列和恢复队列合并审计，
+按Slurm WorkDir区分本项目和其他账户项目。分别报告：已分配CPU、排队CPU、
+有新鲜心跳的GOAT配置CPU、实际墙时、失败及恢复记录。配置CPU不等于实时CPU利用率。
+本机每10分钟的既有watch已接入该审计。不要把监控存在理解为无限自动重提服务。
+
+新增测试覆盖资源覆盖和源绑定、活跃所有权保护、终态回传恢复、只读清理复核、
+独立快照接续、失败科学门槛、以及禁止取消已启动任务的排队重组保护。
+运行和测试的最新实测结果见本机交接说明与operations内审计记录。

@@ -12,6 +12,8 @@ import importlib.util
 import io
 from pathlib import Path
 import sys
+import shutil
+import tempfile
 import unittest
 from unittest.mock import patch
 
@@ -102,7 +104,14 @@ class V4IndependentConfiguration(unittest.TestCase):
 
     def test_current_cli_status_never_says_calculations_finished(self):
         cli = load_cli()
-        status = cli.summary()
+        # This checks the package-before-execution state, not the live site's
+        # automation directories. Never make the test depend on real progress.
+        with tempfile.TemporaryDirectory() as temporary:
+            fixture = Path(temporary)
+            for name in ('config', 'registry'):
+                shutil.copytree(ROOT / name, fixture / name)
+            with patch.object(cli, 'ROOT', fixture):
+                status = cli.summary()
         self.assertEqual(status['products'], 64)
         self.assertEqual(status['downstream_jobs_prepared'], 0)
         self.assertIn('NOT_RUN', status['status'])
