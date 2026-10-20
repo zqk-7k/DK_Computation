@@ -44,9 +44,15 @@ def allocation_deadline(base):
             try:
                 result = subprocess.run(['scontrol', 'show', 'job', job, '-o'],
                                         capture_output=True, text=True, timeout=60, check=True)
-                fields = dict(v.split('=', 1) for v in result.stdout.split() if '=' in v)
-                if fields.get('JobId') != job or fields.get('JobState') != 'RUNNING':
+                # An array's master job ID also selects all array elements.
+                # Never flatten those lines and accidentally use a sibling's
+                # identity, state, or deadline.
+                records = [dict(v.split('=', 1) for v in line.split() if '=' in v)
+                           for line in result.stdout.splitlines() if line.strip()]
+                matches = [record for record in records if record.get('JobId') == job]
+                if len(matches) != 1 or matches[0].get('JobState') != 'RUNNING':
                     raise ValueError('Allocation is not the requested running parent')
+                fields = matches[0]
                 deadline = datetime.fromisoformat(fields['EndTime']).timestamp()
                 if deadline <= time.time():
                     raise ValueError('Allocation deadline already passed')
