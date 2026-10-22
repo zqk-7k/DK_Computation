@@ -10,6 +10,7 @@ from collections import Counter
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT))
 from clusterflow.common import readj as _readj, writej
+from clusterflow.observation import observe
 from clusterflow.runtime import site_config
 
 
@@ -30,28 +31,35 @@ def audit(root):
     scope = readj(base/'scope.json')
     jobs = {r['job_id']: r for r in readj(root/'registry/jobs.json')}
     queue = readj(base/'queue.json') if (base/'queue.json').exists() else {'active': {}, 'cursor': 0, 'skipped': []}
-    live = []; stale = []; results = Counter(); errors = []
+    live = []; stale = []; results = Counter(); errors = []; observation_errors = []
+    def observed(path, missing_ok=False):
+        return observe(path, observation_errors, missing_ok=missing_ok)
     for job, record in queue['active'].items():
         lock = root/jobs[job]['job_directory']/'.goat-run.lock'
         current = False
         if lock.exists():
-            owner = readj(lock)
+            owner = observed(lock) or {}
             stage = Path(owner.get('portable_stage_root', '/nonexistent'))/'job'
             heartbeat = stage/'runtime_heartbeat.json'
-            if heartbeat.exists() and time.time()-readj(heartbeat).get('updated_epoch', 0) < 180:
+            h = observed(heartbeat, missing_ok=True) or {}
+            if time.time()-h.get('updated_epoch', 0) < 180:
                 current = True
         (live if current else stale).append(record)
     for path in (base/'results').glob('*.json'):
-        row = readj(path)
+        row = observed(path)
+        if row is None:
+            results['UNREADABLE_RECORD'] += 1
+            continue
         status = row['result']['status']; results[status] += 1
         if status not in ('COMPLETED_NORMAL_AWAITING_SCIENTIFIC_REVIEW', 'completed',
                           'TECHNICALLY_RECOVERED_AWAITING_SCIENTIFIC_REVIEW',
-                          'NODE_FAIL_DELEGATED_TO_RESOURCE_COHORT', 'BOUNDED_RECOVERY_DELEGATED'):
+                          'NODE_FAIL_DELEGATED_TO_RESOURCE_COHORT', 'BOUNDED_RECOVERY_DELEGATED',
+                          'NODE_FAIL_RETRY_SCHEDULED', 'FRESH_START_TRANSFERRED'):
             errors.append({'job_id': row['job_id'], 'result': row['result']})
-    nodes = [readj(p) for p in (base/'nodes').glob('*.json')]
+    nodes = [v for p in (base/'nodes').glob('*.json') if (v := observed(p)) is not None]
     healthy = [r for r in nodes if r.get('status') == 'RUNNING' and time.time()-r['updated_epoch'] < 90]
     rejected = [r for r in nodes if r.get('status') == 'NODE_REJECTED_BEFORE_QM']
-    guards = [readj(p) for p in (base/'parent_guards').glob('*.json')]
+    guards = [v for p in (base/'parent_guards').glob('*.json') if (v := observed(p)) is not None]
     command = subprocess.run(['squeue', '-h', '-r', '-u', 'qikai', '-o', '%i|%j|%T|%C|%D|%R'],
                              capture_output=True, text=True, timeout=30, check=True)
     slurm = [line for line in command.stdout.splitlines() if '|work2-64-' in line]
@@ -69,6 +77,8 @@ def audit(root):
               'rejected_nodes': rejected, 'results': dict(results), 'failures': errors[:20],
               'shared_free_gib': round(shutil.disk_usage(site_config()['shared_scratch']).free/1024**3, 2),
               'old_branch_controllers_draining': (root/'operations/packed/STOP_NEW_CLAIMS').exists(),
+              'observation_errors': observation_errors,
+              'monitor_health': 'DEGRADED_RECORDS_REPORTED' if observation_errors else 'OK',
               'notice': 'Counts exclude original parent computations; heartbeats do not imply 100% CPU utilization or chemical acceptance.'}
     writej(base/'latest.json', report)
     return report

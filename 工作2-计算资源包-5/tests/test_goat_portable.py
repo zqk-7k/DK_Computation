@@ -68,6 +68,24 @@ class GoatPortableTests(unittest.TestCase):
         self.assertFalse(self.scratch.exists())
         self.assertEqual(before, {str(p): p.read_bytes() for p in self.root.rglob('*') if p.is_file()})
 
+    def test_reviewed_retry_retains_old_scratch_and_uses_new_identity(self):
+        from clusterflow.common import writej, sha
+        first = self.call(dry=True)
+        old = Path(first['stage_job_directory']); old.mkdir(parents=True)
+        writej(old/'receipt.json', {'status':'RUNNING'})
+        proof = self.job/'recovery_history/a/proof.json'
+        writej(proof, {'job_id':'j1','scheduler_state':'NODE_FAIL','stage':str(old),
+                      'receipt_sha256':sha(old/'receipt.json')})
+        writej(self.job/'goat_retry_authorization.json',
+               {'status':'PREPARED_VERIFIED_NODE_FAIL','job_id':'j1','attempt_token':'b'*32,
+                'manifest_sha256':runner.digest(self.root/'registry/jobs.json'),
+                'inputs':portable._hashes(self.job),'proof_path':str(proof.relative_to(self.root)),
+                'proof_sha256':sha(proof)})
+        second = self.call(dry=True)
+        self.assertNotEqual(first['stage_root'],second['stage_root'])
+        self.assertEqual(runner.read_json(old/'receipt.json')['status'],'RUNNING')
+        self.assertFalse(Path(second['stage_root']).exists())
+
     def test_invalid_scratch_names_rejected_without_creation(self):
         for value in (self.base / 'with space', self.base / '中文'):
             with self.assertRaisesRegex(ValueError, 'ASCII'):

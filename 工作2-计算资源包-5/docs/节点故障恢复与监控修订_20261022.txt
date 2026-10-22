@@ -1,0 +1,34 @@
+2026-10-22：GOAT集中NODE_FAIL的有界恢复与监控修订
+
+问题及证据
+10月21日08:23中国时间，17个新增32核作业与4个原256核作业NODE_FAIL，失去1568核。
+10月22日审计137个失效心跳起点；15份观测JSON全零。定时监控因解析异常退出。
+不能把节点故障解释为30天墙时到期，也不能把损坏的观测记录解释为成功或正常运行。
+
+监控
+clusterflow.observation.observe仅用于运行观测：短暂读取异常重试，持续异常记录路径、大小和原因。
+损坏心跳标为未知/失效；损坏节点记录不计健康节点。原文件不修改、不删除。
+科学输入、manifest、scope、队列、delegation和科学验收仍使用严格读取，不允许“容错通过”。
+主审计合并三个原有workspace及其新增operations/retry_20261022队列。
+监控进程成功退出与所有科学任务健康是不同概念，monitor_health显式报告观测异常。
+
+恢复
+scripts/recover_goat_nodes_20261022.py仅处理本轮明确授权的137条及尚未领取的初始起点。
+必须取得精确Slurm JobIDRaw的NODE_FAIL和所有步骤已退出证据；运行中的同数组兄弟不影响判断。
+重新核对旧owner、claim、receipt和全部六项输入SHA，取得共享执行锁。
+发现正常结束标志、最终ensemble、终态receipt或新鲜心跳则停止该准备流程，先检查能否恢复结果。
+旧scratch保留原路径；旧owner、stage_intents和claim归档到每任务recovery_history。
+新goat_retry_authorization绑定输入、manifest、失败证据与唯一attempt token。
+portable runner将已验证token纳入scratch身份，生成新路径，绝不覆盖旧scratch或原科学输入。
+原8核起点仍8核、16核起点仍16核；ORCA6.1.0 wrapper与化学模型不变。
+本轮是一次有界重算，不声称恢复了GOAT完整断点状态，也不是无限自动重试。
+
+排序与资源
+沿用clusterflow.priority.estimate，按预计剩余串行工作量降序，不降低计算/收敛/科学门槛。
+该指标用于复杂度排序，不是承诺实际完成日期；已有健康任务不抢占。
+原主workspace、扩容workspace、恢复workspace分别冻结新scope，队列内复杂分支先领取。
+原扩容队列剩余未领取任务在队列锁内转移，防止旧worker与新worker重复领取。
+预期103个8核补算、32个16核补算加27个16核初始起点、2个16核补算：26+30+1=57节点，1824核。
+实际任务数与作业号以operations/recovery_audit_20261022/PREPARED.json和各scope的submission.json为准。
+每节点单独array元素，time=720小时且time-min=720小时，必须现场核验实际EndTime及真实GOAT。
+任何提交INTENT/UNCERTAIN都必须对账，不可盲目重复sbatch。

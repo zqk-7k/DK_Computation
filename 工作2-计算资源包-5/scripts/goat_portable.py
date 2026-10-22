@@ -97,8 +97,13 @@ def run_one(root: Path, job_id: str, orca: Path, xtb: Path, scratch_root: Path,
     preflight = runner.preflight(orca, xtb, job['nprocs'])
     if not preflight['passed']:
         raise ValueError('Preflight blocked: ' + '; '.join(preflight['reasons']))
-    identity = json.dumps({'root': str(root), 'job_id': job_id, 'inputs': original_hashes,
-                           'manifest': job['manifest_sha256']}, sort_keys=True).encode()
+    identity_fields = {'root': str(root), 'job_id': job_id, 'inputs': original_hashes,
+                       'manifest': job['manifest_sha256']}
+    from clusterflow.goat_retry import retry_token
+    token_for_attempt = retry_token(root, original, job_id, job['manifest_sha256'], original_hashes)
+    if token_for_attempt is not None:
+        identity_fields['reviewed_retry_token'] = token_for_attempt
+    identity = json.dumps(identity_fields, sort_keys=True).encode()
     stage_root = scratch_root / ('work2goat_' + hashlib.sha256(identity).hexdigest()[:20])
     stage_job = stage_root / 'job'
     if stage_root.exists():
