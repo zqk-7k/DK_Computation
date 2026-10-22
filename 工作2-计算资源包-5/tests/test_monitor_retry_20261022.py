@@ -41,6 +41,21 @@ class RetryTests(unittest.TestCase):
     def test_changed_proof_rejected(self):
         writej(self.proof,{'scheduler_state':'RUNNING'})
         with self.assertRaises(ValueError):self.get()
+    def test_mpi_retry_requires_absent_processes_and_failed_receipt(self):
+        writej(self.old/'receipt.json',{'status':'FAILED'})
+        (self.old/'goat.stderr').write_text('mpirun exited improperly')
+        proof={'job_id':'j','stage':str(self.old),'receipt_sha256':sha(self.old/'receipt.json'),
+               'failure_class':'MPI_ABORT_BEFORE_FIRST_GLOBAL_ITERATION',
+               'producer_exit_proof':{'matches':[],'failures':[]},
+               'mpi_stderr_sha256':sha(self.old/'goat.stderr')}
+        writej(self.proof,proof)
+        self.auth.update(status='PREPARED_VERIFIED_MPI_ABORT',proof_sha256=sha(self.proof))
+        writej(self.d/'goat_retry_authorization.json',self.auth)
+        self.assertEqual(self.get(),'a'*32)
+        proof['producer_exit_proof']['matches']=[{'pid':123}];writej(self.proof,proof)
+        self.auth['proof_sha256']=sha(self.proof);writej(self.d/'goat_retry_authorization.json',self.auth)
+        with self.assertRaises(ValueError):self.get()
+
     def test_fresh_job_has_no_retry_token(self):
         (self.d/'goat_retry_authorization.json').unlink();self.assertIsNone(self.get())
 

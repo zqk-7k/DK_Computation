@@ -53,7 +53,7 @@ def audit(root):
    if row.get('initial_release'):initial[observed_state]+=1
  pools=[]
  for workspace in roots:
-  for name in ('operations/goat_bulk_20261015','operations/pilot_20261020','operations/retry_20261022'):
+  for name in ('operations/goat_bulk_20261015','operations/pilot_20261020','operations/retry_20261022','operations/mpi_retry_20261022'):
    b=workspace/name;scope=optional(b/'scope.json')
    if not scope:continue
    q=optional(b/'queue.json') or dict(active={},cursor=0,skipped=[]);nodes=[v for p in (b/'nodes').glob('*.json') if (v:=observed(p)) is not None]

@@ -32,3 +32,11 @@ portable runner将已验证token纳入scratch身份，生成新路径，绝不�
 实际任务数与作业号以operations/recovery_audit_20261022/PREPARED.json和各scope的submission.json为准。
 每节点单独array元素，time=720小时且time-min=720小时，必须现场核验实际EndTime及真实GOAT。
 任何提交INTENT/UNCERTAIN都必须对账，不可盲目重复sbatch。
+
+现场启动后补充
+57节点中a10r3n11因/dev/shm不足在QM前拒绝，独立补位作业避开该节点，同一冻结队列领取，不重复起点。
+F2_S23 s01真实启动后出现xTB SCC不收敛：保留失败receipt，并绑定其他活跃独立起点，不降低收敛门槛。
+F2_S27 s01在首个GOAT global iteration之前MPI异常退出：终态输出hash验证，旧进程退出核查后允许一次换节点重试。
+该例新增PREPARED_VERIFIED_MPI_ABORT，严格绑定FAILED receipt、MPI stderr、空的旧进程匹配/未解释错误列表。
+同节点其他worker的受限/proc目录只有在祖先链明确归属于不同、仍运行的任务时，才记为无关进程；证据保留。
+MPI重试使用独立scope operations/mpi_retry_20261022，原终态、输入、scratch不覆盖；绝不无限循环提交。
