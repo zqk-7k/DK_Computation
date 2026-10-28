@@ -1,0 +1,51 @@
+{
+  "status": "PASS",
+  "self_test": "PASS using actual xraylarch",
+  "fixture": "Analytical TEST ONLY inputs in OS temporary directory, not FEFF calculations",
+  "jobs": 24,
+  "xanes_model_edge_means": 6,
+  "exafs_model_edge_means": 6,
+  "figures": 9,
+  "full_run_seconds": 15.87730598449707,
+  "strict_missing_job_refusal": true,
+  "allow_partial_reports_missing": true,
+  "insufficient_Hann_support_refused": true,
+  "complex_FT_WT_arrays_retained": true,
+  "signed_average_linearity": "PASS",
+  "zero_origin_handling": "Recorded in all affected site metadata; native file rows retained",
+  "font": {
+    "requested_font": "Arial",
+    "actual_font": "Arial",
+    "message": "Arial located"
+  },
+  "temporary_directory": "OS temporary directory; excluded from deliverables",
+  "temporary_output": "OS temporary directory; excluded from deliverables",
+  "versions": {
+    "python": "3.13.0 (tags/v3.13.0:60403a5, Oct  7 2024, 09:38:07) [MSC v.1941 64 bit (AMD64)]",
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.3",
+    "xraylarch": "2026.3.1"
+  },
+  "visual_QA": {
+    "viewed": [
+      "W_L3_EXAFS_FT_page1_preview",
+      "W_L3_WT_page1_preview",
+      "Co_K_XANES_page1_preview"
+    ],
+    "result": "Readable axes, fonts, labels and legends. No text overlap. Full-spectrum/transform figures are TEST ONLY previews outside the package.",
+    "seven_model_pagination": "PASS; 6 per page, long legends readable, WT titles split at model/adsorbate separator"
+  },
+  "partial_full_pipeline": "PASS; figure/report/output marked PARTIAL_DIAGNOSTIC",
+  "safe_profile_name_guard": "PASS",
+  "seven_model_pagination": "PASS; six figure PDFs across two pages per modality",
+  "temporary_partial_output": "OS temporary directory; excluded from deliverables",
+  "temporary_pagination_output": "OS temporary directory; excluded from deliverables",
+  "last_tested_postprocess_sha256": "c5ff0f827e020f4e94a6ee38cd278e9cc306ed305f6dfc1200c83f854eaecade",
+  "font_mathtext": "Matched custom mathtext to actual selected family",
+  "PDF_fonts": [
+    "DTWKUJ+Arial-ItalicMT",
+    "ELUGPM+Arial-BoldMT",
+    "ELUGPM+ArialMT"
+  ]
+}

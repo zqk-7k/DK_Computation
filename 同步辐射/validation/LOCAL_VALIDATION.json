@@ -1,0 +1,67 @@
+{
+  "status": "LOCAL_WORKFLOW_CHECKS_PASSED_NOT_PHYSICAL_FEFF_RESULTS",
+  "created_utc": "2026-10-28T18:27:02.515127+00:00",
+  "local_platform": "win32",
+  "python_version": "3.13.0",
+  "package_versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.3",
+    "pymatgen": "2026.9.24",
+    "pymatgen-core": "2026.10.16",
+    "xraylarch": "2026.3.1",
+    "openpyxl": "3.1.5"
+  },
+  "original_cif_files_unchanged": 16,
+  "prepared_inputs_and_hashes_verified": {
+    "pilot": 6,
+    "core": 232,
+    "full": 526
+  },
+  "structural_input_audit": {
+    "status": "PASS",
+    "scope": "All explicit absorber clusters in full profile independently checked against periodic enumeration; 263 absorbing centers, separate XANES/EXAFS inputs",
+    "checks": [
+      "atomic identity and original labels",
+      "unique central absorber",
+      "H retention",
+      "vacuum and lattice preserved",
+      "weights sum to one per element/model for full-site profiles",
+      "no unwanted slab image within initial cluster"
+    ]
+  },
+  "python_ast": "PASS",
+  "shell_syntax": "PASS using Git Bash bash -n; all three shell scripts use LF",
+  "runner_format_checks": {
+    "status": "PASS",
+    "scope": "Official FEFF8.50L-format chi.dat/xmu.dat/paths and individual paths, D exponents, real path headers; nonempty .feff.error rejected",
+    "not_a_Feff10_run": true
+  },
+  "larch_postprocess": {
+    "status": "PASS",
+    "report": "validation/postprocess_local_test.json",
+    "actual_larch_transforms_used": true
+  },
+  "workflow_tests": {
+    "status": "PASS",
+    "number": 6,
+    "script": "tests/test_workflow.py",
+    "scope": [
+      "hash-validated completion",
+      "malformed result JSON",
+      "temporary mock-engine end-to-end Larch output plus result ZIP and resume",
+      "PBS complete-state query",
+      "PBS singleton and Slurm arrays",
+      "unknown scheduler state fails before resubmission"
+    ],
+    "fixture_is_physical_calculation": false,
+    "fixture_outputs_included": false
+  },
+  "not_performed": [
+    "Linux FEFF10 compilation",
+    "Physical FEFF10 XANES or EXAFS calculation",
+    "Actual HPC scheduler submission",
+    "Experimental spectral fitting or experimental validation"
+  ],
+  "handoff": "Run pilot and numerical-radius screen on target Linux HPC before production; inspect physical model assumptions independently of numerical convergence."
+}

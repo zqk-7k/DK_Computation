@@ -1,0 +1,210 @@
+{
+  "archive_kind": "CIF-to-FEFF computational workflow, not completed XAS results",
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "bytes": 4375,
+      "sha256": "c088a2f313ad800124b538ad69299eedd9b06a1e0b074c25b36fb2bdd23a6de4"
+    },
+    {
+      "path": "CODEX_TASK.txt",
+      "bytes": 1203,
+      "sha256": "0637c9a2a0229d68bf939cd73a245710bac23e0f6351e1bf73f1ec25052f36b2"
+    },
+    {
+      "path": "config.json",
+      "bytes": 3606,
+      "sha256": "4c2b1d575344698078b93a54175dd8aec565bbb251876e22563755004e41a4f6"
+    },
+    {
+      "path": "docs/OPTIONAL_SOFTWARE.txt",
+      "bytes": 1015,
+      "sha256": "66ff36ef87a3e532f40ddada5266f6b77e974f2bc29468fb450a7e8d538e5d03"
+    },
+    {
+      "path": "docs/OUTPUTS.txt",
+      "bytes": 11123,
+      "sha256": "cc153449812032bf02c258c6454fd006d42db4394a7a07c177f138693d8289a0"
+    },
+    {
+      "path": "docs/SOFTWARE_SETUP.txt",
+      "bytes": 9878,
+      "sha256": "d5ac4b1b4d3fa38f433164dc3352eaf8641ecf7cb12423526c9ecac1c79c31ed"
+    },
+    {
+      "path": "docs/STRUCTURE_SELECTION.txt",
+      "bytes": 13106,
+      "sha256": "8289da7c2ca8e37549354cca826cbdcff6896a5a7c8e171c84002f59963a0173"
+    },
+    {
+      "path": "example_inputs/README.txt",
+      "bytes": 214,
+      "sha256": "17951602bdda31e486f86d4c227694c80638b74f86e4d1524aad5df21918f87d"
+    },
+    {
+      "path": "example_inputs/Top_O1_W_L3_exafs_feff.inp",
+      "bytes": 7089,
+      "sha256": "2ada7b981eed80fb095b5b8247718e7d89d4ee88f712221d213e41e2a3476d89"
+    },
+    {
+      "path": "example_inputs/Top_O1_W_L3_xanes_feff.inp",
+      "bytes": 7099,
+      "sha256": "f8a5ec4f2c2d93a9aea0aae85538f02797ebf28e19370e33f99901e7dc22b795"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9218,
+      "sha256": "0ccf3243be375947cbf43dc092b4af8e0d6cc97fa1b2405dc63fbb288019d973"
+    },
+    {
+      "path": "requirements.txt",
+      "bytes": 128,
+      "sha256": "69c0651657b1cd6e365539faea6d08c1b5327edef489fcb1d8a78595e5c30001"
+    },
+    {
+      "path": "run_all.sh",
+      "bytes": 672,
+      "sha256": "e3d8b3b15acb1aed9000a12fded10c474671abb54815945003ca744569ec6f21"
+    },
+    {
+      "path": "scripts/bootstrap_python.sh",
+      "bytes": 2832,
+      "sha256": "0e0162f2c0bc598ce2e82446a54c34194228a5fb0f31db440617e3e59db17407"
+    },
+    {
+      "path": "scripts/install_feff10.sh",
+      "bytes": 7942,
+      "sha256": "7cb374ca5dce9ec9a842f755fa518d0545873e2d76d382b2be1ef9fdb6393018"
+    },
+    {
+      "path": "scripts/package_results.py",
+      "bytes": 3366,
+      "sha256": "50714652a35e8d9309ba38e82974ebd8608c1a9b11e2c26991faf0f6e9b7848b"
+    },
+    {
+      "path": "scripts/postprocess.py",
+      "bytes": 38574,
+      "sha256": "c5ff0f827e020f4e94a6ee38cd278e9cc306ed305f6dfc1200c83f854eaecade"
+    },
+    {
+      "path": "scripts/prepare_inputs.py",
+      "bytes": 19107,
+      "sha256": "66ec07020b52f7241407447d4a2280680771f04b433f78dcdcde463a31b611e0"
+    },
+    {
+      "path": "scripts/run_array_task.py",
+      "bytes": 1814,
+      "sha256": "b5ed176618ae2b9d842eecfea7c51b7e1d3c023430881376a452475480ace78b"
+    },
+    {
+      "path": "scripts/run_feff_job.py",
+      "bytes": 12021,
+      "sha256": "e1def89cbf04bcde99e67f596ba8339a24b2ef7b0a4ad8a6bcf3d4e957607ebb"
+    },
+    {
+      "path": "scripts/workflow.py",
+      "bytes": 19889,
+      "sha256": "54d7ba292472687445209bdacafdd29296510c1b3ff7c1285244309f8b49f761"
+    },
+    {
+      "path": "structure_checksums.json",
+      "bytes": 2624,
+      "sha256": "420497046a8f7ce71ca49bb8524cf42d40f61ad8ec9ed2c487f0f7d4e85abddd"
+    },
+    {
+      "path": "structures/CoFe-LDH-path/2HCOOH+sub.cif",
+      "bytes": 7376,
+      "sha256": "1836c3f1e7d665df87855686e4645d876fe9cb98e5ec88a705b67b0563d99a83"
+    },
+    {
+      "path": "structures/CoFe-LDH-path/CH2O-HCOOH.cif",
+      "bytes": 7305,
+      "sha256": "79cf34146f1dc3dd6220a0b7059f54d8410cb05bdf0b413a454fac9878b6a745"
+    },
+    {
+      "path": "structures/CoFe-LDH-path/CH2OH-CH2O.cif",
+      "bytes": 7305,
+      "sha256": "34632e7592d603e06177aeb840e063b9696bdfd77b1b3355f5204d7bf3c2f0c9"
+    },
+    {
+      "path": "structures/CoFe-LDH-path/CH2OH-CH2OH.cif",
+      "bytes": 7376,
+      "sha256": "ee2e97270c8b77aa289dda7eb2993e7e41cc2f3c9ab2b7f08eb3cd97dcd1e1cd"
+    },
+    {
+      "path": "structures/CoFe-LDH-path/CH2OH-CHO.cif",
+      "bytes": 7234,
+      "sha256": "c0439e213ddc3d8733e44b94db40df8638939b5150f7632e65b6ce44fdc1d48c"
+    },
+    {
+      "path": "structures/CoFe-LDH-path/CH2OH-HCOOH.cif",
+      "bytes": 7376,
+      "sha256": "11ef72ffd3b8eac848e2898042e444d70ca5a2ca601374b1ae72631f0ff21726"
+    },
+    {
+      "path": "structures/CoFe-LDH-path/CHO-HCOOH.cif",
+      "bytes": 7234,
+      "sha256": "ed4d81945faa3309d0fcfd113edd0b5dd78bc94efe94e3579c619f64507a1f66"
+    },
+    {
+      "path": "structures/CoFe-LDH-path/HCOOH-HCOOH.cif",
+      "bytes": 7376,
+      "sha256": "c23769b96c74da47b17d8690404b162775ba1761334dc81a937df239c9e133c8"
+    },
+    {
+      "path": "structures/CoFe-LDH.cif",
+      "bytes": 6666,
+      "sha256": "f12b7df9bdef6ee063216570c5929ec0a6d67e274cf7ef0546c36972e300d47f"
+    },
+    {
+      "path": "structures/Top-O1.cif",
+      "bytes": 7304,
+      "sha256": "b20dab12e75634d95efa1592f29458d3dcf988a621f827d5e7862456ef021149"
+    },
+    {
+      "path": "structures/Top-O2.cif",
+      "bytes": 6737,
+      "sha256": "80dccdf50e9ba902132d5599c166aa2df55fb1432c2456f74607bcf0e4b6f2d4"
+    },
+    {
+      "path": "structures/W1-path/CH2OH-CH2O.cif",
+      "bytes": 7376,
+      "sha256": "aa96d195e09472347d45906b5fdd5b1dae16dae30b5a4200980f3808c27e5049"
+    },
+    {
+      "path": "structures/W1-path/CH2OH-CH2OH.cif",
+      "bytes": 7447,
+      "sha256": "83e697fa1f7bc6c63192a6457fa1049dc9424b22e4e9d756db31cfa125068811"
+    },
+    {
+      "path": "structures/W1-path/CH2OH-CHO.cif",
+      "bytes": 7305,
+      "sha256": "fd722d90738f931e1983144f0396553d866963465c09b417fd788e06344a5640"
+    },
+    {
+      "path": "structures/W1-path/CH2OH-CO.cif",
+      "bytes": 7234,
+      "sha256": "ca72fba3bbdfa97032e6a093297f4d8228e0e45cae3dbd6b7137796aa67cf7b8"
+    },
+    {
+      "path": "structures/W1-path/CH2OH-COOH.cif",
+      "bytes": 7376,
+      "sha256": "116597f3d5fce9bae6a8de90f9348e0f1b38d28eca0c2f6f0fcfb8315133b825"
+    },
+    {
+      "path": "tests/test_workflow.py",
+      "bytes": 6420,
+      "sha256": "cf93cf24b1894314a50f0b8a04f6333abcfb872d6dec083c82eb9ffc7253b876"
+    },
+    {
+      "path": "validation/LOCAL_VALIDATION.json",
+      "bytes": 2467,
+      "sha256": "87049f572467bb3d8b760a994f584e450672ba9758de83bc89f5f3b9d7e605e9"
+    },
+    {
+      "path": "validation/postprocess_local_test.json",
+      "bytes": 2191,
+      "sha256": "260ab51c9b2c295982494be8447523f9ed102cce6cb4c1c4abd0d79442a57f4f"
+    }
+  ]
+}

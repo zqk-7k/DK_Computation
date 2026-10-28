@@ -1,0 +1,82 @@
+[
+  {
+    "file": "structures/CoFe-LDH-path/2HCOOH+sub.cif",
+    "sha256": "1836c3f1e7d665df87855686e4645d876fe9cb98e5ec88a705b67b0563d99a83",
+    "bytes": 7376
+  },
+  {
+    "file": "structures/CoFe-LDH-path/CH2O-HCOOH.cif",
+    "sha256": "79cf34146f1dc3dd6220a0b7059f54d8410cb05bdf0b413a454fac9878b6a745",
+    "bytes": 7305
+  },
+  {
+    "file": "structures/CoFe-LDH-path/CH2OH-CH2O.cif",
+    "sha256": "34632e7592d603e06177aeb840e063b9696bdfd77b1b3355f5204d7bf3c2f0c9",
+    "bytes": 7305
+  },
+  {
+    "file": "structures/CoFe-LDH-path/CH2OH-CH2OH.cif",
+    "sha256": "ee2e97270c8b77aa289dda7eb2993e7e41cc2f3c9ab2b7f08eb3cd97dcd1e1cd",
+    "bytes": 7376
+  },
+  {
+    "file": "structures/CoFe-LDH-path/CH2OH-CHO.cif",
+    "sha256": "c0439e213ddc3d8733e44b94db40df8638939b5150f7632e65b6ce44fdc1d48c",
+    "bytes": 7234
+  },
+  {
+    "file": "structures/CoFe-LDH-path/CH2OH-HCOOH.cif",
+    "sha256": "11ef72ffd3b8eac848e2898042e444d70ca5a2ca601374b1ae72631f0ff21726",
+    "bytes": 7376
+  },
+  {
+    "file": "structures/CoFe-LDH-path/CHO-HCOOH.cif",
+    "sha256": "ed4d81945faa3309d0fcfd113edd0b5dd78bc94efe94e3579c619f64507a1f66",
+    "bytes": 7234
+  },
+  {
+    "file": "structures/CoFe-LDH-path/HCOOH-HCOOH.cif",
+    "sha256": "c23769b96c74da47b17d8690404b162775ba1761334dc81a937df239c9e133c8",
+    "bytes": 7376
+  },
+  {
+    "file": "structures/CoFe-LDH.cif",
+    "sha256": "f12b7df9bdef6ee063216570c5929ec0a6d67e274cf7ef0546c36972e300d47f",
+    "bytes": 6666
+  },
+  {
+    "file": "structures/Top-O1.cif",
+    "sha256": "b20dab12e75634d95efa1592f29458d3dcf988a621f827d5e7862456ef021149",
+    "bytes": 7304
+  },
+  {
+    "file": "structures/Top-O2.cif",
+    "sha256": "80dccdf50e9ba902132d5599c166aa2df55fb1432c2456f74607bcf0e4b6f2d4",
+    "bytes": 6737
+  },
+  {
+    "file": "structures/W1-path/CH2OH-CH2O.cif",
+    "sha256": "aa96d195e09472347d45906b5fdd5b1dae16dae30b5a4200980f3808c27e5049",
+    "bytes": 7376
+  },
+  {
+    "file": "structures/W1-path/CH2OH-CH2OH.cif",
+    "sha256": "83e697fa1f7bc6c63192a6457fa1049dc9424b22e4e9d756db31cfa125068811",
+    "bytes": 7447
+  },
+  {
+    "file": "structures/W1-path/CH2OH-CHO.cif",
+    "sha256": "fd722d90738f931e1983144f0396553d866963465c09b417fd788e06344a5640",
+    "bytes": 7305
+  },
+  {
+    "file": "structures/W1-path/CH2OH-CO.cif",
+    "sha256": "ca72fba3bbdfa97032e6a093297f4d8228e0e45cae3dbd6b7137796aa67cf7b8",
+    "bytes": 7234
+  },
+  {
+    "file": "structures/W1-path/CH2OH-COOH.cif",
+    "sha256": "116597f3d5fce9bae6a8de90f9348e0f1b38d28eca0c2f6f0fcfb8315133b825",
+    "bytes": 7376
+  }
+]

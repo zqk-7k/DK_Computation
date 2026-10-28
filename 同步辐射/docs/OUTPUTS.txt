@@ -1,0 +1,198 @@
+FEFF10 CALCULATED SPECTRA: OUTPUTS AND POSTPROCESSING
+==================================================
+
+Scope
+-----
+The calculation path reads actual completed FEFF10 jobs created from the supplied
+structure models. It does not manufacture spectra, assign structures to OCP or
+electrode potentials, or fit theoretical outputs to unavailable experimental data.
+Figure titles say "Calculated FEFF10" and footers identify model-derived results.
+A response to a reviewer must describe these as calculations, not operando data.
+
+Run from the activated HPC environment:
+  python scripts/postprocess.py --config config.json --profile pilot
+  python scripts/postprocess.py --config config.json --profile core
+  python scripts/postprocess.py --config config.json --profile full
+
+Any safe profile name defined in config.profiles is accepted, including
+convergence_1 and convergence_2. Each profile uses its own manifest and results.
+
+Dependencies: Python 3.11+, numpy, scipy, matplotlib, xraylarch.
+The package environment pins tested versions. Larch's actual xftf and
+cauchy_wavelet functions are required; no home-made substitute is used.
+
+Data contract and completion checks
+-----------------------------------
+manifests/PROFILE_jobs.json is a list. Each entry has id, model_id, source_cif,
+edge, element, absorber_index, mode, weight and path. A job lives in
+jobs/PROFILE/MODEL/EDGE/site_N/MODE. Its job.json must match the manifest and
+run_result.json must contain status="complete". If the runner records an input
+hash, postprocessing verifies feff.inp has not changed. Native output must exist
+and contain valid increasing finite data. All weights for a model/edge/mode must
+sum to one in the manifest. All planned sites must be complete by default.
+
+--allow-partial is for diagnostics only. Missing jobs and retained original
+weight sums are reported. Available weights are renormalized. The destination,
+every plot title and the report are explicitly marked PARTIAL / DIAGNOSTIC ONLY.
+Missing/failed sites are never silently dropped from a final average.
+The pilot profile may intentionally select one representative site per element.
+Such spectra are explicitly recorded as not being full-element averages via
+is_full_element_average and site_selection in the mean and overall reports.
+Completeness of the selected manifest does not imply completeness of all sites
+in the physical structure. Inspect these fields before describing an average.
+
+Output directory
+----------------
+results/PROFILE/COMPLETE_UTC-TIMESTAMP/
+or results/PROFILE/PARTIAL_DIAGNOSTIC_UTC-TIMESTAMP/
+
+The parent path can be changed by config.postprocess.output_dir. Each run uses a
+new timestamp; previous outputs are not overwritten. The directory name is a
+requested run category; always consult postprocess_report.json for final status.
+If processing fails, status="failed" is written and no latest-run pointer is
+updated. results/PROFILE/latest_run.json identifies the last successful run.
+
+  sites/MODEL/EDGE/site_N/xanes/
+    native_xmu.csv              Full native FEFF columns, before interpolation
+    common_energy_mu.csv       Shared photon-energy grid, mu, mu0 and native chi
+    source_and_processing.json Native comments, hashes and energy handling
+
+  means/MODEL/EDGE/xanes/
+    mean_mu.csv                Site-weighted mu on the common absolute E grid
+    averaging.json             Site identifiers, weights and applied common shift
+
+  sites/MODEL/EDGE/site_N/exafs/ and means/MODEL/EDGE/exafs/
+    native_chi.csv             Site output only, all FEFF chi.dat columns
+    chi_full_grid.csv          k, signed chi, k*chi, k^2*chi and k^3*chi
+    chi_common_3_to_12.csv     Common k=3-12, step 0.05 Angstrom^-1
+    FT_kweight1.csv            R, real FT, imaginary FT and magnitude
+    FT_kweight2.csv            Same quantities with k^2 weighting
+    FT_kweight3.csv            Same quantities with k^3 weighting
+    WT_Cauchy_REAL.csv         Full R-by-k real coefficient matrix
+    WT_Cauchy_IMAG.csv         Full R-by-k imaginary coefficient matrix
+    WT_Cauchy_MAG.csv          Full R-by-k magnitude matrix
+    complex_transforms.npz     Signed chi and full complex FT/WT arrays + axes
+    processing.json            Exact transform parameters and interpretation limits
+    averaging.json             Mean output only: weights and complex-linearity QA
+    source_and_processing.json Site output only: native comments/hash/axis handling
+
+  figures/
+    EDGE_XANES_pageN.*        Available models, at most six per page
+    EDGE_EXAFS_FT_pageN.*     k^1,k^2,k^3 chi and corresponding FT magnitudes
+    EDGE_WT_pageN.*           Cauchy WT maps, one common raw color scale
+
+  postprocess_report.json     Versions, font, data provenance, missing jobs,
+                              energy treatment, transform settings and limitations
+  file_inventory.json         Relative output filenames, sizes and SHA-256 hashes
+
+Every figure is saved as PDF, SVG, 450 dpi PNG and a smaller preview PNG. PDF/SVG
+retain editable text. The WT image grid is rasterized inside vector exports to
+avoid enormous vector mesh files. Axes/curves use 0.5 pt. Arial is used when
+installed. If Arial is missing, the script explicitly warns, uses DejaVu Sans and
+records this in the report. It never silently claims that a substitute is Arial.
+
+Native FEFF column interpretation
+--------------------------------
+For xmu.dat, the six standard columns are:
+  1 photon energy omega (eV), 2 relative energy e (eV), 3 k (Angstrom^-1),
+  4 total absorption mu, 5 atomic-background mu0, 6 native chi/scaled chi.
+The script uses column 1 for energy and column 4 for mu. It preserves the
+remaining columns and original headers. FEFF10 documentation describes a
+rescaled chi in xmu.dat; mu=mu0*(1+chi) is therefore NOT a universal validation
+identity. Both additive and multiplicative residuals are logged. By default
+neither identity is enforced. An explicitly requested relation in config is
+checked and rejected if inconsistent. Mu is never reconstructed from column 6.
+
+For chi.dat, column 1 is k and column 2 is the signed chi(k). Additional columns,
+when present, are preserved without inventing an amplitude/phase interpretation.
+Only signed column 2 enters the transforms. Neither |chi| nor |FT| is used as the
+averaging input.
+
+Energy reference and site averaging
+----------------------------------
+XANES: use native absolute photon energy, not per-curve subtraction of E_F or
+individual white-line positions. All sites/models of an edge share the
+intersection of their native energy ranges (default step 0.25 eV). Linear
+interpolation stays inside this interval. Weighted mu is averaged first. No
+per-site peak normalization is performed. A user-specified common edge shift in
+postprocess.energy_shift_eV_by_edge is applied identically to all spectra of that
+edge and is recorded; by default all such shifts are zero. Shifts do not turn
+theoretical energies into an experimental oxidation-state calibration.
+
+EXAFS: first average signed chi on a shared k grid, then perform FT/WT. Here k is
+the native threshold-referenced photoelectron wavevector for each FEFF site.
+This is explicitly a native_k_structural_approximation: it preserves oscillation
+phase but does not include absolute-energy mixing of site chemical shifts.
+It must not be described as a complete experimental absorption-spectrum average.
+A future absolute-energy EXAFS mixture requires validated per-site E(k) mappings
+and a common E0; this script does not invent those mappings.
+
+The mean transform is checked against the corresponding weighted complex site
+transforms. This is a linearity check, not a fit. Averaging |FT| or |WT| would
+destroy interference and is not performed. FT/WT real and imaginary parts remain
+available in CSV and as native complex arrays in NPZ.
+
+FT and WT conventions
+---------------------
+Display/data grid: k=3 to 12 Angstrom^-1, step 0.05.
+FT: Larch xftf, Hanning window, kmin=3, kmax=12, dk=dk2=1.0, nfft=2048;
+k weights 1, 2 and 3; default maximum output R=6 Angstrom. Phase correction is
+not applied. Larch's Hanning taper extends to kmin-dk/2 and kmax+dk/2, so native
+chi must cover 2.5-12.5. In practice generate FEFF EXAFS to at least k=14.
+Printed-coordinate endpoint tolerance defaults to 0.002 Angstrom^-1; it does
+not allow genuine extrapolation. Native k gaps larger than 0.25 are rejected.
+
+WT: Larch cauchy_wavelet, kweight=2, nfft=2048, no extra Hann window. It uses the
+full common available uniform k interval, starting at zero, and displays only
+3-12. If chi.dat starts near k=0.05, a zero origin is explicitly added: k^w*chi at
+zero is zero for w=1,2,3. The addition is recorded. A larger missing low-k interval
+is rejected. Common maximum k is determined from actual coverage of every
+included site and model of an edge. All mean WT panels/edges use one shared raw
+magnitude color scale; there is no per-map normalization. Full complex WT arrays
+are retained, including outside the displayed k interval. Finite-k boundary
+effects remain. No Morlet cone-of-influence mask is misapplied to this Cauchy WT.
+
+Configuration keys (postprocess object; defaults shown)
+------------------------------------------------------
+output_dir: "results"
+energy_step_eV: 0.25
+kmin: 3.0, kmax: 12.0, kstep: 0.05, dk: 1.0, nfft: 2048
+rmax: 6.0
+native_k_gap_max: 0.25
+endpoint_tolerance: 0.002
+xmu_relation: "diagnostic"
+exafs_site_average: "native_k_structural_approximation"
+energy_shift_eV_by_edge: {}  (keys such as W_L3, Co_K, Fe_K)
+png_dpi: 450
+
+The fixed k/window/nfft contract is validated; changing it requires a documented
+method revision. Native output coverage is checked, rather than assumed from
+configuration. No interpolation across a missing calculation is permitted.
+
+Verification without FEFF results
+--------------------------------
+  python scripts/postprocess.py --self-test
+
+This creates a small TEST ONLY analytical fixture in a system temporary directory,
+checks column parsing, applicability of the mu relation, extrapolation rejection,
+signed averaging and complex FT/WT linearity, then removes the directory. It does
+not use, create or replace FEFF results. Passing this test validates numerical
+plumbing only, not a physical model, a FEFF installation or scientific conclusions.
+
+Sources
+-------
+FEFF10 User's Guide, section 4.2.1 (native output definitions):
+https://times-software.github.io/feff10/assets/doc/feff10_users_guide.pdf
+Larch Fourier transform documentation:
+https://xraypy.github.io/xraylarch/xafs_fourier.html
+Larch Cauchy wavelet documentation:
+https://xraypy.github.io/xraylarch/xafs_wavelets.html
+Wavelet method: Munoz, Argoul and Farges, American Mineralogist 88, 694-700 (2003).
+
+Scientific limits
+-----------------
+Different calculated spectra reflect differences between supplied model structures
+and FEFF approximations. They do not prove that W is the main or exclusive EG
+oxidation site. Static models do not substitute for potential-dependent operando
+measurements. No fitted coordination numbers, site densities, formal valence
+changes, confidence intervals or reference foil/oxide spectra are fabricated.

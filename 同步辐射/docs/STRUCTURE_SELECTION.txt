@@ -1,0 +1,244 @@
+STRUCTURE SELECTION AND GEOMETRY-BASED XAS BOUNDARIES
+==================================================
+
+The author states that all 16 supplied CIF structures have already been DFT
+optimized. This workflow accepts that provenance and does not repeat geometry
+optimization. No original DFT density, magnetic moments, electronic occupations,
+U values, total charge, solvent model or convergence logs were supplied. A CIF
+contains atomic geometry, not those electronic quantities. FEFF will calculate
+its own electronic/scattering potentials from the supplied local geometry.
+
+This is a physical, geometry-based theoretical XAS workflow. It is not a measured
+operando dataset and does not assign OCP, 1.4, 1.5 or 1.6 V to the structures.
+The old analytic SYNTHETIC plot package is not a source of input spectra or a
+target to which the new physical spectra should be forced to conform.
+
+1. INPUT INVENTORY
+------------------
+Root CoFe-LDH.cif: Co12 Fe4 O32 H32, 80 atoms, no W.
+Root Top-O1.cif and Top-O2.cif: Co12 Fe4 O32 H32 W1, 81 atoms.
+The W is an added surface atom, not a Co/Fe substitution in these particular CIFs.
+
+W1-path contains five adsorbate/intermediate snapshots:
+  CH2OH-CH2OH.cif   91 atoms (EG-labelled starting adsorbate)
+  CH2OH-CH2O.cif    90 atoms
+  CH2OH-CHO.cif     89 atoms
+  CH2OH-CO.cif      88 atoms
+  CH2OH-COOH.cif    90 atoms
+
+CoFe-LDH-path contains eight W-free snapshots:
+  CH2OH-CH2OH.cif   90 atoms
+  CH2OH-CH2O.cif    89 atoms
+  CH2OH-CHO.cif     88 atoms
+  CH2OH-HCOOH.cif   90 atoms
+  CH2O-HCOOH.cif    89 atoms
+  CHO-HCOOH.cif     88 atoms
+  HCOOH-HCOOH.cif   90 atoms
+  2HCOOH+sub.cif    90 atoms
+
+Names describe the supplied model labels; do not infer validated molecular
+connectivity, oxidation states or formal charges from a filename alone.
+2HCOOH+sub.cif places the carbon atoms approximately 8.4-8.6 angstrom from the
+nearest Co/Fe atoms and is treated as a low-priority desorbed-product geometry.
+It remains included in the full profile. No W-particle or W6-cluster structure
+is present in this 16-file set.
+
+2. PROFILE DEFINITIONS
+----------------------
+pilot (bundled config): Top-O1.cif, W L3 / Co K / Fe K; one representative
+                       absorber per element and both modes; 6 independent jobs.
+W uses its first source site. Co/Fe each use the site with the shortest periodic
+distance to any W atom (or the first site if a model has no W). This is an explicit
+benchmark selection, not symmetry reduction or a full element-averaged spectrum.
+When no pilot configuration overrides are supplied, the script's minimal fallback
+is Top-O1 / W L3, all W sites, both modes.
+
+core (default):
+  CoFe-LDH.cif
+  Top-O1.cif
+  Top-O2.cif
+  W1-path/CH2OH-CH2OH.cif
+  W1-path/CH2OH-CHO.cif
+  CoFe-LDH-path/CH2OH-CH2OH.cif
+  CoFe-LDH-path/CH2OH-CHO.cif
+  116 absorber sites, 232 jobs for xanes + exafs.
+
+full (default): all 16 copied CIFs recursively under structures/;
+                263 absorber sites, 526 jobs for xanes + exafs.
+
+In core/full, each Co, Fe and W site is calculated separately, without symmetry
+shortcuts. The default site_selection is all. The optional
+representative_nearest_w selection is restricted in interpretation to pilot and
+convergence work, and its output must not replace a full element average.
+Within one model and one element, each selected site has weight 1/N_selected.
+For core/full N_selected equals N_element; in the representative pilot it is one.
+The manifest records both selected and total element site counts, site_selection
+and is_full_element_average. A Co or Fe
+site near W must not replace the full element-averaged spectrum. Alternative
+structures are separate models: do not average models with guessed populations.
+For EXAFS, preserve phase information and average chi(k) before FT or WT; do not
+average FT magnitudes as a substitute for the element-averaged spectrum.
+
+3. CELL AND LOCAL ENVIRONMENT
+-----------------------------
+All cells have a=b=12.7829 angstrom, gamma=120 degrees, alpha=beta=90 degrees.
+Root and W1-path c=19.137699 angstrom; CoFe-LDH-path c=25.137699 angstrom.
+These are slabs with vacuum in the c direction. Pymatgen parses the original
+conventional cell without primitive reduction. The complete lattice, vacuum,
+hydrogen, source-site coordinates and periodic-image translations are retained.
+
+One W is repeated per in-plane cell: the nearest identical W image is 12.7829
+angstrom away. This is finite periodic coverage, not proof of the infinitely
+dilute limit. Larger supercell sensitivity remains a separate physical issue.
+
+Top-O1 has nearest metal neighbours comprising one Fe and two Co; Top-O2 has
+three nearest Co. They provide alternative local-environment fingerprints. Their
+names do not alone establish experimental populations or preferred active sites.
+The supplied Top-O2 substrate coordinates equal those of the supplied W-free
+root slab; that equality does not override the author's stated optimization
+provenance, but original logs would improve reproducibility.
+
+If CoII/FeIII is assumed, Co12Fe4(OH)32 has a formal +4 layer charge. Interlayer
+counterions are not present in these models. The original electronic charge
+treatment is unknown. FEFF baseline inputs do not invent oxidation states or
+recover the original DFT charge compensation from the CIF.
+
+4. PREPARATION INTERFACE
+------------------------
+python scripts/prepare_inputs.py --config config.json --profile pilot
+python scripts/prepare_inputs.py --config config.json --profile core
+python scripts/prepare_inputs.py --config config.json --profile full
+
+Paths are relative to the config.json directory and must remain in the package:
+  paths.structures_dir = "structures"
+  paths.jobs_dir = "jobs"
+  paths.manifests_dir = "manifests"
+
+Optional profile selection override:
+  profiles.pilot.models = ["Top-O1.cif"]
+  profiles.core.models = [ ... relative CIF paths ... ]
+  profiles.full.models = [ ... relative CIF paths ... ]
+  profiles.full.models = "all"  (alternative: recursively select every CIF)
+  profiles.pilot.edges = ["W_L3", "Co_K", "Fe_K"]
+  profiles.pilot.site_selection = "representative_nearest_w"
+  profiles.core.edges = ["W_L3", "Co_K", "Fe_K"]
+  profiles.core.site_selection = "all"
+  profiles.<profile>.feff = { ... overrides to feff settings ... }
+
+Arbitrary profile names defined in config.json are accepted. Custom profiles
+must specify their models list and may specify edges and feff overrides. For
+example, convergence_1 can select Top-O1.cif / three edges / representative sites
+with cluster=10, SCF=6 and
+FMS=8 angstrom. A separate convergence_2 can use cluster=12, SCF=7 and FMS=10.
+These are convergence trials, not guaranteed adequate final radii. Representative
+site convergence must also be checked for sufficiently different production
+environments before claiming that every structure/site has converged.
+
+Default feff settings consumed by prepare_inputs.py:
+  cluster_radius_angstrom  8.0
+  scf_radius_angstrom      5.0
+  fms_radius_angstrom      6.0
+  rpath_angstrom           5.0
+  exafs_kmax             14.0
+  xanes_card             [4.0, 0.05, 0.2]
+  scf_card_suffix        [0, 30, 0.2, 1]
+  fms_card_suffix        [0]
+  corehole               "FSR"
+  s02                    1.0
+  nleg                   4
+  print                 [1, 0, 0, 0, 0, 3]
+  modes                 ["xanes", "exafs"]
+Optional max_atoms sets a guard against exceeding the selected FEFF build limits;
+it does not establish the actual compiled FEFF maximum.
+
+Output tree:
+  jobs/PROFILE/MODEL/ELEMENT_EDGE/site_NNNN/MODE/feff.inp
+  jobs/PROFILE/MODEL/ELEMENT_EDGE/site_NNNN/MODE/job.json
+  manifests/PROFILE_jobs.json
+
+absorber_index/site_index is ZERO-BASED in the parsed pymatgen site order.
+The original CIF label, fractional coordinates and full source-site table are
+stored in job.json; do not assume the parser's site index equals a CIF row number.
+Each cluster atom records source site index, periodic image and centered Cartesian
+coordinates. The absorber is the only atom with ipot=0. Other potential indices
+are contiguous, element-grouped, and use the correct atomic number Z.
+
+All H atoms are retained as Z=1. Partial occupancies or disordered sites cause an
+explicit error: this workflow does not silently round occupancies, remove atoms
+or choose disorder configurations. Parser warnings are recorded for review.
+
+Existing identical inputs may be regenerated. Changed inputs cannot overwrite an
+existing feff.inp: select a new jobs_dir and manifests_dir for convergence runs,
+so that old FEFF outputs are never confused with a changed calculation.
+
+5. FEFF BOUNDARIES AND CONVERGENCE
+---------------------------------
+Target FEFF9/10. XANES and EXAFS run in separate directories:
+  XANES: XANES card, FMS 6 0, RPATH -1; no EXAFS card.
+  EXAFS: EXAFS 14, RPATH 5, NLEG 4; no FMS or XANES card.
+Both use SCF 5 0 30 0.2 1, S02 1 and a baseline FSR core hole.
+No polarization card is supplied: this is the orientation-averaged baseline.
+
+8/5/6/5 angstrom radii are STARTING values, not verified convergence values.
+Pilot runs must compare atom-cluster, SCF/FMS and path-radius settings, relevant
+path-leg cutoffs, and core-hole choices. Increase the enclosing atom cluster when
+increasing inner radii. In an asymmetric slab, representative atoms near a cluster
+boundary may need a larger buffer for their SCF environments. Check FEFF logs for
+atom/potential dimension limits and convergence; a zero exit status alone is not
+proof of a physically valid or converged spectrum.
+
+The default element-grouped scattering potentials are an approximation. Distinct
+OH, organic O, near-W and remote metal environments may need separately defined
+potentials in an advanced sensitivity calculation. Their chemical equivalence is
+not asserted here. Unit-cell stoichiometries are used for xnatph: an absorber
+fraction of 0.01 is split from its element's noncentral potential if that potential
+exists; a unique central-only species retains its unit-cell count. Validate Fermi
+level and SCF behaviour for these finite-coverage slab models in the pilot.
+Only elements actually present in the extracted atom cluster receive a potential.
+For example, a metal far from a desorbed organic species may have no C within the
+cluster radius; no dummy C atom/potential is inserted to represent that remote
+species. This cluster truncation is another reason to check radius convergence.
+
+H handling and potentials must be checked in the installed FEFF9/10 build using
+the pilot outputs. If H triggers a version-specific problem, stop and investigate;
+the script never silently deletes H. Static CIF geometries contain no measured
+thermal disorder. No fitted Debye-Waller factor or claimed experimental absolute
+amplitude is introduced. S02=1 is a theoretical baseline, not an experimental fit.
+
+FEFF's self-consistent potentials do not automatically import the original DFT+U,
+magnetism, charge density, applied electrode field or solvation model. W L3 and
+Co/Fe K edge fingerprints can be calculated, but quantitative potential-dependent
+shifts and oxidation-state assignments require additional calibration and method
+validation. Use one documented alignment convention per edge; do not shift each
+model independently to manufacture a desired trend. FT and WT are transformations
+of the same calculated chi(k), not independent mechanistic evidence.
+
+6. SOFTWARE AND PRIMARY DOCUMENTATION
+-------------------------------------
+Python >=3.10 and pymatgen with CifParser.parse_structures are required. The code
+uses frac_tolerance=0, check_occu=True and primitive=False. Use the package's pinned
+environment for production and retain pip/conda versions. Every job records the
+actual pymatgen version. Input generation must be smoke-tested in that environment;
+compiling this script alone does not validate FEFF or the parser installation.
+
+Local input-generation validation performed during package construction:
+  pilot 6, core 232 and full 526 jobs were generated successfully.
+  All 764 generated jobs passed checks of CIF labels, lattice and fractional
+  coordinates (modulo periodic images), Z/ipot, unique central absorber, FEFF card
+  separation, weights and input hashes. Independent explicit periodic enumeration
+  matched all 263 full-profile absorber clusters, including every H in the radius.
+These checks validate input preparation, not a completed FEFF spectrum or physical
+convergence. The final pinned environment must be smoke-tested again if changed.
+
+Official FEFF9 manual:
+https://feff.phys.washington.edu/FEFF/Docs/feff9/feff90/feff90_users_guide.pdf
+Official FEFF10 manual:
+https://times-software.github.io/feff10/assets/doc/feff10_users_guide.pdf
+SCF controls:
+https://feff.phys.washington.edu/FEFF/Docs/feff8/feff84/feff84/SCF.html
+POTENTIALS / atomic numbers and unique potential indices:
+https://feff.phys.washington.edu/feff/wiki/static/p/o/t/POTENTIALS_4425.html
+FMS and its separation from an EXAFS path expansion:
+https://feff.phys.washington.edu/feff/wiki/static/f/m/s/FMS_f13d.html
+COREHOLE treatments:
+https://feff.phys.washington.edu/feff/wiki/static/c/o/r/COREHOLE_85ae.html

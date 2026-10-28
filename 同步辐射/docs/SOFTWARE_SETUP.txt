@@ -1,0 +1,178 @@
+SOFTWARE SETUP AND FEFF EXECUTION
+Verified official source state: 2026-10-29
+
+1. Engine and reproducibility
+
+This package uses the COMPLETE FEFF10 engine for XANES and EXAFS.
+Repository: https://github.com/times-software/feff10
+Pinned commit: d861cf8b64342e2d63a0aeb62c8b78faca7942c3 (2026-07-29)
+Archive URL:
+https://codeload.github.com/times-software/feff10/tar.gz/d861cf8b64342e2d63a0aeb62c8b78faca7942c3
+SHA256: f3397e872ed376e37c0404c53f9c8996e0247044571b9a344a6f32b2932bda66
+
+The FEFF10 repository is public and has its own licence permitting use and
+redistribution subject to its conditions, including preservation of notices.
+The installer retains LICENSE. It does not claim an MIT/GPL licence or require
+purchase of a commercial licence. Official distribution pages may also offer
+registration for downloadable packages and updates.
+https://github.com/times-software/feff10/blob/d861cf8b64342e2d63a0aeb62c8b78faca7942c3/LICENSE
+
+Feff8L / feff85exafs is EXAFS-only; it omits the full multiple scattering fms
+XANES module. It must NOT be substituted for complete FEFF10 in XANES jobs.
+https://github.com/xraypy/feff85exafs
+
+2. Installation on a Linux cluster (no sudo)
+
+Load the cluster's normal compiler/Python modules. Module names are site-specific;
+this package does not guess names or install operating-system packages.
+Required: Bash, make, tar, sha256sum, Python 3, and Fortran compiler. Downloading
+requires curl or wget unless the pinned archive is supplied locally.
+
+From the package root:
+    bash scripts/install_feff10.sh
+    bash scripts/install_feff10.sh --check
+
+Default compiler: gfortran. Alternative examples:
+    FEFF_FC=ifort bash scripts/install_feff10.sh
+    FEFF_FC=ifx bash scripts/install_feff10.sh
+
+Compiler flags can be explicitly supplied through FEFF_FFLAGS. The installer
+uses FEFF's bundled linear algebra, without MPI, MKL, or administrator access.
+It invokes the official src/Makefile with the explicit all target and -j1.
+Fortran module dependencies can make parallel compilation unreliable, so -j1
+is intentional. All spectroscopy tasks are serial, with independent jobs
+parallelized by the scheduler. MPI ABI compatibility is not assumed.
+
+Compiler.mk explicitly sets FPPTASK = -DFEFF for every compiler. The upstream
+Makefile only assigns this macro for compilers not named literally gfortran.
+Without the macro, DMDW is built as a standalone program rather than a FEFF
+module and cannot reliably skip jobs that did not request DMDW.
+
+Compiler caveat: the upstream CI at this commit tests Intel ifort; its GNU
+Fortran CI section is disabled. The distributed compiler settings document
+-fallow-argument-mismatch for gfortran >=10, which this installer applies.
+This accommodates legacy argument mismatches; it is not proof of numerical
+correctness. A real spectroscopy smoke test on the target system remains
+mandatory after compilation. ifx is configurable, not claimed upstream-tested.
+https://github.com/times-software/feff10/blob/d861cf8b64342e2d63a0aeb62c8b78faca7942c3/src/Compiler.mk.default
+https://github.com/times-software/feff10/issues/4
+
+Installation root: software/feff10/
+    source/                  pinned source and source/bin/Seq executables
+    bin/run_feff10.sh         relocatable serial wrapper
+    downloads/               source archive (~50 MB compressed)
+    install.log              retained compilation log
+    install_complete.json    commit, checksum, compiler, flags, timestamp
+    LICENSE                  upstream licence
+
+The installer preserves an existing completed installation; it does not
+automatically replace a different version. Interrupted installation leaves
+logs/source for diagnosis. A .install.lock prevents simultaneous builds.
+
+Offline installation: download the exact archive on a network-enabled machine,
+upload it, then set FEFF_SOURCE_ARCHIVE to its absolute path. The same SHA256
+is checked. A mismatch stops installation; the script never silently follows
+master or relaxes the digest check.
+
+3. Existing engine installation
+
+In CONFIG.json, software.feff_command is an argv array. Examples:
+    "feff_command": []
+    "feff_command": ["/absolute/path/to/feff"]
+    "feff_command": ["bash", "/absolute/path/to/site_feff_wrapper.sh"]
+The empty array selects software/feff10/bin/run_feff10.sh.
+Shell expressions, pipelines, redirections and a single command string are not
+interpreted. {root} in arguments is replaced by this workflow package's root.
+Load necessary site environment modules before running Python. An external
+engine's version/licence must be recorded by the operator; output headers and
+stdout are retained. Supplying Feff8L does not add XANES capability.
+
+4. Running one job
+
+    python3 scripts/run_feff_job.py --job JOB_DIRECTORY --config CONFIG.json
+
+JOB_DIRECTORY contains feff.inp and job.json with mode "xanes" or "exafs".
+The engine runs with that directory as its working directory. Original FEFF
+tables remain unchanged. stdout.log and stderr.log are written there.
+run_result.json records status, mode, argv, return code, input SHA256, times and
+validation summaries. Success is exactly status="complete". A zero process
+exit code alone is NOT success. Missing, stale, malformed, non-finite or
+constant numerical spectra produce status="failed" and a nonzero runner code.
+For EXAFS, fresh paths.dat and valid feffNNNN.dat tables are also required.
+SHA256 values for the spectrum, paths.dat and all ASCII path tables are retained
+in validation.files so restart checks can detect deleted or altered outputs.
+Earlier key outputs/logs are moved into previous_runs/ before a rerun, preserving
+them without allowing old spectra to satisfy validation. A lock prevents two
+tasks writing the same job simultaneously. Inspect any leftover lock before
+removing it after an interrupted scheduler job.
+
+The wrapper follows the upstream serial MkFeffScript order:
+rdinp -> dmdw -> atomic -> pot -> ldos -> screen -> crpa -> opconsat -> xsph ->
+fms -> mkgtr -> path -> genfmt -> ff2x -> sfconv -> compton -> eels -> rhorrp.
+Inactive optional modules exit according to the generated input settings.
+After each module the wrapper checks .feff.error, because a Fortran STOP may
+leave a zero shell status despite an engine error.
+https://github.com/times-software/feff10/blob/d861cf8b64342e2d63a0aeb62c8b78faca7942c3/src/Utility/MkFeffScript
+
+Optional software.feff_timeout_seconds is a positive runner timeout in seconds;
+software.timeout_seconds is accepted as a legacy fallback. The package may
+configure 14400 seconds (4 hours); review this against the scheduler wall time.
+0 or omission disables it. The scheduler's wall-time limit is independent.
+SIGTERM/interrupt attempts to stop the complete child process group and writes
+failed status. SIGKILL/node loss cannot run cleanup; a running marker is not
+treated as completed by downstream processing.
+
+5. Inputs and native outputs
+
+EXAFS input must request ASCII path tables, for example:
+    PRINT 1 0 0 0 0 3
+The SIXTH value controls ff2x and must be >=3. Without it, FEFF10 normally
+keeps path information in feff.bin rather than writing feffNNNN.dat.
+
+Native files:
+    xmu.dat      usual XAS columns: energy, relative energy, k, mu, mu0,
+                 and an oscillatory contribution; preserve/read its header.
+    chi.dat      k [inverse Angstrom], chi(k), with further amplitude/phase
+                 columns depending on options. EXAFS analysis uses columns 1,2.
+    paths.dat    path geometries, degeneracies and lengths from the pathfinder.
+    feff.bin     binary path scattering information.
+    feffNNNN.dat single-path scattering amplitude/phase information; common
+                 numerical table has seven columns and is not a measured spectrum.
+
+FT-EXAFS and wavelet transforms are downstream analysis, not fixed FEFF native
+files. Numerical validity checks are necessary but do not establish convergence,
+physical correctness, oxidation state, or a unique active-site assignment.
+
+6. Alternatives and scope
+
+FDMNES provides full-potential XANES and directly supports Cif_file input,
+including K edges and heavy-element L2,3 edges; its official distribution also
+provides Linux MPI. A valid alternative is FDMNES for XANES plus Feff8L for
+EXAFS. This installer intentionally does not switch engines automatically.
+https://fdmnes.neel.cnrs.fr/download/
+
+DFT-relaxed CIF supplies geometry; it does not contain or restore the full VASP
+wavefunction, charge density, Hubbard-U configuration, or magnetic state.
+FEFF calculates its own scattering potentials. Input-generator defaults and
+spectral convergence must be checked for the particular W/Co/Fe model.
+
+Official FEFF10 manual (input cards, MPI, outputs, §§2.19 and 4.2):
+https://times-software.github.io/feff10/assets/doc/feff10_users_guide.pdf
+Official build instructions:
+https://github.com/times-software/feff10/blob/d861cf8b64342e2d63a0aeb62c8b78faca7942c3/src/install.txt
+
+7. Verification performed when preparing this package
+
+Bash syntax and Python parsing were checked locally. Output parsing was tested
+against actual official FEFF8.50L regression files: Copper, NiO and UO2
+withSCF/feff0001.dat (59 rows, seven columns), plus Copper chi.dat (401 rows,
+four columns), xmu.dat (401 rows, six columns) and paths.dat. These checks
+include the un-commented path-parameter and atomic-geometry header lines.
+The EXAFS validator accepted the real tables, recorded each file's SHA256, and
+rejected a nonempty .feff.error marker. Test files were not used as user results.
+https://github.com/xraypy/feff85exafs/tree/master/tests
+
+This verifies parsing of the shared native file format, not FEFF10 compilation
+or physical convergence. The preparation machine had no usable Linux Fortran
+environment; the pinned FEFF10 build and a real numerical smoke calculation
+must still pass on the target cluster before any production array is submitted.

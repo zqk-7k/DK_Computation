@@ -1,0 +1,12 @@
+本包的自动主线：pymatgen -> FEFF10 -> Larch -> matplotlib。
+
+Athena/Artemis（Demeter）：可选的人工实验数据处理/拟合界面，不需要装到计算节点，也不是生成理论chi(k)的前提。
+官方：https://bruceravel.github.io/demeter/
+
+FDMNES：可选的全势XANES交叉验证。主流程没有假称执行FDMNES，FEFF已经覆盖本次XANES和EXAFS数据类型。若关键模型对muffin-tin等近似敏感，可再增加FDMNES计算。
+官方：https://fdmnes.neel.cnrs.fr/download/
+官方提供Linux及MPI版本。使用它时应另记录版本、输入、网格/半径、芯空穴、卷积参数和能量参考；不可将两种软件的能量零点直接混用。
+
+若超算已有完整FEFF9/10可运行环境，可在config.json的software.feff_command中指定其完整运行wrapper。不能用仅EXAFS的Feff8L替代XANES任务。
+
+Python环境会记录实际安装版本。字体不随包分发；有Arial时使用Arial，否则后处理会明确报告DejaVu Sans回退。

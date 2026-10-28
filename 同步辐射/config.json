@@ -1,0 +1,142 @@
+{
+  "project": "W_CoFe_LDH_structure_based_XAS",
+  "data_kind": "calculated_structure_model_not_measured",
+  "provenance": {
+    "geometry_optimized": true,
+    "geometry_optimization_source": "User-confirmed Materials Studio / VASP optimized CIF",
+    "original_DFT_U_magnetism_charge": "not supplied; not reconstructed from CIF",
+    "electrochemical_potential_mapping": "not established",
+    "scope": "Static-geometry XAS with FEFF self-consistent electronic treatment; no inherited VASP density or applied potential"
+  },
+  "paths": {
+    "structures_dir": "structures",
+    "jobs_dir": "jobs",
+    "manifests_dir": "manifests"
+  },
+  "software": {
+    "feff_command": [],
+    "feff_timeout_seconds": 14400,
+    "fortran_compiler": "gfortran"
+  },
+  "feff": {
+    "cluster_radius_angstrom": 8.0,
+    "scf_radius_angstrom": 5.0,
+    "fms_radius_angstrom": 6.0,
+    "rpath_angstrom": 5.0,
+    "exafs_kmax": 14.0,
+    "xanes_card": "4.0 0.05 0.2",
+    "corehole": "FSR",
+    "scf_card_suffix": "0 30 0.2 1",
+    "max_atoms": 1800
+  },
+  "profiles": {
+    "pilot": {
+      "models": [
+        "Top-O1.cif"
+      ],
+      "edges": [
+        "W_L3",
+        "Co_K",
+        "Fe_K"
+      ],
+      "site_selection": "representative_nearest_w"
+    },
+    "convergence_1": {
+      "models": [
+        "Top-O1.cif"
+      ],
+      "edges": [
+        "W_L3",
+        "Co_K",
+        "Fe_K"
+      ],
+      "feff": {
+        "cluster_radius_angstrom": 10.0,
+        "scf_radius_angstrom": 6.0,
+        "fms_radius_angstrom": 8.0
+      },
+      "site_selection": "representative_nearest_w"
+    },
+    "convergence_2": {
+      "models": [
+        "Top-O1.cif"
+      ],
+      "edges": [
+        "W_L3",
+        "Co_K",
+        "Fe_K"
+      ],
+      "feff": {
+        "cluster_radius_angstrom": 12.0,
+        "scf_radius_angstrom": 7.0,
+        "fms_radius_angstrom": 10.0
+      },
+      "site_selection": "representative_nearest_w"
+    },
+    "core": {
+      "models": [
+        "CoFe-LDH.cif",
+        "Top-O1.cif",
+        "Top-O2.cif",
+        "W1-path/CH2OH-CH2OH.cif",
+        "W1-path/CH2OH-CHO.cif",
+        "CoFe-LDH-path/CH2OH-CH2OH.cif",
+        "CoFe-LDH-path/CH2OH-CHO.cif"
+      ],
+      "edges": [
+        "W_L3",
+        "Co_K",
+        "Fe_K"
+      ]
+    },
+    "full": {
+      "models": "all",
+      "edges": [
+        "W_L3",
+        "Co_K",
+        "Fe_K"
+      ]
+    }
+  },
+  "convergence": {
+    "profiles": [
+      "pilot",
+      "convergence_1",
+      "convergence_2"
+    ],
+    "relative_rms_tolerance_xanes": 0.03,
+    "relative_rms_tolerance_exafs": 0.03,
+    "kmin": 3.0,
+    "kmax": 12.0,
+    "note": "Automatic radius screen at one W site, not proof all edges/structures/physical approximations have converged. Full production review remains required."
+  },
+  "scheduler": {
+    "type": "auto",
+    "partition": "",
+    "account": "",
+    "queue": "",
+    "cpus_per_task": 1,
+    "memory_gb": 8,
+    "walltime": "04:00:00",
+    "max_concurrent": 4,
+    "poll_seconds": 30,
+    "max_wait_hours": 168,
+    "module_commands": [],
+    "pbs_flavor": "openpbs",
+    "pbs_array_variable": "PBS_ARRAY_INDEX"
+  },
+  "postprocess": {
+    "output_dir": "results",
+    "energy_step_eV": 0.25,
+    "kmin": 3.0,
+    "kmax": 12.0,
+    "kstep": 0.05,
+    "dk": 1.0,
+    "nfft": 2048,
+    "rmax": 6.0,
+    "native_k_gap_max": 0.25,
+    "endpoint_tolerance": 0.002,
+    "xmu_relation": "diagnostic",
+    "exafs_site_average": "native_k_structural_approximation"
+  }
+}

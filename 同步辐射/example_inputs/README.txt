@@ -1,0 +1,1 @@
+These are initial pilot inputs for Top-O1 W L3. They have not been calculated with FEFF here. Production inputs are generated after radius screening. Do not treat these examples as completed or converged results.
