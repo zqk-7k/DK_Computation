@@ -1,0 +1,17 @@
+仪器：Horiba Jobin Yvon HR evolution system
+光源：气冷光源532nm 
+物镜：50 × Olympus microscope objective (Olympus, 0.50 Numerical Aperture)
+功率：10mW
+次数：2次采谱
+时间：10s/次
+分辨率：3 cm -1
+光栅：1200条/mm
+多通道电荷耦合器件器件(1024 × 256像素)
+
+
+对于ocp，在1500左右，有的位置有峰；有的位置基线漂，峰不明显；
+但是在氧化过程中，会减弱，可能归属于非金属材料的信号
+
+稳定5min后采集
+
+样品在电压施加后，稳定，有氧物种的产生

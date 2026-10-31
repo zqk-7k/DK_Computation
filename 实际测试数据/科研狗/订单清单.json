@@ -1,0 +1,26 @@
+{
+  "date": "2026-11-01",
+  "orders": [
+    {
+      "provider": "科研狗",
+      "order": ".",
+      "order_id": "",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "已遍历根目录、dems、dems 复测。三份Word均为DEMS测试单，数据为DEMS；项目合作信息与报价.xlsx为报价表。无目标红外/拉曼数据。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "已遍历根目录、dems、dems 复测。三份Word均为DEMS测试单，数据为DEMS；项目合作信息与报价.xlsx为报价表。无目标红外/拉曼数据。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    }
+  ]
+}

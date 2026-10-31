@@ -1,0 +1,80 @@
+[
+  {
+    "provider": "科研狗",
+    "source": "2024.0531碳纸.ppt",
+    "bytes": 14915584,
+    "reason": "公共模板、商务资料或其他不属于已识别目标订单的文件"
+  },
+  {
+    "provider": "科研狗",
+    "source": "240525233702 DEMS 测试单fyx(2).docx",
+    "bytes": 220634,
+    "reason": "公共模板、商务资料或其他不属于已识别目标订单的文件"
+  },
+  {
+    "provider": "科研狗",
+    "source": "240525233702复测 DEMS 测试单fyx(2).docx",
+    "bytes": 223662,
+    "reason": "公共模板、商务资料或其他不属于已识别目标订单的文件"
+  },
+  {
+    "provider": "科研狗",
+    "source": "项目合作信息与报价.xlsx",
+    "bytes": 12843,
+    "reason": "未被选为目标数值数据，或为空表、重复/模拟输出"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems/dems-红外软件导出的未处理的数据.CSV",
+    "bytes": 218569,
+    "reason": "不是指定的Excel/TXT数据格式"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems/DEMS.xlsx",
+    "bytes": 274320,
+    "reason": "未被选为目标数值数据，或为空表、重复/模拟输出"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems/UNTITLED.opju",
+    "bytes": 279941,
+    "reason": "不是指定的Excel/TXT数据格式"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems 复测/2.CSV",
+    "bytes": 216634,
+    "reason": "不是指定的Excel/TXT数据格式"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems 复测/2024.0622 复测.ppt",
+    "bytes": 3169280,
+    "reason": "公共模板、商务资料或其他不属于已识别目标订单的文件"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems 复测/240525233702复测 DEMS 测试单fyx(2).docx",
+    "bytes": 221267,
+    "reason": "公共模板、商务资料或其他不属于已识别目标订单的文件"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems 复测/DEMS.xlsx",
+    "bytes": 1630669,
+    "reason": "未被选为目标数值数据，或为空表、重复/模拟输出"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems 复测/UNTITLED.opju",
+    "bytes": 1686954,
+    "reason": "不是指定的Excel/TXT数据格式"
+  },
+  {
+    "provider": "科研狗",
+    "source": "dems 复测/一个循环.CSV",
+    "bytes": 216730,
+    "reason": "不是指定的Excel/TXT数据格式"
+  }
+]

@@ -1,0 +1,505 @@
+{
+  "date": "2026-11-01",
+  "orders": [
+    {
+      "provider": "快易测",
+      "order": "2025-09-13 DEMS",
+      "order_id": "2025-09-13 DEMS",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "目录名称及测试单内容明确为DEMS，非目标方法。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "目录名称及测试单内容明确为DEMS，非目标方法。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "快易测",
+      "order": "20250703 DEMS NO3EE产NH3",
+      "order_id": "20250703 DEMS NO3EE产NH3",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "目录名称及测试单内容明确为DEMS，非目标方法。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "目录名称及测试单内容明确为DEMS，非目标方法。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "快易测",
+      "order": "20251224DEMS",
+      "order_id": "20251224DEMS",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "目录名称及测试单内容明确为DEMS，非目标方法。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "目录名称及测试单内容明确为DEMS，非目标方法。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "快易测",
+      "order": "20260321 DEMS",
+      "order_id": "20260321 DEMS",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "目录名称及测试单内容明确为DEMS，非目标方法。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "目录名称及测试单内容明确为DEMS，非目标方法。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "快易测",
+      "order": "20260820-DEMS",
+      "order_id": "20260820-DEMS",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "目录名称及测试单内容明确为DEMS，非目标方法。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "目录名称及测试单内容明确为DEMS，非目标方法。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "快易测",
+      "order": "20251106",
+      "order_id": "20251106",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "已查看12ce29f0afc73190814f484652cb574a.png，标题明确为DEMS测试单；Excel为质谱数据。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "已查看12ce29f0afc73190814f484652cb574a.png，标题明确为DEMS测试单；Excel为质谱数据。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "快易测",
+      "order": "新建文件夹",
+      "order_id": "新建文件夹",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "47个Excel与1红外、2红外及四批拉曼内文件逐个SHA256一致，去重保留具备测试单的对应订单目录。根目录新建文件夹.zip为同组压缩副本。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "47个Excel与1红外、2红外及四批拉曼内文件逐个SHA256一致，去重保留具备测试单的对应订单目录。根目录新建文件夹.zip为同组压缩副本。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "快易测",
+      "order": "1红外",
+      "order_id": "K2412301492",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "已逐页查看纸质原位电化学红外测试单照片，材料、电极和电位齐全。",
+      "materials": "Pb负载NiFe水滑石阵列，泡沫镍基底，10 mm×10 mm",
+      "conditions": "OER；0–0.8 V vs Ag/AgCl；石墨对电极；1 M KOH+0.5 M NaCl+0.05 M碳酸根（碳酸钠）；内反射1000–4000 cm−1；0–0.8 V CV活化20圈。",
+      "notes": [
+        "测试单为原始照片；排除样品遮挡测试单的重复照片。",
+        "同一订单号下的两种样品分别按原目录保留。"
+      ],
+      "copy_forms": [
+        "1红外/2c1f5942481f19f047922493e8cbdc25.jpg",
+        "1红外/5cb40f475ed1a6035d39ce5f48c26e3e.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "1红外/1-红外"
+      ],
+      "excel_file_count": 9,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "快易测/原位电化学红外/1红外",
+      "excel_count": 9,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "data_count": 9,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "测试单为原始照片；排除样品遮挡测试单的重复照片。",
+        "同一订单号下的两种样品分别按原目录保留。"
+      ]
+    },
+    {
+      "provider": "快易测",
+      "order": "2红外",
+      "order_id": "K2412301492",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "已逐页查看纸质原位电化学红外测试单照片，材料、电极和电位齐全。",
+      "materials": "NiFe水滑石阵列，泡沫镍基底，10 mm×10 mm",
+      "conditions": "OER；0–0.8 V vs Ag/AgCl；石墨对电极；1 M KOH+0.5 M NaCl+0.05 M碳酸根（碳酸钠）；内反射1000–4000 cm−1；0–0.8 V CV活化20圈。",
+      "notes": [
+        "测试单为原始照片；排除样品遮挡测试单的重复照片。",
+        "同一订单号下的两种样品分别按原目录保留。"
+      ],
+      "copy_forms": [
+        "2红外/3883410215752b73e2277f53778ea985.jpg",
+        "2红外/544e95b22be298c217409b296f545738.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "2红外/2-红外"
+      ],
+      "excel_file_count": 9,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "快易测/原位电化学红外/2红外",
+      "excel_count": 9,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "data_count": 9,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "测试单为原始照片；排除样品遮挡测试单的重复照片。",
+        "同一订单号下的两种样品分别按原目录保留。"
+      ]
+    },
+    {
+      "provider": "快易测",
+      "order": "3拉曼",
+      "order_id": "K2412301493",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "已查看原位电化学Raman测试单两页及四批测试要求汇总。",
+      "materials": "Pb负载NiFe水滑石阵列，泡沫镍基底，10 mm×10 mm",
+      "conditions": "OER；50–1800 cm−1；1.4–1.8 V vs RHE，间隔0.1 V；Ag/AgCl；1 M NaOH+0.5 M NaCl+0.05 M碳酸根（碳酸钠）。",
+      "notes": [
+        "同一订单号的四批条件不同，按原目录分别保留。",
+        "数据文件名与测试单范围可能不同，保留原文件名，不进行电位换算。"
+      ],
+      "copy_forms": [
+        "3拉曼/12facf8e752333d867265c11154fec3c.jpg",
+        "3拉曼/90e4eee67f524b88fe0cf76e56199964.jpg",
+        "3拉曼/ac3b10a5511614995ff06304ea16c9bf.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "3拉曼/拉曼1"
+      ],
+      "excel_file_count": 8,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "快易测/原位电化学拉曼/3拉曼",
+      "excel_count": 8,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 3,
+      "data_count": 8,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "同一订单号的四批条件不同，按原目录分别保留。",
+        "数据文件名与测试单范围可能不同，保留原文件名，不进行电位换算。"
+      ]
+    },
+    {
+      "provider": "快易测",
+      "order": "4-2号拉曼",
+      "order_id": "K2412301493",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "已查看原位电化学Raman测试单两页及四批测试要求汇总。",
+      "materials": "NiFe水滑石阵列，泡沫镍基底，10 mm×10 mm",
+      "conditions": "OER；50–1800 cm−1；1.4–1.8 V vs RHE，间隔0.1 V；Ag/AgCl；1 M NaOH+0.5 M NaCl+0.05 M碳酸根（碳酸钠）。",
+      "notes": [
+        "同一订单号的四批条件不同，按原目录分别保留。",
+        "数据文件名与测试单范围可能不同，保留原文件名，不进行电位换算。"
+      ],
+      "copy_forms": [
+        "4-2号拉曼/f29d2456a3eba4b910c4cc745a304713.jpg",
+        "4-2号拉曼/2006a30c2a8edcf68b626c1b9dd74250.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "4-2号拉曼/拉曼2"
+      ],
+      "excel_file_count": 8,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "快易测/原位电化学拉曼/4-2号拉曼",
+      "excel_count": 8,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "data_count": 8,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "同一订单号的四批条件不同，按原目录分别保留。",
+        "数据文件名与测试单范围可能不同，保留原文件名，不进行电位换算。"
+      ]
+    },
+    {
+      "provider": "快易测",
+      "order": "5-3号拉曼",
+      "order_id": "K2412301493",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "已查看原位电化学Raman测试单两页及四批测试要求汇总。",
+      "materials": "Pb负载NiFe水滑石阵列，泡沫镍基底，10 mm×10 mm",
+      "conditions": "OER；50–1800 cm−1；1.4–1.8 V vs RHE，间隔0.1 V；Ag/AgCl；1 M NaOH+0.5 M NaCl，无外加碳酸根。",
+      "notes": [
+        "同一订单号的四批条件不同，按原目录分别保留。",
+        "数据文件名与测试单范围可能不同，保留原文件名，不进行电位换算。"
+      ],
+      "copy_forms": [
+        "5-3号拉曼/d90bae581ea431eac5ad7b8230a15872.jpg",
+        "5-3号拉曼/889846ed9447c02e77e40fbb1abca60e.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "5-3号拉曼/拉曼3"
+      ],
+      "excel_file_count": 8,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "快易测/原位电化学拉曼/5-3号拉曼",
+      "excel_count": 8,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "data_count": 8,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "同一订单号的四批条件不同，按原目录分别保留。",
+        "数据文件名与测试单范围可能不同，保留原文件名，不进行电位换算。"
+      ]
+    },
+    {
+      "provider": "快易测",
+      "order": "6-4号拉曼",
+      "order_id": "K2412301493",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "已查看原位电化学Raman测试单两页及四批测试要求汇总。",
+      "materials": "Pb-NiFe水滑石阵列，泡沫镍基底，10 mm×10 mm",
+      "conditions": "OER；50–1800 cm−1；1.45 V vs RHE恒电位；0–120 min，每30 min；1 M NaOH+0.5 M NaCl+0.05 M碳酸根（碳酸钠）。",
+      "notes": [
+        "同一订单号的四批条件不同，按原目录分别保留。",
+        "数据文件名与测试单范围可能不同，保留原文件名，不进行电位换算。"
+      ],
+      "copy_forms": [
+        "6-4号拉曼/b8a54bc1f1fdc2ead963de1a775f0850.jpg",
+        "6-4号拉曼/6c2452d5e28a4a46cfcca095a4d2b71c.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "6-4号拉曼/拉曼4"
+      ],
+      "excel_file_count": 5,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "快易测/原位电化学拉曼/6-4号拉曼",
+      "excel_count": 5,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "data_count": 5,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "同一订单号的四批条件不同，按原目录分别保留。",
+        "数据文件名与测试单范围可能不同，保留原文件名，不进行电位换算。"
+      ]
+    },
+    {
+      "provider": "快易测",
+      "order": "20250703拉曼",
+      "order_id": "K2506261372",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "照片标题电化学原位Raman测试单，明确阴极硝酸盐还原产氨，手写订单号K2506261372。",
+      "materials": "碳纤维为集流体的自支撑膜电极，负载活性物质；未写明具体化学组成。",
+      "conditions": "1 M KNO3；Ag/AgCl；0.1 V间隔；50–1800 cm−1；不搁置。",
+      "notes": [
+        "电位窗口印有“0 V至-2 V-0.7 V vs Ag/AgCl”，另电子截图写0至-2 V，原单存在不清楚的修改，未自行确定上限。",
+        "样品/仪器照片和Origin Col()公式TXT不收。"
+      ],
+      "copy_forms": [
+        "20250703拉曼/2ee013f7fecb7301e5d06f169d8a318.jpg",
+        "20250703拉曼/E5F500AF8F1A03F13B92EBE87C60EC8C.png",
+        "20250703拉曼/F9D1EFD3D0C19659A6B748EB718B5A38.png"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "20250703拉曼/拉曼"
+      ],
+      "excel_file_count": 22,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "快易测/原位电化学拉曼/20250703拉曼",
+      "excel_count": 22,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 3,
+      "data_count": 22,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "电位窗口印有“0 V至-2 V-0.7 V vs Ag/AgCl”，另电子截图写0至-2 V，原单存在不清楚的修改，未自行确定上限。",
+        "样品/仪器照片和Origin Col()公式TXT不收。"
+      ]
+    },
+    {
+      "provider": "快易测",
+      "order": "250724拉曼",
+      "order_id": "K2507111506",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "Word标题为水系电化学原位Raman测试单，内容给出硝酸根产氨及CO2/硝酸根共还原产尿素两个实验。",
+      "materials": "R-SFF005，自支撑碳纤维膜电极；未写明活性材料化学组成。",
+      "conditions": "0至-2 V vs Ag/AgCl（3 M KCl），0.1 V间隔；Pt丝对电极；0.1 M KNO3；实验二CO2连续饱和；532 nm；每条件30 min。",
+      "notes": [
+        "实验一、实验二保留原数据子目录。"
+      ],
+      "copy_forms": [
+        "250724拉曼/水系 电化学原位Raman测试单-尿素合成.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "250724拉曼/k2507111506"
+      ],
+      "excel_file_count": 44,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "快易测/原位电化学拉曼/250724拉曼",
+      "excel_count": 44,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 44,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "实验一、实验二保留原数据子目录。"
+      ]
+    },
+    {
+      "provider": "快易测",
+      "order": "K2607212684   4000",
+      "order_id": "K2607212684",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "Word明确电化学原位Raman，包含NO3RR和NO3+CO2两组；根data.xlsx包含两张3701×18数值谱数据表。",
+      "materials": "R-SFF005，自支撑碳纤维膜电极；Word未写明活性材料化学组成。",
+      "conditions": "Ag/AgCl（3 M KCl），Pt丝；514 nm；NO3RR及CO2/NO3共还原。",
+      "notes": [
+        "Word正文电位0至-1.5 V，末尾0至-2 V；电解液字段0.1 M与1 M KNO3并存，均保留原文，未调和。",
+        "内层K2607212684目录34个Excel与外层同名文件SHA256完全相同，去重。",
+        "data.xlsx为现有汇总谱表，与分文件均保留；公式TXT排除。"
+      ],
+      "copy_forms": [
+        "K2607212684   4000/水系 电化学原位Raman测试单-尿素合成(2).docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "K2607212684   4000/K2607212684"
+      ],
+      "exclude_data_roots": [
+        "K2607212684   4000/K2607212684/K2607212684"
+      ],
+      "excel_file_count": 35,
+      "data_files": [],
+      "included": true,
+      "destination": "快易测/原位电化学拉曼/K2607212684   4000",
+      "excel_count": 35,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 35,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "Word正文电位0至-1.5 V，末尾0至-2 V；电解液字段0.1 M与1 M KNO3并存，均保留原文，未调和。",
+        "内层K2607212684目录34个Excel与外层同名文件SHA256完全相同，去重。",
+        "data.xlsx为现有汇总谱表，与分文件均保留；公式TXT排除。"
+      ]
+    }
+  ]
+}

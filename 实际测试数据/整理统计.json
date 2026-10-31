@@ -1,0 +1,90 @@
+{
+  "date": "2026-11-01",
+  "providers": {
+    "博士帮": {
+      "selected_groups": 0,
+      "groups_with_data": 0,
+      "excel": 0,
+      "txt_spectra": 0,
+      "txt_notes": 0,
+      "forms": 0,
+      "missing_forms": 0,
+      "no_numeric_data": 0,
+      "copied_files": 0,
+      "bytes": 0
+    },
+    "快易测": {
+      "selected_groups": 9,
+      "groups_with_data": 9,
+      "excel": 148,
+      "txt_spectra": 0,
+      "txt_notes": 0,
+      "forms": 18,
+      "missing_forms": 0,
+      "no_numeric_data": 0,
+      "copied_files": 166,
+      "bytes": 84635335
+    },
+    "指南针": {
+      "selected_groups": 343,
+      "groups_with_data": 331,
+      "excel": 6971,
+      "txt_spectra": 291,
+      "txt_notes": 160,
+      "forms": 711,
+      "missing_forms": 1,
+      "no_numeric_data": 12,
+      "copied_files": 8133,
+      "bytes": 928790077
+    },
+    "测试狗": {
+      "selected_groups": 19,
+      "groups_with_data": 19,
+      "excel": 527,
+      "txt_spectra": 0,
+      "txt_notes": 3,
+      "forms": 32,
+      "missing_forms": 4,
+      "no_numeric_data": 0,
+      "copied_files": 562,
+      "bytes": 101562349
+    },
+    "私人": {
+      "selected_groups": 17,
+      "groups_with_data": 17,
+      "excel": 368,
+      "txt_spectra": 0,
+      "txt_notes": 2,
+      "forms": 16,
+      "missing_forms": 4,
+      "no_numeric_data": 0,
+      "copied_files": 386,
+      "bytes": 49616010
+    },
+    "科研狗": {
+      "selected_groups": 0,
+      "groups_with_data": 0,
+      "excel": 0,
+      "txt_spectra": 0,
+      "txt_notes": 0,
+      "forms": 0,
+      "missing_forms": 0,
+      "no_numeric_data": 0,
+      "copied_files": 0,
+      "bytes": 0
+    }
+  },
+  "totals": {
+    "selected_groups": 388,
+    "groups_with_data": 376,
+    "excel": 8014,
+    "txt_spectra": 291,
+    "txt_notes": 165,
+    "forms": 777,
+    "missing_forms": 9,
+    "no_numeric_data": 12,
+    "copied_files": 9247,
+    "bytes": 1164603771
+  },
+  "pending_records": 5
+}

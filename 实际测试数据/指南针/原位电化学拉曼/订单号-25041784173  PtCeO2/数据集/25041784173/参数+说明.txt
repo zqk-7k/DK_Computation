@@ -1,0 +1,16 @@
+仪器：Horiba Jobin Yvon HR evolution system
+光源：气冷光源532nm 
+物镜：50 × Olympus microscope objective (Olympus, 0.50 Numerical Aperture)
+功率：10mW
+次数：2次采谱
+时间：10s/次
+分辨率：3 cm -1
+光栅：1200条/mm
+多通道电荷耦合器件器件(1024 × 256像素)
+
+
+
+
+稳定5min后采集
+
+样品稳定性比较好，重复性强，但是趋势需要特意寻找。其中2号样品中，也有一些位点的表现同1号一样稳定。

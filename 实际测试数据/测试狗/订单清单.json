@@ -1,0 +1,758 @@
+{
+  "date": "2026-11-01",
+  "orders": [
+    {
+      "order": "1-原位红外CO2RR-over",
+      "order_id": "20230707-1959",
+      "decision": "include",
+      "method": "原位电化学红外",
+      "evidence": "Word说明明确电催化CO2还原；PPT内委托单照片匹配订单号。",
+      "materials": "A1、A2碳载单原子；委托单成分列C N O Fe Ni。",
+      "conditions": "0.5 M KHCO3，CO2 10 mL/min；碳棒对电极、Ag/AgCl参比。Word设置OCP、-0.61、-0.81至-1.61 V、OCP；Word波数800–3000 cm-1。",
+      "copy_forms": [
+        "1-原位红外CO2RR-over/原位红外测试说明(2).docx"
+      ],
+      "extracted_forms": [
+        {
+          "container_source": "1-原位红外CO2RR-over/20230707-1959  原位红外.pptx",
+          "internal_member": "ppt/media/image1.jpg",
+          "slides": [
+            "slide1"
+          ],
+          "label": "委托测试单"
+        },
+        {
+          "container_source": "1-原位红外CO2RR-over/20230707-1959  原位红外.pptx",
+          "internal_member": "ppt/media/image2.jpg",
+          "slides": [
+            "slide2"
+          ],
+          "label": "随附测试说明照片"
+        }
+      ],
+      "form_status": "已找到Word测试说明及委托单照片",
+      "notes": [
+        "照片版与Word版电位终点、波数范围不同；照片含-1.71 V与800–4000 cm-1，均保留，不合并成唯一条件。",
+        "Excel仅见A2重测12个文件，原始A1/A2与二次处理目录主要为CSV/SPA，不符合本轮Excel/TXT限定。"
+      ],
+      "auxiliary_sources": [
+        "1-原位红外CO2RR-over/20230707-1959/说明.txt"
+      ],
+      "included": true,
+      "destination": "测试狗/原位电化学红外/1-原位红外CO2RR-over",
+      "excel_count": 12,
+      "data_note_count": 1,
+      "form_file_count": 3,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 12,
+      "issues": [
+        "照片版与Word版电位终点、波数范围不同；照片含-1.71 V与800–4000 cm-1，均保留，不合并成唯一条件。",
+        "Excel仅见A2重测12个文件，原始A1/A2与二次处理目录主要为CSV/SPA，不符合本轮Excel/TXT限定。"
+      ]
+    },
+    {
+      "order": "6-原位红外",
+      "order_id": "20230712-1099",
+      "decision": "include",
+      "method": "原位电化学红外",
+      "evidence": "红外.ppt内委托单照片明确原位电化学红外、电催化。",
+      "materials": "Cu2O",
+      "conditions": "委托单：0至-0.4 V vs RHE；pH14，1 M KOH+1 M KNO3；400–4000 cm-1，64次扫描。具体要求写OCP、-1.02、-1.22、-1.42 V。",
+      "copy_forms": [],
+      "extracted_forms": [
+        {
+          "container_source": "6-原位红外/红外.ppt",
+          "internal_member": "OLE Pictures stream, byte offset 25, length 1121587",
+          "slides": [],
+          "label": "委托测试单"
+        }
+      ],
+      "form_status": "已找到旧PPT内委托单照片",
+      "notes": [
+        "数据文件名范围-0.82至-1.72，与委托单部分点位不完全一致；保留原值，电位应由原测试记录核对。"
+      ],
+      "auxiliary_sources": [],
+      "included": true,
+      "destination": "测试狗/原位电化学红外/6-原位红外",
+      "excel_count": 11,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 11,
+      "issues": [
+        "数据文件名范围-0.82至-1.72，与委托单部分点位不完全一致；保留原值，电位应由原测试记录核对。"
+      ]
+    },
+    {
+      "order": "7-原位红外CO2RR-6号追加的订单",
+      "order_id": "20230712-8001",
+      "decision": "include",
+      "method": "原位电化学红外",
+      "evidence": "PPT内委托单照片写原位电化学红外，目录内有按电位命名的Excel谱图。",
+      "materials": "A1-CO、A2-CO，Cu",
+      "conditions": "委托单：-0.43至-1.63 V；pH4 H2SO4、0.5 M K2SO4；CO饱和半小时，20 sccm；400–4000 cm-1、64次扫描、扣背景。",
+      "copy_forms": [],
+      "extracted_forms": [
+        {
+          "container_source": "7-原位红外CO2RR-6号追加的订单/原位红外CO2RR.pptx",
+          "internal_member": "ppt/media/image4.jpg",
+          "slides": [
+            "slide4"
+          ],
+          "label": "委托测试单"
+        },
+        {
+          "container_source": "7-原位红外CO2RR-6号追加的订单/原位红外CO2RR.pptx",
+          "internal_member": "ppt/media/image1.png",
+          "slides": [
+            "slide1"
+          ],
+          "label": "红外与电化学条件表"
+        }
+      ],
+      "form_status": "已找到PPT内委托单及条件表图片",
+      "notes": [
+        "文件夹题名CO2RR，但委托单/条件表气氛写CO（一氧化碳），按来源记录，不自动改为CO2。",
+        "条件表和委托单的电位点略有差别，均保留。"
+      ],
+      "auxiliary_sources": [],
+      "included": true,
+      "destination": "测试狗/原位电化学红外/7-原位红外CO2RR-6号追加的订单",
+      "excel_count": 24,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 24,
+      "issues": [
+        "文件夹题名CO2RR，但委托单/条件表气氛写CO（一氧化碳），按来源记录，不自动改为CO2。",
+        "条件表和委托单的电位点略有差别，均保留。"
+      ]
+    },
+    {
+      "order": "9 CO2RR红外，从7号来",
+      "order_id": "20230831-3518",
+      "decision": "include_missing_form",
+      "method": "原位电化学红外（据目录名称及电位序列）",
+      "evidence": "目录CO2RR红外，从7号来；Excel含ocp及-0.43至-1.63文件名。",
+      "materials": "1号、2号；材料未在本订单目录找到",
+      "conditions": "只能从数据文件名确认ocp及-0.43、-0.63、-0.83至-1.63；单位、参比、电解液未找到独立测试单核实。",
+      "copy_forms": [],
+      "extracted_forms": [],
+      "form_status": "缺测试单",
+      "notes": [
+        "已检查订单目录及ZIP：只有数据，没有Word、PDF、图片/PPT测试单。",
+        "“从7号来”为目录线索，不能据此把7号测试单直接复制当本单。"
+      ],
+      "auxiliary_sources": [],
+      "included": true,
+      "destination": "测试狗/原位电化学红外/9 CO2RR红外，从7号来",
+      "excel_count": 24,
+      "data_note_count": 0,
+      "form_file_count": 0,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 24,
+      "issues": [
+        "已检查订单目录及ZIP：只有数据，没有Word、PDF、图片/PPT测试单。",
+        "“从7号来”为目录线索，不能据此把7号测试单直接复制当本单。"
+      ]
+    },
+    {
+      "order": "11-原位红外，NO3-RR",
+      "order_id": "20230914-6992",
+      "decision": "include",
+      "method": "原位电化学红外",
+      "evidence": "PPT委托单及测试条件页描述硝酸根电还原、施加-1.4 V。",
+      "materials": "A1-CoNS，焦磷酸钴纳米片，蓝紫色粉末",
+      "conditions": "OCP、-1.4 V vs Ag/AgCl(sat. KCl)，Pt对电极；0.1 M Na2SO4，后加NaNO3使其约0.1 M；Ar/N2除氧；每5 min扫一次；400–4000 cm-1。",
+      "copy_forms": [],
+      "extracted_forms": [
+        {
+          "container_source": "11-原位红外，NO3-RR/11-原位红外，NO3-RR.pptx",
+          "internal_member": "ppt/media/image2.jpg",
+          "slides": [
+            "slide1"
+          ],
+          "label": "委托测试单"
+        },
+        {
+          "container_source": "11-原位红外，NO3-RR/11-原位红外，NO3-RR.pptx",
+          "internal_member": "ppt/media/image3.jpeg",
+          "slides": [
+            "slide2"
+          ],
+          "label": "测试条件及流程"
+        }
+      ],
+      "form_status": "已找到PPT内委托单及流程照片",
+      "notes": [],
+      "auxiliary_sources": [],
+      "included": true,
+      "destination": "测试狗/原位电化学红外/11-原位红外，NO3-RR",
+      "excel_count": 13,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 13,
+      "issues": []
+    },
+    {
+      "order": "订单编号-20231108-2079 拉曼 Ru，O，C，是固体粉末",
+      "order_id": "20231108-2079",
+      "decision": "include",
+      "method": "原位电化学拉曼",
+      "evidence": "PPT委托单明确原位电化学拉曼；附条件页明确电催化水分解产氢。",
+      "materials": "Ru-C粉末；主要Ru、O、C；非单原子/团簇",
+      "conditions": "1 M KOH，通氩气30 min；Ag/AgCl(饱和KCl)参比、Pt对电极；532 nm；-0.8、-0.9、-1.0、-1.1、-1.2 V各恒定10 min采拉曼；LSV十次后再重复上述拉曼。",
+      "copy_forms": [],
+      "extracted_forms": [
+        {
+          "container_source": "订单编号-20231108-2079 拉曼 Ru，O，C，是固体粉末/新建 Microsoft PowerPoint 演示文稿.pptx",
+          "internal_member": "ppt/media/image1.jpeg",
+          "slides": [
+            "slide1"
+          ],
+          "label": "委托测试单"
+        },
+        {
+          "container_source": "订单编号-20231108-2079 拉曼 Ru，O，C，是固体粉末/新建 Microsoft PowerPoint 演示文稿.pptx",
+          "internal_member": "ppt/media/image2.jpeg",
+          "slides": [
+            "slide2"
+          ],
+          "label": "电化学原位Raman测试单第1页"
+        },
+        {
+          "container_source": "订单编号-20231108-2079 拉曼 Ru，O，C，是固体粉末/新建 Microsoft PowerPoint 演示文稿.pptx",
+          "internal_member": "ppt/media/image4.jpeg",
+          "slides": [
+            "slide4"
+          ],
+          "label": "电化学原位Raman测试单第2页"
+        },
+        {
+          "container_source": "订单编号-20231108-2079 拉曼 Ru，O，C，是固体粉末/新建 Microsoft PowerPoint 演示文稿.pptx",
+          "internal_member": "ppt/media/image5.jpeg",
+          "slides": [
+            "slide5"
+          ],
+          "label": "电化学原位Raman测试单第3页"
+        }
+      ],
+      "form_status": "已找到PPT内委托单及完整测试单照片",
+      "notes": [
+        "委托单扫描范围50–2500 cm-1，随附测试单写50–4000 cm-1；两版本均保留。",
+        "电化学LSV子目录为配套电化学曲线，按本轮范围不作为拉曼谱数据；新建文本文档.txt是处理公式。"
+      ],
+      "auxiliary_sources": [],
+      "included": true,
+      "destination": "测试狗/原位电化学拉曼/订单编号-20231108-2079 拉曼 Ru，O，C，是固体粉末",
+      "excel_count": 10,
+      "data_note_count": 0,
+      "form_file_count": 4,
+      "provider": "测试狗",
+      "category": "原位电化学拉曼",
+      "txt_data_count": 0,
+      "data_count": 10,
+      "issues": [
+        "委托单扫描范围50–2500 cm-1，随附测试单写50–4000 cm-1；两版本均保留。",
+        "电化学LSV子目录为配套电化学曲线，按本轮范围不作为拉曼谱数据；新建文本文档.txt是处理公式。"
+      ]
+    },
+    {
+      "order": "订单编号-20231117-3482 原位红外 NO3-RR",
+      "order_id": "20231117-3482",
+      "decision": "include_missing_form",
+      "method": "原位电化学红外（据目录及电位序列）",
+      "evidence": "目录原位红外NO3-RR；CuAlO、CuO两子目录中按电位命名的Excel。",
+      "materials": "CuAlO、CuO（据子目录名称）",
+      "conditions": "数据文件名为-0.2、-0.4、-0.6、-0.8、-0.9、-1、-1.1、-1.2；单位、参比、电解液未找到测试单核实。",
+      "copy_forms": [],
+      "extracted_forms": [],
+      "form_status": "缺测试单",
+      "notes": [
+        "已检查订单目录及ZIP，没有Word、PDF、图片、PPT。"
+      ],
+      "auxiliary_sources": [],
+      "included": true,
+      "destination": "测试狗/原位电化学红外/订单编号-20231117-3482 原位红外 NO3-RR",
+      "excel_count": 16,
+      "data_note_count": 0,
+      "form_file_count": 0,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 16,
+      "issues": [
+        "已检查订单目录及ZIP，没有Word、PDF、图片、PPT。"
+      ]
+    },
+    {
+      "order": "订单编号-20231125-6725 原位红外",
+      "order_id": "20231125-6725",
+      "decision": "pending_method",
+      "method": "原位红外；电化学属性待确认",
+      "evidence": "目录仅写原位红外；每个样品有黑暗.xlsx及2至120的时间样序列；TXT为处理公式，无施加电压、参比电极等条件。",
+      "materials": "a1、A2；具体材料未知",
+      "conditions": "未找到测试单；“黑暗”和数值序列可能为光照/时间实验，仅是线索，不能确认电化学。",
+      "copy_forms": [],
+      "extracted_forms": [],
+      "form_status": "缺测试单且方法待确认",
+      "notes": [
+        "建议暂不并入确认的原位电化学红外集合，放待确认清单。",
+        "新建文本文档.txt为Col(CO2)、Col(增强)加权公式，不是谱图数据。"
+      ],
+      "auxiliary_sources": [],
+      "included": false,
+      "candidate_excel_count": 42,
+      "unique_excel_count": 42,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 0,
+      "issues": [
+        "建议暂不并入确认的原位电化学红外集合，放待确认清单。",
+        "新建文本文档.txt为Col(CO2)、Col(增强)加权公式，不是谱图数据。"
+      ]
+    },
+    {
+      "order": "订单编号-20231127-6506 原位拉曼",
+      "order_id": "20231127-6506",
+      "decision": "include",
+      "method": "原位电化学拉曼",
+      "evidence": "Word电化学原位Raman测试单明确电催化；PPT沟通截图补充最终时间序列电位。",
+      "materials": "100目银网，表面主要Ag、微量Ag2O；TCMP反应物",
+      "conditions": "阴极10 mM TCMP+0.3 M CH3COOLi·2H2O/无水甲醇；阳极1 M H2SO4/水；Nafion117，Pt对电极、Ag/AgCl参比；OCP约0.2至-1.4 V，间隔0.1 V；i-t 3 h每10 min；PPT补充⑤最佳电位-0.6 V vs Ag/AgCl。",
+      "copy_forms": [
+        "订单编号-20231127-6506 原位拉曼/电化学原位Raman测试单-测试go.docx"
+      ],
+      "extracted_forms": [
+        {
+          "container_source": "订单编号-20231127-6506 原位拉曼/新建 Microsoft PowerPoint 演示文稿.pptx",
+          "internal_member": "ppt/media/image1.png",
+          "slides": [
+            "slide1"
+          ],
+          "label": "追加测试条件沟通"
+        },
+        {
+          "container_source": "订单编号-20231127-6506 原位拉曼/新建 Microsoft PowerPoint 演示文稿.pptx",
+          "internal_member": "ppt/media/image2.png",
+          "slides": [
+            "slide1"
+          ],
+          "label": "激光波长确认沟通"
+        },
+        {
+          "container_source": "订单编号-20231127-6506 原位拉曼/新建 Microsoft PowerPoint 演示文稿.pptx",
+          "internal_member": "ppt/media/image3.png",
+          "slides": [
+            "slide1"
+          ],
+          "label": "时间序列电位确认沟通"
+        }
+      ],
+      "form_status": "已找到Word测试单及补充条件截图",
+      "notes": [
+        "PPT截图确认激光无需325 nm，532 nm也可以；编号⑤采用-0.6 V vs Ag/AgCl。",
+        "新建文本文档.txt为处理公式，不是原始谱图数据。"
+      ],
+      "auxiliary_sources": [],
+      "included": true,
+      "destination": "测试狗/原位电化学拉曼/订单编号-20231127-6506 原位拉曼",
+      "excel_count": 53,
+      "data_note_count": 0,
+      "form_file_count": 4,
+      "provider": "测试狗",
+      "category": "原位电化学拉曼",
+      "txt_data_count": 0,
+      "data_count": 53,
+      "issues": [
+        "PPT截图确认激光无需325 nm，532 nm也可以；编号⑤采用-0.6 V vs Ag/AgCl。",
+        "新建文本文档.txt为处理公式，不是原始谱图数据。"
+      ]
+    },
+    {
+      "order": "订单编号-20231206-5762 原位红外 NiFeOOH",
+      "order_id": "20231206-5762",
+      "method": "原位电化学红外",
+      "materials": "碳纸负载NiFeOOH、NiOOH，碳纸0.5×0.5 cm2",
+      "conditions": "1 M KOH；OER；Ag/AgCl参比，Pt片对电极；OCP、0.177至0.777 V（0.1 V步长）及0.177 V-back，每点稳定约5 min；600–2500 cm−1",
+      "copy_forms": [
+        "订单编号-20231206-5762 原位红外 NiFeOOH\\电化学原位红外测试单-苏州大学(1).docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "form_status": "已找到Word测试单",
+      "notes": [],
+      "decision": "include",
+      "included": true,
+      "destination": "测试狗/原位电化学红外/订单编号-20231206-5762 原位红外 NiFeOOH",
+      "excel_count": 18,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 18,
+      "issues": []
+    },
+    {
+      "order": "订单编号-20231209-2048原位红外 In MOF",
+      "order_id": "20231209-2048",
+      "method": "原位电化学红外",
+      "materials": "In-MOF，C/O/H/N/In，约100 nm",
+      "conditions": "H型电解槽；3.0 g EMIM-BF4+30 mL乙腈，Pt对电极室0.5 M H2SO4；CO2预通25 mL/min、30 min，测试10 mL/min；Ag/Ag+参比；−1.5至−2.8 V，每0.1 V；−2.5 V恒压30 min，每5 min采样；900–4000 cm−1",
+      "copy_forms": [
+        "订单编号-20231209-2048原位红外 In MOF\\电化学原位红外测试单改LRY.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "form_status": "已找到Word测试单",
+      "notes": [],
+      "decision": "include",
+      "included": true,
+      "destination": "测试狗/原位电化学红外/订单编号-20231209-2048原位红外 In MOF",
+      "excel_count": 36,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 36,
+      "issues": []
+    },
+    {
+      "order": "订单编号-20240118-2542 原位红外 -Ni氮原子 CO2RR",
+      "order_id": "20240118-2542",
+      "method": "原位电化学红外（依据目录及电位命名数据）",
+      "materials": "Ni氮原子（目录名）",
+      "conditions": "未找到测试单，不能确认电解液/参比电极等完整条件",
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "form_status": "未找到测试单",
+      "notes": [
+        "两张JPG经目视核对均为参考文献光谱，不是测试单；ZIP内未发现Word/PDF/图片单。"
+      ],
+      "decision": "include_missing_form",
+      "included": true,
+      "destination": "测试狗/原位电化学红外/订单编号-20240118-2542 原位红外 -Ni氮原子 CO2RR",
+      "excel_count": 19,
+      "data_note_count": 0,
+      "form_file_count": 0,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 19,
+      "issues": [
+        "两张JPG经目视核对均为参考文献光谱，不是测试单；ZIP内未发现Word/PDF/图片单。"
+      ]
+    },
+    {
+      "order": "订单编号-20240304-6091 原位红外 Co-Co2PRu@NC",
+      "order_id": "20240304-6091",
+      "method": "原位电化学红外",
+      "materials": "Co-Co2PRu@NC（目录名）；测试单成分Co/P/Ru/N/O粉末",
+      "conditions": "碱性HER；1 M KOH，N2气氛；Hg/HgO参比，石墨棒对电极；−0.912至−1.362 V，每0.05 V及无外加电压初始点；1000–4000 cm−1",
+      "copy_forms": [
+        "订单编号-20240304-6091 原位红外 Co-Co2PRu@NC\\2023  电化学原位红外测试单(1).docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "form_status": "已找到Word测试单",
+      "notes": [],
+      "decision": "include",
+      "included": true,
+      "destination": "测试狗/原位电化学红外/订单编号-20240304-6091 原位红外 Co-Co2PRu@NC",
+      "excel_count": 11,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 11,
+      "issues": []
+    },
+    {
+      "order": "订单编号-20240312-2427 原位拉曼 FeOTS-Cu2O",
+      "order_id": "20240312-2427",
+      "method": "原位电化学拉曼",
+      "materials": "A1-Cu2O、A2-FeOTS-Cu2O（图片委托单）；碳纸负载",
+      "conditions": "图片委托单：CO2饱和0.1 M碳酸氢钾，0至−2 V NHE，532 nm，50–2500 cm−1；Word：0至−2 V vs Ag/AgCl，每0.1 V，施加电位10 s后采谱、常温CO2",
+      "copy_forms": [
+        "订单编号-20240312-2427 原位拉曼 FeOTS-Cu2O\\2024031222512791511307.doc",
+        "订单编号-20240312-2427 原位拉曼 FeOTS-Cu2O\\8b4108d0882ed023edc0986d837ca6c.png"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [
+        "订单编号-20240312-2427 原位拉曼 FeOTS-Cu2O\\订单编号-20240312-2427\\参数.txt"
+      ],
+      "form_status": "已找到Word及图片测试单，条件存在差异",
+      "notes": [
+        "Word写3个样品，图片委托单写2个；电位基准Word为Ag/AgCl、图片为NHE，保留两份待核对；不要用其中一份覆盖另一份。"
+      ],
+      "decision": "include",
+      "included": true,
+      "destination": "测试狗/原位电化学拉曼/订单编号-20240312-2427 原位拉曼 FeOTS-Cu2O",
+      "excel_count": 42,
+      "data_note_count": 1,
+      "form_file_count": 2,
+      "provider": "测试狗",
+      "category": "原位电化学拉曼",
+      "txt_data_count": 0,
+      "data_count": 42,
+      "issues": [
+        "Word写3个样品，图片委托单写2个；电位基准Word为Ag/AgCl、图片为NHE，保留两份待核对；不要用其中一份覆盖另一份。"
+      ]
+    },
+    {
+      "order": "20240611-2642  原位红外  Cu O N 单原子",
+      "order_id": "20240611-2642",
+      "method": "原位电化学红外",
+      "materials": "A1/A2/A3，Cu/O/N黄色粉末（PPT内测试单照片）",
+      "conditions": "PPT照片写：1 M KOH；CO预饱和30 min，流量原文20 sccm/min；OCP及−1.023、−1.223、−1.423、−1.623、−1.723、−1.823、−1.923、−2.023、−2.223、−2.423 V vs Ag/AgCl；ATR，400–4000 cm−1，扫描64次；室温",
+      "copy_forms": [],
+      "extracted_forms": [
+        {
+          "status": "订单号不一致",
+          "container_source": "20240611-2642  原位红外  Cu O N 单原子\\2024.0617 Cu O N.ppt",
+          "label": "测试单照片_订单号20230831-3518",
+          "internal_member": "OLE Pictures stream, byte offset 1042336, length 7629101"
+        },
+        {
+          "status": "附加条件；随不匹配测试单保留",
+          "container_source": "20240611-2642  原位红外  Cu O N 单原子\\2024.0617 Cu O N.ppt",
+          "label": "附加条件照片",
+          "internal_member": "OLE Pictures stream, byte offset 8671462, length 8945367"
+        }
+      ],
+      "auxiliary_sources": [],
+      "form_status": "找到PPT内测试单照片，但订单号不一致待核对",
+      "notes": [
+        "PPT文件中纸质单订单号20230831-3518，与目录20240611-2642不一致；仅作为待核对材料，不能认定匹配测试单。图片03为附加条件/参考图。"
+      ],
+      "decision": "include",
+      "included": true,
+      "destination": "测试狗/原位电化学红外/20240611-2642  原位红外  Cu O N 单原子",
+      "excel_count": 44,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 44,
+      "issues": [
+        "PPT文件中纸质单订单号20230831-3518，与目录20240611-2642不一致；仅作为待核对材料，不能认定匹配测试单。图片03为附加条件/参考图。"
+      ]
+    },
+    {
+      "order": "订单编号-20240828-6572 原位红外  CONHIn",
+      "order_id": "20240828-6572",
+      "method": "原位电化学红外",
+      "materials": "In-MOF，C/O/H/N/In，约100 nm（测试单）；目录写CONHIn",
+      "conditions": "同20231209-2048测试单：Ag/Ag+；−1.5至−2.8 V，每0.1 V；−2.5 V恒压30 min每5 min；EMIM-BF4/乙腈电解液，Pt室0.5 M H2SO4，CO2气氛",
+      "copy_forms": [
+        "订单编号-20240828-6572 原位红外  CONHIn\\电化学原位红外测试单改LRY(2).docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "form_status": "已找到Word测试单",
+      "notes": [
+        "该单与20231209-2048所附测试单字节完全相同，可能为复用条件；分别按源目录保留，不合并订单。"
+      ],
+      "decision": "include",
+      "included": true,
+      "destination": "测试狗/原位电化学红外/订单编号-20240828-6572 原位红外  CONHIn",
+      "excel_count": 22,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 22,
+      "issues": [
+        "该单与20231209-2048所附测试单字节完全相同，可能为复用条件；分别按源目录保留，不合并订单。"
+      ]
+    },
+    {
+      "order": "订单编号-20241015-1008  拉曼 氧化亚铜纳米方块(50nm)上负载酞菁镍配合物  CRR",
+      "order_id": "20241015-1008",
+      "method": "原位电化学拉曼",
+      "materials": "CoPc-oTh@Cu2O（纸单手写替换A1）、NiPC-Cu2O、NiPC-oTh-Cu2O；碳纸负载",
+      "conditions": "纸质图片：0.1 M KHCO3，CO2饱和，i-t不同电位0至−2 V vs NHE，532 nm，50–2500 cm−1；Word：0至−2 V vs Ag/AgCl，每0.1 V，施压10 s后采谱；常温CO2",
+      "copy_forms": [
+        "订单编号-20241015-1008  拉曼 氧化亚铜纳米方块(50nm)上负载酞菁镍配合物  CRR\\1_原位拉曼.doc",
+        "订单编号-20241015-1008  拉曼 氧化亚铜纳米方块(50nm)上负载酞菁镍配合物  CRR\\075dbab43f7b76e5dbfec7e4d860e8f.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "form_status": "已找到Word及图片测试单，电位基准存在差异",
+      "notes": [
+        "纸单订单号与目录一致，备注“参考20240312-2427”；纸单NHE与Word Ag/AgCl不一致；纸单保留手写材料变更，其余图片是样品照片不纳入测试单。"
+      ],
+      "decision": "include",
+      "included": true,
+      "destination": "测试狗/原位电化学拉曼/订单编号-20241015-1008  拉曼 氧化亚铜纳米方块(50nm)上负载酞菁镍配合物  CRR",
+      "excel_count": 63,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "provider": "测试狗",
+      "category": "原位电化学拉曼",
+      "txt_data_count": 0,
+      "data_count": 63,
+      "issues": [
+        "纸单订单号与目录一致，备注“参考20240312-2427”；纸单NHE与Word Ag/AgCl不一致；纸单保留手写材料变更，其余图片是样品照片不纳入测试单。"
+      ]
+    },
+    {
+      "order": "订单编号-20241101-8935 拉曼 CRR",
+      "order_id": "20241101-8935",
+      "method": "原位电化学拉曼（依据目录及仪器参数）",
+      "materials": "未找到测试单，材料未确认",
+      "conditions": "参数.txt：Horiba Jobin Yvon HR evolution system，532 nm，10 mW，2次×10 s，分辨率3 cm−1，1200条/mm；未找到电解液/电位等条件",
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [
+        "订单编号-20241101-8935 拉曼 CRR\\20241101-8935\\参数.txt"
+      ],
+      "form_status": "未找到测试单",
+      "notes": [
+        "数据文件名0、10…90的含义未有完整测试单确认，不能擅自标为电位或时间。"
+      ],
+      "decision": "include_missing_form",
+      "included": true,
+      "destination": "测试狗/原位电化学拉曼/订单编号-20241101-8935 拉曼 CRR",
+      "excel_count": 10,
+      "data_note_count": 1,
+      "form_file_count": 0,
+      "provider": "测试狗",
+      "category": "原位电化学拉曼",
+      "txt_data_count": 0,
+      "data_count": 10,
+      "issues": [
+        "数据文件名0、10…90的含义未有完整测试单确认，不能擅自标为电位或时间。"
+      ]
+    },
+    {
+      "order": "订单编号-20241107-4953",
+      "order_id": "20241107-4953",
+      "decision": "pending_method_and_form",
+      "method": "疑似原位红外，方法待确认",
+      "materials": "数据子文件夹命名：CoPc-oTh-Cu2O、NiPC-Cu2O、NiPC-oTh-Cu2O",
+      "conditions": "数据文件名为ocp及0至-2、间隔0.1的电位标签；单位及参比电极未知。不能从文件名补写电解液。",
+      "form_status": "订单目录及ZIP均未发现Word、PDF或图片测试单；仅有XLSX与ZIP",
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "evidence": "抽查CoPc-oTh-Cu2O/-0.1.xlsx为无表头两列光谱型数据，4980行，横坐标800.3269–3200.825、步长约0.4821；数据区间提示红外可能性，缺少直接方法证据。根目录测试狗交流信息.pptx未检出该订单号或CoPc。",
+      "notes": [
+        "外层三个样品子目录共66个XLSX，嵌套订单编号-20241107-4953子目录另有66个；两组SHA256集合完全一致。ZIP仅含XLSX，与解压内容重复。"
+      ],
+      "suborders": [],
+      "included": false,
+      "candidate_excel_count": 132,
+      "unique_excel_count": 66,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 0,
+      "issues": [
+        "外层三个样品子目录共66个XLSX，嵌套订单编号-20241107-4953子目录另有66个；两组SHA256集合完全一致。ZIP仅含XLSX，与解压内容重复。"
+      ]
+    },
+    {
+      "order": "订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn",
+      "order_id": "20250729-4872",
+      "decision": "include",
+      "method": "原位电化学红外，ATR全反射",
+      "materials": "A1-NiO、A2-NiO/Mn、A3-Mn；黑色粉末；成分Ni、Mn、O",
+      "conditions": "CORR；CO气氛，室温，不光照；0.1 M KHCO3，先用CO饱和半小时，测试时CO流速20 sccm/min（原文单位）；Ag/AgCl参比；ocp、-1.023、-1.223、-1.423、-1.623、-1.723、-1.823、-1.923、-2.023、-2.223、-2.423 V；400–4000 cm-1；64次扫描，扣除背景。5 mg样品+5 μL Nafion分散于1 mL IPA，超声1 h，滴涂干燥，约1 mg/cm2。",
+      "form_status": "网页测试要求截图清晰；另有同订单纸质委托测试单照片",
+      "copy_forms": [
+        "订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn/1755446121284.jpg",
+        "订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn/19DF4976023FC8132CB380AF076BC69D.png",
+        "订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn/第二次测试+甲醛/e7d68b3db075a7d731e041f27e0c977a.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "evidence": "1755446121284.jpg标题含订单号20250729-4872、测试项目原位红外(in-situ IR)，明确列出电压及Ag/AgCl。",
+      "notes": [
+        "主代理SHA256核对发现20250729-4872.zip内A2 NiO Mn/-2.023.xlsx与解压目录同名文件不同，其余Excel均匹配。需额外保留ZIP内不同版本，不能覆盖当前解压文件。",
+        "20260604-7545：纸质委托测试单第1/2页照片；未发现第2页，主要条件已在第1页；实际XLSX目录还含-1.723.xlsx，测试单照片中的电位列表未见-1.723；保留源文件，不自行更正测试单。"
+      ],
+      "suborders": [
+        {
+          "order_id": "20260604-7545",
+          "method": "原位电化学红外，ATR全反射",
+          "decision": "include",
+          "form_paths": [
+            "订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn/第二次测试+甲醛/e7d68b3db075a7d731e041f27e0c977a.jpg"
+          ],
+          "form_status": "纸质委托测试单第1/2页照片；未发现第2页，主要条件已在第1页",
+          "materials": "A1-NiO、A2-NiO/Mn、A3-Mn；Ni、Mn、O黑色粉末",
+          "conditions": "CO气氛，室温，不光照；0.1 M KHCO3+300 mM HCHO，先CO饱和半小时；CO流速20 sccm/min（原文单位）；Ag/AgCl参比；测试单列ocp、-0.823、-1.023、-1.223、-1.423、-1.623、-1.823、-1.923、-2.023、-2.223、-2.423 V；每电位反应10 min后扫描64次，扣除背景；400–4000 cm-1。",
+          "data_roots": [
+            "订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn/第二次测试+甲醛/20260604-7545-A2",
+            "订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn/第二次测试+甲醛/20260604-7545-A3",
+            "订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn/第二次测试+甲醛/20260604-7545-NiO"
+          ],
+          "data_file_count": 36,
+          "discrepancy": "实际XLSX目录还含-1.723.xlsx，测试单照片中的电位列表未见-1.723；保留源文件，不自行更正测试单。",
+          "exclude_notes": "87255ddc59e2d98f3265d0127338c2a7.jpg和e2ccbed0113593af061e1f1b245e2da6.jpg只是样品瓶照片。新建 文本文档 (2).txt为Col(...)组合计算记录，不是光谱数值数据集。"
+        }
+      ],
+      "included": true,
+      "destination": "测试狗/原位电化学红外/订单编号-20250729-4872  A1-NiO,A2-NiOMn,A3-Mn",
+      "excel_count": 70,
+      "data_note_count": 0,
+      "form_file_count": 3,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 70,
+      "issues": [
+        "主代理SHA256核对发现20250729-4872.zip内A2 NiO Mn/-2.023.xlsx与解压目录同名文件不同，其余Excel均匹配。需额外保留ZIP内不同版本，不能覆盖当前解压文件。",
+        "20260604-7545：纸质委托测试单第1/2页照片；未发现第2页，主要条件已在第1页；实际XLSX目录还含-1.723.xlsx，测试单照片中的电位列表未见-1.723；保留源文件，不自行更正测试单。"
+      ]
+    },
+    {
+      "order": "订单编号-20250904-9055 La-Co3O4",
+      "order_id": "20250904-9055",
+      "decision": "include",
+      "method": "原位电化学红外，ATR全反射",
+      "materials": "A1-1%La-Co3O4；1%La掺杂Co3O4，黑色粉末，尺寸约200 nm",
+      "conditions": "电催化氧化甲烷；0.5 mol/L碳酸钠水溶液；纯CH4，预通30 min，测试低流量持续通气；室温，不光照。1.1、1.2、1.3、1.4 V vs. Ag/AgCl，铂片对电极；每个电压更换新制电解液。恒电位测试60 min，每10 min采谱；650–4000 cm-1。15 mg催化剂+1.5 mL水+1.5 mL乙醇+20 μL Nafion，超声20 min；滴涂碳布并干燥，露出面积1 cm2。",
+      "form_status": "一张委托测试单照片；两张电催化原位红外对接单连续页照片，条件完整",
+      "copy_forms": [
+        "订单编号-20250904-9055 La-Co3O4/585300812807680F8CFA5E0A86CDD36C.png",
+        "订单编号-20250904-9055 La-Co3O4/516508E9C99585ABAD76C25F2FD8A893.png",
+        "订单编号-20250904-9055 La-Co3O4/33CE5625F64E1490AFDB5745A4283873.png"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "evidence": "委托测试单标题含订单号和原位红外；对接单标题为电催化原位红外对接单，明确体系、参比、电位、气氛、采集时间。",
+      "notes": [],
+      "suborders": [],
+      "included": true,
+      "destination": "测试狗/原位电化学红外/订单编号-20250904-9055 La-Co3O4",
+      "excel_count": 29,
+      "data_note_count": 0,
+      "form_file_count": 3,
+      "provider": "测试狗",
+      "category": "原位电化学红外",
+      "txt_data_count": 0,
+      "data_count": 29,
+      "issues": []
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "date": "2026-11-01",
+  "orders": [
+    {
+      "provider": "博士帮",
+      "order": "1-dems",
+      "order_id": "1-dems",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "目录内测试单明确为DEMS差分电化学质谱；未见目标红外/拉曼测试单或数据。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "目录内测试单明确为DEMS差分电化学质谱；未见目标红外/拉曼测试单或数据。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "博士帮",
+      "order": "2-dems",
+      "order_id": "2-dems",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "目录内测试单明确为DEMS差分电化学质谱；未见目标红外/拉曼测试单或数据。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "目录内测试单明确为DEMS差分电化学质谱；未见目标红外/拉曼测试单或数据。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "博士帮",
+      "order": "20260820-DEMS",
+      "order_id": "20260820-DEMS",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "目录内测试单明确为DEMS差分电化学质谱；未见目标红外/拉曼测试单或数据。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "目录内测试单明确为DEMS差分电化学质谱；未见目标红外/拉曼测试单或数据。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    }
+  ]
+}

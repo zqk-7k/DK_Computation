@@ -1,0 +1,839 @@
+{
+  "date": "2026-11-01",
+  "orders": [
+    {
+      "provider": "私人",
+      "order": "余源元 N15 NMR",
+      "order_id": "余源元 N15 NMR",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "氮同位素NMR数据，不是红外或拉曼。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "氮同位素NMR数据，不是红外或拉曼。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "吴铜伟原位EPR",
+      "order_id": "吴铜伟原位EPR",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "已核对Word为原位EPR；不同电位Excel也为EPR，排除。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "已核对Word为原位EPR；不同电位Excel也为EPR，排除。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "孙小刚",
+      "order_id": "孙小刚",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "递归核对20250922、20251009、20251103、20260204，各测试单均为EPR，排除。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "递归核对20250922、20251009、20251103、20260204，各测试单均为EPR，排除。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "江南大学dems",
+      "order_id": "江南大学dems",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "Word及数据明确为DEMS，排除。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "Word及数据明确为DEMS，排除。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "沈海峰",
+      "order_id": "沈海峰",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "Word为原位EPR，排除。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "Word为原位EPR，排除。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "何勋，OER",
+      "order_id": "何勋，OER",
+      "decision": "pending",
+      "category": "原位电化学拉曼",
+      "method": "疑似电化学拉曼，待确认",
+      "evidence": "Excel为B1:R6018数值表，首行为横坐标、ocp、1.1至1.8；目录无测试单，无明确方法名称。TXT为多光谱组分Col()组合式。",
+      "materials": "未确认",
+      "conditions": "表头含ocp和1.1–1.8；参比电极、电解液缺失。",
+      "notes": [
+        "仅凭数值与Origin组合式不足以确认属于实际原位电化学拉曼；暂不纳入数据。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "句学轩-原位拉曼，海水氧化",
+      "order_id": "句学轩-原位拉曼，海水氧化",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "Word原位拉曼测试条件明确电催化海水氧化和参比电极。",
+      "materials": "Zr掺杂Co3O4。",
+      "conditions": "天然海水；Ag/AgCl参比，石墨对电极；1–2 V vs Ag/AgCl（单中同时写1.61–2.61 V vs RHE）；间隔0.1 V；150–1200 cm−1。",
+      "notes": [
+        "数据根中另有1个文件因非数值光谱内容或明确模拟来源未收集，见未收集文件清单。"
+      ],
+      "copy_forms": [
+        "句学轩-原位拉曼，海水氧化/原位拉曼测试条件.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [
+        "句学轩-原位拉曼，海水氧化/JU_in-suit raman/参数.txt"
+      ],
+      "data_roots": [
+        "句学轩-原位拉曼，海水氧化/JU_in-suit raman"
+      ],
+      "excel_file_count": 11,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/句学轩-原位拉曼，海水氧化",
+      "excel_count": 11,
+      "txt_data_count": 0,
+      "data_note_count": 1,
+      "form_file_count": 1,
+      "data_count": 11,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "数据根中另有1个文件因非数值光谱内容或明确模拟来源未收集，见未收集文件清单。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "张智豪",
+      "order_id": "张智豪",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "订单内红外子目录包含-0.5至-1.2 V命名的8个Excel，DEMS在独立兄弟子目录。",
+      "materials": "缺测试单，无法确认",
+      "conditions": "文件名-0.5、-0.6、-0.7、-0.8、-0.9、-1、-1.1、-1.2；参比/电解液未见说明。",
+      "notes": [
+        "未找到测试单，需缺失标记；方法依据原目录标签及电位序列，条件不得补猜。",
+        "DEMS子目录不纳入。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "张智豪/红外"
+      ],
+      "exclude_data_roots": [
+        "张智豪/dems"
+      ],
+      "excel_file_count": 8,
+      "data_files": [],
+      "included": true,
+      "destination": "私人/原位电化学红外/张智豪",
+      "excel_count": 8,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 0,
+      "data_count": 8,
+      "form_status": "未找到匹配测试单",
+      "issues": [
+        "未找到测试单，需缺失标记；方法依据原目录标签及电位序列，条件不得补猜。",
+        "DEMS子目录不纳入。",
+        "缺匹配测试单"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "胡沛吉",
+      "order_id": "胡沛吉",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "订单内红外子目录包含-0.5至-1.2 V命名的8个Excel，DEMS在独立兄弟子目录。",
+      "materials": "缺测试单，无法确认",
+      "conditions": "文件名-0.5、-0.6、-0.7、-0.8、-0.9、-1、-1.1、-1.2；参比/电解液未见说明。",
+      "notes": [
+        "未找到测试单，需缺失标记；方法依据原目录标签及电位序列，条件不得补猜。",
+        "DEMS子目录不纳入。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "胡沛吉/红外"
+      ],
+      "exclude_data_roots": [
+        "胡沛吉/dems"
+      ],
+      "excel_file_count": 8,
+      "data_files": [],
+      "included": true,
+      "destination": "私人/原位电化学红外/胡沛吉",
+      "excel_count": 8,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 0,
+      "data_count": 8,
+      "form_status": "未找到匹配测试单",
+      "issues": [
+        "未找到测试单，需缺失标记；方法依据原目录标签及电位序列，条件不得补猜。",
+        "DEMS子目录不纳入。",
+        "缺匹配测试单"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "球差TEM的/拉曼1--1200",
+      "order_id": "拉曼1--1200",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "测试单图片写原位拉曼、三电极体系和电位序列。",
+      "materials": "Co/W18O49，Co负载缺氧氧化钨粉末。",
+      "conditions": "0.1 M KOH+0.1 M KNO3；N2除氧；Hg/HgO，Pt；OCP及-1至-1.6 V含-1.32至-1.38细分；532 nm；表面增强。",
+      "notes": [
+        "两张测试单图片保留纸面修订与电子说明；纯参考谱图及样品照片不收。"
+      ],
+      "copy_forms": [
+        "球差TEM的/拉曼1--1200/9308e263e034e64e5e0d26f5e18f48ab.jpg",
+        "球差TEM的/拉曼1--1200/df0e62836931dbaaf48fda95d0d89e15.jpg"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "球差TEM的/拉曼1--1200/Co-WO"
+      ],
+      "excel_file_count": 13,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/球差TEM的/拉曼1--1200",
+      "excel_count": 13,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "data_count": 13,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "两张测试单图片保留纸面修订与电子说明；纯参考谱图及样品照片不收。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "球差TEM的/拉曼2--1400乘1.5",
+      "order_id": "拉曼2--1400乘1.5",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "测试条件截图明确在碱性条件下分别测试AOR和OER原位拉曼。",
+      "materials": "测试条件截图未写材料组成；不从文献示意图推定样品。",
+      "conditions": "0.5 M KOH+0.1 M (NH4)2SO4；1–1.6 V vs RHE，0.05 V间隔；633 nm；200–2000 cm−1（参考实验参数另写200–1200）；CV活化100 mV/s、20圈；顺/逆向电位扫描。",
+      "notes": [],
+      "copy_forms": [
+        "球差TEM的/拉曼2--1400乘1.5/9e5194f181e0a98717e422de36c0d424.png"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "球差TEM的/拉曼2--1400乘1.5/新建文件夹"
+      ],
+      "excel_file_count": 34,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/球差TEM的/拉曼2--1400乘1.5",
+      "excel_count": 34,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 34,
+      "form_status": "已找到测试单/条件附件",
+      "issues": []
+    },
+    {
+      "provider": "私人",
+      "order": "球差TEM的/拉曼3",
+      "order_id": "拉曼3",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "原位拉曼测试条件截图给出EOR三电极测试、电压和激光。",
+      "materials": "样品1 Pt-Mn-Fe；样品2 Pt-Mn-Fe改性。",
+      "conditions": "0.5 M H2SO4+1 M C2H6O；0–1.2 V vs SCE；文件名注明0.1 V间隔；CV50 mV/s；633 nm；200–2400 cm−1。",
+      "notes": [],
+      "copy_forms": [
+        "球差TEM的/拉曼3/电压0-1.2 V sce，间隔0.1V.png"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "球差TEM的/拉曼3/EOR"
+      ],
+      "excel_file_count": 28,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/球差TEM的/拉曼3",
+      "excel_count": 28,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 28,
+      "form_status": "已找到测试单/条件附件",
+      "issues": []
+    },
+    {
+      "provider": "私人",
+      "order": "球差TEM的/拉曼4",
+      "order_id": "拉曼4",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "测试条件截图明确CO2RR原位拉曼、Ag/AgCl三电极体系。",
+      "materials": "表中1 BSm-CuOx，2 B-CuOx；批注称寄来样品Tm-Cu S8和Tm-Cu HS，要求确认对应关系。",
+      "conditions": "CO2饱和；Ag/AgCl参比、Pt对电极；OCP，-1至-2.6 V，每0.2 V；633/638 nm；200–3000 cm−1；增强。",
+      "notes": [
+        "电解液原文0.5 M KCl或0.5 M KOH并有划改；样品1/2与寄送标签对应关系未解，保留原单。",
+        "时间序列条件已划除，未当作执行条件。"
+      ],
+      "copy_forms": [
+        "球差TEM的/拉曼4/beeb50bc-db15-4b28-b8dd-dcb75ebeafbb.png"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "球差TEM的/拉曼4/BSm-CuO"
+      ],
+      "excel_file_count": 20,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/球差TEM的/拉曼4",
+      "excel_count": 20,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 20,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "电解液原文0.5 M KCl或0.5 M KOH并有划改；样品1/2与寄送标签对应关系未解，保留原单。",
+        "时间序列条件已划除，未当作执行条件。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "球差TEM的/拉曼5",
+      "order_id": "拉曼5",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "原目录为拉曼5，Cu,Bi单原子CNP子目录含OCP及负电位Excel序列；无测试单。",
+      "materials": "Cu、Bi单原子CNP（据数据目录名）。",
+      "conditions": "OCP、-1.3至-1.8，每0.05；参比/电解液未知。",
+      "notes": [
+        "缺测试单，按原目录明确方法及电位序列收集，不补猜条件。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "球差TEM的/拉曼5/Cu,Bi单原子CNP"
+      ],
+      "excel_file_count": 12,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/球差TEM的/拉曼5",
+      "excel_count": 12,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 0,
+      "data_count": 12,
+      "form_status": "未找到匹配测试单",
+      "issues": [
+        "缺测试单，按原目录明确方法及电位序列收集，不补猜条件。",
+        "缺匹配测试单"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "球差TEM的/拉曼6 2个",
+      "order_id": "拉曼6 2个",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "原目录拉曼6 2个，Tm Cu2O目录分实心、空心，分别有OCP与负电位Excel序列。",
+      "materials": "Tm Cu2O实心、空心（据数据目录名）。",
+      "conditions": "OCP、-0.1、-0.5、-0.9至-1.7；参比/电解液未知。",
+      "notes": [
+        "缺测试单；不自动沿用拉曼4存在样品映射疑问的测试单。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "球差TEM的/拉曼6 2个/Tm Cu2O"
+      ],
+      "excel_file_count": 24,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/球差TEM的/拉曼6 2个",
+      "excel_count": 24,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 0,
+      "data_count": 24,
+      "form_status": "未找到匹配测试单",
+      "issues": [
+        "缺测试单；不自动沿用拉曼4存在样品映射疑问的测试单。",
+        "缺匹配测试单"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "球差TEM的/副本9-21 测试合同  .xls",
+      "order_id": "副本9-21 测试合同  .xls",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "合同文件，不是数值光谱数据；六批拉曼各自对应的条件页已单独定位。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "合同文件，不是数值光谱数据；六批拉曼各自对应的条件页已单独定位。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "计远的师兄/PEGOR-ATR-FTIR",
+      "order_id": "PEGOR-ATR-FTIR",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "PEGOR原位红外测试单明确原位电化学红外、Hg/HgO和变电压采点。",
+      "materials": "PDA-NiCu-OH，无定形Ni/Cu与PDA络合物，泡沫镍自支撑或粉末。",
+      "conditions": "0–1.0 V vs Hg/HgO；Pt片；10 M KOH+75 mg/mL PEG200；室温；1000–4000 cm−1；无活化；变电压。",
+      "notes": [
+        "文献调研PPTX不作为测试单附件。"
+      ],
+      "copy_forms": [
+        "计远的师兄/PEGOR原位红外测试单.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "计远的师兄/PEGOR-ATR-FTIR"
+      ],
+      "excel_file_count": 12,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学红外/计远的师兄/PEGOR-ATR-FTIR",
+      "excel_count": 12,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 12,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "文献调研PPTX不作为测试单附件。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "计远的师兄/2026_07_30 原位红外，乙二醇氧化",
+      "order_id": "原位红外260716",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "原位红外260716.docx为乙二醇电化学重整时间序列测试单，目录有对应按时间命名Excel。",
+      "materials": "Ni与部分碳化聚多巴胺的配位复合材料，黑色粉末，Ni/C/N/O/H。",
+      "conditions": "10 M KOH+PET来源EG约0.5 M；Hg/HgO、Pt；0.38 V恒电位；5、10、15、20、25、35、45、55、65、80、100 min；1000–4000 cm−1；90% iR补偿。",
+      "notes": [
+        "同级模拟FTIR目录README明确不是实验测量结果，全部排除。",
+        "补充参考文献.docx和文献资料不收。"
+      ],
+      "copy_forms": [
+        "计远的师兄/2026_07_30 原位红外，乙二醇氧化/原位红外260716.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "计远的师兄/2026_07_30 原位红外，乙二醇氧化/原位红外260716"
+      ],
+      "exclude_data_roots": [
+        "计远的师兄/2026_07_30 原位红外，乙二醇氧化/ftir_curves_20260730_001"
+      ],
+      "excel_file_count": 12,
+      "data_files": [],
+      "included": true,
+      "destination": "私人/原位电化学红外/计远的师兄/2026_07_30 原位红外，乙二醇氧化",
+      "excel_count": 12,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 12,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "同级模拟FTIR目录README明确不是实验测量结果，全部排除。",
+        "补充参考文献.docx和文献资料不收。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "计远的师兄/20260812",
+      "order_id": "20260812 变电压",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "数据子目录“变电压/变电压”含OCP及0–1 V Excel；相邻原位红外260801.docx描述同材料乙二醇氧化变电压测试。",
+      "materials": "Ni与部分碳化聚多巴胺配位复合材料（邻近260801测试单）。",
+      "conditions": "260801测试单：0–1 V vs Hg/HgO；Pt；10 M KOH+EG 0.5–0.8 M；1000–4000 cm−1。",
+      "notes": [
+        "测试单位于上一日期目录，按日期、材料和变电压范围关联，原目录未提供明确订单号，关联需保留说明。",
+        "同目录Origin脚本说明现有Excel是第三组=第一组+第二组×系数的回算导出；不是未经处理原始仪器文件。未发现此目录有模拟数据声明。"
+      ],
+      "copy_forms": [
+        "计远的师兄/2026_07_30 原位红外，乙二醇氧化/原位红外260801.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "计远的师兄/20260812/变电压/变电压"
+      ],
+      "excel_file_count": 12,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学红外/计远的师兄/20260812",
+      "excel_count": 12,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 12,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "测试单位于上一日期目录，按日期、材料和变电压范围关联，原目录未提供明确订单号，关联需保留说明。",
+        "同目录Origin脚本说明现有Excel是第三组=第一组+第二组×系数的回算导出；不是未经处理原始仪器文件。未发现此目录有模拟数据声明。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "计远的师兄/2026_07_30 原位红外，乙二醇氧化/ftir_curves_20260730_001",
+      "order_id": "ftir_curves_20260730_001",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "README_模拟FTIR数据.txt明确“数据性质：模拟/示意数据，不是实验测量结果”，整目录不纳入实际测试数据。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "README_模拟FTIR数据.txt明确“数据性质：模拟/示意数据，不是实验测量结果”，整目录不纳入实际测试数据。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "计远的师兄/DEMS",
+      "order_id": "DEMS",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "测试单与DEMS-EGOR.xlsx为DEMS。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "测试单与DEMS-EGOR.xlsx为DEMS。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "计远的师兄/XAS",
+      "order_id": "XAS",
+      "decision": "exclude",
+      "category": "",
+      "method": "",
+      "evidence": "Pd XAS数据为X射线吸收谱，不是目标方法。",
+      "materials": "",
+      "conditions": "",
+      "notes": [
+        "Pd XAS数据为X射线吸收谱，不是目标方法。"
+      ],
+      "copy_forms": [],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [],
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": false
+    },
+    {
+      "provider": "私人",
+      "order": "金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼",
+      "order_id": "第一次 电解水 2红外2拉曼",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "Raman Word测试单明确OER电催化原位拉曼。",
+      "materials": "FeNi氢氧化物/Fe2O3异质结构及NiFe OH对照。",
+      "conditions": "1 M KOH；Hg/HgO，石墨；532 nm；500–2000 cm−1；OCP、1.0–1.6 V每0.1 V；测试单另写0–1.6 V vs RHE。",
+      "notes": [
+        "同级红外，拉曼/拉曼的16个Excel与选定目录SHA256一致，去重。",
+        "数据根中另有1个文件因非数值光谱内容或明确模拟来源未收集，见未收集文件清单。"
+      ],
+      "copy_forms": [
+        "金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼/1_水系 电化学原位Raman测试单 2024版(1)(1).docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [
+        "金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼/拉曼/参数.txt"
+      ],
+      "data_roots": [
+        "金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼/拉曼"
+      ],
+      "excel_file_count": 16,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼",
+      "excel_count": 16,
+      "txt_data_count": 0,
+      "data_note_count": 1,
+      "form_file_count": 1,
+      "data_count": 16,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "同级红外，拉曼/拉曼的16个Excel与选定目录SHA256一致，去重。",
+        "数据根中另有1个文件因非数值光谱内容或明确模拟来源未收集，见未收集文件清单。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼",
+      "order_id": "第一次 电解水 2红外2拉曼",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "红外Word明确OER电化学原位红外，ATR电位采点。",
+      "materials": "FeNi氢氧化物/Fe2O3异质结构及NiFe OH对照。",
+      "conditions": "1 M KOH，Ar饱和；Hg/HgO，石墨；ATR1000–4000 cm−1；1.0–1.7 V vs RHE每0.1 V（窗口字段另写0–1.7 V）。",
+      "notes": [
+        "同级合并目录红外2号9个Excel与选定目录SHA256一致，去重。",
+        "红外原始数据为SPA/SPC等，不属于用户指定Excel/TXT格式，未收。"
+      ],
+      "copy_forms": [
+        "金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼/水系 电化学原位红外测试单 2024版01 - 副本(2).docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼/红外1号",
+        "金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼/红外2号"
+      ],
+      "excel_file_count": 18,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学红外/金桓宇-深圳理工大学/第一次 电解水 2红外2拉曼",
+      "excel_count": 18,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 18,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "同级合并目录红外2号9个Excel与选定目录SHA256一致，去重。",
+        "红外原始数据为SPA/SPC等，不属于用户指定Excel/TXT格式，未收。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "金桓宇-深圳理工大学/第二次 4红外4拉曼",
+      "order_id": "第二次 4红外4拉曼",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "两份Word分别记录IrO2及Ir-CoMnO/Ir-CoO电化学OER原位拉曼。",
+      "materials": "IrO2主样品/对比样；Ir-CoMnO与Ir-CoO碳纸样品。",
+      "conditions": "IrO2：O2饱和0.1 M HClO4，Ag/AgCl/Pt，OCP/无电压及1.0、1.2、1.3、1.5、1.6 V，每点2 min；Ir-CoMnO：O2饱和0.5 M H2SO4，0.976–1.576 V每0.1 V。均532 nm；200–2000和2800–4100 cm−1。",
+      "notes": [
+        "不同材料、两个波数段保留原子目录；原单部分活化模板提到KOH，与酸性测试电解液不同，未自行修订。"
+      ],
+      "copy_forms": [
+        "金桓宇-深圳理工大学/第二次 4红外4拉曼/1_水系 电化学原位Raman测试单-HY-IrO2.docx",
+        "金桓宇-深圳理工大学/第二次 4红外4拉曼/2_电化学原位Raman测试单-HY-Ir-CoMnO.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "金桓宇-深圳理工大学/第二次 4红外4拉曼/拉曼"
+      ],
+      "excel_file_count": 60,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/金桓宇-深圳理工大学/第二次 4红外4拉曼",
+      "excel_count": 60,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "data_count": 60,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "不同材料、两个波数段保留原子目录；原单部分活化模板提到KOH，与酸性测试电解液不同，未自行修订。"
+      ]
+    },
+    {
+      "provider": "私人",
+      "order": "金桓宇-深圳理工大学/第二次 4红外4拉曼",
+      "order_id": "第二次 4红外4拉曼",
+      "decision": "include",
+      "category": "原位电化学红外",
+      "method": "原位电化学红外",
+      "evidence": "两份Word分别记录IrO2及Ir-CoMnO/Ir-CoO电化学OER原位红外。",
+      "materials": "IrO2主样品/对比样；Ir-CoMnO与Ir-CoO碳纸样品。",
+      "conditions": "IrO2：O2饱和0.1 M HClO4；Ag/AgCl/Pt；OCP及0.9、1、1.1、1.2、1.25、1.30、1.35 V每点5 min；Ir-CoMnO：O2饱和0.5 M H2SO4，OCP及0.976–1.576 V每50 mV；1000–4000 cm−1。",
+      "notes": [],
+      "copy_forms": [
+        "金桓宇-深圳理工大学/第二次 4红外4拉曼/1_水系 电化学原位红外测试单-HY-IrO2.docx",
+        "金桓宇-深圳理工大学/第二次 4红外4拉曼/2_电化学原位红外测试单-HY-Ir-CoMnO.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "金桓宇-深圳理工大学/第二次 4红外4拉曼/红外"
+      ],
+      "excel_file_count": 44,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学红外/金桓宇-深圳理工大学/第二次 4红外4拉曼",
+      "excel_count": 44,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 2,
+      "data_count": 44,
+      "form_status": "已找到测试单/条件附件",
+      "issues": []
+    },
+    {
+      "provider": "私人",
+      "order": "金桓宇-深圳理工大学/第三次Bi",
+      "order_id": "第三次Bi",
+      "decision": "include",
+      "category": "原位电化学拉曼",
+      "method": "原位电化学拉曼",
+      "evidence": "根目录HY_水系电化学原位Raman测试单给出BiPO4/SiO2与BiPO4对应第三次Bi数据，照片同类测试条件。",
+      "materials": "BiPO4/SiO2与BiPO4，碳纸喷涂，前驱体BiOCl。",
+      "conditions": "亚硝酸盐还原与环己酮肟体系；0.5 M PBS+0.1 M KNO2；Hg/Hg2SO4、Pt；-1.9至-2.5 V每0.1 V；633 nm；50–4000 cm−1。",
+      "notes": [
+        "Bi、Bi-SiO2及对应“水”波数段目录全部保留；不收样品照片和仅参考谱图。"
+      ],
+      "copy_forms": [
+        "金桓宇-深圳理工大学/HY_水系 电化学原位Raman测试单.docx"
+      ],
+      "extracted_forms": [],
+      "auxiliary_sources": [],
+      "data_roots": [
+        "金桓宇-深圳理工大学/第三次Bi"
+      ],
+      "excel_file_count": 36,
+      "data_files": [],
+      "exclude_data_roots": [],
+      "included": true,
+      "destination": "私人/原位电化学拉曼/金桓宇-深圳理工大学/第三次Bi",
+      "excel_count": 36,
+      "txt_data_count": 0,
+      "data_note_count": 0,
+      "form_file_count": 1,
+      "data_count": 36,
+      "form_status": "已找到测试单/条件附件",
+      "issues": [
+        "Bi、Bi-SiO2及对应“水”波数段目录全部保留；不收样品照片和仅参考谱图。"
+      ]
+    }
+  ]
+}
