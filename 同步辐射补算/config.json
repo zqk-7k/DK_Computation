@@ -1,0 +1,328 @@
+{
+  "project": "W_O_coordination_XAS_supplement",
+  "data_kind": "calculated_candidate_structure_spectra",
+  "candidates": {
+    "source_cif": "structures_original/CoFe-LDH.cif"
+  },
+  "dft": {
+    "engine": "qe",
+    "command": [],
+    "pseudo_dir": "software/pseudo",
+    "pseudopotentials": {
+      "H": {
+        "file": "H.pbe-rrkjus_psl.1.0.0.UPF",
+        "md5": "f52b6d4d1c606e5624b1dc7b2218f220",
+        "cutoff_wfc": 60.0,
+        "cutoff_rho": 480.0
+      },
+      "C": {
+        "file": "C.pbe-n-kjpaw_psl.1.0.0.UPF",
+        "md5": "5d2aebdfa2cae82b50a7e79e9516da0f",
+        "cutoff_wfc": 45.0,
+        "cutoff_rho": 360.0
+      },
+      "O": {
+        "file": "O.pbe-n-kjpaw_psl.0.1.UPF",
+        "md5": "0234752ac141de4415c5fc33072bef88",
+        "cutoff_wfc": 50.0,
+        "cutoff_rho": 400.0
+      },
+      "Co": {
+        "file": "Co_pbe_v1.2.uspp.F.UPF",
+        "md5": "5f91765df6ddd3222702df6e7b74a16d",
+        "cutoff_wfc": 45.0,
+        "cutoff_rho": 360.0
+      },
+      "Fe": {
+        "file": "Fe.pbe-spn-kjpaw_psl.0.2.1.UPF",
+        "md5": "e86618425769142926afa95317d90200",
+        "cutoff_wfc": 90.0,
+        "cutoff_rho": 1080.0
+      },
+      "W": {
+        "file": "W_pbe_v1.2.uspp.F.UPF",
+        "md5": "9c083fa34c2a2ea0f02f1f893e16e1c8",
+        "cutoff_wfc": 30.0,
+        "cutoff_rho": 240.0
+      }
+    },
+    "ecutwfc_Ry": 90,
+    "ecutrho_Ry": 1080,
+    "kpoints": [
+      2,
+      2,
+      1
+    ],
+    "nspin": 2,
+    "starting_magnetization": {
+      "Co": 0.5,
+      "Fe": 0.6,
+      "W": 0,
+      "O": 0,
+      "C": 0,
+      "H": 0
+    },
+    "hubbard_U_eV": {},
+    "conv_thr_Ry": 1e-08,
+    "etot_conv_thr_Ry": 1e-05,
+    "forc_conv_thr_Ry_bohr": 0.001,
+    "nstep": 200,
+    "timeout_seconds": 165600,
+    "total_charge": 0,
+    "method_note": "New spin-polarized PBE candidate screening baseline; original VASP U/charge/magnetic settings unavailable. No applied potential, solvent, or finite-temperature population inferred.",
+    "dipole_correction": true,
+    "dipole_vacuum_margin_A": 2,
+    "dipole_region_width_A": 1.5
+  },
+  "scheduler": {
+    "type": "auto",
+    "partition": "",
+    "account": "",
+    "queue": "",
+    "module_commands": [],
+    "poll_seconds": 30,
+    "max_wait_hours": 720,
+    "pbs_flavor": "openpbs"
+  },
+  "dft_scheduler": {
+    "ranks": 16,
+    "memory_gb": 64,
+    "walltime": "48:00:00",
+    "max_concurrent": 2
+  },
+  "feff_scheduler": {
+    "cpus_per_task": 1,
+    "memory_gb": 4,
+    "walltime": "72:00:00",
+    "max_concurrent": 16
+  },
+  "software": {
+    "feff_command": [],
+    "feff_timeout_seconds": 252000,
+    "fortran_compiler": "gfortran"
+  },
+  "feff": {
+    "cluster_radius_angstrom": 10,
+    "scf_radius_angstrom": 6,
+    "fms_radius_angstrom": 8,
+    "rpath_angstrom": 5,
+    "exafs_kmax": 14,
+    "xanes_card": "4.0 0.05 0.2",
+    "corehole": "FSR",
+    "scf_card_suffix": "0 30 0.2 1",
+    "max_atoms": 1800,
+    "egrid_by_edge": {
+      "W_L3": [
+        -160,
+        130,
+        0.5
+      ],
+      "Co_K": [
+        -35,
+        90,
+        0.5
+      ],
+      "Fe_K": [
+        -35,
+        90,
+        0.5
+      ]
+    },
+    "absolute_windows_eV": {
+      "W_L3": [
+        10100,
+        10300
+      ]
+    }
+  },
+  "coordination": {
+    "oxygen_cutoff_A": 2.65,
+    "nonoxygen_cutoff_A": 2.8,
+    "minimum_oxygen_neighbors": 4,
+    "inspect_cutoffs_A": [
+      2.4,
+      2.65,
+      2.8,
+      3.2
+    ],
+    "failure_policy": "report_and_calculate"
+  },
+  "postprocess": {
+    "output_dir": "results",
+    "energy_step_eV": 0.5,
+    "kmin": 3,
+    "kmax": 12,
+    "kstep": 0.05,
+    "dk": 1,
+    "nfft": 2048,
+    "rmax": 6,
+    "native_k_gap_max": 0.25,
+    "endpoint_tolerance": 0.002,
+    "xmu_relation": "diagnostic",
+    "exafs_site_average": "native_k_structural_approximation"
+  },
+  "export": {
+    "energy_window_eV_by_edge": {
+      "W_L3": [
+        10100,
+        10300
+      ]
+    },
+    "comparisons": [
+      {
+        "id": "W_sub_Fe__EG_W__hydroxylated",
+        "title": "W sub Fe; EG at W on hydroxylated",
+        "series": [
+          {
+            "model": "W_sub_Fe__hydroxylated__none",
+            "label": "Hydroxylated"
+          },
+          {
+            "model": "W_sub_Fe__Co_deprotonated__none",
+            "label": "Co-deprotonated, no EG"
+          },
+          {
+            "model": "W_sub_Fe__hydroxylated__EG_at_W",
+            "label": "EG at W"
+          }
+        ]
+      },
+      {
+        "id": "W_sub_Fe__EG_W__Co_deprotonated",
+        "title": "W sub Fe; EG at W on Co deprotonated",
+        "series": [
+          {
+            "model": "W_sub_Fe__hydroxylated__none",
+            "label": "Hydroxylated"
+          },
+          {
+            "model": "W_sub_Fe__Co_deprotonated__none",
+            "label": "Co-deprotonated, no EG"
+          },
+          {
+            "model": "W_sub_Fe__Co_deprotonated__EG_at_W",
+            "label": "EG at W (Co-deprotonated)"
+          }
+        ]
+      },
+      {
+        "id": "W_sub_Fe__EG_Co__hydroxylated",
+        "title": "W sub Fe; EG at Co on hydroxylated",
+        "series": [
+          {
+            "model": "W_sub_Fe__hydroxylated__none",
+            "label": "Hydroxylated"
+          },
+          {
+            "model": "W_sub_Fe__Co_deprotonated__none",
+            "label": "Co-deprotonated, no EG"
+          },
+          {
+            "model": "W_sub_Fe__hydroxylated__EG_at_Co",
+            "label": "EG at Co"
+          }
+        ]
+      },
+      {
+        "id": "W_sub_Fe__EG_Co__Co_deprotonated",
+        "title": "W sub Fe; EG at Co on Co deprotonated",
+        "series": [
+          {
+            "model": "W_sub_Fe__hydroxylated__none",
+            "label": "Hydroxylated"
+          },
+          {
+            "model": "W_sub_Fe__Co_deprotonated__none",
+            "label": "Co-deprotonated, no EG"
+          },
+          {
+            "model": "W_sub_Fe__Co_deprotonated__EG_at_Co",
+            "label": "EG at Co (Co-deprotonated)"
+          }
+        ]
+      },
+      {
+        "id": "W_sub_Co__EG_W__hydroxylated",
+        "title": "W sub Co; EG at W on hydroxylated",
+        "series": [
+          {
+            "model": "W_sub_Co__hydroxylated__none",
+            "label": "Hydroxylated"
+          },
+          {
+            "model": "W_sub_Co__Co_deprotonated__none",
+            "label": "Co-deprotonated, no EG"
+          },
+          {
+            "model": "W_sub_Co__hydroxylated__EG_at_W",
+            "label": "EG at W"
+          }
+        ]
+      },
+      {
+        "id": "W_sub_Co__EG_W__Co_deprotonated",
+        "title": "W sub Co; EG at W on Co deprotonated",
+        "series": [
+          {
+            "model": "W_sub_Co__hydroxylated__none",
+            "label": "Hydroxylated"
+          },
+          {
+            "model": "W_sub_Co__Co_deprotonated__none",
+            "label": "Co-deprotonated, no EG"
+          },
+          {
+            "model": "W_sub_Co__Co_deprotonated__EG_at_W",
+            "label": "EG at W (Co-deprotonated)"
+          }
+        ]
+      },
+      {
+        "id": "W_sub_Co__EG_Co__hydroxylated",
+        "title": "W sub Co; EG at Co on hydroxylated",
+        "series": [
+          {
+            "model": "W_sub_Co__hydroxylated__none",
+            "label": "Hydroxylated"
+          },
+          {
+            "model": "W_sub_Co__Co_deprotonated__none",
+            "label": "Co-deprotonated, no EG"
+          },
+          {
+            "model": "W_sub_Co__hydroxylated__EG_at_Co",
+            "label": "EG at Co"
+          }
+        ]
+      },
+      {
+        "id": "W_sub_Co__EG_Co__Co_deprotonated",
+        "title": "W sub Co; EG at Co on Co deprotonated",
+        "series": [
+          {
+            "model": "W_sub_Co__hydroxylated__none",
+            "label": "Hydroxylated"
+          },
+          {
+            "model": "W_sub_Co__Co_deprotonated__none",
+            "label": "Co-deprotonated, no EG"
+          },
+          {
+            "model": "W_sub_Co__Co_deprotonated__EG_at_Co",
+            "label": "EG at Co (Co-deprotonated)"
+          }
+        ]
+      }
+    ]
+  },
+  "condition_mapping": {
+    "status": "not_established",
+    "requested_conditions": [
+      "OCP",
+      "no EG, 1.6 V vs RHE",
+      "with EG, 1.6 V vs RHE"
+    ],
+    "plot_model_labels_only": true,
+    "note": "Candidate hydroxylation/adsorption states do not by themselves establish electrochemical potential or steady-state populations."
+  }
+}

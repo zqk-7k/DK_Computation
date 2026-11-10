@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "scope": "Program-only test, not FEFF calculation",
+  "tests": [
+    "official EGRID syntax in three XANES inputs, absent in EXAFS",
+    "six prepared jobs and input hashes",
+    "real prior narrow W output refused by coverage guard",
+    "temporary numerical coverage fixture accepted",
+    "too many energy points and unsupported FMS energy rejected"
+  ],
+  "fixture_data_included": false
+}

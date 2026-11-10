@@ -1,0 +1,134 @@
+[
+  {
+    "id": "W_sub_Fe__hydroxylated__none",
+    "path": "candidates/W_sub_Fe__hydroxylated__none",
+    "structure_sha256": "13897e10555a6af1644856bc82989a03e943dd30ad6b404bdf4ace17c5f41f87",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Fe",
+    "background": "hydroxylated",
+    "adsorbate": "none",
+    "w_atom_id": "orig_0",
+    "response_co_id": "orig_5"
+  },
+  {
+    "id": "W_sub_Fe__hydroxylated__EG_at_W",
+    "path": "candidates/W_sub_Fe__hydroxylated__EG_at_W",
+    "structure_sha256": "a6bd8c5eb1bb97fe7594c103ddf1df76fa657b04350ffcdd1db59ec0a7f0cef2",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Fe",
+    "background": "hydroxylated",
+    "adsorbate": "EG_at_W",
+    "w_atom_id": "orig_0",
+    "response_co_id": "orig_5"
+  },
+  {
+    "id": "W_sub_Fe__hydroxylated__EG_at_Co",
+    "path": "candidates/W_sub_Fe__hydroxylated__EG_at_Co",
+    "structure_sha256": "178a277b634f90ff3ee279cce52c36e5cf62d887f08e153ec913132816e88ac1",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Fe",
+    "background": "hydroxylated",
+    "adsorbate": "EG_at_Co",
+    "w_atom_id": "orig_0",
+    "response_co_id": "orig_5"
+  },
+  {
+    "id": "W_sub_Fe__Co_deprotonated__none",
+    "path": "candidates/W_sub_Fe__Co_deprotonated__none",
+    "structure_sha256": "58561c8e459c0370d5f60587f4b7a3dc76f69bcea366493affdbc98541be57a7",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Fe",
+    "background": "Co_deprotonated",
+    "adsorbate": "none",
+    "w_atom_id": "orig_0",
+    "response_co_id": "orig_5"
+  },
+  {
+    "id": "W_sub_Fe__Co_deprotonated__EG_at_W",
+    "path": "candidates/W_sub_Fe__Co_deprotonated__EG_at_W",
+    "structure_sha256": "def8f3cff7cbe495b415ac74fe3957526018117842f5ecd469815fee58ea23d4",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Fe",
+    "background": "Co_deprotonated",
+    "adsorbate": "EG_at_W",
+    "w_atom_id": "orig_0",
+    "response_co_id": "orig_5"
+  },
+  {
+    "id": "W_sub_Fe__Co_deprotonated__EG_at_Co",
+    "path": "candidates/W_sub_Fe__Co_deprotonated__EG_at_Co",
+    "structure_sha256": "3dcbbdd4a82fc760de952c15e8656ec2bb0c16cf435ac9a652b852c816b06b5a",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Fe",
+    "background": "Co_deprotonated",
+    "adsorbate": "EG_at_Co",
+    "w_atom_id": "orig_0",
+    "response_co_id": "orig_5"
+  },
+  {
+    "id": "W_sub_Co__hydroxylated__none",
+    "path": "candidates/W_sub_Co__hydroxylated__none",
+    "structure_sha256": "9275067fe702463478c423a5d3d632338758ab2af2ce42e7e956cf914e7a9096",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Co",
+    "background": "hydroxylated",
+    "adsorbate": "none",
+    "w_atom_id": "orig_5",
+    "response_co_id": "orig_4"
+  },
+  {
+    "id": "W_sub_Co__hydroxylated__EG_at_W",
+    "path": "candidates/W_sub_Co__hydroxylated__EG_at_W",
+    "structure_sha256": "c5289be0de22774d68a4b0574899aac04402a971cb86eb64c3c8c0c72c873031",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Co",
+    "background": "hydroxylated",
+    "adsorbate": "EG_at_W",
+    "w_atom_id": "orig_5",
+    "response_co_id": "orig_4"
+  },
+  {
+    "id": "W_sub_Co__hydroxylated__EG_at_Co",
+    "path": "candidates/W_sub_Co__hydroxylated__EG_at_Co",
+    "structure_sha256": "9e3d8e9321df5532b7c4c13e9ad807b84d4d4dcf82778942f9e3025d4a84c5ca",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Co",
+    "background": "hydroxylated",
+    "adsorbate": "EG_at_Co",
+    "w_atom_id": "orig_5",
+    "response_co_id": "orig_4"
+  },
+  {
+    "id": "W_sub_Co__Co_deprotonated__none",
+    "path": "candidates/W_sub_Co__Co_deprotonated__none",
+    "structure_sha256": "1deb0c6cab9a1e905f98100d2a8b9f435eb6b616a6e36dc177dc07a76c877a5e",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Co",
+    "background": "Co_deprotonated",
+    "adsorbate": "none",
+    "w_atom_id": "orig_5",
+    "response_co_id": "orig_4"
+  },
+  {
+    "id": "W_sub_Co__Co_deprotonated__EG_at_W",
+    "path": "candidates/W_sub_Co__Co_deprotonated__EG_at_W",
+    "structure_sha256": "906cae61886a019dd6dc108e2ed0ff3997883cf304a36c07c7f603bde2989cf6",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Co",
+    "background": "Co_deprotonated",
+    "adsorbate": "EG_at_W",
+    "w_atom_id": "orig_5",
+    "response_co_id": "orig_4"
+  },
+  {
+    "id": "W_sub_Co__Co_deprotonated__EG_at_Co",
+    "path": "candidates/W_sub_Co__Co_deprotonated__EG_at_Co",
+    "structure_sha256": "9a83f22ebf32947e1b2b1e3f435b3c10fbe52c6e95a4addff093d9ad345d7d75",
+    "status": "candidate_not_DFT_optimized",
+    "anchor": "W_sub_Co",
+    "background": "Co_deprotonated",
+    "adsorbate": "EG_at_Co",
+    "w_atom_id": "orig_5",
+    "response_co_id": "orig_4"
+  }
+]

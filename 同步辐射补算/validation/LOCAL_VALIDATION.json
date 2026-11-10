@@ -1,0 +1,66 @@
+{
+  "status": "PASS_FOR_WORKFLOW_PACKAGE_NOT_PHYSICAL_CALCULATION",
+  "checked_utc": "2026-11-10T18:48:52.556262+00:00",
+  "original_CIFs_byte_preserved": 16,
+  "candidate_CIFs": 12,
+  "candidate_state": "unoptimized_hypothesis",
+  "candidate_chemistry": "two substitution sites x two hydroxylation backgrounds x three adsorption controls; all initial W have six O first-heavy-atom neighbors; all initial clash checks passed",
+  "unit_and_integration_tests": {
+    "tests": 16,
+    "passed": 16,
+    "seconds": 21.054,
+    "candidate_QE_tests": 8,
+    "export_tests": 5,
+    "cross_stage_tests": 3,
+    "physical_fixtures": false,
+    "fixture_outputs_in_package": false
+  },
+  "additional_checks": [
+    "FEFF EGRID official syntax and mandatory real W output coverage",
+    "Python AST",
+    "Linux shell syntax via bash -n",
+    "LF-only shell scripts",
+    "original CIF SHA256 values",
+    "candidate-to-DFT-to-FEFF model names and eight comparison mappings",
+    "384 FEFF inputs generated only in temporary parser-test project",
+    "Arial XANES/FT/WT visual QA in temporary test output"
+  ],
+  "new_physical_runs_performed": {
+    "DFT": false,
+    "FEFF": false,
+    "Linux_QE_build": false,
+    "real_HPC_submission": false
+  },
+  "local_package_versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.3",
+    "pymatgen": "2026.9.24",
+    "pymatgen-core": "2026.10.16",
+    "xraylarch": "2026.3.1"
+  },
+  "limitations": [
+    "All new candidates still require actual optimization",
+    "O-only shell and requested activity pattern are hypotheses, not imposed results",
+    "No OCP/1.6V mapping",
+    "PBE U0 new baseline; system-specific convergence and physical-method sensitivity remain required"
+  ],
+  "script_hashes": {
+    "bootstrap_python.sh": "fa28939d376a8d4a8e1697d20cb6258d7b1eaaa5aa0c88afee3cd793a89efec2",
+    "build_candidates.py": "f4d90cbc5691bd6967dc48583d78a471e0e4e4b5053f6cb85d9666728d46bd28",
+    "export_supplement.py": "3de0ca65e3e6974ae8396ddab19f9f47f05af877ce1e2a6e7ffe0937b29fa6a8",
+    "extend_feff_inputs.py": "d0cd1df9475f8a565e059a790bf263cab1e05a7979e849c8c18738d9e6055d7e",
+    "install_feff10.sh": "7cb374ca5dce9ec9a842f755fa518d0545873e2d76d382b2be1ef9fdb6393018",
+    "install_pseudos.py": "99437aaf0e873348c96ddb6b941aa3e3643b9232bb3e7b1d1bff1a89f05d46b8",
+    "install_qe.sh": "c2d385b5c94127064f518e5f7f969ae316c3b581f2d5b5aafe8442168109ce31",
+    "package_results.py": "50714652a35e8d9309ba38e82974ebd8608c1a9b11e2c26991faf0f6e9b7848b",
+    "postprocess.py": "c5ff0f827e020f4e94a6ee38cd278e9cc306ed305f6dfc1200c83f854eaecade",
+    "prepare_inputs.py": "726495b727d8e0ec9914cbb83b94c8ff7ebee4d691162720a9dd6e33001eebf1",
+    "probe_qe.py": "199da3ec06f9a47149235e1d78422924e51ef73a1384f94386c16079d83676b8",
+    "qe_tasks.py": "e4e0ca440b1634b211dfe897b94708a15a2908c1fd29a3a760e82c4aa62a355c",
+    "run_array_task.py": "b5ed176618ae2b9d842eecfea7c51b7e1d3c023430881376a452475480ace78b",
+    "run_feff_job.py": "09ff493d69d34dc43b1aa07ac866d57acf98f7c1ce89b4989aabc224fdb8db75",
+    "supplement.py": "7d650016dead2f8096b64bf1f1f799b3cf1f864fad285f1136d5a700a0de71ed",
+    "workflow.py": "54d7ba292472687445209bdacafdd29296510c1b3ff7c1285244309f8b49f761"
+  }
+}

@@ -1,0 +1,13 @@
+software/
+.venv/
+dft/
+feff_jobs/
+results/
+deliverables/
+submissions/
+logs/
+__pycache__/
+*.pyc
+*.lock
+runtime_config.json
+dft_config_*.json

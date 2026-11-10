@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "test_suite": "tests/test_export_supplement.py",
+  "tests": 5,
+  "fixture": "Analytical TEST ONLY in OS temporary directories; not FEFF calculation; no fixture data in package",
+  "checks": [
+    "CSV to tab-TXT numeric preservation",
+    "PNG/PDF/SVG/TIFF exports",
+    "W actual 10100-10300 eV coverage check",
+    "missing model rejected",
+    "partial or modified data rejected",
+    "OCP/voltage labels rejected without physical state mapping",
+    "no target FT peak imposed"
+  ],
+  "visual_QA": {
+    "viewed": [
+      "stacked W/Co/Fe XANES",
+      "stacked W/Co/Fe FT",
+      "3x3 WT"
+    ],
+    "result": "PASS; labels, legends and axes readable, no overlap; Arial locally available"
+  },
+  "actual_previous_result_check": {
+    "source": "prior completed Top-O1 W L3 model mean",
+    "energy_coverage_eV": [
+      10202.25,
+      10267.0
+    ],
+    "required": [
+      10100,
+      10300
+    ],
+    "outcome": "Correctly refused unsupported range; no extrapolation or invented pre-edge"
+  },
+  "script_sha256": "3de0ca65e3e6974ae8396ddab19f9f47f05af877ce1e2a6e7ffe0937b29fa6a8",
+  "physical_supplement_calculation_performed": false
+}
