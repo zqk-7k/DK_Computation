@@ -1,0 +1,5 @@
+numpy>=2.0,<3
+scipy>=1.14,<2
+matplotlib>=3.9,<4
+pymatgen>=2025.1
+xraylarch==2026.3.1

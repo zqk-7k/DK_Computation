@@ -1,0 +1,31 @@
+{
+  "id": "full/xanes",
+  "profile": "full",
+  "mode": "xanes",
+  "edge": "W_L3",
+  "path": "jobs_reference/full/xanes",
+  "source_xyz": "references/alpha_PW12O40_crystallographic.xyz",
+  "source_sha256": "4f9dbab07e2edd6cd458e3d634962a8ec6fc2da4fa25a02613704acfae8fb5ab",
+  "source_metadata_sha256": "fdfb6d06dd9a530f4efeec8ff2acdd4f0cb32cc50370aa6a7a3ed22dae8b39ba",
+  "absorber_source_index": 1,
+  "equivalent_W_sites": 12,
+  "atom_count": 53,
+  "finite_molecule": true,
+  "radial_equivalence_max_difference_A": 0.0,
+  "periodic_images_added": 0,
+  "scf_radius_A": 8.85,
+  "fms_radius_A": 8.85,
+  "full_geometry_maximum_absorber_distance_A": 8.746575627258533,
+  "scf_cluster_atoms": 53,
+  "relative_egrid_eV": [
+    -160.0,
+    130.0,
+    0.5
+  ],
+  "absolute_window_eV": [
+    10100.0,
+    10300.0
+  ],
+  "feff_input_sha256": "fddd3260d4696cabe7de29d9456543f9bfb67798f8578d379099170dcc596416",
+  "scope": "Unrelaxed crystallographic molecular reference, not the supported catalyst; no imposed ionic charge, potential or active-site assignment"
+}

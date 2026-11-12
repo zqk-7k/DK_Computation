@@ -1,0 +1,32 @@
+{
+  "status": "PASS",
+  "physical_FEFF_run_performed": false,
+  "profiles": {
+    "small_radius_A": 6.0,
+    "full_radius_A": 8.85
+  },
+  "jobs": 4,
+  "atoms_in_every_input": 53,
+  "periodic_images": 0,
+  "tests": [
+    "input/source hashes and53exact XYZatoms",
+    "one absorber, chemically splitO potentials",
+    "XANES EGRID only, separateEXAFS",
+    "mock subprocess/resume in temporarydir",
+    "oldrealnarrowW XANESrefused",
+    "nativeEXAFS tableparser",
+    "PythonASTandBashsyntax",
+    "Verified SCF markers in real FEFF10 logs and pinned official source",
+    "Valid numeric output without SCF evidence raises and preserves unverified status",
+    "Retries archive all native files and nested directories; inputs and earlier archives are preserved",
+    "Explicit nonconvergence cannot be complete",
+    "Verified SCF evidence is hashed; complete matching output resumes unchanged",
+    "Native convergence.scf final flag checked; conflicting failure overrides success",
+    "Stale SCF evidence rejected",
+    "Old real narrow W XANES coverage rejected",
+    "Real native EXAFS with converged SCF passes",
+    "All package Python scripts parse"
+  ],
+  "fixture_outputs_bundled": false,
+  "scf_signature_source": "https://github.com/times-software/feff10/blob/d861cf8b64342e2d63a0aeb62c8b78faca7942c3/src/POT/potsub.f90"
+}

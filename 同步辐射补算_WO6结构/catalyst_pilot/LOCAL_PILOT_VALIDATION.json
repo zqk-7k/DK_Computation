@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "original_candidate_CIFs_unchanged": 4,
+  "mask_matches_QE_atom_order": true,
+  "same_34_fixed_host_labels_in_all_models": true,
+  "W_neighbor_Co_and_all_EG_atoms_mobile": true,
+  "input_generation_four_models": true,
+  "changed_radius_refuses_overwrite": true,
+  "actual_QE_executed": false,
+  "temporary_test_outputs_delivered": false
+}

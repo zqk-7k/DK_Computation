@@ -1,0 +1,17 @@
+{
+  "claim": "The complete reference has O6 first-shell W coordination, but includes other W atoms beyond this shell.",
+  "archetype": "coordinate-based structural comparison",
+  "backend": "Python matplotlib",
+  "source": "references/*.xyz",
+  "is_spectrum": false,
+  "not_supported_single_atom_catalyst": true,
+  "size_inches": [
+    7.1,
+    3.65
+  ],
+  "exports": [
+    "PNG",
+    "PDF",
+    "SVG"
+  ]
+}

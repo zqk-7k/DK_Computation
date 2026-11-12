@@ -1,0 +1,1552 @@
+{
+  "id": "W_sub_Fe__hydroxylated__EG_at_Co",
+  "source_cif": "models/W_sub_Fe__hydroxylated__EG_at_Co/structure.cif",
+  "source_sha256": "178a277b634f90ff3ee279cce52c36e5cf62d887f08e153ec913132816e88ac1",
+  "status": "candidate_not_optimized",
+  "radius_A": 4.0,
+  "centers": [
+    "orig_0",
+    "orig_5"
+  ],
+  "rule": "Union of host atoms within radius of W or response Co across all four models; attached OH hydrogens and all EG atoms mobile; remaining host fixed.",
+  "movable_host_labels": [
+    "orig_0",
+    "orig_1",
+    "orig_10",
+    "orig_12",
+    "orig_13",
+    "orig_16",
+    "orig_17",
+    "orig_18",
+    "orig_20",
+    "orig_22",
+    "orig_23",
+    "orig_26",
+    "orig_28",
+    "orig_30",
+    "orig_32",
+    "orig_35",
+    "orig_36",
+    "orig_37",
+    "orig_39",
+    "orig_4",
+    "orig_40",
+    "orig_43",
+    "orig_46",
+    "orig_47",
+    "orig_48",
+    "orig_49",
+    "orig_5",
+    "orig_50",
+    "orig_52",
+    "orig_54",
+    "orig_55",
+    "orig_58",
+    "orig_6",
+    "orig_60",
+    "orig_62",
+    "orig_64",
+    "orig_67",
+    "orig_68",
+    "orig_69",
+    "orig_71",
+    "orig_72",
+    "orig_75",
+    "orig_78",
+    "orig_79",
+    "orig_8",
+    "orig_9"
+  ],
+  "movable_count": 53,
+  "fixed_count": 34,
+  "composition": {
+    "Fe": 3,
+    "Co": 12,
+    "H": 36,
+    "W": 1,
+    "C": 2,
+    "O": 33
+  },
+  "atoms": [
+    {
+      "index_zero": 0,
+      "index_one": 1,
+      "label": "orig_1",
+      "element": "Fe",
+      "cartesian_A": [
+        6.304213098949999,
+        0.013804684219143019,
+        10.075213877841001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 1,
+      "index_one": 2,
+      "label": "orig_2",
+      "element": "Fe",
+      "cartesian_A": [
+        9.50264807375,
+        5.584055653382088,
+        10.081146564531004
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 2,
+      "index_one": 3,
+      "label": "orig_3",
+      "element": "Fe",
+      "cartesian_A": [
+        3.109549079650001,
+        5.482939385813802,
+        10.207589341824
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 3,
+      "index_one": 4,
+      "label": "orig_4",
+      "element": "Co",
+      "cartesian_A": [
+        1.6402761622000004,
+        2.7422944314588866,
+        10.082581891956
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 4,
+      "index_one": 5,
+      "label": "orig_5",
+      "element": "Co",
+      "cartesian_A": [
+        -3.1968818524499985,
+        11.021152860084847,
+        10.07140547574
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 5,
+      "index_one": 6,
+      "label": "orig_6",
+      "element": "Co",
+      "cartesian_A": [
+        11.143876561999999,
+        2.751527075114673,
+        10.202135097609002
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 6,
+      "index_one": 7,
+      "label": "orig_7",
+      "element": "Co",
+      "cartesian_A": [
+        7.94846474305,
+        2.7881587512021984,
+        10.200795458679
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 7,
+      "index_one": 8,
+      "label": "orig_8",
+      "element": "Co",
+      "cartesian_A": [
+        3.1951242037000016,
+        11.057718114275568,
+        10.217292155217002
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 8,
+      "index_one": 9,
+      "label": "orig_9",
+      "element": "Co",
+      "cartesian_A": [
+        4.7196256406,
+        2.7565529986395254,
+        10.23426729423
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 9,
+      "index_one": 10,
+      "label": "orig_10",
+      "element": "Co",
+      "cartesian_A": [
+        -1.5554360548999981,
+        8.275814091689101,
+        10.198498934799
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 10,
+      "index_one": 11,
+      "label": "orig_11",
+      "element": "Co",
+      "cartesian_A": [
+        -0.024134115199998973,
+        5.50243421252584,
+        10.067616211338
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 11,
+      "index_one": 12,
+      "label": "orig_12",
+      "element": "Co",
+      "cartesian_A": [
+        7.941760112,
+        8.274463513120748,
+        10.079634686310003
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 12,
+      "index_one": 13,
+      "label": "orig_13",
+      "element": "Co",
+      "cartesian_A": [
+        4.836895965200002,
+        8.277496779741474,
+        10.079577273213003
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 13,
+      "index_one": 14,
+      "label": "orig_14",
+      "element": "Co",
+      "cartesian_A": [
+        6.3196612336,
+        5.547401836662295,
+        10.079232794631004
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 14,
+      "index_one": 15,
+      "label": "orig_15",
+      "element": "Co",
+      "cartesian_A": [
+        1.5574301873000005,
+        8.344715739307341,
+        10.100399089725002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 15,
+      "index_one": 16,
+      "label": "orig_16",
+      "element": "H",
+      "cartesian_A": [
+        3.195693042750001,
+        3.742353580059306,
+        8.064224466921
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 16,
+      "index_one": 17,
+      "label": "orig_17",
+      "element": "H",
+      "cartesian_A": [
+        1.5523745503500002,
+        0.8965516927471818,
+        8.063860850640001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 17,
+      "index_one": 18,
+      "label": "orig_18",
+      "element": "H",
+      "cartesian_A": [
+        4.72438727085,
+        0.9499327571455037,
+        8.064415843911
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 18,
+      "index_one": 19,
+      "label": "orig_19",
+      "element": "H",
+      "cartesian_A": [
+        1.1883303412500008,
+        4.7958270040064495,
+        12.222157502457
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 19,
+      "index_one": 20,
+      "label": "orig_20",
+      "element": "H",
+      "cartesian_A": [
+        0.0007286253000002851,
+        1.8001662471878785,
+        12.053669200461002
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 20,
+      "index_one": 21,
+      "label": "orig_21",
+      "element": "H",
+      "cartesian_A": [
+        -1.6404103826499992,
+        4.638495671109529,
+        12.041746413984
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 21,
+      "index_one": 22,
+      "label": "orig_23",
+      "element": "H",
+      "cartesian_A": [
+        8.30888500007454e-05,
+        3.6898138596871712,
+        8.060913644994
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 22,
+      "index_one": 23,
+      "label": "orig_24",
+      "element": "H",
+      "cartesian_A": [
+        9.586542246450001,
+        3.7424200019561105,
+        8.065736345142003
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 23,
+      "index_one": 24,
+      "label": "orig_25",
+      "element": "H",
+      "cartesian_A": [
+        7.9437798102,
+        0.8967841693859965,
+        8.256730581162
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 24,
+      "index_one": 25,
+      "label": "orig_26",
+      "element": "H",
+      "cartesian_A": [
+        11.2301994857,
+        0.896319216108367,
+        8.256711443463
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 25,
+      "index_one": 26,
+      "label": "orig_27",
+      "element": "H",
+      "cartesian_A": [
+        8.027149884,
+        4.6346764120432855,
+        12.053573511966002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 26,
+      "index_one": 27,
+      "label": "orig_28",
+      "element": "H",
+      "cartesian_A": [
+        6.391271039399999,
+        1.800542637936436,
+        12.053745751257
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 27,
+      "index_one": 28,
+      "label": "orig_29",
+      "element": "H",
+      "cartesian_A": [
+        5.111945624500001,
+        4.84813424773977,
+        12.222597669534
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 28,
+      "index_one": 29,
+      "label": "orig_30",
+      "element": "H",
+      "cartesian_A": [
+        9.5868170788,
+        1.8452888557502096,
+        12.222425430243002
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 29,
+      "index_one": 30,
+      "label": "orig_31",
+      "element": "H",
+      "cartesian_A": [
+        6.390555196999999,
+        3.6888064609189737,
+        8.067592701945001
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 30,
+      "index_one": 31,
+      "label": "orig_32",
+      "element": "H",
+      "cartesian_A": [
+        -0.00038987844999827104,
+        9.277622350238698,
+        8.065621518948003
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 31,
+      "index_one": 32,
+      "label": "orig_33",
+      "element": "H",
+      "cartesian_A": [
+        -1.6440023775499992,
+        6.4314883534425515,
+        8.065908584433
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 32,
+      "index_one": 33,
+      "label": "orig_34",
+      "element": "H",
+      "cartesian_A": [
+        1.6424876039000016,
+        6.431698689449099,
+        8.067535288848001
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 33,
+      "index_one": 34,
+      "label": "orig_35",
+      "element": "H",
+      "cartesian_A": [
+        -1.559878112649999,
+        10.174030128876137,
+        12.053745751257003
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 34,
+      "index_one": 35,
+      "label": "orig_36",
+      "element": "H",
+      "cartesian_A": [
+        -3.199138034299999,
+        7.334217282592525,
+        12.053611787364
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 35,
+      "index_one": 36,
+      "label": "orig_37",
+      "element": "H",
+      "cartesian_A": [
+        -4.838378781599998,
+        10.173598386546908,
+        12.034742016150002
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 36,
+      "index_one": 37,
+      "label": "orig_38",
+      "element": "H",
+      "cartesian_A": [
+        -0.00010226319999873112,
+        7.380247657077848,
+        12.222195777855001
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 37,
+      "index_one": 38,
+      "label": "orig_39",
+      "element": "H",
+      "cartesian_A": [
+        -3.195667476949999,
+        9.225149051763367,
+        8.065640656647002
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 38,
+      "index_one": 39,
+      "label": "orig_40",
+      "element": "H",
+      "cartesian_A": [
+        6.391213516350001,
+        9.277888037825914,
+        8.065564105851003
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 39,
+      "index_one": 40,
+      "label": "orig_41",
+      "element": "H",
+      "cartesian_A": [
+        4.7480292444000005,
+        6.4314330018618815,
+        8.064013952232003
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 40,
+      "index_one": 41,
+      "label": "orig_42",
+      "element": "H",
+      "cartesian_A": [
+        8.03444252845,
+        6.4313997909134795,
+        8.064530670105002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 41,
+      "index_one": 42,
+      "label": "orig_43",
+      "element": "H",
+      "cartesian_A": [
+        4.833137792600001,
+        10.169081697564222,
+        12.053745751257003
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 42,
+      "index_one": 43,
+      "label": "orig_44",
+      "element": "H",
+      "cartesian_A": [
+        3.1949963747000005,
+        7.3316268286171615,
+        12.042110030265002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 43,
+      "index_one": 44,
+      "label": "orig_45",
+      "element": "H",
+      "cartesian_A": [
+        1.5549950448500018,
+        10.16847283017685,
+        12.053841439752002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 44,
+      "index_one": 45,
+      "label": "orig_46",
+      "element": "H",
+      "cartesian_A": [
+        6.391219907800001,
+        7.38033621960692,
+        12.222119227059004
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 45,
+      "index_one": 46,
+      "label": "orig_47",
+      "element": "H",
+      "cartesian_A": [
+        3.195456559100002,
+        9.22540366903445,
+        8.065621518948003
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 46,
+      "index_one": 47,
+      "label": "EG_4",
+      "element": "H",
+      "cartesian_A": [
+        4.321547599395,
+        2.5864797318723287,
+        12.74621334338457
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 47,
+      "index_one": 48,
+      "label": "EG_5",
+      "element": "H",
+      "cartesian_A": [
+        2.6251322639490002,
+        3.0833520520111106,
+        12.537503913531241
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 48,
+      "index_one": 49,
+      "label": "EG_6",
+      "element": "H",
+      "cartesian_A": [
+        1.8264801285705001,
+        1.030151699650731,
+        13.517500505728592
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 49,
+      "index_one": 50,
+      "label": "EG_7",
+      "element": "H",
+      "cartesian_A": [
+        3.463035380324,
+        0.3301850202643427,
+        13.517500505728592
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 50,
+      "index_one": 51,
+      "label": "EG_8",
+      "element": "H",
+      "cartesian_A": [
+        2.8643455105005002,
+        1.1935752489225349,
+        15.598132194686581
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 51,
+      "index_one": 52,
+      "label": "orig_0",
+      "element": "W",
+      "cartesian_A": [
+        -6.328168253549998,
+        11.046570305928595,
+        10.130292175563
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 52,
+      "index_one": 53,
+      "label": "EG_1",
+      "element": "C",
+      "cartesian_A": [
+        3.3099087016515005,
+        2.2353229940205064,
+        12.542803333761332
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 53,
+      "index_one": 54,
+      "label": "EG_2",
+      "element": "C",
+      "cartesian_A": [
+        2.8888236135395005,
+        1.2508061264596295,
+        13.62160518661782
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 54,
+      "index_one": 55,
+      "label": "orig_48",
+      "element": "O",
+      "cartesian_A": [
+        3.1953159472000014,
+        3.640185632458287,
+        9.034907697900001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 55,
+      "index_one": 56,
+      "label": "orig_49",
+      "element": "O",
+      "cartesian_A": [
+        1.6420977254499998,
+        0.946921631157046,
+        9.034295291532
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 56,
+      "index_one": 57,
+      "label": "orig_50",
+      "element": "O",
+      "cartesian_A": [
+        4.74767771465,
+        0.9488257255321001,
+        9.067135583016
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 57,
+      "index_one": 58,
+      "label": "orig_51",
+      "element": "O",
+      "cartesian_A": [
+        1.378859465750001,
+        4.592797406108227,
+        11.267703040230002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 58,
+      "index_one": 59,
+      "label": "orig_52",
+      "element": "O",
+      "cartesian_A": [
+        0.001463642050000269,
+        1.886813611568979,
+        11.076689666511001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 59,
+      "index_one": 60,
+      "label": "orig_53",
+      "element": "O",
+      "cartesian_A": [
+        -1.5626264361499993,
+        4.59138040564307,
+        11.075847607755
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 60,
+      "index_one": 61,
+      "label": "orig_54",
+      "element": "O",
+      "cartesian_A": [
+        3.2772415533000006,
+        1.5883025370146955,
+        11.267970968016
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 61,
+      "index_one": 62,
+      "label": "orig_55",
+      "element": "O",
+      "cartesian_A": [
+        0.0816507737500003,
+        3.6428092973820534,
+        9.02074580064
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 62,
+      "index_one": 63,
+      "label": "orig_56",
+      "element": "O",
+      "cartesian_A": [
+        9.58675955575,
+        3.742331439427038,
+        9.052342141689003
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 63,
+      "index_one": 64,
+      "label": "orig_57",
+      "element": "O",
+      "cartesian_A": [
+        7.944035468199999,
+        0.8969612944441411,
+        9.243145000719
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 64,
+      "index_one": 65,
+      "label": "orig_58",
+      "element": "O",
+      "cartesian_A": [
+        11.23016752845,
+        0.8964409895858413,
+        9.24293448603
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 65,
+      "index_one": 66,
+      "label": "orig_59",
+      "element": "O",
+      "cartesian_A": [
+        7.9533158535999995,
+        4.590970803946112,
+        11.076268637133003
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 66,
+      "index_one": 67,
+      "label": "orig_60",
+      "element": "O",
+      "cartesian_A": [
+        6.3906830260000005,
+        1.8870239475755257,
+        11.076536564919001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 67,
+      "index_one": 68,
+      "label": "orig_61",
+      "element": "O",
+      "cartesian_A": [
+        5.011299461350001,
+        4.592686702946887,
+        11.268104931909
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 68,
+      "index_one": 69,
+      "label": "orig_62",
+      "element": "O",
+      "cartesian_A": [
+        9.58631215425,
+        1.8455656136535605,
+        11.234460857067
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 69,
+      "index_one": 70,
+      "label": "orig_63",
+      "element": "O",
+      "cartesian_A": [
+        6.301106854250001,
+        3.637584108166789,
+        9.067901090976001
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 70,
+      "index_one": 71,
+      "label": "orig_64",
+      "element": "O",
+      "cartesian_A": [
+        -0.00014700334999862008,
+        9.277777334664574,
+        9.051921112311001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 71,
+      "index_one": 72,
+      "label": "orig_65",
+      "element": "O",
+      "cartesian_A": [
+        -1.676617946899999,
+        6.411307167130204,
+        9.054294186987
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 72,
+      "index_one": 73,
+      "label": "orig_66",
+      "element": "O",
+      "cartesian_A": [
+        1.5522339384500006,
+        6.483629542433862,
+        9.067633163190001
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 73,
+      "index_one": 74,
+      "label": "orig_67",
+      "element": "O",
+      "cartesian_A": [
+        -1.633859146399998,
+        10.126305996022307,
+        11.076613115715002
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 74,
+      "index_one": 75,
+      "label": "orig_68",
+      "element": "O",
+      "cartesian_A": [
+        -3.203989144849999,
+        7.426134117453428,
+        11.076747079608
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 75,
+      "index_one": 76,
+      "label": "orig_69",
+      "element": "O",
+      "cartesian_A": [
+        -4.752669437099998,
+        10.121855728936424,
+        11.062202428368
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 76,
+      "index_one": 77,
+      "label": "orig_70",
+      "element": "O",
+      "cartesian_A": [
+        -6.391449999920695e-05,
+        7.380114813284239,
+        11.234403443970002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 77,
+      "index_one": 78,
+      "label": "orig_71",
+      "element": "O",
+      "cartesian_A": [
+        -3.195872003349999,
+        9.225060489234295,
+        9.051863699214001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 78,
+      "index_one": 79,
+      "label": "orig_72",
+      "element": "O",
+      "cartesian_A": [
+        6.391418042750002,
+        9.277644490870964,
+        9.051787148418002
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 79,
+      "index_one": 80,
+      "label": "orig_73",
+      "element": "O",
+      "cartesian_A": [
+        4.835687981150001,
+        6.482433948291386,
+        9.034123052241002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 80,
+      "index_one": 81,
+      "label": "orig_74",
+      "element": "O",
+      "cartesian_A": [
+        7.976823606700001,
+        6.425831421898059,
+        9.041567617152001
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 81,
+      "index_one": 82,
+      "label": "orig_75",
+      "element": "O",
+      "cartesian_A": [
+        4.757942383350002,
+        10.125807831796275,
+        11.076747079608001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 82,
+      "index_one": 83,
+      "label": "orig_76",
+      "element": "O",
+      "cartesian_A": [
+        3.1879977369500017,
+        7.425514179749921,
+        11.075924158551002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 83,
+      "index_one": 84,
+      "label": "orig_77",
+      "element": "O",
+      "cartesian_A": [
+        1.6333733962000014,
+        10.127058777519421,
+        11.076823630404002
+      ],
+      "movable": false,
+      "qe_if_pos": [
+        0,
+        0,
+        0
+      ]
+    },
+    {
+      "index_zero": 84,
+      "index_one": 85,
+      "label": "orig_78",
+      "element": "O",
+      "cartesian_A": [
+        6.391405259850001,
+        7.380214446129446,
+        11.234403443970004
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 85,
+      "index_one": 86,
+      "label": "orig_79",
+      "element": "O",
+      "cartesian_A": [
+        3.1957122171000005,
+        9.225359387769913,
+        9.051921112311001
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    },
+    {
+      "index_zero": 86,
+      "index_one": 87,
+      "label": "EG_3",
+      "element": "O",
+      "cartesian_A": [
+        3.1330643107464997,
+        1.8218524429786498,
+        14.909686198626872
+      ],
+      "movable": true,
+      "qe_if_pos": [
+        1,
+        1,
+        1
+      ]
+    }
+  ],
+  "limitation": "Constrained local relaxation only. Fixed atom residual forces are not a convergence test on mobile atoms. Validate a larger mobile region and full relaxation before quantitative publication claims."
+}

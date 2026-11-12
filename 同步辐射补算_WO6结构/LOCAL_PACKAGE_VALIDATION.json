@@ -1,0 +1,48 @@
+{
+  "date": "2026-11-12",
+  "reference_postprocess_unittests": {
+    "passed": 7,
+    "failed": 0,
+    "duration_seconds": 6.383,
+    "scope": "source/profile/native and SCF-log hash gates, SCF verification rejection, energy coverage, Larch FT/WT and exports with temporary software fixtures"
+  },
+  "visual_QA": "Coordinate-based POM and first-shell preview inspected; no overlaps or clipping.",
+  "new_DFT_executed": false,
+  "new_FEFF_executed": false,
+  "test_spectra_in_delivery": false,
+  "reference_source": "10.1107/S2056989024005565",
+  "CIF_round_trip": [
+    {
+      "file": "catalyst_pilot/models/W_sub_Fe__Co_deprotonated__none/structure.cif",
+      "atoms": 79,
+      "formula": "Fe3 Co12 H31 W1 O32"
+    },
+    {
+      "file": "catalyst_pilot/models/W_sub_Fe__hydroxylated__EG_at_Co/structure.cif",
+      "atoms": 87,
+      "formula": "Fe3 Co12 H36 W1 C2 O33"
+    },
+    {
+      "file": "catalyst_pilot/models/W_sub_Fe__hydroxylated__EG_at_W/structure.cif",
+      "atoms": 87,
+      "formula": "Fe3 Co12 H36 W1 C2 O33"
+    },
+    {
+      "file": "catalyst_pilot/models/W_sub_Fe__hydroxylated__none/structure.cif",
+      "atoms": 80,
+      "formula": "Fe3 Co12 H32 W1 O32"
+    },
+    {
+      "file": "references/alpha_PW12O40_crystallographic.cif",
+      "atoms": 53,
+      "formula": "P1 W12 O40"
+    },
+    {
+      "file": "references/W1O6_first_shell_DIAGNOSTIC.cif",
+      "atoms": 7,
+      "formula": "W1 O6"
+    }
+  ],
+  "python_AST": "PASS",
+  "runner_SCF_and_archival_audit": "Resolved; see hpc/LOCAL_INPUT_VALIDATION.json"
+}

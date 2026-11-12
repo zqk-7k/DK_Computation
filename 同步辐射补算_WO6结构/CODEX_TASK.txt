@@ -1,0 +1,13 @@
+请在本包根目录工作，先读 README.md 和 AGENTS.md。
+
+目标：先完成有限磷钨酸根的 W L3 参考计算，跳过新的 DFT 优化。
+1. 核查 references 的来源/原子数/有限簇约定；以 XYZ 为计算源，CIF盒子不可周期复制。
+2. 复用平台已有 FEFF10 与无头 Python/Larch 环境；先验证命令、队列、核数、内存与工作目录。
+3. 检查 config_reference.json，运行 scripts/prepare_reference_feff.py。
+4. 在计算节点提交 jobs_reference 的四个 small/full × XANES/EXAFS 任务；不要登录节点计算。
+5. 核查实际输出、SCF结束和10100–10300 eV原生覆盖。不合格输出不得改数据补齐。
+6. 调用 postprocess_reference.py 导出 full/small 的 TXT和PNG/PDF/SVG/TIFF，保留原始FEFF输出、输入、日志、版本、耗时和摘要。
+7. 比较两种截断，报告仍缺少阴离子电荷/对离子/溶剂/载体模型的限制。只有真实计算完成才报告已得到XAS。
+8. 四个 catalyst_pilot 是可选后续DFT。先完成参考任务；若后续启动载体优化，按该目录README复用赝势和QE，检查局域约束、实际配位和边界收敛。
+
+不能把参考谱命名为W单原子催化剂的实测谱，也不能强制得到“W变化、Co不变化”的结果。

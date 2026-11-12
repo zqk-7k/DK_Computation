@@ -1,0 +1,14 @@
+{
+  "software": {
+    "feff_command": [],
+    "feff_timeout_seconds": 252000
+  },
+  "feff": {
+    "small_radius_A": 6.0,
+    "xanes_relative_egrid_eV": [-160.0, 130.0, 0.5],
+    "absolute_window_eV": [10100.0, 10300.0],
+    "rpath_A": 5.0,
+    "nleg": 4
+  },
+  "scope": "Finite crystallographic PW12O40 geometric reference, no DFT or imposed potential/ionic charge. Optional catalyst-pilot DFT is separate."
+}

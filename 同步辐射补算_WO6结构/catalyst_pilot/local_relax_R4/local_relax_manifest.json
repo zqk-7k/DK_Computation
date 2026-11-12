@@ -1,0 +1,30 @@
+[
+  {
+    "id": "W_sub_Fe__hydroxylated__none",
+    "path": "local_relax_R4/W_sub_Fe__hydroxylated__none",
+    "movable_count": 46,
+    "fixed_count": 34,
+    "source_sha256": "13897e10555a6af1644856bc82989a03e943dd30ad6b404bdf4ace17c5f41f87"
+  },
+  {
+    "id": "W_sub_Fe__Co_deprotonated__none",
+    "path": "local_relax_R4/W_sub_Fe__Co_deprotonated__none",
+    "movable_count": 45,
+    "fixed_count": 34,
+    "source_sha256": "58561c8e459c0370d5f60587f4b7a3dc76f69bcea366493affdbc98541be57a7"
+  },
+  {
+    "id": "W_sub_Fe__hydroxylated__EG_at_W",
+    "path": "local_relax_R4/W_sub_Fe__hydroxylated__EG_at_W",
+    "movable_count": 53,
+    "fixed_count": 34,
+    "source_sha256": "a6bd8c5eb1bb97fe7594c103ddf1df76fa657b04350ffcdd1db59ec0a7f0cef2"
+  },
+  {
+    "id": "W_sub_Fe__hydroxylated__EG_at_Co",
+    "path": "local_relax_R4/W_sub_Fe__hydroxylated__EG_at_Co",
+    "movable_count": 53,
+    "fixed_count": 34,
+    "source_sha256": "178a277b634f90ff3ee279cce52c36e5cf62d887f08e153ec913132816e88ac1"
+  }
+]

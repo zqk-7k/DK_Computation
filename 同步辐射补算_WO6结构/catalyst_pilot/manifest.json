@@ -1,0 +1,34 @@
+[
+  {
+    "id": "W_sub_Fe__hydroxylated__none",
+    "path": "models/W_sub_Fe__hydroxylated__none",
+    "source_package": "XAS_O_COORD_SUPPLEMENT_20261111",
+    "source_relative_path": "candidates/W_sub_Fe__hydroxylated__none/structure.cif",
+    "source_sha256": "13897e10555a6af1644856bc82989a03e943dd30ad6b404bdf4ace17c5f41f87",
+    "status": "candidate_not_optimized"
+  },
+  {
+    "id": "W_sub_Fe__Co_deprotonated__none",
+    "path": "models/W_sub_Fe__Co_deprotonated__none",
+    "source_package": "XAS_O_COORD_SUPPLEMENT_20261111",
+    "source_relative_path": "candidates/W_sub_Fe__Co_deprotonated__none/structure.cif",
+    "source_sha256": "58561c8e459c0370d5f60587f4b7a3dc76f69bcea366493affdbc98541be57a7",
+    "status": "candidate_not_optimized"
+  },
+  {
+    "id": "W_sub_Fe__hydroxylated__EG_at_W",
+    "path": "models/W_sub_Fe__hydroxylated__EG_at_W",
+    "source_package": "XAS_O_COORD_SUPPLEMENT_20261111",
+    "source_relative_path": "candidates/W_sub_Fe__hydroxylated__EG_at_W/structure.cif",
+    "source_sha256": "a6bd8c5eb1bb97fe7594c103ddf1df76fa657b04350ffcdd1db59ec0a7f0cef2",
+    "status": "candidate_not_optimized"
+  },
+  {
+    "id": "W_sub_Fe__hydroxylated__EG_at_Co",
+    "path": "models/W_sub_Fe__hydroxylated__EG_at_Co",
+    "source_package": "XAS_O_COORD_SUPPLEMENT_20261111",
+    "source_relative_path": "candidates/W_sub_Fe__hydroxylated__EG_at_Co/structure.cif",
+    "source_sha256": "178a277b634f90ff3ee279cce52c36e5cf62d887f08e153ec913132816e88ac1",
+    "status": "candidate_not_optimized"
+  }
+]

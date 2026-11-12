@@ -1,0 +1,62 @@
+This reference branch uses an existing complete FEFF10 installation. It does
+not install or run a DFT program and does not replicate the storage CIF cell.
+
+1. Load the same compiler/runtime modules used by the existing FEFF10 build.
+2. In config_reference.json set software.feff_command to an argv array, e.g.
+   ["bash", "/absolute/path/to/previous/software/feff10/bin/run_feff10.sh"]
+   This must execute the complete FEFF module sequence, not only xsph or pot.
+   Alternatively export FEFF_RUNNER=/absolute/path/to/run_feff10.sh.
+3. python3 scripts/prepare_reference_feff.py --config config_reference.json
+4. From the package root, submit ONE array:
+      sbatch hpc/reference_slurm.sh
+   or qsub hpc/reference_pbs.sh
+   Inspect the queue before resubmitting. Never submit duplicate active arrays.
+5. Validate actual outputs and compare small/full profiles before reporting
+   numerical convergence. All original native spectra and logs must be kept.
+
+The four tasks are small/xanes, small/exafs, full/xanes, full/exafs. Every
+ATOMS list contains all 53 POM atoms. The small SCF/FMS sphere uses 6 A; the
+full sphere is determined from the actual farthest atom plus a buffer.
+Molecular SCF/FMS flags are used. EXAFS has kmax=14 A^-1, RPATH=5 A, NLEG=4;
+XANES has relative EGRID -160..130 eV in 0.5 eV steps, and actual xmu.dat
+must cover absolute 10100..10300 eV without arbitrary peak shifts or tails.
+
+Native numerical validation does not establish correct ionic charge or
+experimentally relevant chemistry. The geometry comes from a POM anion but
+explicit excess electrons, counterions, solvent and support are not modeled.
+Do not call this the W single-atom/CoFe-LDH catalyst or infer Co/Fe spectra.
+
+The array reserves at most four CPU cores and 16 GB in total. 72 h per task
+is a limit, not a predicted runtime. Previous larger slab FEFF tasks took
+hours; this finite model needs its own measured timing. Adjust the real site
+wall time and software.feff_timeout_seconds together after the first run.
+
+If a run failed, inspect logs and resolve it before retrying. A stale .run.lock
+must only be removed after verifying no job is running. Completed jobs are
+reused only when input and output hashes match. To change physical settings,
+preserve this directory and use a new project to avoid mixing old/new output.
+
+SCF completion is checked separately from spectrum existence. The runner
+requires the native FEFF10 POT message "Convergence reached in N iterations."
+in log1.dat/stdout.log, or a final successful native convergence.scf flag.
+It rejects the native "Convergence not reached; ran out of iterations."
+warning and any conflicting final failure flag. Logs used as evidence are
+freshness-checked and included in the SHA-256 output manifest. These markers
+were verified against actual earlier FEFF10 outputs and the source below.
+
+If numerical spectra pass but SCF cannot be verified, run_result.json records
+status=outputs_validated_scf_unverified and the command exits with an error.
+Explicit failure records outputs_validated_scf_not_converged. Neither status
+is complete or eligible for final scientific export. Inspect the full native
+logs and correct/retry the calculation; do not merely relabel its status.
+
+Before retry, every native output file and subdirectory is moved intact into
+previous_runs/<run_id>/, including potential files and all failed logs. Only
+feff.inp, job.json, .run.lock and previous_runs are retained in place. All move
+paths are resolved and checked to remain inside the job directory first.
+
+Verified FEFF10 POT source (success/failure and convergence.scf definitions):
+https://github.com/times-software/feff10/blob/d861cf8b64342e2d63a0aeb62c8b78faca7942c3/src/POT/potsub.f90
+
+Official molecular flags and grid documentation:
+https://times-software.github.io/feff10/assets/doc/feff10_users_guide.pdf

@@ -1,0 +1,503 @@
+{
+  "doi": "10.1107/S2056989024005565",
+  "url": "https://journals.iucr.org/e/issues/2024/07/00/ox2004/index.html",
+  "ccdc": "2361833",
+  "method": "Reconstructed from published HTML fractional coordinate table and Fm-3m symmetry; not a downloaded CIF. Cs/Tl/Cl excluded. Salt-derived crystallographic geometry; not optimized catalyst geometry.",
+  "cell_a_angstrom": 22.9963,
+  "space_group_number": 225,
+  "asymmetric_sites": [
+    {
+      "element": "P",
+      "label": "P1",
+      "frac": [
+        0.25,
+        0.75,
+        0.75
+      ]
+    },
+    {
+      "element": "W",
+      "label": "W1",
+      "frac": [
+        0.35861,
+        0.64139,
+        0.74467
+      ]
+    },
+    {
+      "element": "O",
+      "label": "O2",
+      "frac": [
+        0.3797,
+        0.7015,
+        0.7985
+      ]
+    },
+    {
+      "element": "O",
+      "label": "O3",
+      "frac": [
+        0.3161,
+        0.601,
+        0.6839
+      ]
+    },
+    {
+      "element": "O",
+      "label": "O1",
+      "frac": [
+        0.4101,
+        0.5899,
+        0.7606
+      ]
+    },
+    {
+      "element": "O",
+      "label": "O4",
+      "frac": [
+        0.291,
+        0.709,
+        0.709
+      ]
+    }
+  ],
+  "formula": "PW12O40",
+  "heavy_atoms": 53,
+  "formal_anion_charge": -3,
+  "periodic_box_is_storage_only_A": 30,
+  "no_hydrogen_or_counterions": true,
+  "first_shell_audit": [
+    {
+      "W_index_zero_based": 1,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 42
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 17
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 19
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 29
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 30
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 13
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 2,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 46
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 18
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 22
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 32
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 29
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 13
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 3,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 47
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 20
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 23
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 32
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 30
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 13
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 4,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 48
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 25
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 18
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 31
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 35
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 14
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 5,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 50
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 27
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 20
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 33
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 38
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 15
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 6,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 45
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 21
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 17
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 34
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 31
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 14
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 7,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 49
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 22
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 25
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 39
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 37
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 16
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 8,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 51
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 23
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 27
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 39
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 40
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 16
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 9,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 52
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 26
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 28
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 37
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 40
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 16
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 10,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 41
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 21
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 19
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 36
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 33
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 15
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 11,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 43
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 24
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 26
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 34
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 35
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 14
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    },
+    {
+      "W_index_zero_based": 12,
+      "first_shell": [
+        {
+          "element": "O",
+          "distance_A": 1.714143,
+          "index_zero_based": 44
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 24
+        },
+        {
+          "element": "O",
+          "distance_A": 1.917906,
+          "index_zero_based": 28
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 36
+        },
+        {
+          "element": "O",
+          "distance_A": 1.941989,
+          "index_zero_based": 38
+        },
+        {
+          "element": "O",
+          "distance_A": 2.346814,
+          "index_zero_based": 15
+        }
+      ],
+      "nearest_other_W_A": 3.358839
+    }
+  ]
+}
